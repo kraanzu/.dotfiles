@@ -1,0 +1,61 @@
+
+#--------------BASICS--------------#
+
+# Don't print a new line at the start of the prompt
+add_newline = false
+
+# Make prompt a single line instead of two lines
+[line_break]
+disabled = false
+
+#--BATTERY
+# [[battery.display]]  # "bold red" style and discharging_symbol when capacity is between 0% and 10%
+# threshold = 100
+# style = "bold red"
+
+#--CHARACTER MODULE
+[character]
+success_symbol = "[](bold green)"
+error_symbol   = "[](red)"
+vicmd_symbol   = "[](yellow)"
+
+#--CMD DURATION
+[cmd_duration]
+show_notifications=true
+style = "bold red"
+format = " [$duration]($style) "
+
+#--------------LANGUAGES--------------#
+
+[python]
+symbol = ""
+
+[rust]
+symbol = ""
+style = ""
+
+#--------------GIT STUFF--------------#
+[git_branch]
+symbol = " "
+
+[git_status]
+conflicted = "ﲅ(red)"
+ahead = "[異${count}](blue) "
+behind = "[ ${count}](bold red) "
+untracked = "[ ${count}](yellow) "
+stashed = "[📦 ](purple) "
+modified = "[ ${count}](blue) "
+staged = "[🗃️ ${count}](orange) "
+renamed = "[﮷ ${count}](bold red) "
+deleted = "[ ${count}](red) "
+
+
+#--------------RANDOM--------------#
+
+[custom.vid]
+description = "to show vlc icon to folders containing vid files"
+shell = ['bash']
+command = "echo 嗢"
+style = "#D08770"
+extensions = ["mp4","mkv","webm"]
+format = "[$output]($style)"

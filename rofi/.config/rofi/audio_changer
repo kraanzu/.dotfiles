@@ -1,0 +1,27 @@
+#! /usr/bin/env bash
+dir="$HOME/.config/rofi/style.rasi"
+pactl load-module module-detect
+
+OUTPUT=$(echo -e "HDMI\nANALOG" | rofi -dmenu -theme "$dir" -p "AUDIO: ")
+
+if [[ $OUTPUT == "ANALOG" ]]; then
+  pacmd set-default-sink alsa_output.0.analog-stereo
+else
+  pacmd set-default-sink alsa_output.0.hdmi-stereo
+fi
+
+# declare -A sound_cards
+# cards=$(pactl list short sinks | awk '{print $2}')
+#
+# for i in ${cards} 
+# do 
+#   sound_cards["${i##*.}"]=${i}
+# done
+#
+# value=$(for c in "${!sound_cards[@]}"; do echo $c;done | rofi -dmenu -theme "$dir" -p "AUDIO: ")
+#
+# if [[ -z "${value}" ]]; then
+#   echo "Nothing to do"
+# else
+#   pacmd set-default-sink "${sound_cards["${value}"]}"
+# fi
