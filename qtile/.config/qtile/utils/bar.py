@@ -1,16 +1,13 @@
 from .colors import color
 from libqtile import bar
 from libqtile.widget import (
-    AGroupBox,
     Spacer,
     Systray,
     GroupBox,
-    WidgetBox,
     Sep,
     Clock,
     Volume,
     TextBox,
-    Pomodoro,
 )
 
 group_box_settings = {
@@ -36,7 +33,6 @@ bottom_bar = bar.Bar(
     [
         GroupBox(
             fontsize=17,
-            font="SauceCodePro Nerd Font Semi",
             visible_groups=[
                 "www",
                 "vim",
@@ -51,25 +47,22 @@ bottom_bar = bar.Bar(
         ),
         Spacer(),
         Clock(
-            font="SauceCodePro Nerd Font Semi",
             fontsize=16,
             foreground=color["cyan2"],
-            format="  %A, %B %d ",
+            format="%A, %B %d ",
         ),
         Clock(
-            font="SauceCodePro Nerd Font Semi",
             fontsize=16,
             foreground=color["green"],
             format="[ %H:%M ]  ",
         ),
         Sep(linewidth=3, size_percent=70),
         TextBox(text="  ", fontsize=16, foreground=color["orange"]),
-        Volume(device="pulse", fmt="{} ", fontsize=16),
+        Volume(device="pulse", fmt="{} ", fontsize=14),
         Sep(linewidth=3, size_percent=70),
         Systray(
             icon_size=18,
             padding=6,
-            background=color["dark1"],
             foreground=color["grey"],
         ),
         Spacer(length=10, background=color["dark1"]),

@@ -43,10 +43,9 @@ spaces = {
 # QTILE CONSTANTS
 keys = key_bindings + create_workspace_bindings(spaces)
 widget_defaults = dict(
-    font="SauceCodePro Nerd Font", fontsize=30, padding=2, background=color["dark1"]
+    font="SauceCodePro Nerd Font Semi", fontsize=30, padding=2, background=color["dark1"]
 )
 extension_defaults = widget_defaults.copy()
-wmname = "LG3D"
 
 groups: List[ScratchPad | Group] = [
     ScratchPad(
