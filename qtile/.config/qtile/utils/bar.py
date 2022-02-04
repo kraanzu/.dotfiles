@@ -1,6 +1,7 @@
 from .colors import color
 from libqtile import bar
-from libqtile.widget import (
+from qtile_extras.widget.decorations import RectDecoration
+from qtile_extras.widget import (
     Spacer,
     Systray,
     GroupBox,
@@ -25,10 +26,17 @@ group_box_settings = {
     "other_current_screen_border": color["dark2"],
     "other_screen_border": color["dark2"],
     "foreground": color["light1"],
-    "background": color["dark1"],
     "urgent_border": color["red"],
 }
 
+decor = {
+    "decorations": [
+        RectDecoration(
+            colour=color["dark3"], radius=5, filled=True, padding_x=1.5, padding_y=5
+        )
+    ],
+    "padding": 8,
+}
 bottom_bar = bar.Bar(
     [
         GroupBox(
@@ -46,26 +54,30 @@ bottom_bar = bar.Bar(
             **group_box_settings,
         ),
         Spacer(),
-        Clock(
-            fontsize=16,
-            foreground=color["cyan2"],
-            format="%A, %B %d ",
-        ),
+        Clock(fontsize=16, foreground=color["yellow"], format="  %A, %B %d", **decor),
+        Spacer(length=8),
         Clock(
             fontsize=16,
             foreground=color["green"],
-            format="[ %H:%M ]  ",
+            format="  %H:%M ",
+            **decor,
         ),
-        Sep(linewidth=3, size_percent=70),
-        TextBox(text="  ", fontsize=16, foreground=color["orange"]),
-        Volume(device="pulse", fmt="{} ", fontsize=14),
-        Sep(linewidth=3, size_percent=70),
+        Spacer(length=8),
+        Volume(
+            device="pulse",
+            fmt="  {} ",
+            foreground=color["cyan"],
+            fontsize=16,
+            **decor,
+        ),
+        # Sep(linewidth=3, size_percent=70),
+        Spacer(length=8),
         Systray(
             icon_size=18,
             padding=6,
             foreground=color["grey"],
         ),
-        Spacer(length=10, background=color["dark1"]),
+        Spacer(length=10),
     ],
-    size=30,
+    size=32,
 )

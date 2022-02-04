@@ -6,13 +6,17 @@ from libqtile.layout.xmonad import MonadTall
 from libqtile.layout.floating import Floating
 from libqtile.config import DropDown, ScratchPad, Screen, Group, Match
 from libqtile import bar, hook
+from qtile_extras.widget.decorations import RectDecoration
 
 from utils import key_bindings, bottom_bar, color, create_workspace_bindings
 
 
 # WORKSPACES
 spaces = {
-    "www": {"key": "1", "matches": [Match(wm_class="firefox")]},
+    "www": {
+        "key": "1",
+        "matches": [Match(wm_class="firefox")]
+        },
     "vim": {
         "key": "2",
         "matches": [Match(wm_class="code")],
@@ -43,10 +47,7 @@ spaces = {
 # QTILE CONSTANTS
 keys = key_bindings + create_workspace_bindings(spaces)
 widget_defaults = dict(
-    font="SauceCodePro Nerd Font Semi",
-    fontsize=30,
-    padding=2,
-    background=color["dark1"],
+    font="SauceCodePro Nerd Font Semi", fontsize=30, padding=2, background=color["dark1"]
 )
 extension_defaults = widget_defaults.copy()
 
