@@ -5,10 +5,8 @@ from qtile_extras.widget import (
     Spacer,
     Systray,
     GroupBox,
-    Sep,
     Clock,
     Volume,
-    TextBox,
 )
 
 group_box_settings = {
