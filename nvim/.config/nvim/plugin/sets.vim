@@ -18,5 +18,5 @@ set noshowmode  " to get rid of thing like --INSERT--
 set noshowcmd  " to get rid of display of last command
 
 set undofile
-set undodir=~/.config/nvim/undodir
+set undodir=~/.undodir
 set updatetime=100
