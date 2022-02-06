@@ -1,1 +1,0 @@
-/home/heks/.fzf/shell/key-bindings.fish
