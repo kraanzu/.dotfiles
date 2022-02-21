@@ -1,4 +1,6 @@
 #--------CUSTOM FUNCTIONS---------------
+ fish_vi_key_bindings
+
 function com
     g++ $argv[1] && ./a.out
 end
@@ -37,7 +39,6 @@ set TERM "xterm-256color"              # Sets the terminal type
 set EDITOR "nvim"                      #Sets Editor to neovim
 set VISUAL "nvim"
 
-#theme_gruvbox "dark" "hard"
 set fish_color_normal '#88C0D0'
 set fish_color_autosuggestion '#B48EAD'
 set fish_color_qouted '#EBCB8B'
@@ -45,8 +46,6 @@ set fish_color_command '#8FBCBB'
 set fish_color_error '#BF616A'
 set fish_color_param '#88C0D0'
 set fish_color_keyword '#D8DEE9'
-
-set ANDROID_SDK '/home/heks/Android/Sdk'
 
 #----------------------------- ALIASES --------------------------------
 
@@ -81,19 +80,13 @@ alias free='free -m'                      # show sizes in MB
 
 alias dclean='docker system prune -a --volumes'
 
-alias fetch='~/Public/fm6000 -c=bright_red -n -m=7 -g=7 -l=16'
 alias cf='rm -rf ~/CP && mkdir ~/CP ' #competetive coding :)
 alias loff='xrandr --output eDP1 --off' #turns off laptop screen :)
 alias lonn='xrandr --output eDP1 --auto'
 #-----GREP COLOR
 alias grep='grep --color=auto'
 
-# Docker
-alias docker="sudo docker"
-alias "docker-compose"="sudo docker-compose"
-
 colorscript -e crunchbang-mini
 
+export PYTHONDONTWRITEBYTECODE=1
 starship init fish | source
-# export PATH=$PATH:$HOME/.cargo/bin
-# export PYTHONDONTWRITEBYTECODE=1
