@@ -88,5 +88,5 @@ alias grep='grep --color=auto'
 
 colorscript -e crunchbang-mini
 
-export PYTHONDONTWRITEBYTECODE=1
+# export PYTHONDONTWRITEBYTECODE=1
 starship init fish | source
