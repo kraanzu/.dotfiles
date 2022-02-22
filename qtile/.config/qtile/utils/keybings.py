@@ -23,10 +23,11 @@ key_bindings = [
         desc="Launch rofi app-launcer",
     ),
     Keybind("M-b", lazy.spawn("blueberry"), desc="Toogle bar visibility"),
+    Keybind("M-S-b", lazy.hide_show_bar("bottom"), desc="Toogle bar visibility"),
     # LAUNCHING APPS with Ctrl + Alt + Key
     Keybind(
         "C-A-l",
-        lazy.spawn(f"bash {scripts}/blur-lock.sh"),
+        lazy.spawn(f"sh {scripts}/blur-lock.sh"),
         desc="launches i3-blur lock",
     ),
     Keybind(
@@ -36,8 +37,8 @@ key_bindings = [
     ),
     Keybind(
         "C-A-b",
-        lazy.spawn("firefox"),
-        desc="Launches Firefox Browser",
+        lazy.spawn("brave"),
+        desc="Launches Brave Browser",
     ),
     Keybind(
         "C-A-e",
