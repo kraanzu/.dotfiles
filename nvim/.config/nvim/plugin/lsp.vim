@@ -54,6 +54,10 @@ require'lspconfig'.clangd.setup {
   capabilities = capabilities,
   }
 
+require'lspconfig'.solang.setup {
+  capabilities = capabilities,
+  }
+
 require'lspconfig'.tsserver.setup {
   capabilities = capabilities,
   }

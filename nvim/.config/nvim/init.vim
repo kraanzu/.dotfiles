@@ -47,6 +47,9 @@ Plug 'simrat39/rust-tools.nvim'
 Plug 'dag/vim-fish'
 Plug 'cespare/vim-toml'
 
+" Blockchain
+Plug 'tomlion/vim-solidity'
+
 call plug#end()
 
 let mapleader = " "
