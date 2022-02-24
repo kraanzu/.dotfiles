@@ -23,7 +23,7 @@ key_bindings = [
         desc="Launch rofi app-launcer",
     ),
     Keybind("M-b", lazy.spawn("blueberry"), desc="Toogle bar visibility"),
-    Keybind("M-S-b", lazy.hide_show_bar("bottom"), desc="Toogle bar visibility"),
+    Keybind("M-S-b", lazy.hide_show_bar("top"), desc="Toogle bar visibility"),
     # LAUNCHING APPS with Ctrl + Alt + Key
     Keybind(
         "C-A-l",

@@ -68,10 +68,10 @@ groups: List[ScratchPad | Group] = [
 
 screens = [
     Screen(
-        bottom=bottom_bar,
-        top=bar.Gap(0),
-        left=bar.Gap(0),
-        right=bar.Gap(0),
+        top=bottom_bar,
+        bottom=bar.Gap(6),
+        left=bar.Gap(6),
+        right=bar.Gap(6),
     ),
 ]
 
@@ -100,8 +100,8 @@ floating_layout = Floating(
 
 layouts = [
     MonadTall(
-        border_width=0,
-        margin=0,
+        border_width=3,
+        margin=6,
         border_focus=color["cyan"],
         border_normal=color["dark2"],
     ),
