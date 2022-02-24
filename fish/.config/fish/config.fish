@@ -83,6 +83,7 @@ alias dclean='docker system prune -a --volumes'
 alias cf='rm -rf ~/CP && mkdir ~/CP ' #competetive coding :)
 alias loff='xrandr --output eDP1 --off' #turns off laptop screen :)
 alias lonn='xrandr --output eDP1 --auto'
+
 #-----GREP COLOR
 alias grep='grep --color=auto'
 
