@@ -44,7 +44,7 @@ def get_decor(c: str):
                 line_width=1,
             )
         ],
-        "padding": 8,
+        # "padding": 8,
     }
 
 
@@ -63,13 +63,22 @@ bottom_bar = bar.Bar(
                 "vid",
             ],
             **group_box_settings,
-            # **get_decor("dark1"),
-            padding_x=6,
+            decorations=[
+                RectDecoration(
+                    colour=color["dark2"],
+                    radius=5,
+                    filled=True,
+                    padding_x=1,
+                    padding_y=2,
+                    line_width=1,
+                )
+            ],
+            padding=6
         ),
         Spacer(),
         Volume(
             device="pulse",
-            fmt="  {} ",
+            fmt="   {} ",
             foreground=color["dark1"],
             fontsize=16,
             **get_decor("magenta"),
@@ -85,7 +94,7 @@ bottom_bar = bar.Bar(
         Clock(
             fontsize=16,
             foreground=color["dark1"],
-            format="  %A, %B %d",
+            format="   %A, %B %d ",
             **get_decor("yellow"),
         ),
         Spacer(length=8),
@@ -97,6 +106,6 @@ bottom_bar = bar.Bar(
         Spacer(length=10),
     ],
     size=32,
-    # background = "#ffffff",
+    background = "#00000000",
     margin=[2, 9, 0, 9],
 )

@@ -46,7 +46,7 @@ widget_defaults = dict(
     font="SauceCodePro Nerd Font Semi",
     fontsize=30,
     padding=2,
-    background=color["dark1"],
+    background=color["transparent"],
 )
 extension_defaults = widget_defaults.copy()
 
