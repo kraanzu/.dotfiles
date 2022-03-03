@@ -10,6 +10,8 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 mkdir -p ~/.undoir # vim undo dir
 
+rm -rf ~/.config/fish
+
 # STOW all the folders
 for f in *; do
   if [[ -d ${f} ]];then
@@ -17,4 +19,4 @@ for f in *; do
   fi
 done
 
-curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh #rust is the future
+# curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh #rust is the future
