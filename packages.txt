@@ -95,8 +95,10 @@ git
 glances
 gnome-disk-utility
 gnome-keyring
+gnome-terminal
 gnu-netcat
 google-chrome
+google-cloud-sdk
 grep
 groff
 grub
@@ -127,6 +129,7 @@ i3blocks
 i3lock
 i3status
 inetutils
+inkscape
 intel-ucode
 inxi
 ipw2100-fw
@@ -143,6 +146,7 @@ less
 libdvdcss
 libgsf
 libopenraw
+libstdc++296-bin
 libtool
 libwnck3
 lightdm
@@ -273,6 +277,7 @@ tela-icon-theme-bin
 telegram-desktop
 texinfo
 texlive-core
+thermald
 thunar
 tk
 tldr
@@ -295,6 +300,7 @@ upower
 usb_modeswitch
 usbutils
 vim
+virtualbox
 visual-studio-code-bin
 vlc
 vpnc
