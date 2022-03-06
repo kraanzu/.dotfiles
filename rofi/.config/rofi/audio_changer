@@ -13,8 +13,8 @@ fi
 # declare -A sound_cards
 # cards=$(pactl list short sinks | awk '{print $2}')
 #
-# for i in ${cards} 
-# do 
+# for i in ${cards}
+# do
 #   sound_cards["${i##*.}"]=${i}
 # done
 #
