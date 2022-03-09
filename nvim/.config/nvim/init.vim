@@ -11,7 +11,7 @@ Plug 'nvim-treesitter/playground'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'sbdchd/neoformat'
 Plug 'preservim/tagbar'
-Plug 'p00f/cphelper.nvim'
+" Plug 'p00f/cphelper.nvim'
 
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -23,12 +23,12 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/cmp-vsnip'
+" Plug 'hrsh7th/cmp-vsnip'
 
 " GIT STUFF
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-Plug 'ap/vim-css-color'
+" Plug 'ap/vim-css-color'
 
 " MISCS
 Plug 'jiangmiao/auto-pairs'
@@ -48,7 +48,8 @@ Plug 'dag/vim-fish'
 Plug 'cespare/vim-toml'
 
 " Blockchain
-Plug 'tomlion/vim-solidity'
+" Plug 'tomlion/vim-solidity'
+
 
 call plug#end()
 
