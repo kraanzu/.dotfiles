@@ -19,4 +19,4 @@ set noshowcmd  " to get rid of display of last command
 
 set undofile
 set undodir=~/.undodir
-set updatetime=100
+" set updatetime=100

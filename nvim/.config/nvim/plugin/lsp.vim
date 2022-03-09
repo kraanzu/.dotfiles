@@ -28,6 +28,7 @@ vim.lsp.diagnostic.on_publish_diagnostics, {
   virtual_text = true,
   signs = false,
   update_in_insert = true,
+  severity_sort = true
   }
 )
 
@@ -61,5 +62,10 @@ require'lspconfig'.solang.setup {
 require'lspconfig'.tsserver.setup {
   capabilities = capabilities,
   }
-EOF
 
+-- You will likely want to reduce updatetime which affects CursorHold
+-- note: this setting is global and should be set only once
+vim.o.updatetime = 250
+vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+
+EOF
