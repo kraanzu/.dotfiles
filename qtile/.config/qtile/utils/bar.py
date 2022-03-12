@@ -4,13 +4,7 @@ from libqtile import bar
 
 # from qtile_extras import bar
 from qtile_extras.widget.decorations import RectDecoration
-from qtile_extras.widget import (
-    Spacer,
-    Systray,
-    GroupBox,
-    Clock,
-    Volume,
-)
+from qtile_extras.widget import Spacer, Systray, GroupBox, Clock, Volume, Memory
 
 from utils.colors import color
 
@@ -73,7 +67,7 @@ bottom_bar = bar.Bar(
                     line_width=1,
                 )
             ],
-            padding=6
+            padding=6,
         ),
         Spacer(),
         Volume(
@@ -82,6 +76,14 @@ bottom_bar = bar.Bar(
             foreground=color["dark1"],
             fontsize=16,
             **get_decor("magenta"),
+        ),
+        Spacer(length=8),
+        Memory(
+            fontsize=16,
+            foreground=color["dark1"],
+            fmt = "  {} ",
+            format = "{MemUsed: .0f} {mm}",
+            **get_decor("orange"),
         ),
         Spacer(length=8),
         Clock(
@@ -106,6 +108,6 @@ bottom_bar = bar.Bar(
         Spacer(length=10),
     ],
     size=32,
-    background = "#00000000",
+    background="#00000000",
     margin=[2, 9, 0, 9],
 )
