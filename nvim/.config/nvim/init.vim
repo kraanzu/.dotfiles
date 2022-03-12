@@ -40,6 +40,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'folke/todo-comments.nvim'
+" Plug 'narutoxy/dim.lua'
 
 " LANGAUGE STUFF
 Plug 'rust-lang/rust.vim'
