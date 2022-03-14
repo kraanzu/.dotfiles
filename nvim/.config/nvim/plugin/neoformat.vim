@@ -5,3 +5,4 @@ let g:neoformat_python_black= {
             \ }
 
 let g:neoformat_enabled_python = ['black']
+let g:neoformat_enabled_typescript = ['prettier'] " having issues with tsfmt
