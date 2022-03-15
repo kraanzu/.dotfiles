@@ -19,7 +19,7 @@ group_box_settings = {
     "block_highlight_text_color": color["dark1"],
     "highlight_method": "block",
     "inactive_highlight_method": "block",
-    "this_current_screen_border": color["green"],
+    "this_current_screen_border": color["cyan2"],
     "foreground": color["light1"],
     "urgent_border": color["red"],
     "padding_y": 0,
@@ -38,7 +38,6 @@ def get_decor(c: str):
                 line_width=1,
             )
         ],
-        # "padding": 8,
     }
 
 

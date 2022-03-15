@@ -1,5 +1,5 @@
 #! /bin/bash
-feh --bg-scale ~/.config/qtile/wallpaper.png &
+feh --bg-fill ~/.config/qtile/wallpaper.png &
 lxsession &
 picom --config ~/.config/picom/picom.conf &
 xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'& # Caps_Lock is annoying
