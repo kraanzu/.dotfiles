@@ -50,7 +50,8 @@ Plug 'cespare/vim-toml'
 
 " Blockchain
 " Plug 'tomlion/vim-solidity'
-
+Plug 'tpope/vim-surround'
+" Plug 'vim-ctrlspace/vim-ctrlspace'
 
 call plug#end()
 
