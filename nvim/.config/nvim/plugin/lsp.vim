@@ -43,7 +43,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
     }
   }
 
-require'lspconfig'.rust_analyzer.setup {
+require'lspconfig'.rls.setup {
   capabilities = capabilities,
   }
 
