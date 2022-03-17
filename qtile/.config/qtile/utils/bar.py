@@ -4,7 +4,15 @@ from libqtile import bar
 
 # from qtile_extras import bar
 from qtile_extras.widget.decorations import RectDecoration
-from qtile_extras.widget import Spacer, Systray, GroupBox, Clock, Volume, Memory
+from qtile_extras.widget import (
+    Spacer,
+    Systray,
+    GroupBox,
+    Clock,
+    Volume,
+    Memory,
+    NvidiaSensors,
+)
 
 from utils.colors import color
 
@@ -77,11 +85,18 @@ bottom_bar = bar.Bar(
             **get_decor("magenta"),
         ),
         Spacer(length=8),
+        NvidiaSensors(
+            foreground=color["dark1"],
+            fontsize=16,
+            format="  {temp}°C ",
+            **get_decor("red"),
+        ),
+        Spacer(length=8),
         Memory(
             fontsize=16,
             foreground=color["dark1"],
-            fmt = "  {} ",
-            format = "{MemUsed: .0f} {mm}",
+            fmt="  {} ",
+            format="{MemUsed: .0f} {mm}",
             **get_decor("orange"),
         ),
         Spacer(length=8),
@@ -89,7 +104,7 @@ bottom_bar = bar.Bar(
             fontsize=16,
             foreground=color["dark1"],
             format="  %H:%M ",
-            **get_decor("red"),
+            **get_decor("green"),
         ),
         Spacer(length=8),
         Clock(
