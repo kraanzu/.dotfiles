@@ -15,8 +15,8 @@ noremap <silent> <space>rn <cmd>lua vim.lsp.buf.rename()<CR>
 noremap <silent> <space>ca <cmd>lua vim.lsp.buf.code_action()<CR>
 noremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
 noremap <silent> <space>e <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
-noremap <silent> [d <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
-noremap <silent> ]d <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+noremap <silent> <space>dj <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+noremap <silent> <space>dk <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 noremap <silent> <space>q <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
 noremap <silent> <space>f <cmd>lua vim.lsp.buf.formatting()<CR>
 
