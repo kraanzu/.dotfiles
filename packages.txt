@@ -7,6 +7,7 @@ alacritty
 alsa-firmware
 alsa-plugins
 alsa-utils
+android-sdk
 android-studio
 android-tools
 arandr
@@ -26,10 +27,10 @@ bind
 binutils
 bison
 blueberry
+bookworm
 brave-bin
 brightnessctl
 btrfs-progs
-caffeine-ng
 cantarell-fonts
 capitaine-cursors
 celluloid
@@ -82,11 +83,14 @@ figlet
 file
 file-roller
 findutils
+firefox
 fish
 flameshot
 flex
+flyctl-bin
 fsarchiver
 galculator
+ganache-bin
 gawk
 gcc
 gdrive
@@ -97,6 +101,7 @@ gnome-disk-utility
 gnome-keyring
 gnome-terminal
 gnu-netcat
+go-ethereum
 google-chrome
 google-cloud-sdk
 grep
@@ -120,7 +125,6 @@ gvfs-smb
 gzip
 haveged
 hdparm
-heroku-cli-bin
 htop
 hwdetect
 hwinfo
@@ -143,6 +147,7 @@ jre-openjdk
 kitty
 krunker
 less
+lib32-dbus
 libdvdcss
 libgsf
 libopenraw
@@ -156,6 +161,7 @@ linux
 linux-atm
 linux-firmware
 linux-headers
+lld
 logrotate
 lsb-release
 lsscsi
@@ -194,7 +200,6 @@ networkmanager-openvpn
 nfs-utils
 nilfs-utils
 nitrogen
-nodejs
 noto-fonts
 npm
 nss-mdns
@@ -225,11 +230,14 @@ pkgconf
 pkgfile
 polkit-gnome
 poppler-glib
+popsicle-bin
 postgresql
 postman-bin
 power-profiles-daemon
+powertop
 ppp
 pptpclient
+prettier
 pulseaudio
 pv
 pypy3
@@ -262,10 +270,15 @@ sdl_image
 sed
 sg3_utils
 shell-color-scripts
+shfmt
 simplescreenrecorder
+slack-desktop
 smartmontools
 sof-firmware
+sqlfmt-bin
+sqlx-cli
 sshfs
+st
 starship
 stow
 sudo
@@ -273,7 +286,6 @@ sysfsutils
 sysstat
 systemd-sysvcompat
 task
-tela-icon-theme-bin
 telegram-desktop
 texinfo
 texlive-core
@@ -300,7 +312,6 @@ upower
 usb_modeswitch
 usbutils
 vim
-virtualbox
 visual-studio-code-bin
 vlc
 vpnc
