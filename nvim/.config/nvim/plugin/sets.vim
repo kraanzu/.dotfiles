@@ -20,3 +20,10 @@ set noshowcmd  " to get rid of display of last command
 set undofile
 set undodir=~/.undodir
 set updatetime=100
+
+" Always draw sign column. Prevent buffer moving when adding/deleting sign.
+set signcolumn=yes
+
+" Jump to start and end of line using the home row keys
+map H ^
+map L $
