@@ -10,5 +10,4 @@ cd .dotfiles/
 ```
 
 ## A screenshot of the desktop
-
-![screen](https://user-images.githubusercontent.com/97718086/155563912-5366fa78-19e9-4408-a647-e3a2ce369211.png)
+![screenshot](https://user-images.githubusercontent.com/97718086/160879683-3c430176-cbfa-4570-8dc7-5cc16262f435.png)
