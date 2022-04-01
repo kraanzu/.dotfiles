@@ -85,6 +85,7 @@ alias editcommit="git commit --amend"
 #-----MISC
 
 alias dclean='docker system prune -a --volumes'
+alias kayo='gdrive download --recursive --skip'
 
 alias cf='rm -rf ~/CP && mkdir ~/CP ' #competetive coding :)
 alias loff='xrandr --output eDP1 --off' #turns off laptop screen :)
