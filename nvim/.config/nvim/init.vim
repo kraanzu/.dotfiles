@@ -11,7 +11,7 @@ Plug 'nvim-treesitter/playground'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'sbdchd/neoformat'
 Plug 'preservim/tagbar'
-" Plug 'p00f/cphelper.nvim'
+Plug 'tpope/vim-surround'
 
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -50,8 +50,8 @@ Plug 'cespare/vim-toml'
 
 " Blockchain
 " Plug 'tomlion/vim-solidity'
-Plug 'tpope/vim-surround'
-" Plug 'vim-ctrlspace/vim-ctrlspace'
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'jreybert/vimagit'
 
 call plug#end()
 
