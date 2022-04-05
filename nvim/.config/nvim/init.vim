@@ -50,7 +50,7 @@ Plug 'cespare/vim-toml'
 
 " Blockchain
 " Plug 'tomlion/vim-solidity'
-Plug 'lewis6991/gitsigns.nvim'
+"Plug 'lewis6991/gitsigns.nvim'
 Plug 'jreybert/vimagit'
 
 call plug#end()
