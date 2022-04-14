@@ -12,6 +12,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'sbdchd/neoformat'
 Plug 'preservim/tagbar'
 Plug 'tpope/vim-surround'
+Plug 'jreybert/vimagit'
 
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -23,7 +24,6 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/vim-vsnip'
-" Plug 'hrsh7th/cmp-vsnip'
 
 " GIT STUFF
 Plug 'airblade/vim-gitgutter'
@@ -40,7 +40,6 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'folke/todo-comments.nvim'
-" Plug 'narutoxy/dim.lua'
 
 " LANGAUGE STUFF
 Plug 'rust-lang/rust.vim'
@@ -48,10 +47,6 @@ Plug 'simrat39/rust-tools.nvim'
 Plug 'dag/vim-fish'
 Plug 'cespare/vim-toml'
 
-" Blockchain
-" Plug 'tomlion/vim-solidity'
-"Plug 'lewis6991/gitsigns.nvim'
-Plug 'jreybert/vimagit'
 
 call plug#end()
 
