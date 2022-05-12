@@ -36,12 +36,12 @@ key_bindings = [
         desc="Screen_Shot",
     ),
     Keybind(
-        "C-A-f",
+        "C-A-b",
         lazy.spawn("firefox"),
         desc="Launches firefox Browser",
     ),
     Keybind(
-        "C-A-b",
+        "C-A-v",
         lazy.spawn("brave"),
         desc="Launches Brave Browser",
     ),

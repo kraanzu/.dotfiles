@@ -1,4 +1,5 @@
 from .colors import color
+import psutil
 
 from libqtile import bar
 
@@ -11,6 +12,7 @@ from qtile_extras.widget import (
     Clock,
     Volume,
     Memory,
+    Battery,
     NvidiaSensors,
 )
 
@@ -32,6 +34,19 @@ group_box_settings = {
     "urgent_border": color["red"],
     "padding_y": 0,
 }
+
+
+def battery_status():
+    battery = psutil.sensors_battery()
+    if not battery:
+        return ""
+    if battery.power_plugged:
+        return ""
+    else:
+        if battery.percent > 20:
+            return ""
+        else:
+            return ""
 
 
 def get_decor(c: str):
@@ -77,6 +92,21 @@ bottom_bar = bar.Bar(
             padding=6,
         ),
         Spacer(),
+        *(
+            [
+                Battery(
+                    format=" {char} {percent:2.0%} ",
+                    charge_char="",
+                    discharge_char="",
+                    foreground=color["dark1"],
+                    fontsize=16,
+                    **get_decor("green"),
+                ),
+            ]
+            if psutil.sensors_battery()
+            else []
+        ),
+        Spacer(length=8),
         Volume(
             device="pulse",
             fmt="   {} ",
