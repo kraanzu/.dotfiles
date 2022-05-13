@@ -55,17 +55,17 @@ require'lspconfig'.clangd.setup {
   capabilities = capabilities,
   }
 
-require'lspconfig'.solang.setup {
-  capabilities = capabilities,
-  }
-
-require'lspconfig'.jdtls.setup {
-  capabilities = capabilities,
-  }
-
-require'lspconfig'.tsserver.setup {
-  capabilities = capabilities,
-  }
+-- require'lspconfig'.solang.setup {
+--   capabilities = capabilities,
+--   }
+--
+-- require'lspconfig'.jdtls.setup {
+--   capabilities = capabilities,
+--   }
+--
+-- require'lspconfig'.tsserver.setup {
+--   capabilities = capabilities,
+--   }
 
 -- You will likely want to reduce updatetime which affects CursorHold
 -- note: this setting is global and should be set only once

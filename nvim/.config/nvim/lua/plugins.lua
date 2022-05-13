@@ -41,38 +41,94 @@ packer.init({
 return require("packer").startup({
 	function()
 		-- Packer can manage itself
+		use({
+			"lewis6991/impatient.nvim",
+			config = function()
+				require("impatient")
+			end,
+		})
+
+		use("dstein64/vim-startuptime")
 		use({ "wbthomason/packer.nvim" })
 
 		use("nvim-lua/plenary.nvim")
-		use("mfussenegger/nvim-dap")
+		-- use("mfussenegger/nvim-dap")
 
 		-- MAKING LIFE EASIER
 		use({
 			"nvim-treesitter/nvim-treesitter",
 			event = { "BufRead", "BufNewFile" },
 		})
-		use({ "nvim-treesitter/playground", event = "BufRead" })
+		-- use({ "nvim-treesitter/playground", event = "BufRead" })
 		use({ "nvim-telescope/telescope.nvim", cmd = "Telescope" })
 		use({ "sbdchd/neoformat", event = "BufRead" })
-		use({ "tpope/vim-surround", event = "BufRead" })
-		use({ "jreybert/vimagit", event = "BufRead" })
-
-		use("hrsh7th/cmp-nvim-lsp")
-		use({ "hrsh7th/cmp-buffer", event = "BufRead" })
-		use({ "hrsh7th/cmp-path" })
-		use({
-			"ray-x/lsp_signature.nvim",
-			after = "nvim-lspconfig",
-			config = function()
-				require("lsp_signature").setup()
-			end,
-		})
+		-- use({ "tpope/vim-surround", event = "BufRead" })
+		use({ "jreybert/vimagit", cmd = "Magit" })
 
 		-- AUTOCOMPLETE BABY
 		use("neovim/nvim-lspconfig")
-		use("hrsh7th/nvim-cmp")
 		use({ "williamboman/nvim-lsp-installer", cmd = "LspInstall" })
-		use({ "hrsh7th/vim-vsnip", event = "BufRead" })
+
+		use({
+			"hrsh7th/nvim-cmp",
+			after = "cmp-nvim-lsp",
+			config = function()
+				local cmp = require("cmp")
+
+				cmp.setup({
+					snippet = {
+						expand = function(args)
+							vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+						end,
+					},
+					mapping = cmp.mapping.preset.insert({
+						["<C-b>"] = cmp.mapping.scroll_docs(-4),
+						["<C-f>"] = cmp.mapping.scroll_docs(4),
+						["<C-Space>"] = cmp.mapping.complete(),
+						["<C-e>"] = cmp.mapping.abort(),
+						["<CR>"] = cmp.mapping.confirm({ select = true }),
+					}),
+					sources = cmp.config.sources({
+						{ name = "nvim_lsp" },
+						{ name = "vsnip" }, -- For vsnip users.
+					}, {
+						{ name = "buffer" },
+					}),
+				})
+
+				cmp.setup.filetype("gitcommit", {
+					sources = cmp.config.sources({
+						{ name = "cmp_git" },
+					}, {
+						{ name = "buffer" },
+					}),
+				})
+
+				cmp.setup.cmdline("/", {
+					mapping = cmp.mapping.preset.cmdline(),
+					sources = {
+						{ name = "buffer" },
+					},
+				})
+
+				cmp.setup.cmdline(":", {
+					mapping = cmp.mapping.preset.cmdline(),
+					sources = cmp.config.sources({
+						{ name = "path" },
+					}, {
+						{ name = "cmdline" },
+					}),
+				})
+
+				-- Setup lspconfig.
+				local capabilities = require("cmp_nvim_lsp").update_capabilities(
+					vim.lsp.protocol.make_client_capabilities()
+				)
+			end,
+		})
+		use({ "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" })
+		use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
+		use({ "hrsh7th/vim-vsnip", after = "nvim-cmp" })
 
 		-- GIT STUFF
 		use("airblade/vim-gitgutter")
@@ -85,8 +141,39 @@ return require("packer").startup({
 		-- EYE CANDY
 		use("arcticicestudio/nord-vim")
 		use({ "machakann/vim-highlightedyank", event = "BufRead" })
-		use("vim-airline/vim-airline")
-		use("vim-airline/vim-airline-themes")
+		use({
+			"nvim-lualine/lualine.nvim",
+			config = function()
+				require("lualine").setup()
+			end,
+			requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		})
+		use({
+			"kdheepak/tabline.nvim",
+			config = function()
+				require("tabline").setup({
+					options = {
+						section_separators = { "", "" },
+						component_separators = { "", "" },
+						modified_italic = true, -- set to true by default; this determines whether the filename turns italic if modified
+					},
+				})
+			end,
+			requires = { { "hoob3rt/lualine.nvim", opt = true }, { "kyazdani42/nvim-web-devicons", opt = true } },
+		})
+
+		-- using packer.nvim
+		-- use({
+		-- 	"akinsho/bufferline.nvim",
+		-- 	tag = "v2.*",
+		-- 	requires = "kyazdani42/nvim-web-devicons",
+		-- 	config = function()
+		-- 		vim.opt.termguicolors = true
+		-- 		require("bufferline").setup({})
+		-- 	end,
+		-- })
+		-- use("vim-airline/vim-airline")
+		-- use("vim-airline/vim-airline-themes")
 		use("folke/todo-comments.nvim")
 
 		use({
