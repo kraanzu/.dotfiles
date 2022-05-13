@@ -16,6 +16,8 @@ set shell=/bin/bash
 set completeopt=menu,menuone,noselect
 set noshowmode  " to get rid of thing like --INSERT--
 set noshowcmd  " to get rid of display of last command
+set termguicolors
+
 
 set undofile
 set undodir=~/.undodir
