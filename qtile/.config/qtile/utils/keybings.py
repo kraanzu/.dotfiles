@@ -31,6 +31,11 @@ key_bindings = [
         desc="launches i3-blur lock",
     ),
     Keybind(
+        "C-<Insert>",
+        lazy.spawn("scrot"),
+        desc="Screen_Shot",
+    ),
+    Keybind(
         "M-<Insert>",
         lazy.spawn("flameshot gui"),
         desc="Screen_Shot",
