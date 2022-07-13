@@ -14,7 +14,7 @@ env:
   TERM: xterm-256color
 
 window:
-  # opacity: 0.95
+  opacity: 1
   # Window dimensions (changes require restart)
   #
   # Specified in number of columns/lines, not pixels.
@@ -118,7 +118,6 @@ font:
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofur Nerd Font
-    # family: TerminessTTF Nerd Font
     family: SauceCodePro Nerd Font
 
     # The `style` can be specified to pick a specific face.
