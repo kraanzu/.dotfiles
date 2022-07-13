@@ -87,8 +87,8 @@ alias editcommit="git commit --amend"
 alias dclean='docker system prune -a --volumes'
 alias kayo='gdrive download --recursive --skip'
 
-alias cf='rm -rf ~/CP && mkdir ~/CP ' #competetive coding :)
-alias loff='xrandr --output eDP1 --off' #turns off laptop screen :)
+alias cf='rm -rf ~/CP && mkdir ~/CP '
+alias loff='xrandr --output eDP1 --off'
 alias lonn='xrandr --output eDP1 --auto'
 
 #-----GREP COLOR
@@ -99,4 +99,5 @@ colorscript -e crunchbang-mini
 # export PYTHONDONTWRITEBYTECODE=1
 
 export LANG=en_IN.UTF-8
+export TERM=xterm-256color
 starship init fish | source
