@@ -1,15 +1,13 @@
-" filetype plugin on
-
 packadd nvim-treesitter
 lua require('plugins')
-
-" augroup packer_user_config
-"   autocmd!
-"   autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-" augroup end
 
 let mapleader = " "
 nnoremap <leader>ff :Neoformat<cr>
 
-nmap <F8> :TagbarToggle<CR>
+if !has('gui_running')
+  set t_Co=256
+endif
+
 colorscheme nord
+hi Normal guibg=NONE
+

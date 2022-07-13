@@ -47,7 +47,10 @@ return require("packer").startup({
 				require("impatient")
 			end,
 		})
-
+		use("godlygeek/tabular")
+		use("preservim/vim-markdown")
+		use("nathom/filetype.nvim")
+		use({ "preservim/tagbar", cmd = "TagbarToggle" })
 		use("dstein64/vim-startuptime")
 		use({ "wbthomason/packer.nvim" })
 
@@ -56,17 +59,27 @@ return require("packer").startup({
 
 		-- MAKING LIFE EASIER
 		use({
+			"pseewald/vim-anyfold",
+			event = { "BufRead", "BufNewFile" },
+		})
+		use({
 			"nvim-treesitter/nvim-treesitter",
 			event = { "BufRead", "BufNewFile" },
 		})
-		-- use({ "nvim-treesitter/playground", event = "BufRead" })
+		use({ "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" })
+
 		use({ "nvim-telescope/telescope.nvim", cmd = "Telescope" })
-		use({ "sbdchd/neoformat", event = "BufRead" })
 		-- use({ "tpope/vim-surround", event = "BufRead" })
+		use({ "sbdchd/neoformat", cmd = "Neoformat" })
 		use({ "jreybert/vimagit", cmd = "Magit" })
 
 		-- AUTOCOMPLETE BABY
-		use("neovim/nvim-lspconfig")
+		use({
+			"neovim/nvim-lspconfig",
+			config = function()
+				require("user.lsp")
+			end,
+		})
 		use({ "williamboman/nvim-lsp-installer", cmd = "LspInstall" })
 
 		use({
@@ -140,7 +153,14 @@ return require("packer").startup({
 
 		-- EYE CANDY
 		use("arcticicestudio/nord-vim")
+		-- use("junegunn/limelight.vim")
 		use({ "machakann/vim-highlightedyank", event = "BufRead" })
+		use({
+			"karb94/neoscroll.nvim",
+			config = function()
+				require("user.smooth_scroll")
+			end,
+		})
 		use({
 			"nvim-lualine/lualine.nvim",
 			config = function()
@@ -151,29 +171,11 @@ return require("packer").startup({
 		use({
 			"kdheepak/tabline.nvim",
 			config = function()
-				require("tabline").setup({
-					options = {
-						section_separators = { "", "" },
-						component_separators = { "", "" },
-						modified_italic = true, -- set to true by default; this determines whether the filename turns italic if modified
-					},
-				})
+				require("tabline").setup({})
 			end,
 			requires = { { "hoob3rt/lualine.nvim", opt = true }, { "kyazdani42/nvim-web-devicons", opt = true } },
 		})
 
-		-- using packer.nvim
-		-- use({
-		-- 	"akinsho/bufferline.nvim",
-		-- 	tag = "v2.*",
-		-- 	requires = "kyazdani42/nvim-web-devicons",
-		-- 	config = function()
-		-- 		vim.opt.termguicolors = true
-		-- 		require("bufferline").setup({})
-		-- 	end,
-		-- })
-		-- use("vim-airline/vim-airline")
-		-- use("vim-airline/vim-airline-themes")
 		use("folke/todo-comments.nvim")
 
 		use({

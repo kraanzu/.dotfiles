@@ -1,4 +1,4 @@
-noremap <Up> <NOP>
+noremap <Up> <cmd>G push<cr>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
@@ -10,9 +10,11 @@ smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l
 noremap <Tab> :bn<CR>
 noremap <S-Tab> :bp<CR>
 noremap <C-q> :bd<CR>
+nmap <F12> :TagbarToggle<CR>
 
 "remove blank lines
 nnoremap <leader>xx <cmd>g/^$/d<cr>
+
 
 " keeping it centered
 nnoremap n nzzzv
