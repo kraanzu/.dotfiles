@@ -14,7 +14,7 @@ from utils import key_bindings, bottom_bar, color, create_workspace_bindings
 spaces = {
     "www": {
         "key": "1",
-        "matches": [Match(wm_class="firefox"), Match(wm_class="brave-browser")],
+        "matches": [Match(wm_class="brave-browser")],
     },
     "vim": {
         "key": "2",

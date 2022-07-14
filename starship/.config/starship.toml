@@ -1,4 +1,3 @@
-
 #--------------BASICS--------------#
 
 # Don't print a new line at the start of the prompt
@@ -7,11 +6,6 @@ add_newline = false
 # Make prompt a single line instead of two lines
 [line_break]
 disabled = false
-
-#--BATTERY
-# [[battery.display]]  # "bold red" style and discharging_symbol when capacity is between 0% and 10%
-# threshold = 100
-# style = "bold red"
 
 #--CHARACTER MODULE
 [character]
