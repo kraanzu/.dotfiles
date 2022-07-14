@@ -55,7 +55,7 @@ return require("packer").startup({
 		use({ "wbthomason/packer.nvim" })
 
 		use("nvim-lua/plenary.nvim")
-		-- use("mfussenegger/nvim-dap")
+		use("mfussenegger/nvim-dap")
 
 		-- MAKING LIFE EASIER
 		use({
@@ -85,59 +85,7 @@ return require("packer").startup({
 		use({
 			"hrsh7th/nvim-cmp",
 			after = "cmp-nvim-lsp",
-			config = function()
-				local cmp = require("cmp")
-
-				cmp.setup({
-					snippet = {
-						expand = function(args)
-							vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-						end,
-					},
-					mapping = cmp.mapping.preset.insert({
-						["<C-b>"] = cmp.mapping.scroll_docs(-4),
-						["<C-f>"] = cmp.mapping.scroll_docs(4),
-						["<C-Space>"] = cmp.mapping.complete(),
-						["<C-e>"] = cmp.mapping.abort(),
-						["<CR>"] = cmp.mapping.confirm({ select = true }),
-					}),
-					sources = cmp.config.sources({
-						{ name = "nvim_lsp" },
-						{ name = "vsnip" }, -- For vsnip users.
-					}, {
-						{ name = "buffer" },
-					}),
-				})
-
-				cmp.setup.filetype("gitcommit", {
-					sources = cmp.config.sources({
-						{ name = "cmp_git" },
-					}, {
-						{ name = "buffer" },
-					}),
-				})
-
-				cmp.setup.cmdline("/", {
-					mapping = cmp.mapping.preset.cmdline(),
-					sources = {
-						{ name = "buffer" },
-					},
-				})
-
-				cmp.setup.cmdline(":", {
-					mapping = cmp.mapping.preset.cmdline(),
-					sources = cmp.config.sources({
-						{ name = "path" },
-					}, {
-						{ name = "cmdline" },
-					}),
-				})
-
-				-- Setup lspconfig.
-				local capabilities = require("cmp_nvim_lsp").update_capabilities(
-					vim.lsp.protocol.make_client_capabilities()
-				)
-			end,
+			config = function() require('user.cmp') end,
 		})
 		use({ "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" })
 		use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
@@ -153,14 +101,7 @@ return require("packer").startup({
 
 		-- EYE CANDY
 		use("arcticicestudio/nord-vim")
-		-- use("junegunn/limelight.vim")
 		use({ "machakann/vim-highlightedyank", event = "BufRead" })
-		use({
-			"karb94/neoscroll.nvim",
-			config = function()
-				require("user.smooth_scroll")
-			end,
-		})
 		use({
 			"nvim-lualine/lualine.nvim",
 			config = function()
@@ -175,8 +116,6 @@ return require("packer").startup({
 			end,
 			requires = { { "hoob3rt/lualine.nvim", opt = true }, { "kyazdani42/nvim-web-devicons", opt = true } },
 		})
-
-		use("folke/todo-comments.nvim")
 
 		use({
 			"norcalli/nvim-colorizer.lua",
@@ -199,7 +138,6 @@ return require("packer").startup({
 
 		-- LANGAUGE STUFF
 		use({ "rust-lang/rust.vim", ft = { "rs" } })
-
 		use({
 			"simrat39/rust-tools.nvim",
 			ft = { "rs" },

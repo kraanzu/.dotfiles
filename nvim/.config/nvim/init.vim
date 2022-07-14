@@ -10,4 +10,3 @@ endif
 
 colorscheme nord
 hi Normal guibg=NONE
-
