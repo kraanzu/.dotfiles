@@ -3,6 +3,7 @@ lua require('plugins')
 
 let mapleader = " "
 nnoremap <leader>ff :Neoformat<cr>
+let g:vsnip_snippet_dir = "~/.config/vsnip"
 
 if !has('gui_running')
   set t_Co=256

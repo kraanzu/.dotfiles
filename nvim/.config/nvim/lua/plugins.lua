@@ -48,16 +48,16 @@ return require("packer").startup({
 			end,
 		})
 		use("godlygeek/tabular")
-		use("preservim/vim-markdown")
-		use("nathom/filetype.nvim")
-		use({ "preservim/tagbar", cmd = "TagbarToggle" })
-		use("dstein64/vim-startuptime")
 		use({ "wbthomason/packer.nvim" })
+
+		use("nathom/filetype.nvim")
+		use("dstein64/vim-startuptime")
 
 		use("nvim-lua/plenary.nvim")
 		use("mfussenegger/nvim-dap")
 
 		-- MAKING LIFE EASIER
+		use({ "preservim/tagbar", cmd = "TagbarToggle" })
 		use({
 			"pseewald/vim-anyfold",
 			event = { "BufRead", "BufNewFile" },
@@ -69,7 +69,7 @@ return require("packer").startup({
 		use({ "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" })
 
 		use({ "nvim-telescope/telescope.nvim", cmd = "Telescope" })
-		-- use({ "tpope/vim-surround", event = "BufRead" })
+		use({ "tpope/vim-surround", event = "BufRead" })
 		use({ "sbdchd/neoformat", cmd = "Neoformat" })
 		use({ "jreybert/vimagit", cmd = "Magit" })
 
@@ -80,12 +80,23 @@ return require("packer").startup({
 				require("user.lsp")
 			end,
 		})
-		use({ "williamboman/nvim-lsp-installer", cmd = "LspInstall" })
-
+		-- use({ "williamboman/nvim-lsp-installer", cmd = "LspInstall" })
+		-- use({
+		-- 	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+		-- 	config = function()
+		-- 		require("lsp_lines").setup()
+		-- 		-- Disable virtual_text since it's redundant due to lsp_lines.
+		-- 		vim.diagnostic.config({
+		-- 			virtual_text = false,
+		-- 		})
+		-- 	end,
+		-- })
 		use({
 			"hrsh7th/nvim-cmp",
 			after = "cmp-nvim-lsp",
-			config = function() require('user.cmp') end,
+			config = function()
+				require("user.cmp")
+			end,
 		})
 		use({ "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" })
 		use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
@@ -100,7 +111,8 @@ return require("packer").startup({
 		use({ "tomtom/tcomment_vim", event = "BufRead" })
 
 		-- EYE CANDY
-		use("arcticicestudio/nord-vim")
+		-- use ({'sunjon/shade.nvim'})
+		use({ "arcticicestudio/nord-vim", event = "VimEnter" })
 		use({ "machakann/vim-highlightedyank", event = "BufRead" })
 		use({
 			"nvim-lualine/lualine.nvim",
