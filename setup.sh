@@ -3,20 +3,21 @@
 # UPDATE system and install packages
 sudo pacman -Syyu
 sudo pacman --noconfirm -S yay
-yay --needed --noconfirm -S - < packages.txt
+yay --needed --noconfirm -S - <packages.txt
 
-# VIM Stuff
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 mkdir -p ~/.undoir # vim undo dir
 
-rm -rf ~/.config/fish
-
-# STOW all the folders
+# STOW all the configs
 for f in *; do
-  if [[ -d ${f} ]];then
-    stow ${f}
+  if [[ -d "$f" ]]; then
+    echo Setting up ${f} ...
+
+    # check for already-present configs
+    if [[ -d ~/.config/${f} ]]; then
+      echo Config for ${f} already present... Moving to ~/.config/${f}.old
+      mv ~/.config/${f} ~/.config/${f}.old
+    fi
+
+    stow $f
   fi
 done
-
-# curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh #rust is the future
