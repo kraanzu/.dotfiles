@@ -2,11 +2,13 @@
 
 Dotfiles for my setup :)
 
+Run this in your HOME dir
+
 ## Setup
 ```bash
 git clone git@github.com:kraanzu/.dotfiles.git
 cd .dotfiles/
-./install.sh
+bash setup.sh
 ```
 
 ## A screenshot of the desktop
