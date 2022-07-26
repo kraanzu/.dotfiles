@@ -121,7 +121,6 @@ return require("packer").startup({
 		use({ "tomtom/tcomment_vim", event = "BufRead" })
 
 		-- EYE CANDY
-		-- use ({'sunjon/shade.nvim'})
 		use({ "arcticicestudio/nord-vim", event = "VimEnter" })
 		use({ "machakann/vim-highlightedyank", event = "BufRead" })
 		use({

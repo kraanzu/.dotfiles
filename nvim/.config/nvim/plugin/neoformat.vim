@@ -1,8 +1,0 @@
-let g:neoformat_python_black= {
-            \ 'exe': 'black',
-            \ 'args': ['--target-version py310', '-q', '-'],
-            \ 'stdin': 1,
-            \ }
-
-let g:neoformat_enabled_python = ['black']
-let g:neoformat_enabled_typescript = ['prettier'] " having issues with tsfmt
