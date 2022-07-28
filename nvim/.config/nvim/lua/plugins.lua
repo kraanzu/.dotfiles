@@ -47,19 +47,9 @@ return require("packer").startup({
 				require("impatient")
 			end,
 		})
-		use("godlygeek/tabular")
-		use({ "wbthomason/packer.nvim" })
-		-- Lua
-		use({
-			"folke/which-key.nvim",
-			config = function()
-				require("which-key").setup({
-					-- your configuration comes here
-					-- or leave it empty to use the default settings
-					-- refer to the configuration section below
-				})
-			end,
-		})
+		use("wbthomason/packer.nvim")
+		-- use("godlygeek/tabular")
+
 		use("nathom/filetype.nvim")
 		use("dstein64/vim-startuptime")
 
@@ -68,10 +58,6 @@ return require("packer").startup({
 
 		-- MAKING LIFE EASIER
 		use({ "preservim/tagbar", cmd = "TagbarToggle" })
-		use({
-			"pseewald/vim-anyfold",
-			event = { "BufRead", "BufNewFile" },
-		})
 		use({
 			"nvim-treesitter/nvim-treesitter",
 			event = { "BufRead", "BufNewFile" },
@@ -90,17 +76,6 @@ return require("packer").startup({
 				require("user.lsp")
 			end,
 		})
-		-- use({ "williamboman/nvim-lsp-installer", cmd = "LspInstall" })
-		-- use({
-		-- 	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-		-- 	config = function()
-		-- 		require("lsp_lines").setup()
-		-- 		-- Disable virtual_text since it's redundant due to lsp_lines.
-		-- 		vim.diagnostic.config({
-		-- 			virtual_text = false,
-		-- 		})
-		-- 	end,
-		-- })
 		use({
 			"hrsh7th/nvim-cmp",
 			after = "cmp-nvim-lsp",
@@ -166,9 +141,7 @@ return require("packer").startup({
 				require("rust-tools").setup({})
 			end,
 		})
-
 		use({ "dag/vim-fish", ft = { "fish" } })
-
 		use({ "cespare/vim-toml", ft = { "toml" } })
 
 		if packer_bootstrap then
