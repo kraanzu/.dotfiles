@@ -5,6 +5,9 @@ function com
     g++ $argv[1] && ./a.out
 end
 
+function apush
+    adb push $argv[1] /sdcard/AAA
+end
 
 function conf
     set val $argv[1]
