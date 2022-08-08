@@ -56,7 +56,11 @@ extension_defaults = widget_defaults.copy()
 groups: List[ScratchPad | Group] = [
     ScratchPad(
         "scratchpad",
-        [DropDown("term", f"alacritty", height=0.8, opacity=1)],
+        [
+            DropDown(
+                "term", f"alacritty -e tmux -u new -s scratch", height=0.9, opacity=1
+            )
+        ],
     ),
     *[
         Group(workspace, matches=config.get("matches", None), layout="MonadTall")
