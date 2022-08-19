@@ -20,6 +20,7 @@ autoconf
 automake
 awesome
 awesome-terminal-fonts
+aws-cli
 b43-fwcutter
 base
 bash-completion
@@ -27,13 +28,13 @@ bat
 bind
 binutils
 bison
-blender
 blueberry
 bluez
 bluez-utils
 brave-bin
 brightnessctl
 btrfs-progs
+caffeine-ng
 cantarell-fonts
 capitaine-cursors
 ccls
@@ -59,6 +60,7 @@ dmraid
 dnsmasq
 docker
 docker-compose
+docker-machine
 dosfstools
 downgrade
 dpkg
@@ -142,7 +144,6 @@ gvfs-smb
 gzip
 haveged
 hdparm
-heroku-cli-bin
 htop
 hwdetect
 hwinfo
@@ -150,6 +151,7 @@ i3-gaps
 i3blocks
 i3lock
 i3status
+image-optimizer-bin
 img2pdf
 inetutils
 inkscape
@@ -194,6 +196,7 @@ m4
 make
 man-db
 man-pages
+mariadb-libs
 mdadm
 meld
 mesa-utils
@@ -245,6 +248,7 @@ paru-bin
 patch
 pavucontrol
 pcmanfm
+pdftk
 perl
 picom
 pipewire-alsa
@@ -255,6 +259,7 @@ playerctl
 polkit-gnome
 poppler-glib
 postgresql
+postman-bin
 power-profiles-daemon
 powertop
 ppp
@@ -272,6 +277,7 @@ python-capng
 python-defusedxml
 python-installer
 python-packaging
+python-pdftotext
 python-pip
 python-pyalsa
 python-pyqt5
@@ -330,6 +336,7 @@ smartmontools
 sof-firmware
 sqlx-cli
 sshfs
+st
 starship
 stow
 stylua
@@ -370,12 +377,14 @@ vim
 visual-studio-code-bin
 vlc
 vpnc
+websocat
 welcome
 wget
 which
 whois
 wireless-regdb
 wireless_tools
+woeusb-ng
 worm-git
 wpa_supplicant
 xbindkeys
@@ -389,6 +398,8 @@ xf86-video-intel
 xfce4-clipman-plugin
 xfce4-terminal
 xfsprogs
+xiaomi-adb-fastboot-tools-bin
+xiaomitool-v2
 xl2tpd
 xorg-server
 xorg-xbacklight
@@ -402,3 +413,4 @@ yad-eos
 yarn
 yay
 yt-dlp
+zathura
