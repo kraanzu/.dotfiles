@@ -3,6 +3,8 @@
 # UPDATE system and install packages
 sudo pacman -Syyu
 sudo pacman --noconfirm -S yay
+
+yay -S pulseaudio # because the next step fails in EOS
 yay --needed --noconfirm -S - <packages.txt
 
 mkdir -p ~/.undoir # vim undo dir
