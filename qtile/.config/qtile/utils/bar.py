@@ -92,6 +92,12 @@ bottom_bar = bar.Bar(
             padding=6,
         ),
         Spacer(),
+        Systray(
+            icon_size=18,
+            padding=6,
+            foreground=color["grey"],
+        ),
+        Spacer(length=10),
         *(
             [
                 Battery(
@@ -144,12 +150,6 @@ bottom_bar = bar.Bar(
             **get_decor("yellow"),
         ),
         Spacer(length=8),
-        Systray(
-            icon_size=18,
-            padding=6,
-            foreground=color["grey"],
-        ),
-        Spacer(length=10),
     ],
     size=32,
     background="#00000000",
