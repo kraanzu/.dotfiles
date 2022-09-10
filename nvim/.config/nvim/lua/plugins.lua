@@ -55,6 +55,7 @@ return require("packer").startup({
 
 		use("nvim-lua/plenary.nvim")
 		use("mfussenegger/nvim-dap")
+        use("Glench/Vim-Jinja2-Syntax")
 
 		-- MAKING LIFE EASIER
 		use({ "preservim/tagbar", cmd = "TagbarToggle" })
@@ -68,6 +69,12 @@ return require("packer").startup({
 		use({ "tpope/vim-surround", event = "BufRead" })
 		use({ "sbdchd/neoformat", cmd = "Neoformat" })
 		use({ "jreybert/vimagit", cmd = "Magit" })
+		use({
+			"karb94/neoscroll.nvim",
+			config = function()
+				require("neoscroll").setup()
+			end,
+		})
 
 		-- AUTOCOMPLETE BABY
 		use({
