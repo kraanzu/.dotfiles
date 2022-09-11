@@ -20,7 +20,7 @@ from qtile_extras.widget import (
 )
 
 from utils.colors import color
-from utils
+from utils.groups import group_dict
 
 
 SPACE = Spacer(length=8)
@@ -29,16 +29,16 @@ group_box_settings = {
     "borderwidth": 2,
     "margin": 4,
     "active": color["light3"],
-    "inactive": color["dark3"],
+    "inactive": color["grey"],
     "disable_drag": True,
     "highlight_color": color["light2"],
     "block_highlight_text_color": color["dark1"],
     "highlight_method": "text",
     "inactive_highlight_method": "block",
-    "this_current_screen_border": color["cyan"],
+    "this_current_screen_border": color["yellow"],
     "foreground": color["light1"],
     "urgent_border": color["red"],
-    "padding": 2,
+    "padding": 2.5,
 }
 
 
@@ -84,26 +84,16 @@ bottom_bar = bar.Bar(
     [
         TextBox(
             font="SauceCodePro Nerd Font",
-            foreground=color["red"],
-            fontsize=23,
-            text="  ",
+            foreground=color["blue"],
+            fontsize=25,
+            text=" ﲅ ",
         ),
         Sep(linewidth=2, size_percent=65, foreground=color["dark3"]),
         SPACE,
         GroupBox(
-            font="Noto Sans Bold",
-            fontsize=18,
-            visible_groups=[
-                "www",
-                "vim",
-                "sys",
-                "doc",
-                "chat",
-                "mus",
-                "xyz",
-                "vid",
-                "EBQ",
-            ],
+            font="SauceCodePro Nerd Font",
+            fontsize=28,
+            visible_groups=[group_dict[i] for i in range(1, 10)],
             **group_box_settings,
         ),
         Spacer(),

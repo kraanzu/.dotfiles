@@ -7,41 +7,41 @@ from libqtile.layout.floating import Floating
 from libqtile.config import DropDown, ScratchPad, Screen, Group, Match
 from libqtile import bar, hook
 
-from utils import key_bindings, bottom_bar, color, create_workspace_bindings
+from utils import key_bindings, bottom_bar, color, create_workspace_bindings, group_dict
 
 
 # WORKSPACES
 spaces = {
-    "www": {
+    group_dict[1]: {
         "key": "1",
         "matches": [],
     },
-    "vim": {
+    group_dict[2]: {
         "key": "2",
         "matches": [Match(wm_class="code")],
     },
-    "sys": {
+    group_dict[3]: {
         "key": "3",
     },
-    "doc": {
+    group_dict[4]: {
         "key": "4",
         "matches": [Match(wm_class="evince")],
     },
-    "chat": {
+    group_dict[5]: {
         "key": "5",
         "matches": [Match(wm_class="discord"), Match(wm_class="telegram-desktop")],
     },
-    "mus": {
+    group_dict[6]: {
         "key": "6",
     },
-    "xyz": {
+    group_dict[7]: {
         "key": "7",
     },
-    "vid": {
+    group_dict[8]: {
         "key": "8",
         "matches": [Match(wm_class="vlc")],
     },
-    "EBQ": {
+    group_dict[9]: {
         "key": "9",
         "matches": [Match(wm_class="microsoft-edge")],
     },
