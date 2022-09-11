@@ -30,7 +30,6 @@ bluez-utils
 brightnessctl
 btrfs-progs
 cabextract
-caffeine-ng
 cantarell-fonts
 capitaine-cursors
 ccls
@@ -197,7 +196,6 @@ logrotate
 lsb-release
 lsscsi
 lvm2
-lxappearance-gtk3
 lxsession
 lynx
 m4
@@ -362,8 +360,6 @@ welcome
 wget
 which
 whois
-wine
-winetricks
 wireless-regdb
 wireless_tools
 wireplumber

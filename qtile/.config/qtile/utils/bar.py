@@ -7,32 +7,38 @@ from libqtile import bar
 from qtile_extras.widget.decorations import RectDecoration
 from qtile_extras.widget import (
     Spacer,
+    Sep,
     Systray,
     GroupBox,
     Clock,
     Volume,
     Memory,
     Battery,
+    TextBox,
     NvidiaSensors,
+    Image,
 )
 
 from utils.colors import color
+from utils
+
+
+SPACE = Spacer(length=8)
 
 group_box_settings = {
     "borderwidth": 2,
-    "margin": 2,
-    "margin_y": 2,
+    "margin": 4,
     "active": color["light3"],
-    "inactive": color["grey"],
+    "inactive": color["dark3"],
     "disable_drag": True,
     "highlight_color": color["light2"],
     "block_highlight_text_color": color["dark1"],
-    "highlight_method": "block",
+    "highlight_method": "text",
     "inactive_highlight_method": "block",
-    "this_current_screen_border": color["cyan2"],
+    "this_current_screen_border": color["cyan"],
     "foreground": color["light1"],
     "urgent_border": color["red"],
-    "padding_y": 0,
+    "padding": 2,
 }
 
 
@@ -51,22 +57,41 @@ def battery_status():
 
 def get_decor(c: str):
     return {
+        "foreground": color["dark2" if not "dark" in c else "light3"],
         "decorations": [
             RectDecoration(
                 colour=color[c],
-                radius=5,
+                radius=0,
                 filled=True,
-                padding_x=1.5,
-                padding_y=4,
+                padding_x=1,
+                padding_y=7,
                 line_width=1,
             )
         ],
     }
 
 
+def IconWidget(icon: str, color: str) -> TextBox:
+    return TextBox(
+        font="SauceCodePro Nerd Font",
+        fontsize=23,
+        text=f" {icon} ",
+        **get_decor(color),
+    )
+
+
 bottom_bar = bar.Bar(
     [
+        TextBox(
+            font="SauceCodePro Nerd Font",
+            foreground=color["red"],
+            fontsize=23,
+            text="  ",
+        ),
+        Sep(linewidth=2, size_percent=65, foreground=color["dark3"]),
+        SPACE,
         GroupBox(
+            font="Noto Sans Bold",
             fontsize=18,
             visible_groups=[
                 "www",
@@ -77,19 +102,9 @@ bottom_bar = bar.Bar(
                 "mus",
                 "xyz",
                 "vid",
+                "EBQ",
             ],
             **group_box_settings,
-            decorations=[
-                RectDecoration(
-                    colour=color["dark2"],
-                    radius=5,
-                    filled=True,
-                    padding_x=1,
-                    padding_y=2,
-                    line_width=1,
-                )
-            ],
-            padding=6,
         ),
         Spacer(),
         Systray(
@@ -97,14 +112,13 @@ bottom_bar = bar.Bar(
             padding=6,
             foreground=color["grey"],
         ),
-        Spacer(length=10),
+        SPACE,
         *(
             [
                 Battery(
                     format=" {char} {percent:2.0%} ",
                     charge_char="",
                     discharge_char="",
-                    foreground=color["dark1"],
                     fontsize=16,
                     **get_decor("green"),
                 ),
@@ -112,46 +126,35 @@ bottom_bar = bar.Bar(
             if psutil.sensors_battery()
             else []
         ),
-        Spacer(length=8),
+        SPACE,
+        IconWidget("蓼", "magenta"),
         Volume(
             device="pulse",
-            fmt="   {} ",
-            foreground=color["dark1"],
-            fontsize=16,
-            **get_decor("magenta"),
+            fmt=" {} ",
+            **get_decor("dark3"),
         ),
-        Spacer(length=8),
-        NvidiaSensors(
-            foreground=color["dark1"],
-            fontsize=16,
-            format="  {temp}°C ",
-            **get_decor("red"),
-        ),
-        Spacer(length=8),
+        SPACE,
+        IconWidget("", "orange"),
         Memory(
-            fontsize=16,
-            foreground=color["dark1"],
-            fmt="  {} ",
+            fmt=" {} ",
             format="{MemUsed: .0f} {mm}",
-            **get_decor("orange"),
+            **get_decor("dark3"),
         ),
-        Spacer(length=8),
+        SPACE,
+        IconWidget("ﮌ", "green"),
         Clock(
-            fontsize=16,
-            foreground=color["dark1"],
-            format="  %H:%M ",
-            **get_decor("green"),
+            format=" %H:%M ",
+            **get_decor("dark3"),
         ),
-        Spacer(length=8),
+        SPACE,
+        IconWidget("", "yellow"),
         Clock(
-            fontsize=16,
-            foreground=color["dark1"],
-            format="   %A, %B %d ",
-            **get_decor("yellow"),
+            format=" %A, %B %d ",
+            **get_decor("dark3"),
         ),
-        Spacer(length=8),
+        SPACE,
     ],
-    size=32,
-    background="#00000000",
-    margin=[2, 9, 0, 9],
+    size=40,
+    background=color["dark2"][0],
+    # margin=[5, 9, 0, 9],
 )

@@ -55,7 +55,7 @@ return require("packer").startup({
 
 		use("nvim-lua/plenary.nvim")
 		use("mfussenegger/nvim-dap")
-        use("Glench/Vim-Jinja2-Syntax")
+		use("Glench/Vim-Jinja2-Syntax")
 
 		-- MAKING LIFE EASIER
 		use({ "preservim/tagbar", cmd = "TagbarToggle" })

@@ -14,7 +14,7 @@ from utils import key_bindings, bottom_bar, color, create_workspace_bindings
 spaces = {
     "www": {
         "key": "1",
-        "matches": [Match(wm_class="brave-browser")],
+        "matches": [],
     },
     "vim": {
         "key": "2",
@@ -41,17 +41,22 @@ spaces = {
         "key": "8",
         "matches": [Match(wm_class="vlc")],
     },
+    "EBQ": {
+        "key": "9",
+        "matches": [Match(wm_class="microsoft-edge")],
+    },
 }
 
 # QTILE CONSTANTS
 keys = key_bindings + create_workspace_bindings(spaces)
 widget_defaults = dict(
-    font="SauceCodePro Nerd Font Semi",
-    fontsize=30,
+    font="Sauce Code Pro Semibold Nerd Font",
+    fontsize=16,
     padding=2,
-    background=color["transparent"],
+    background=color["dark2"],
+    # background=color["transparent"],
 )
-extension_defaults = widget_defaults.copy()
+# extension_defaults = widget_defaults.copy()
 
 groups: List[ScratchPad | Group] = [
     ScratchPad(
