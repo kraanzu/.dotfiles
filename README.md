@@ -13,5 +13,4 @@ bash setup.sh
 
 ## A screenshot of the desktop
 
-![screen](https://user-images.githubusercontent.com/97718086/189524513-5274b879-65e3-42e8-b48b-7eda81da5d2d.png)
-
+![screen](https://user-images.githubusercontent.com/97718086/189794409-dbede740-1372-470e-ba45-6562a1f0eb81.png)
