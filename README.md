@@ -1,13 +1,11 @@
-# .Dotfiles
+# Kraanzu's Dotfiles :)
 
-Dotfiles for my setup :)
-
-Run this in your HOME dir
+Dotfiles for my qtile setup :)
 
 ## Setup
 ```bash
-git clone git@github.com:kraanzu/.dotfiles.git
-cd .dotfiles/
+git clone https://github.com/kraanzu/.dotfiles.git ~/.dotfiles
+cd ~/.dotfiles/
 bash setup.sh
 ```
 
