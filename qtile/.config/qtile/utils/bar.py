@@ -15,8 +15,10 @@ from qtile_extras.widget import (
     Memory,
     Battery,
     TextBox,
+    Wlan,
     NvidiaSensors,
     Image,
+    StatusNotifier,
 )
 
 from utils.colors import color
@@ -35,7 +37,7 @@ group_box_settings = {
     "block_highlight_text_color": color["dark1"],
     "highlight_method": "text",
     "inactive_highlight_method": "block",
-    "this_current_screen_border": color["yellow"],
+    "this_current_screen_border": color["cyan"],
     "foreground": color["light1"],
     "urgent_border": color["red"],
     "padding": 2.5,
@@ -92,7 +94,7 @@ bottom_bar = bar.Bar(
         SPACE,
         GroupBox(
             font="SauceCodePro Nerd Font",
-            fontsize=28,
+            fontsize=30,
             visible_groups=[group_dict[i] for i in range(1, 10)],
             **group_box_settings,
         ),
@@ -117,27 +119,32 @@ bottom_bar = bar.Bar(
             else []
         ),
         SPACE,
-        IconWidget("蓼", "magenta"),
+        IconWidget("蓼", "blue"),
         Volume(
             device="pulse",
             fmt=" {} ",
             **get_decor("dark3"),
         ),
         SPACE,
-        IconWidget("", "orange"),
-        Memory(
-            fmt=" {} ",
-            format="{MemUsed: .0f} {mm}",
+        IconWidget("", "blue"),
+        Wlan(
+            format=" {essid}  ",
+            disconnected_message=" Disconnected ",
             **get_decor("dark3"),
         ),
+        # Memory(
+        #     fmt=" {} ",
+        #     format="{MemUsed: .0f} {mm}",
+        #     **get_decor("dark3"),
+        # ),
         SPACE,
-        IconWidget("ﮌ", "green"),
+        IconWidget("ﮌ", "blue"),
         Clock(
             format=" %H:%M ",
             **get_decor("dark3"),
         ),
         SPACE,
-        IconWidget("", "yellow"),
+        IconWidget("", "blue"),
         Clock(
             format=" %A, %B %d ",
             **get_decor("dark3"),
