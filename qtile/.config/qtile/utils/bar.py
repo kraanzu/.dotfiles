@@ -8,7 +8,7 @@ from utils.default_widgets import *
 bottom_bar = bar.Bar(
     [
         *widget_favicon,
-        SEP,
+        SEP1,
         widget_group_box,
         Spacer(),
         *widget_systray,

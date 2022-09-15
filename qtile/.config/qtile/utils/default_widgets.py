@@ -32,12 +32,15 @@ from utils.groups import group_dict
 # ----------------- CONSTANTS ------------------
 
 PAD = Spacer(length=4)
-SEP = Sep(linewidth=2, size_percent=65, foreground=color["dark3"])
+SEP1 = Sep(linewidth=2, size_percent=65, foreground=color["dark3"])
+SEP2 = TextBox(text="", fontsize=20, foreground=color["dark3"])
+
 ICON_WIDGET_DEFAULTS = {
     "font": "SauceCodePro Nerd Font",
     "fontsize": 23,
     "fmt": " {} ",
 }
+
 LOCATION = "Kolkata"
 FAVICON = "ﲅ"
 ACCENT1 = "blue"
@@ -249,7 +252,7 @@ widget_wttr = padded(
     Wttr(
         location={LOCATION: LOCATION},
         format="%c",
-        fontsize = 22,
+        fontsize=22,
         fmt=" {} ",
         **get_decor(ACCENT1),
     ),
