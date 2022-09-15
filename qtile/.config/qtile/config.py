@@ -56,7 +56,6 @@ widget_defaults = dict(
     background=color["dark2"],
     # background=color["transparent"],
 )
-# extension_defaults = widget_defaults.copy()
 
 groups: List[ScratchPad | Group] = [
     ScratchPad(
