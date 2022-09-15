@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="48"
+   width="48"
+   version="1.1"
+   id="svg14"
+   sodipodi:docname="xmag.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs18" />
+  <sodipodi:namedview
+     id="namedview16"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="4.09375"
+     inkscape:cx="70.473282"
+     inkscape:cy="59.725191"
+     inkscape:window-width="1920"
+     inkscape:window-height="1031"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg14" />
+  <path
+     id="path2"
+     style="stroke-width:1.15035;fill:#ebcb8b;fill-opacity:1"
+     d="M 23.804688 1.3046875 A 22.696228 22.696232 0 0 0 1.1074219 24 A 22.696228 22.696232 0 0 0 23.804688 46.695312 A 22.696228 22.696232 0 0 0 46.5 24 A 22.696228 22.696232 0 0 0 23.804688 1.3046875 z " />
+  <g
+     fill="#b69659"
+     stroke="#ffffff"
+     transform="matrix(.70710678 -.70710678 .70710678 .70710678 -8.547727 25.393399)"
+     id="g10">
+    <path
+       id="circle4"
+       style="opacity:0.97;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dashoffset:0.377953;fill:#ebcb8b;fill-opacity:1"
+       d="M 32.30757,14.504757 A 8.5168333,8.5168333 0 0 1 23.790737,23.02159 8.5168333,8.5168333 0 0 1 15.273904,14.504757 8.5168333,8.5168333 0 0 1 23.790737,5.9879236 8.5168333,8.5168333 0 0 1 32.30757,14.504757 Z" />
+    <path
+       d="m24 22.5v4.5"
+       stroke-width="2"
+       id="path6" />
+    <path
+       d="m24 39v-12"
+       stroke-linecap="round"
+       stroke-width="3"
+       id="path8" />
+  </g>
+  <circle
+     cx="18.089256"
+     cy="14.653524"
+     fill="#ffffff"
+     opacity=".97"
+     r="2.25"
+     id="circle12" />
+</svg>

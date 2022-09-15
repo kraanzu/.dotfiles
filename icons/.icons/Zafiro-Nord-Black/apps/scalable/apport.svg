@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="48"
+   width="48"
+   version="1.1"
+   id="svg12"
+   sodipodi:docname="utilies-bug-reporter.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs16" />
+  <sodipodi:namedview
+     id="namedview14"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="5.7894368"
+     inkscape:cx="-6.3045856"
+     inkscape:cy="34.459311"
+     inkscape:window-width="1920"
+     inkscape:window-height="1031"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg12" />
+  <path
+     id="path2"
+     style="stroke-width:1.15035;fill:#bf616a;fill-opacity:1"
+     d="M 23.804688 1.3046875 A 22.696228 22.696232 0 0 0 1.1074219 24 A 22.696228 22.696232 0 0 0 23.804688 46.695312 A 22.696228 22.696232 0 0 0 46.5 24 A 22.696228 22.696232 0 0 0 23.804688 1.3046875 z " />
+  <circle
+     cx="13.035714"
+     cy="19.035715"
+     fill="#ffffff"
+     r="4.035714"
+     id="circle4" />
+  <path
+     id="circle6"
+     d="m 39.928571,19.035715 a 4.0357141,4.0357141 0 0 1 -4.035714,4.035714 4.0357141,4.0357141 0 0 1 -4.035715,-4.035714 4.0357141,4.0357141 0 0 1 4.035715,-4.035714 4.0357141,4.0357141 0 0 1 4.035714,4.035714 z"
+     style="fill:#ffffff;fill-opacity:1" />
+  <path
+     d="m15 36c6.200627-8.426336 12.180095-7.564008 18 0"
+     fill="none"
+     stroke="#ffffff"
+     stroke-linecap="round"
+     stroke-width="3"
+     id="path8" />
+  <path
+     d="m33 24c-3.955256 3.845133 0 8.735721 0 4.49893z"
+     fill="#ffffff"
+     fill-rule="evenodd"
+     id="path10" />
+</svg>

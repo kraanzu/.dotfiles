@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="48"
+   width="48"
+   version="1.1"
+   id="svg10"
+   sodipodi:docname="yast-bootloader.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs14" />
+  <sodipodi:namedview
+     id="namedview12"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="5.7894368"
+     inkscape:cx="23.577423"
+     inkscape:cy="23.750151"
+     inkscape:window-width="1920"
+     inkscape:window-height="1031"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg10" />
+  <path
+     id="path2"
+     style="stroke-width:1.15035;fill:#ebcb8b;fill-opacity:1"
+     d="M 23.804688 1.3046875 A 22.696228 22.696232 0 0 0 1.1074219 24 A 22.696228 22.696232 0 0 0 23.804688 46.695312 A 22.696228 22.696232 0 0 0 46.5 24 A 22.696228 22.696232 0 0 0 23.804688 1.3046875 z " />
+  <g
+     fill-rule="evenodd"
+     id="g8">
+    <path
+       d="m34.5 12c-7.609109.35264-12.644112 3.315735-16.5 9h-1.5l-6 6 6-.900391-.300781 1.5 3 2.701172 1.5-.300781-1.199219 6 6-6v-1.5c8.893603-4.880482 9.111815-11.959598 9-16.5zm-5.677734 3.857422a2.25 2.25 0 0 1 2.25 2.25 2.25 2.25 0 0 1 -2.25 2.25 2.25 2.25 0 0 1 -2.25-2.25 2.25 2.25 0 0 1 2.25-2.25z"
+       fill="#ffffff"
+       fill-opacity=".827465"
+       id="path4"
+       style="fill:#ffffff;fill-opacity:1" />
+    <path
+       d="m14.1 29.4c.819901-.08811 2.4.6 2.4.6s.366065 1.688666 0 2.4c-.393627.764891-2.1 1.5-2.1 1.5.419099-.684361.266834-.151501.3-1.2-.637504 1.146058-1.124514.879812-2.4 1.2.164955-.657446-.408711-2.539054.6-2.4-1.063438-.161993-.82148.38828-1.2.6-.497132-.729783.758394-2.523593 2.4-2.7z"
+       fill="#fefeff"
+       fill-opacity=".630282"
+       id="path6" />
+  </g>
+</svg>
