@@ -38,7 +38,6 @@ SEP2 = TextBox(text="", fontsize=20, foreground=color["dark3"])
 ICON_WIDGET_DEFAULTS = {
     "font": "SauceCodePro Nerd Font",
     "fontsize": 23,
-    "fmt": " {} ",
 }
 
 LOCATION = "Kolkata"
@@ -65,6 +64,7 @@ def battery_status():
 
 def get_decor(c: str) -> dict:
     return {
+        "fmt": " {} ",
         "foreground": color["dark2" if not "dark" in c else "light3"],
         "decorations": [
             RectDecoration(
@@ -155,7 +155,7 @@ widget_systray = padded(
 widget_battery = padded(
     IconWidget("", ACCENT1),
     Battery(
-        format=" {percent:2.0%} ",
+        format="{percent:2.0%}",
         fontsize=16,
         **get_decor(DARK),
     ),
@@ -166,7 +166,6 @@ widget_volume = padded(
     IconWidgetPoll(get_vol_icon, ACCENT1),
     Volume(
         device="pulse",
-        fmt=" {} ",
         **get_decor(DARK),
     ),
 )
@@ -175,7 +174,7 @@ widget_volume = padded(
 widget_wifi = padded(
     IconWidget("", ACCENT1),
     Wlan(
-        format=" {essid}  ",
+        format="{essid} ",
         disconnected_message=" Disconnected ",
         **get_decor(DARK),
     ),
@@ -214,7 +213,6 @@ widget_disk = padded(
     IconWidget("", ACCENT1),
     DF(
         partition="/home",
-        fmt=" {} ",
         **get_decor(DARK),
     ),
 )
@@ -223,7 +221,6 @@ widget_disk = padded(
 widget_bluetooth = padded(
     IconWidget("", ACCENT1),
     Bluetooth(
-        fmt=" {} ",
         **get_decor(DARK),
     ),
 )
@@ -233,7 +230,6 @@ widget_net_speed = padded(
     IconWidget("龍", ACCENT1),
     Net(
         format="{down}↓ {up}↑",
-        fmt=" {} ",
         **get_decor(DARK),
     ),
 )
@@ -242,7 +238,6 @@ widget_net_speed = padded(
 widget_nvidia_sensor = padded(
     IconWidget("", ACCENT1),
     NvidiaSensors(
-        fmt=" {} ",
         **get_decor(DARK),
     ),
 )
@@ -253,13 +248,11 @@ widget_wttr = padded(
         location={LOCATION: LOCATION},
         format="%c",
         fontsize=22,
-        fmt=" {} ",
         **get_decor(ACCENT1),
     ),
     Wttr(
         location={LOCATION: LOCATION},
         format="%t",
-        fmt=" {} ",
         **get_decor(DARK),
     ),
 )
@@ -268,7 +261,6 @@ widget_wttr = padded(
 widget_thermal = padded(
     IconWidget("", ACCENT1),
     ThermalSensor(
-        fmt=" {} ",
         **get_decor(DARK),
     ),
 )
@@ -278,7 +270,6 @@ widget_cpu = padded(
     IconWidget("", ACCENT1),
     CPU(
         format=" {load_percent}% ",
-        fmt=" {} ",
         **get_decor(DARK),
     ),
 )
