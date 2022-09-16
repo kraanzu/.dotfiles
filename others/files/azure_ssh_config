@@ -1,0 +1,4 @@
+Host ssh.dev.azure.com
+    User git
+    PubkeyAcceptedAlgorithms +ssh-rsa
+    HostkeyAlgorithms +ssh-rsa
