@@ -145,8 +145,8 @@ widget_group_box = GroupBox(
 # SYSTRAY WIDGET
 widget_systray = padded(
     Systray(
-        icon_size=18,
-        padding=6,
+        icon_size=20,
+        padding=2,
         foreground=color[DARK],
     ),
 )
