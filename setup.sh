@@ -1,14 +1,13 @@
 #! /usr/bin/env bash
 
 # UPDATE system and install packages
-# sudo pacman -Syyu
-# sudo pacman --noconfirm --needed -S yay
-#
-# yay -S pulseaudio # because the next step fails in EOS
-# yay --needed --noconfirm -S - <packages.txt
-#
-# mkdir -p ~/.undodir # vim undo dir
+sudo pacman -Syyu
+sudo pacman --noconfirm --needed -S yay
 
+yay -S pulseaudio # because the next step fails in EOS
+yay --needed --noconfirm -S - <packages.txt
+
+mkdir -p ~/.undodir # vim undo dir
 
 # STOW all the configs
 echo "TIME TO STOW THE CONFIGSSS...\n\n"
