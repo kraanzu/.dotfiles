@@ -213,6 +213,9 @@ widget_disk = padded(
     IconWidget("", ACCENT1),
     DF(
         partition="/home",
+        measure='G',
+        format='{uf} G',
+        visible_on_warn=False,
         **get_decor(DARK),
     ),
 )
