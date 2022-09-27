@@ -1,3 +1,4 @@
 undodir/
 packer_compiled.lua
 tmux/.config/tmux/plugins/
+__pycache__/
