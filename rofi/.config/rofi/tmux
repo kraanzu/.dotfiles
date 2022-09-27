@@ -6,7 +6,7 @@ function tmux_sessions() {
     tmux list-session -F '#S'
 }
 
-TMUX_SESSION=$( (echo new; tmux_sessions) | rofi -dmenu -theme "$dir" -p "TMUX: ")
+TMUX_SESSION=$( (tmux_sessions) | rofi -dmenu -theme "$dir" -p "TMUX: ")
 
 if [[ "new" = "${TMUX_SESSION}" ]]; then
     alacritty -e tmux new-session &
