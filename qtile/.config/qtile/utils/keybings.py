@@ -17,7 +17,7 @@ key_bindings = [
     ),
     Keybind(
         "M-S-a",
-        lazy.spawn(f"bash {rofi_path}/audio_changer"),
+        lazy.spawn(f"python {rofi_path}/audio_switcher.py"),
         desc="Launch rofi audio-switcher",
     ),
     Keybind(
