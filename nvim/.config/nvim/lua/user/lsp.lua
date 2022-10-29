@@ -55,7 +55,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 	},
 }
 
-local servers = { "pyright", "rls", "clangd", 'gopls' }
+local servers = { "pyright", 'cssls'}
 for _, lsp in pairs(servers) do
 	require("lspconfig")[lsp].setup({
 		on_attach = on_attach,

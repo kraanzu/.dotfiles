@@ -48,7 +48,12 @@ return require("packer").startup({
 			end,
 		})
 		use("wbthomason/packer.nvim")
-		-- use("godlygeek/tabular")
+		-- use({
+		-- 	"andweeb/presence.nvim",
+		-- 	config = function()
+		-- 		require("user.discord")
+		-- 	end,
+		-- })
 
 		use("nathom/filetype.nvim")
 		use("dstein64/vim-startuptime")
@@ -63,16 +68,22 @@ return require("packer").startup({
 			"nvim-treesitter/nvim-treesitter",
 			event = { "BufRead", "BufNewFile" },
 		})
-		use({ "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" })
+		-- use({ "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" })
 
 		use({ "nvim-telescope/telescope.nvim", cmd = "Telescope" })
-		use({ "tpope/vim-surround", event = "BufRead" })
+		-- use({ "tpope/vim-surround", event = "BufRead" })
 		use({ "sbdchd/neoformat", cmd = "Neoformat" })
 		use({ "jreybert/vimagit", cmd = "Magit" })
 		use({
 			"karb94/neoscroll.nvim",
 			config = function()
 				require("neoscroll").setup()
+			end,
+		})
+		use({
+			"williamboman/mason.nvim",
+			config = function()
+				require("mason").setup()
 			end,
 		})
 
@@ -117,7 +128,7 @@ return require("packer").startup({
 			config = function()
 				require("tabline").setup({})
 			end,
-			requires = { { "hoob3rt/lualine.nvim", opt = true }, { "kyazdani42/nvim-web-devicons", opt = true } },
+			requires = { { "hoob3rt/lualine.nvim", opt = true ,}, { "kyazdani42/nvim-web-devicons", opt = true } },
 		})
 
 		use({
@@ -140,14 +151,14 @@ return require("packer").startup({
 		})
 
 		-- LANGAUGE STUFF
-		use({ "rust-lang/rust.vim", ft = { "rs" } })
-		use({
-			"simrat39/rust-tools.nvim",
-			ft = { "rs" },
-			config = function()
-				require("rust-tools").setup({})
-			end,
-		})
+		-- use({ "rust-lang/rust.vim", ft = { "rs" } })
+		-- use({
+		-- 	"simrat39/rust-tools.nvim",
+		-- 	ft = { "rs" },
+		-- 	config = function()
+		-- 		require("rust-tools").setup({})
+		-- 	end,
+		-- })
 		use({ "dag/vim-fish", ft = { "fish" } })
 		use({ "cespare/vim-toml", ft = { "toml" } })
 
