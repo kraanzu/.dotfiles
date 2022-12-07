@@ -85,11 +85,20 @@ def padded(*arr: list):
 def get_vol_icon() -> str:
     cmd = "pacmd list-sinks | awk '/index:|device.form_factor/ {print $0};'"
     sinks = subprocess.check_output(cmd, shell=True).decode().splitlines()
-    for i in range(0, len(sinks), 2):
-        if "*" in sinks[i]:
-            return "" if "headphone" in sinks[i + 1] else "蓼"
+    for i in sinks:
+        if "*" in i:
+            return "" if "headphone" in i else "蓼"
 
     return "蓼"
+
+# def get_vol_icon() -> str:
+#     cmd = "pacmd list-sinks | awk '/index:|device.form_factor/ {print $0};'"
+#     sinks = subprocess.check_output(cmd, shell=True).decode().splitlines()
+#     for i in range(0, len(sinks), 2):
+#         if "*" in sinks[i]:
+#             return "" if "headphone" in sinks[i + 1] else "蓼"
+#
+#     return "蓼"
 
 
 def IconWidget(icon: str, color: str) -> TextBox:
