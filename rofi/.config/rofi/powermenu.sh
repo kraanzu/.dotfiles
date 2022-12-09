@@ -3,9 +3,9 @@ rofi_command="rofi -theme ${dir}"
 
 # Options
 shutdown="   shutdown"
-reboot="   reboot"
+reboot="   reboot"
 lock="   lock"
-suspend=" 鈴  hibernate"
+suspend=" ⏾  hibernate"
 logout=" 﫼  logout"
 
 options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
