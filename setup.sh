@@ -4,8 +4,7 @@
 sudo pacman -Syyu
 sudo pacman --noconfirm --needed -S yay
 
-yay -S pulseaudio # because the next step fails in EOS
-yay --needed --noconfirm -S - <packages.txt
+yay --needed --noconfirm -S - < packages.txt
 
 mkdir -p ~/.undodir # vim undo dir
 

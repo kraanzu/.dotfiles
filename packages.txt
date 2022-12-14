@@ -198,7 +198,6 @@ postman-bin
 power-profiles-daemon
 ppp
 pptpclient
-pulseaudio
 pv
 pyright
 python
