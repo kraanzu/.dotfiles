@@ -22,6 +22,8 @@ bash-completion
 bind
 binutils
 bison
+blueberry
+blueman
 bluez
 bluez-utils
 brave-bin
@@ -124,6 +126,7 @@ ipython
 iwd
 jfsutils
 jq
+kvantum
 less
 libdvdcss
 libgsf
@@ -188,6 +191,9 @@ patch
 pavucontrol
 perl
 picom-jonaburg-git
+pipewire-alsa
+pipewire-jack
+pipewire-pulse
 pkgconf
 pkgfile
 playerctl
@@ -198,6 +204,7 @@ postman-bin
 power-profiles-daemon
 ppp
 pptpclient
+psensor
 pv
 pyright
 python
@@ -207,8 +214,11 @@ python-packaging
 python-poetry
 python-pynvim
 python-pyqt5
+qbittorrent
+qt5ct
 qtile
 qtile-extras-git
+radeontop
 rebuild-detector
 redshift
 reflector
@@ -216,9 +226,11 @@ reflector-simple
 reiserfsprogs
 ripgrep
 rofi
+rofi-bluetooth-git
 rp-pppoe
 rsync
 rtkit
+rustup
 s-nail
 scrot
 seatd
@@ -242,6 +254,8 @@ thunar-archive-plugin
 thunar-volman
 tldr
 tmux
+tmux-plugin-manager-git
+tree
 ttf-bitstream-vera
 ttf-dejavu
 ttf-liberation
@@ -289,6 +303,6 @@ xorg-xinput
 xorg-xkill
 xorg-xrandr
 xterm
-yad-eos
+yad
 yarn
 yay
