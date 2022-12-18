@@ -14,7 +14,6 @@ bottom_bar = bar.Bar(
         *widget_systray,
         *(widget_battery if psutil.sensors_battery() else []),
         *widget_volume,
-        *widget_disk,
         *widget_clock,
         *widget_day,
         PAD,
