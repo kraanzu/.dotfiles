@@ -225,7 +225,6 @@ reflector-simple
 reiserfsprogs
 ripgrep
 rofi
-rofi-bluetooth-git
 rp-pppoe
 rsync
 rtkit
