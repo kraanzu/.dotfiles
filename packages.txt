@@ -22,7 +22,6 @@ bash-completion
 bind
 binutils
 bison
-blueberry
 blueman
 bluez
 bluez-utils
@@ -230,6 +229,7 @@ rofi-bluetooth-git
 rp-pppoe
 rsync
 rtkit
+rtl8761usb
 rustup
 s-nail
 scrot
