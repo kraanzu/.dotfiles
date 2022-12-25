@@ -24,4 +24,4 @@ SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/home/kraanzu/\x2elocal/bin\x1e/home/esdeath/\x2elocal/share/nvim/lsp_servers\x1e/home/esdeath/\x2eemacs\x2ed/bin\x1e/home/esdeath/\x2elocal/share/solana/install/active_release/bin\x1e/home/esdeath/\x2elocal/bin
+SETUVAR fish_user_paths:/home/kraanzu/\x2eemacs\x2ed/bin\x1e/home/kraanzu/\x2elocal/bin\x1e/home/esdeath/\x2elocal/share/nvim/lsp_servers\x1e/home/esdeath/\x2eemacs\x2ed/bin\x1e/home/esdeath/\x2elocal/share/solana/install/active_release/bin\x1e/home/esdeath/\x2elocal/bin
