@@ -41,26 +41,21 @@ packer.init({
 return require("packer").startup({
 	function()
 		-- Packer can manage itself
+		use("wbthomason/packer.nvim")
+        --
+		-- Performance
 		use({
 			"lewis6991/impatient.nvim",
 			config = function()
 				require("impatient")
 			end,
 		})
-		use("wbthomason/packer.nvim")
-		-- use({
-		-- 	"andweeb/presence.nvim",
-		-- 	config = function()
-		-- 		require("user.discord")
-		-- 	end,
-		-- })
-
 		use("nathom/filetype.nvim")
 		use("dstein64/vim-startuptime")
 
+		-- Debugguing
 		use("nvim-lua/plenary.nvim")
 		use("mfussenegger/nvim-dap")
-		use("Glench/Vim-Jinja2-Syntax")
 
 		-- MAKING LIFE EASIER
 		use({ "preservim/tagbar", cmd = "TagbarToggle" })
@@ -68,18 +63,9 @@ return require("packer").startup({
 			"nvim-treesitter/nvim-treesitter",
 			event = { "BufRead", "BufNewFile" },
 		})
-		-- use({ "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" })
-
 		use({ "nvim-telescope/telescope.nvim", cmd = "Telescope" })
-		-- use({ "tpope/vim-surround", event = "BufRead" })
 		use({ "sbdchd/neoformat", cmd = "Neoformat" })
 		use({ "jreybert/vimagit", cmd = "Magit" })
-		use({
-			"karb94/neoscroll.nvim",
-			config = function()
-				require("neoscroll").setup()
-			end,
-		})
 		use({
 			"williamboman/mason.nvim",
 			config = function()
@@ -94,6 +80,7 @@ return require("packer").startup({
 				require("user.lsp")
 			end,
 		})
+		use({ "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" })
 		use({
 			"hrsh7th/nvim-cmp",
 			after = "cmp-nvim-lsp",
@@ -101,7 +88,6 @@ return require("packer").startup({
 				require("user.cmp")
 			end,
 		})
-		use({ "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" })
 		use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
 		use({ "hrsh7th/vim-vsnip", after = "nvim-cmp" })
 
@@ -109,12 +95,25 @@ return require("packer").startup({
 		use("airblade/vim-gitgutter")
 		use({ "tpope/vim-fugitive", cmd = "G" })
 
-		-- MISCS
+		-- HELPERS
 		use("jiangmiao/auto-pairs")
 		use({ "tomtom/tcomment_vim", event = "BufRead" })
 
 		-- EYE CANDY
+		use({
+			"karb94/neoscroll.nvim",
+			config = function()
+				require("neoscroll").setup()
+			end,
+		})
 		use({ "arcticicestudio/nord-vim", event = "VimEnter" })
+		use({
+			"folke/todo-comments.nvim",
+			requires = "nvim-lua/plenary.nvim",
+			config = function()
+				require("todo-comments").setup({})
+			end,
+		})
 		use({ "machakann/vim-highlightedyank", event = "BufRead" })
 		use({
 			"nvim-lualine/lualine.nvim",
@@ -128,7 +127,7 @@ return require("packer").startup({
 			config = function()
 				require("tabline").setup({})
 			end,
-			requires = { { "hoob3rt/lualine.nvim", opt = true ,}, { "kyazdani42/nvim-web-devicons", opt = true } },
+			requires = { { "hoob3rt/lualine.nvim", opt = true }, { "kyazdani42/nvim-web-devicons", opt = true } },
 		})
 
 		use({
@@ -149,8 +148,11 @@ return require("packer").startup({
 				})
 			end,
 		})
+        use({"onsails/lspkind.nvim", config = function() require('user.lspkind') end})
 
 		-- LANGAUGE STUFF
+		use({ "dag/vim-fish", ft = { "fish" } })
+		use({ "cespare/vim-toml", ft = { "toml" } })
 		-- use({ "rust-lang/rust.vim", ft = { "rs" } })
 		-- use({
 		-- 	"simrat39/rust-tools.nvim",
@@ -159,8 +161,6 @@ return require("packer").startup({
 		-- 		require("rust-tools").setup({})
 		-- 	end,
 		-- })
-		use({ "dag/vim-fish", ft = { "fish" } })
-		use({ "cespare/vim-toml", ft = { "toml" } })
 
 		if packer_bootstrap then
 			require("packer").sync()
