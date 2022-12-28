@@ -42,14 +42,14 @@ return require("packer").startup({
 	function()
 		-- Packer can manage itself
 		use("wbthomason/packer.nvim")
-        --
+
 		-- Performance
-		use({
-			"lewis6991/impatient.nvim",
-			config = function()
-				require("impatient")
-			end,
-		})
+		-- use({
+		-- 	"lewis6991/impatient.nvim",
+		-- 	config = function()
+		-- 		require("impatient")
+		-- 	end,
+		-- })
 		use("nathom/filetype.nvim")
 		use("dstein64/vim-startuptime")
 
@@ -63,8 +63,8 @@ return require("packer").startup({
 			"nvim-treesitter/nvim-treesitter",
 			event = { "BufRead", "BufNewFile" },
 		})
-		use({ "nvim-telescope/telescope.nvim", cmd = "Telescope" })
-		use({ "sbdchd/neoformat", cmd = "Neoformat" })
+		use({ "nvim-telescope/telescope.nvim" })
+		use({ "sbdchd/neoformat" })
 		use({ "jreybert/vimagit", cmd = "Magit" })
 		use({
 			"williamboman/mason.nvim",
@@ -79,6 +79,7 @@ return require("packer").startup({
 			config = function()
 				require("user.lsp")
 			end,
+			event = "BufEnter",
 		})
 		use({ "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" })
 		use({
@@ -90,6 +91,12 @@ return require("packer").startup({
 		})
 		use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
 		use({ "hrsh7th/vim-vsnip", after = "nvim-cmp" })
+		use({
+			"ray-x/lsp_signature.nvim",
+			config = function()
+				require("lsp_signature").setup({})
+			end,
+		})
 
 		-- GIT STUFF
 		use("airblade/vim-gitgutter")
@@ -106,7 +113,9 @@ return require("packer").startup({
 				require("neoscroll").setup()
 			end,
 		})
-		use({ "arcticicestudio/nord-vim", event = "VimEnter" })
+		-- use({ "arcticicestudio/nord-vim", event = "VimEnter" })
+
+		use("gbprod/nord.nvim")
 		use({
 			"folke/todo-comments.nvim",
 			requires = "nvim-lua/plenary.nvim",
@@ -118,17 +127,18 @@ return require("packer").startup({
 		use({
 			"nvim-lualine/lualine.nvim",
 			config = function()
-				require("lualine").setup()
+				require("user.line")
 			end,
-			requires = { "kyazdani42/nvim-web-devicons", opt = true },
+			requires = { "kyazdani42/nvim-web-devicons" },
 		})
-		use({
-			"kdheepak/tabline.nvim",
-			config = function()
-				require("tabline").setup({})
-			end,
-			requires = { { "hoob3rt/lualine.nvim", opt = true }, { "kyazdani42/nvim-web-devicons", opt = true } },
-		})
+		-- using packer.nvim
+		-- use({
+		-- 	"kdheepak/tabline.nvim",
+		-- 	config = function()
+		-- 		require("user.tabline")
+		-- 	end,
+		-- 	requires = { { "hoob3rt/lualine.nvim", opt = true }, { "kyazdani42/nvim-web-devicons"} },
+		-- })
 
 		use({
 			"norcalli/nvim-colorizer.lua",
@@ -148,7 +158,12 @@ return require("packer").startup({
 				})
 			end,
 		})
-        use({"onsails/lspkind.nvim", config = function() require('user.lspkind') end})
+		use({
+			"onsails/lspkind.nvim",
+			config = function()
+				require("user.lspkind")
+			end,
+		})
 
 		-- LANGAUGE STUFF
 		use({ "dag/vim-fish", ft = { "fish" } })
