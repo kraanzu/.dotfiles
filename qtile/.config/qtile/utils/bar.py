@@ -21,5 +21,4 @@ bottom_bar = bar.Bar(
     ],
     size=40,
     background=color["dark2"][0],
-    # margin=[5, 9, 0, 9],
 )
