@@ -62,7 +62,7 @@ groups: List[ScratchPad | Group] = [
         "scratchpad",
         [
             DropDown(
-                "term", f"alacritty -e tmux -u new -s scratch", height=0.9, opacity=1
+                "term", f"alacritty", height=0.9, opacity=1
             )
         ],
     ),
