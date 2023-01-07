@@ -60,11 +60,7 @@ widget_defaults = dict(
 groups: List[ScratchPad | Group] = [
     ScratchPad(
         "scratchpad",
-        [
-            DropDown(
-                "term", f"alacritty", height=0.9, opacity=1
-            )
-        ],
+        [DropDown("term", f"alacritty", height=0.9, opacity=1)],
     ),
     *[
         Group(workspace, matches=config.get("matches", None), layout="MonadTall")
@@ -118,5 +114,4 @@ layouts = [
 
 @hook.subscribe.startup_once
 def start_once():
-    home = os.path.expanduser("~")
-    subprocess.call([home + "/.config/qtile/autostart.sh"])
+    os.system("~/.config/qtile/autostart.sh")
