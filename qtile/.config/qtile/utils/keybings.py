@@ -59,7 +59,7 @@ key_bindings = [
     # THE ESSENTIAL STUFF -> Mod + <Key>
     Keybind(
         "M-b",
-        lazy.spawn(f"bash {rofi_path}/bluetooth.sh"),
+        lazy.spawn(f"blueberry"),
         desc="Lauch bluetooth manager",
     ),
     Keybind(
