@@ -7,4 +7,5 @@ redshift -O 5000K &
 xfce4-clipman &
 caffeine &
 dunst -conf ~/.config/dunst/dunstrc &
-find ~/.config/tmuxp/ -type f -exec tmuxp load -d "{}" \; > ~/x.txt # Create tmux sessions
+tmux new -s xxx -d &
+for i in ~/.config/tmuxp/*; do .local/bin/tmuxp load -d $i; done
