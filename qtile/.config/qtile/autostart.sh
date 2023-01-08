@@ -7,5 +7,4 @@ redshift -O 5000K &
 xfce4-clipman &
 caffeine &
 dunst -conf ~/.config/dunst/dunstrc &
-tmux new -s xxx -d &
 for i in ~/.config/tmuxp/*; do .local/bin/tmuxp load -d $i; done
