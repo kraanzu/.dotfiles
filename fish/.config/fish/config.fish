@@ -5,6 +5,11 @@ function com
     g++ $argv[1] && ./a.out
 end
 
+function gdiff
+    set COMMIT $argv[1]
+    git diff $COMMIT~ $COMMIT
+end
+
 function apush
     adb push $argv[1] /sdcard/AAA
 end
@@ -33,6 +38,7 @@ function conf
         echo Not in the config list!!
     end
 end
+
 
 
 #----------------------------- BASICS -----------------------------------
@@ -93,6 +99,7 @@ alias kayo='gdrive download --recursive --skip'
 alias cf='rm -rf ~/CP && mkdir ~/CP '
 alias loff='xrandr --output eDP1 --off'
 alias lonn='xrandr --output eDP1 --auto'
+alias doo='cd ~/Documents/dooit && source venv/bin/activate.fish && clear'
 
 #-----GREP COLOR
 alias grep='grep --color=auto'
