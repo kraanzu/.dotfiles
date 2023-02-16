@@ -36,10 +36,10 @@ spaces = {
     },
     group_dict[7]: {
         "key": "7",
+        "matches": [Match(wm_class="vlc")],
     },
     group_dict[8]: {
         "key": "8",
-        "matches": [Match(wm_class="vlc")],
     },
     group_dict[9]: {
         "key": "9",
