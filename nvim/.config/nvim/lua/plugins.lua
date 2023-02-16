@@ -25,15 +25,15 @@ return require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		event = "BufRead",
 	},
-    {"nvim-telescope/telescope.nvim", cmd = "Telescope"},
-    {"sbdchd/neoformat", event = "BufRead"},
+	{ "nvim-telescope/telescope.nvim", cmd = "Telescope" },
+	{ "sbdchd/neoformat", event = "BufRead" },
 	{ "jreybert/vimagit", cmd = "Magit" },
 	{
 		"williamboman/mason.nvim",
 		config = function()
 			require("mason").setup()
 		end,
-        cmd = "Mason",
+		cmd = "Mason",
 	},
 
 	-- AUTOCOMPLETE BABY
@@ -63,7 +63,7 @@ return require("lazy").setup({
 		config = function()
 			require("lsp_signature").setup({})
 		end,
-        event = "BufWrite",
+		event = "BufWrite",
 	},
 
 	-- GIT STUFF
@@ -71,7 +71,7 @@ return require("lazy").setup({
 	{ "tpope/vim-fugitive", cmd = "G" },
 
 	-- HELPERS
-    {"jiangmiao/auto-pairs"},
+	{ "jiangmiao/auto-pairs" },
 	{ "tomtom/tcomment_vim", event = "BufRead" },
 
 	-- EYE CANDY
@@ -80,9 +80,10 @@ return require("lazy").setup({
 		config = function()
 			require("neoscroll").setup()
 		end,
-        event = "BufRead",
+		event = "BufRead",
 	},
 
+    -- "arcticicestudio/nord-vim",
 	"gbprod/nord.nvim",
 	{
 		"folke/todo-comments.nvim",
@@ -90,7 +91,7 @@ return require("lazy").setup({
 		config = function()
 			require("todo-comments").setup({})
 		end,
-        event = "BufRead",
+		event = "BufRead",
 	},
 	{ "machakann/vim-highlightedyank", event = "BufRead" },
 	{
