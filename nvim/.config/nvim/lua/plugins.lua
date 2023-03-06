@@ -27,6 +27,7 @@ return require("lazy").setup({
 	},
 	{ "nvim-telescope/telescope.nvim", cmd = "Telescope" },
 	{ "sbdchd/neoformat", event = "BufRead" },
+    {'TimUntersberger/neogit', cmd= "Neogit"},
 	{ "jreybert/vimagit", cmd = "Magit" },
 	{
 		"williamboman/mason.nvim",
@@ -57,6 +58,7 @@ return require("lazy").setup({
 		end,
 	},
 	"hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-cmdline",
 	"hrsh7th/vim-vsnip",
 	{
 		"ray-x/lsp_signature.nvim",
@@ -83,8 +85,8 @@ return require("lazy").setup({
 		event = "BufRead",
 	},
 
-    -- "arcticicestudio/nord-vim",
-	"gbprod/nord.nvim",
+    "arcticicestudio/nord-vim",
+	-- "gbprod/nord.nvim",
 	{
 		"folke/todo-comments.nvim",
 		dependencies = "nvim-lua/plenary.nvim",
