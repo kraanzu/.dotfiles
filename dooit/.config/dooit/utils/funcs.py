@@ -1,4 +1,3 @@
-from dooit.api import manager
 import os
 from datetime import datetime
 
@@ -15,7 +14,7 @@ def get_username():
     return os.getlogin()
 
 
-def get_all_todos():
+def get_all_todos(manager):
     def fill(model):
         for workspace in model.workspaces:
             fill(workspace)
@@ -28,18 +27,37 @@ def get_all_todos():
     return todos
 
 
-def get_total_completed():
-    todos = get_all_todos()
+def get_total_completed(manager):
+    todos = get_all_todos(manager)
     return sum(1 for t in todos if t.status == "COMPLETED")
 
 
-def get_total_overdue():
-    todos = get_all_todos()
+def get_total_completed_today(manager):
+    todos = get_all_todos(manager)
+    return sum(
+        1
+        for t in todos
+        if t.status == "COMPLETED" and t._due._value.date() == datetime.now().date()
+    )
+
+
+def get_total_overdue(manager):
+    todos = get_all_todos(manager)
     return sum(1 for t in todos if t.status == "OVERDUE")
 
 
-def get_pending_today():
-    todos = get_all_todos()
+def get_total_pending(manager):
+    todos = get_all_todos(manager)
+    pending = 0
+    for t in todos:
+        if t.status == "PENDING":
+            pending += t.due != "none"
+
+    return pending
+
+
+def get_pending_today(manager):
+    todos = get_all_todos(manager)
     pending = 0
     for t in todos:
         if t.status == "PENDING":
