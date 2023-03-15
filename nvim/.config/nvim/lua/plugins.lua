@@ -85,8 +85,8 @@ return require("lazy").setup({
 		event = "BufRead",
 	},
 
-    "arcticicestudio/nord-vim",
-	-- "gbprod/nord.nvim",
+    -- "arcticicestudio/nord-vim",
+	"gbprod/nord.nvim",
 	{
 		"folke/todo-comments.nvim",
 		dependencies = "nvim-lua/plenary.nvim",
