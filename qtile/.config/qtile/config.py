@@ -1,5 +1,4 @@
 import os
-import subprocess
 from typing import List
 
 from libqtile.layout.xmonad import MonadTall
@@ -7,7 +6,14 @@ from libqtile.layout.floating import Floating
 from libqtile.config import DropDown, ScratchPad, Screen, Group, Match
 from libqtile import bar, hook
 
-from utils import key_bindings, bottom_bar, color, create_workspace_bindings, group_dict
+from utils import (
+    key_bindings,
+    screen0_bar,
+    screen1_bar,
+    color,
+    create_workspace_bindings,
+    group_dict,
+)
 
 
 # WORKSPACES
@@ -71,7 +77,13 @@ groups: List[ScratchPad | Group] = [
 
 screens = [
     Screen(
-        top=bottom_bar,
+        top=screen0_bar,
+        bottom=bar.Gap(6),
+        left=bar.Gap(6),
+        right=bar.Gap(6),
+    ),
+    Screen(
+        top=screen1_bar,
         bottom=bar.Gap(6),
         left=bar.Gap(6),
         right=bar.Gap(6),
