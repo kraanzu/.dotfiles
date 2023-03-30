@@ -123,16 +123,6 @@ key_bindings = [
     ),
     # Window controls
     Keybind(
-        "M-<Right>",
-        lazy.screen.next_group(),
-        desc="Move to next Group",
-    ),
-    Keybind(
-        "M-<Left>",
-        lazy.screen.prev_group(),
-        desc="Move to previous Group",
-    ),
-    Keybind(
         "M-h",
         lazy.layout.grow(),
         desc="Increase Window Size",

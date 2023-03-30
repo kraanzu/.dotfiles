@@ -3,6 +3,7 @@ from typing import List
 
 from libqtile.layout.xmonad import MonadTall
 from libqtile.layout.floating import Floating
+from libqtile.layout.verticaltile import VerticalTile
 from libqtile.config import DropDown, ScratchPad, Screen, Group, Match
 from libqtile import bar, hook
 
@@ -32,10 +33,12 @@ spaces = {
     group_dict[4]: {
         "key": "4",
         "matches": [Match(wm_class="evince")],
+        "layout": "verticaltile",
     },
     group_dict[5]: {
         "key": "5",
         "matches": [Match(wm_class="discord"), Match(wm_class="telegram-desktop")],
+        "layout": "verticaltile",
     },
     group_dict[6]: {
         "key": "6",
@@ -69,7 +72,11 @@ groups: List[ScratchPad | Group] = [
         [DropDown("term", f"alacritty", height=0.9, opacity=1)],
     ),
     *[
-        Group(workspace, matches=config.get("matches", None), layout="MonadTall")
+        Group(
+            workspace,
+            layout=config.get("layout", "monadtall"),
+            matches=config.get("matches", None),
+        )
         for workspace, config in spaces.items()
     ],
 ]
@@ -116,6 +123,13 @@ floating_layout = Floating(
 
 layouts = [
     MonadTall(
+        border_width=3,
+        margin=6,
+        border_focus=color["cyan"],
+        border_normal=color["dark2"],
+    ),
+    # floating_layout,
+    VerticalTile(
         border_width=3,
         margin=6,
         border_focus=color["cyan"],

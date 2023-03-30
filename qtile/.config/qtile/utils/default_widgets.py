@@ -3,9 +3,11 @@ import psutil
 import subprocess
 
 from qtile_extras.widget.decorations import RectDecoration
+from libqtile.widget.currentlayout import CurrentLayout
 from qtile_extras.widget import (
     DF,
     CPU,
+    # CurrentLayout,
     Bluetooth,
     Battery,
     Net,
@@ -78,7 +80,7 @@ def get_decor(c: str) -> dict:
     }
 
 
-def padded(*arr: list):
+def padded(*arr):
     return [PAD] + list(arr) + [PAD]
 
 
@@ -90,6 +92,7 @@ def get_vol_icon() -> str:
             return "" if "headphone" in i else "蓼"
 
     return "蓼"
+
 
 # def get_vol_icon() -> str:
 #     cmd = "pacmd list-sinks | awk '/index:|device.form_factor/ {print $0};'"
@@ -129,6 +132,14 @@ widget_favicon = [
         text=f" {FAVICON} ",
     ),
 ]
+
+# CurrentLayout
+widget_current_layout = padded(
+    CurrentLayout(
+        # foreground=color[DARK],
+        **get_decor(DARK),
+    )
+)
 
 # WORKSPACE WIDGET
 widget_group_box = GroupBox(
@@ -221,8 +232,8 @@ widget_disk = padded(
     IconWidget("", ACCENT1),
     DF(
         partition="/home",
-        measure='G',
-        format='{uf} G',
+        measure="G",
+        format="{uf} G",
         visible_on_warn=False,
         **get_decor(DARK),
     ),
