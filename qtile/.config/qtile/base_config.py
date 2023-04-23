@@ -1,5 +1,6 @@
 import os
 from typing import List
+
 from libqtile.layout.xmonad import MonadTall
 from libqtile.layout.floating import Floating
 from libqtile.layout.verticaltile import VerticalTile
@@ -16,86 +17,31 @@ from utils import (
 )
 
 
-# WORKSPACES
-spaces = {
-    group_dict[1]: {
-        "key": "1",
-        "matches": [],
-    },
-    group_dict[2]: {
-        "key": "2",
-        "matches": [Match(wm_class="code")],
-    },
-    group_dict[3]: {
-        "key": "3",
-    },
-    group_dict[4]: {
-        "key": "4",
-        "matches": [Match(wm_class="Brave-browser|evince")],
-        "layout": "verticaltile",
-    },
-    group_dict[5]: {
-        "key": "5",
-        "matches": [Match(wm_class="discord|telegram-desktop")],
-        "layout": "verticaltile",
-    },
-    group_dict[6]: {
-        "key": "6",
-    },
-    group_dict[7]: {
-        "key": "7",
-        "matches": [Match(wm_class="vlc")],
-    },
-    group_dict[8]: {
-        "key": "8",
-    },
-    group_dict[9]: {
-        "key": "9",
-        "matches": [Match(wm_class="microsoft-edge")],
-    },
-}
+def get_groups(workspaces):
+    groups: List[ScratchPad | Group] = [
+        ScratchPad(
+            "scratchpad",
+            [DropDown("term", f"alacritty", height=0.9, opacity=1)],
+        ),
+        *[
+            Group(
+                workspace,
+                layout=config.get("layout", "monadtall"),
+                matches=config.get("matches", None),
+            )
+            for workspace, config in workspaces.items()
+        ],
+    ]
 
-# QTILE CONSTANTS
-keys = key_bindings + create_workspace_bindings(spaces)
+    return groups
+
+
 widget_defaults = dict(
     font="Sauce Code Pro Semibold Nerd Font",
     fontsize=16,
     padding=2,
     background=color["dark2"],
-    # background=color["transparent"],
 )
-
-groups: List[ScratchPad | Group] = [
-    ScratchPad(
-        "scratchpad",
-        [DropDown("term", f"alacritty", height=0.9, opacity=1)],
-    ),
-    *[
-        Group(
-            workspace,
-            layout=config.get("layout", "monadtall"),
-            matches=config.get("matches", None),
-        )
-        for workspace, config in spaces.items()
-    ],
-]
-
-
-screens = [
-    Screen(
-        top=screen0_bar,
-        bottom=bar.Gap(6),
-        left=bar.Gap(6),
-        right=bar.Gap(6),
-    ),
-    Screen(
-        top=screen1_bar,
-        bottom=bar.Gap(6),
-        left=bar.Gap(6),
-        right=bar.Gap(6),
-    ),
-]
-
 
 floating_layout = Floating(
     float_rules=[

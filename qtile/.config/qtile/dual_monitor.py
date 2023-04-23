@@ -31,12 +31,12 @@ spaces = {
     },
     group_dict[4]: {
         "key": "4",
-        "matches": [Match(wm_class="Brave-browser|evince")],
+        "matches": [Match(wm_class="evince"), Match(wm_class="alacritty")],
         "layout": "verticaltile",
     },
     group_dict[5]: {
         "key": "5",
-        "matches": [Match(wm_class="discord|telegram-desktop")],
+        "matches": [Match(wm_class="discord"), Match(wm_class="telegram-desktop")],
         "layout": "verticaltile",
     },
     group_dict[6]: {
