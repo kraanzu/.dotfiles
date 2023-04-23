@@ -1,6 +1,14 @@
 #--------CUSTOM FUNCTIONS---------------
 fish_vi_key_bindings
 
+# merge develop branch and push
+function mmm
+    git checkout main
+    git merge develop
+    git push
+    git checkout develop
+end
+
 function com
     g++ $argv[1] && ./a.out
 end
@@ -99,7 +107,7 @@ alias kayo='gdrive download --recursive --skip'
 alias cf='rm -rf ~/CP && mkdir ~/CP '
 alias loff='xrandr --output eDP1 --off'
 alias lonn='xrandr --output eDP1 --auto'
-alias doo='cd ~/Documents/dooit && source venv/bin/activate.fish && clear'
+alias doo='cd ~/Documents/dooit && source ../venv/bin/activate.fish && clear'
 
 #-----GREP COLOR
 alias grep='grep --color=auto'
