@@ -1,4 +1,4 @@
 undodir/
-packer_compiled.lua
+lazy-lock.json
 tmux/.config/tmux/plugins/
 __pycache__/
