@@ -8,7 +8,9 @@ alsa-firmware
 alsa-plugins
 alsa-utils
 amd-ucode
+amdvlk
 android-tools
+anydesk-bin
 arandr
 arc-gtk-theme-eos
 archlinux-keyring
@@ -45,6 +47,7 @@ dmidecode
 dmraid
 dnsmasq
 docopt
+dooit-git
 dosfstools
 downgrade
 dpkg
@@ -117,6 +120,7 @@ gvfs-smb
 gzip
 haveged
 hdparm
+htop
 hwdetect
 hwinfo
 hyperfine
@@ -125,8 +129,8 @@ i3-wm
 i3blocks
 i3lock
 i3status
+img2pdf
 inetutils
-inkscape
 intel-ucode
 inxi
 iptables-nft
@@ -137,9 +141,12 @@ jq
 kitty
 kvantum
 less
+lib32-vulkan-amdgpu-pro
+libayatana-appindicator
 libdvdcss
 libgsf
 libopenraw
+libspeechd
 libtool
 libwnck3
 lightdm
@@ -160,6 +167,7 @@ man-pages
 mdadm
 meld
 mesa-utils
+meson
 microsoft-edge-stable-bin
 mkinitcpio
 mkinitcpio-busybox
@@ -174,7 +182,7 @@ nano-syntax-highlighting
 nbd
 ndisc6
 neofetch
-neovim
+neovim-git
 netctl
 network-manager-applet
 networkmanager
@@ -223,14 +231,14 @@ python-capng
 python-defusedxml
 python-docopt
 python-packaging
+python-pip
 python-poetry
 python-pynvim
 python-pyqt5
 qbittorrent
 qjackctl
 qt5ct
-qtile
-qtile-extras
+qtile-git
 radeontop
 rebuild-detector
 redshift
@@ -244,12 +252,13 @@ rsync
 rtkit
 rtl8761usb
 s-nail
+scdoc
+screenkey
 scrot
 seatd
 sed
 sg3_utils
 shell-color-scripts
-simplescreenrecorder
 smartmontools
 sof-firmware
 sshfs
@@ -260,6 +269,7 @@ sudo
 sysfsutils
 sysstat
 systemd-sysvcompat
+task
 telegram-desktop
 texinfo
 thunar
@@ -274,6 +284,7 @@ ttf-bitstream-vera
 ttf-dejavu
 ttf-joypixels
 ttf-liberation
+ttf-nerd-fonts-symbols
 ttf-opensans
 ttf-sourcecodepro-nerd
 tumbler
@@ -291,11 +302,9 @@ welcome
 wget
 which
 whois
-windscribe-cli
 wireless-regdb
 wireless_tools
 wireplumber
-woeusb-ng
 wpa_supplicant
 xbindkeys
 xclip
@@ -320,5 +329,4 @@ xorg-xkill
 xorg-xrandr
 xterm
 yad
-yarn
 yay
