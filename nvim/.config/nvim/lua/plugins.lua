@@ -13,7 +13,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 return require("lazy").setup({
-	"nathom/filetype.nvim",
+	-- "nathom/filetype.nvim",
 
 	-- Debugguing
 	"nvim-lua/plenary.nvim",
