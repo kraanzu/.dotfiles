@@ -90,7 +90,7 @@ alias unlock='sudo rm /var/lib/pacman/db.lck' # remove pacman lock
 alias cleanup='sudo pacman -Rns (pacman -Qtdq)' # remove orphaned packages
 
 # adding flags
-alias df='df -h' # human-readable sizes
+alias df='df -h | grep -e "^/dev"' # human-readable sizes
 alias free='free -m' # show sizes in MB
 
 
