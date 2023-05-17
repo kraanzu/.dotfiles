@@ -31,7 +31,7 @@ spaces = {
     },
     group_dict[4]: {
         "key": "4",
-        "matches": [Match(wm_class="Brave-browser|evince")],
+        "matches": [Match(wm_class="Brave-browser|brave-browser|evince")],
         "layout": "verticaltile",
     },
     group_dict[5]: {
