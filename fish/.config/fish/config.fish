@@ -102,7 +102,7 @@ alias editcommit="git commit --amend"
 #-----MISC
 
 alias dclean='docker system prune -a --volumes'
-alias kayo='gdrive download --recursive --skip'
+alias kayo='gdrive2 download --recursive --skip'
 
 alias cf='rm -rf ~/CP && mkdir ~/CP '
 alias loff='xrandr --output eDP1 --off'
