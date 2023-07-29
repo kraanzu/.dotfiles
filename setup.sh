@@ -4,7 +4,8 @@
 sudo pacman -Syyu
 sudo pacman --noconfirm --needed -S yay
 
-yay --needed --noconfirm -S - < packages.txt
+# install all the installed packages
+while read pkg; do yay -S --needed --noconfirm $pkg; done < packages.txt
 
 mkdir -p ~/.undodir # vim undo dir
 
