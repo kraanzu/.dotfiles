@@ -8,4 +8,4 @@ dunst -conf ~/.config/dunst/dunstrc &
 for i in ~/.config/qtile/startup/*; do $i; done
 nitrogen --restore &
 for i in ~/.config/tmuxp/*; do .local/bin/tmuxp load -d $i; done
-picom --experimental-backends &
+picom &
