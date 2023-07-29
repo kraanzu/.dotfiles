@@ -51,7 +51,7 @@ spaces = {
     },
     group_dict[9]: {
         "key": "9",
-        "matches": [Match(wm_class="microsoft-edge")],
+        "matches": [Match(wm_class="microsoft-edge | google-chrome")],
     },
 }
 

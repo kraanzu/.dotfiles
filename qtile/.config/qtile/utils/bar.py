@@ -48,6 +48,7 @@ screen0_bar = bar.Bar(
         Spacer(),
         *widget_systray,
         *(widget_battery if psutil.sensors_battery() else []),
+        *widget_memory,
         *widget_volume,
         *widget_disk,
         *widget_clock,
@@ -60,7 +61,6 @@ screen0_bar = bar.Bar(
 
 screen1_bar = bar.Bar(
     [
-        *widget_favicon,
         SEP1,
         screen1_groups,
     ],
