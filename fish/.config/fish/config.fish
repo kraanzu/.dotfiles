@@ -116,7 +116,7 @@ alias grep='grep --color=auto'
 
 colorscript -e crunchbang-mini
 
-# export PYTHONDONTWRITEBYTECODE=1
+export PYTHONDONTWRITEBYTECODE=1
 
 export LANG=en_IN.UTF-8
 export TERM=xterm-256color
