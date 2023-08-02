@@ -1,6 +1,6 @@
 from typing import Callable, Dict, List
 from libqtile.config import Match
-from libqtile.config import EzKey as Keybind, Key
+from libqtile.config import EzKey as Keybind
 from libqtile.lazy import lazy
 from libqtile.core.manager import Qtile
 
