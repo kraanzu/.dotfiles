@@ -4,20 +4,22 @@ from libqtile.lazy import lazy
 from libqtile.core.manager import Qtile
 
 
+exclude_groups = ["scratchpad", "0"]
+
+
 def to_group(qtile: Qtile, name: str):
     if len(qtile.screens) == 1:
         qtile.groups_map[name].cmd_toscreen(toggle=True)
         return
 
-    exclude_group = ""
     current_group = qtile.current_group.name
 
-    if name in exclude_group:
+    if name in exclude_groups:
         qtile.focus_screen(1)
-        qtile.groups_map[name].cmd_toscreen(toggle=current_group in exclude_group)
+        qtile.groups_map[name].cmd_toscreen(toggle=current_group in exclude_groups)
     else:
         qtile.focus_screen(0)
-        qtile.groups_map[name].cmd_toscreen(toggle=current_group not in exclude_group)
+        qtile.groups_map[name].cmd_toscreen(toggle=current_group not in exclude_groups)
 
 
 def go_to_group(name: str) -> Callable:
@@ -30,7 +32,7 @@ def go_to_group(name: str) -> Callable:
 def go_to_next_group():
     def _inner(qtile: Qtile) -> None:
         current_group = qtile.current_group.name
-        groups = [i.name for i in qtile.groups if i.name != "scratchpad"]
+        groups = [i.name for i in qtile.groups if i.name not in exclude_groups]
         n = len(groups)
         idx = groups.index(current_group)
         idx = (idx + 1) % n
@@ -43,7 +45,7 @@ def go_to_next_group():
 def go_to_prev_group():
     def _inner(qtile: Qtile) -> None:
         current_group = qtile.current_group.name
-        groups = [i.name for i in qtile.groups if i.name != "scratchpad"]
+        groups = [i.name for i in qtile.groups if i.name not in exclude_groups]
         n = len(groups)
         idx = groups.index(current_group)
         idx = (idx + n - 1) % n
@@ -61,7 +63,6 @@ def create_workspace_bindings(groups: List[str]) -> List[Keybind]:
                 Keybind(
                     f"M-{index}",
                     lazy.function(go_to_group(workspace)),
-                    # lazy.group[workspace].toscreen(toggle=True),
                     desc="Focus this desktop",
                 ),
                 Keybind(

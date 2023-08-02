@@ -7,7 +7,6 @@ from qtile_extras.widget import GroupBox
 
 groupbox_base = {
     "font": "SauceCodePro Nerd Font",
-    "fontsize": 30,
     # "visible_groups": [group_dict[i] for i in range(1, 10)],
     "borderwidth": 2,
     "margin": 4,
@@ -25,12 +24,21 @@ groupbox_base = {
 
 screen0_groups = GroupBox(
     visible_groups=workspaces,
-    # this_current_screen_border=color[ACCENT2],
-    # other_screen_border=color["magenta"],
     this_current_screen_border=color[ACCENT2],
     this_screen_border=color[ACCENT2],
     other_current_screen_border=color["magenta"],
     other_screen_border=color["magenta"],
+    fontsize=30,
+    **groupbox_base,
+)
+
+screen1_groups = GroupBox(
+    visible_groups=["0"],
+    this_current_screen_border=color[ACCENT2],
+    this_screen_border=color[ACCENT2],
+    other_current_screen_border=color["magenta"],
+    other_screen_border=color["magenta"],
+    fontsize=20,
     **groupbox_base,
 )
 
@@ -54,7 +62,7 @@ screen0_bar = bar.Bar(
 )
 
 screen1_bar = bar.Bar(
-    [],
+    [SEP2, screen1_groups],
     size=40,
     background=color["dark2"][0],
 )

@@ -1,4 +1,3 @@
-workspaces = "󰻬 󱃖 󰐤  󰋒 󰋌  󰈚  ".split()
-workspaces = "         ".split()
-
-groups_config = {i % 10: j for i, j in enumerate(workspaces, 1)}
+# workspaces = "󰻬 󱃖 󰐤  󰋒 󰋌  󰈚  ".split()
+# workspaces = "         ".split()
+workspaces = "    ".split()

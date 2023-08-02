@@ -23,14 +23,14 @@ widget_defaults = dict(
     fontsize=16,
     padding=2,
     background=color["dark2"],
-    # background=color["transparent"],
 )
 
 groups: List[ScratchPad | Group] = [
     ScratchPad(
         "scratchpad",
-        [DropDown("term", f"alacritty", height=0.9, opacity=1)],
+        [DropDown("term", "alacritty", height=0.9, opacity=1)],  # noqa
     ),
+    Group("0", layout="verticaltile"),
     *[Group(workspace, layout="monadtall") for workspace in workspaces],
 ]
 
