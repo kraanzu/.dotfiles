@@ -24,19 +24,13 @@ groupbox_base = {
 }
 
 screen0_groups = GroupBox(
-    visible_groups=[group_dict[i] for i in range(1, 10)],
+    visible_groups=workspaces,
     # this_current_screen_border=color[ACCENT2],
     # other_screen_border=color["magenta"],
     this_current_screen_border=color[ACCENT2],
     this_screen_border=color[ACCENT2],
     other_current_screen_border=color["magenta"],
     other_screen_border=color["magenta"],
-    **groupbox_base,
-)
-
-screen1_groups = GroupBox(
-    visible_groups=[group_dict[i] for i in range(1, 10) if i in [4, 5]],
-    this_current_screen_border=color[ACCENT1],
     **groupbox_base,
 )
 
@@ -60,10 +54,7 @@ screen0_bar = bar.Bar(
 )
 
 screen1_bar = bar.Bar(
-    [
-        SEP1,
-        screen1_groups,
-    ],
+    [],
     size=40,
     background=color["dark2"][0],
 )

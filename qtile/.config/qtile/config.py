@@ -12,51 +12,12 @@ from utils import (
     screen1_bar,
     color,
     create_workspace_bindings,
-    group_dict,
+    workspaces,
 )
 
 
-# WORKSPACES
-spaces = {
-    group_dict[1]: {
-        "key": "1",
-        "matches": [],
-    },
-    group_dict[2]: {
-        "key": "2",
-        "matches": [Match(wm_class="code")],
-    },
-    group_dict[3]: {
-        "key": "3",
-    },
-    group_dict[4]: {
-        "key": "4",
-        "matches": [Match(wm_class="Brave-browser|brave-browser|evince")],
-        "layout": "verticaltile",
-    },
-    group_dict[5]: {
-        "key": "5",
-        "matches": [Match(wm_class="discord|telegram-desktop")],
-        "layout": "verticaltile",
-    },
-    group_dict[6]: {
-        "key": "6",
-    },
-    group_dict[7]: {
-        "key": "7",
-        "matches": [Match(wm_class="vlc")],
-    },
-    group_dict[8]: {
-        "key": "8",
-    },
-    group_dict[9]: {
-        "key": "9",
-        "matches": [Match(wm_class="microsoft-edge | google-chrome")],
-    },
-}
-
 # QTILE CONSTANTS
-keys = key_bindings + create_workspace_bindings(spaces)
+keys = key_bindings + create_workspace_bindings(workspaces)
 widget_defaults = dict(
     font="Sauce Code Pro Semibold Nerd Font",
     fontsize=16,
@@ -70,14 +31,7 @@ groups: List[ScratchPad | Group] = [
         "scratchpad",
         [DropDown("term", f"alacritty", height=0.9, opacity=1)],
     ),
-    *[
-        Group(
-            workspace,
-            layout=config.get("layout", "monadtall"),
-            matches=config.get("matches", None),
-        )
-        for workspace, config in spaces.items()
-    ],
+    *[Group(workspace, layout="monadtall") for workspace in workspaces],
 ]
 
 

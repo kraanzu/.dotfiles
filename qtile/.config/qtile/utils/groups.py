@@ -1,4 +1,4 @@
-groups = "󰻬 󱃖 󰐤  󰋒 󰋌  󰈚  ".split()
-groups = "         ".split()
+workspaces = "󰻬 󱃖 󰐤  󰋒 󰋌  󰈚  ".split()
+workspaces = "         ".split()
 
-group_dict = {i % 10: j for i, j in enumerate(groups, 1)}
+groups_config = {i % 10: j for i, j in enumerate(workspaces, 1)}

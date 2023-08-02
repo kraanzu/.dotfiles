@@ -28,10 +28,11 @@ from qtile_extras.widget import (
 )
 
 from utils.colors import color
-from utils.groups import group_dict
+from utils.groups import workspaces
 
 
 # ----------------- CONSTANTS ------------------
+groups_config = {i % 10: j for i, j in enumerate(workspaces, 1)}
 
 PAD = Spacer(length=4)
 SEP1 = Sep(linewidth=2, size_percent=65, foreground=color["dark3"])
@@ -145,7 +146,7 @@ widget_current_layout = padded(
 widget_group_box = GroupBox(
     font="SauceCodePro Nerd Font",
     fontsize=30,
-    visible_groups=[group_dict[i] for i in range(1, 10)],
+    visible_groups=[groups_config[i] for i in range(1, 10)],
     borderwidth=2,
     margin=4,
     active=color["light3"],

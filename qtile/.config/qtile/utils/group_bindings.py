@@ -1,5 +1,4 @@
-from typing import Callable, Dict, List
-from libqtile.config import Match
+from typing import Callable, List
 from libqtile.config import EzKey as Keybind
 from libqtile.lazy import lazy
 from libqtile.core.manager import Qtile
@@ -54,21 +53,19 @@ def go_to_prev_group():
     return _inner
 
 
-def create_workspace_bindings(
-    groups: Dict[str, Dict[str, str | Match]]
-) -> List[Keybind]:
+def create_workspace_bindings(groups: List[str]) -> List[Keybind]:
     group_bindings = []
-    for workspace, config in groups.items():
+    for index, workspace in enumerate(groups, 1):
         group_bindings.extend(
             [
                 Keybind(
-                    f"M-{config['key']}",
+                    f"M-{index}",
                     lazy.function(go_to_group(workspace)),
                     # lazy.group[workspace].toscreen(toggle=True),
                     desc="Focus this desktop",
                 ),
                 Keybind(
-                    f"M-S-{config['key']}",
+                    f"M-S-{index}",
                     lazy.window.togroup(workspace),
                     desc="Move focused window to another group",
                 ),
