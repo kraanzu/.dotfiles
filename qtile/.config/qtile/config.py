@@ -70,6 +70,7 @@ floating_layout = Floating(
         Match(wm_class="feh"),
         Match(wm_class="flameshot"),
         Match(wm_class="openrgb"),
+        Match(wm_class="Popsicle"),
         Match(func=lambda c: c.has_fixed_size()),
     ],
     border_width=3,
