@@ -16,6 +16,7 @@ from utils import (
     workspaces,
 )
 
+secondary_monitor_apps = ["brave", "discord", "telegram", "edge"]
 
 # QTILE CONSTANTS
 keys = key_bindings + create_workspace_bindings(workspaces)
@@ -92,8 +93,13 @@ layouts = [
 ]
 
 
+@hook.subscribe.client_new
+def func(win):
+    if any(i in win.name.lower() for i in secondary_monitor_apps):
+        win.togroup("0")
+
+
 @hook.subscribe.startup_once
 def start_once():
     os.system("~/.config/qtile/autostart.sh")
-    lazy.group['0'].toscreen()
-
+    lazy.group["0"].toscreen()
