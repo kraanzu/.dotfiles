@@ -101,11 +101,11 @@ key_bindings = [
         lazy.hide_show_bar("top"),
         desc="Toogle top-bar visibility",
     ),
-    Keybind(
-        "M-<Tab>",
-        lazy.next_layout(),
-        desc="Toggle through different layouts",
-    ),
+    # Keybind(
+    #     "M-<Tab>",
+    #     lazy.next_layout(),
+    #     desc="Toggle through different layouts",
+    # ),
     Keybind(
         "M-q",
         lazy.window.kill(),

@@ -1,5 +1,6 @@
 import os
 from typing import List
+from libqtile.lazy import lazy
 from libqtile.layout.xmonad import MonadTall
 from libqtile.layout.floating import Floating
 from libqtile.layout.verticaltile import VerticalTile
@@ -30,8 +31,8 @@ groups: List[ScratchPad | Group] = [
         "scratchpad",
         [DropDown("term", "alacritty", height=0.9, opacity=1)],  # noqa
     ),
-    Group("0", layout="verticaltile"),
     *[Group(workspace, layout="monadtall") for workspace in workspaces],
+    Group("0", layout="verticaltile"),
 ]
 
 
@@ -94,3 +95,5 @@ layouts = [
 @hook.subscribe.startup_once
 def start_once():
     os.system("~/.config/qtile/autostart.sh")
+    lazy.group['0'].toscreen()
+

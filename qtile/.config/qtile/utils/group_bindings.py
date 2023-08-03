@@ -13,13 +13,14 @@ def to_group(qtile: Qtile, name: str):
         return
 
     current_group = qtile.current_group.name
+    can_toggle = not (current_group in exclude_groups or name in exclude_groups)
 
     if name in exclude_groups:
         qtile.focus_screen(1)
-        qtile.groups_map[name].cmd_toscreen(toggle=current_group in exclude_groups)
+        qtile.groups_map[name].cmd_toscreen(toggle=can_toggle)
     else:
         qtile.focus_screen(0)
-        qtile.groups_map[name].cmd_toscreen(toggle=current_group not in exclude_groups)
+        qtile.groups_map[name].cmd_toscreen(toggle=can_toggle)
 
 
 def go_to_group(name: str) -> Callable:
@@ -57,7 +58,7 @@ def go_to_prev_group():
 
 def create_workspace_bindings(groups: List[str]) -> List[Keybind]:
     group_bindings = []
-    for index, workspace in enumerate(groups, 1):
+    for index, workspace in enumerate(["0"] + groups):
         group_bindings.extend(
             [
                 Keybind(
