@@ -2,7 +2,7 @@ import os
 from typing import List
 from libqtile.layout.xmonad import MonadTall
 from libqtile.layout.floating import Floating
-from libqtile.layout.verticaltile import VerticalTile
+from libqtile.layout.max import Max
 from libqtile.config import DropDown, ScratchPad, Screen, Group, Match
 from libqtile import bar, hook
 
@@ -31,7 +31,7 @@ groups: List[ScratchPad | Group] = [
         [DropDown("term", "alacritty", height=0.9, opacity=1)],  # noqa
     ),
     *[Group(workspace, layout="monadtall") for workspace in workspaces],
-    Group("0", layout="verticaltile"),
+    Group("0", layout="max", spawn="firefox -P kfun"),
 ]
 
 
@@ -77,7 +77,7 @@ layouts = [
         border_normal=color["dark2"],
     ),
     # floating_layout,
-    VerticalTile(
+    Max(
         border_width=3,
         margin=6,
         border_focus=color["cyan"],
