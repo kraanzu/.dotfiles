@@ -1,6 +1,5 @@
 import os
 from typing import List
-from libqtile.lazy import lazy
 from libqtile.layout.xmonad import MonadTall
 from libqtile.layout.floating import Floating
 from libqtile.layout.verticaltile import VerticalTile
@@ -10,7 +9,6 @@ from libqtile import bar, hook
 from utils import (
     key_bindings,
     screen0_bar,
-    screen1_bar,
     color,
     create_workspace_bindings,
     workspaces,
@@ -40,12 +38,6 @@ groups: List[ScratchPad | Group] = [
 screens = [
     Screen(
         top=screen0_bar,
-        bottom=bar.Gap(6),
-        left=bar.Gap(6),
-        right=bar.Gap(6),
-    ),
-    Screen(
-        top=screen1_bar,
         bottom=bar.Gap(6),
         left=bar.Gap(6),
         right=bar.Gap(6),
@@ -103,4 +95,3 @@ def func(win):
 @hook.subscribe.startup_once
 def start_once():
     os.system("~/.config/qtile/autostart.sh")
-    lazy.group["0"].toscreen()

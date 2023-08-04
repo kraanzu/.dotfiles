@@ -60,9 +60,3 @@ screen0_bar = bar.Bar(
     size=40,
     background=color["dark2"][0],
 )
-
-screen1_bar = bar.Bar(
-    [SEP2, screen1_groups],
-    size=40,
-    background=color["dark2"][0],
-)
