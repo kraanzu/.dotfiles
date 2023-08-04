@@ -25,12 +25,17 @@ widget_defaults = dict(
     background=color["dark2"],
 )
 
+spawns = {5: "firefox -P kwork"}
+
 groups: List[ScratchPad | Group] = [
     ScratchPad(
         "scratchpad",
         [DropDown("term", "alacritty", height=0.9, opacity=1)],  # noqa
     ),
-    *[Group(workspace, layout="monadtall") for workspace in workspaces],
+    *[
+        Group(workspace, layout="monadtall", spawn=spawns.get(index))
+        for index, workspace in enumerate(workspaces, 1)
+    ],
     Group("0", layout="max", spawn="firefox -P kfun"),
 ]
 
