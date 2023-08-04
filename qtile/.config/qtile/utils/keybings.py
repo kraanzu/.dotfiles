@@ -28,13 +28,13 @@ key_bindings = [
     # LAUNCHING APPS -> Ctrl + Alt + <Key>
     Keybind(
         "C-A-b",
-        lazy.spawn("firefox"),
-        desc="Launches firefox Browser",
+        lazy.spawn("firefox -P kwork"),
+        desc="Launches firefox with work profile",
     ),
     Keybind(
         "C-A-v",
-        lazy.spawn("brave"),
-        desc="Launches Brave Browser",
+        lazy.spawn("firefox -P kfun"),
+        desc="Launches firefox with personal profile",
     ),
     Keybind(
         "C-A-e",
