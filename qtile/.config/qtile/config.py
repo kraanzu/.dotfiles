@@ -14,7 +14,7 @@ from utils import (
     workspaces,
 )
 
-secondary_monitor_apps = ["brave", "discord", "telegram", "edge"]
+secondary_monitor_apps = ["discord", "telegram", "edge"]
 
 # QTILE CONSTANTS
 keys = key_bindings + create_workspace_bindings(workspaces)
