@@ -92,6 +92,12 @@ def func(win):
         win.togroup("0")
 
 
+@hook.subscribe.startup_complete
+def startup_complete():
+    os.system("xdotool key Super+0")
+    os.system("xdotool key Super+1")
+
+
 @hook.subscribe.startup_once
 def start_once():
     os.system("~/.config/qtile/autostart.sh")
