@@ -70,7 +70,7 @@ return require("lazy").setup({
 
 	-- GIT STUFF
 	"airblade/vim-gitgutter",
-	{ "tpope/vim-fugitive", cmd = "G" },
+	-- { "tpope/vim-fugitive", cmd = "G" },
 
 	-- HELPERS
 	{ "jiangmiao/auto-pairs" },
