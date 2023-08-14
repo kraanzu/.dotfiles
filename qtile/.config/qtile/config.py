@@ -14,7 +14,7 @@ from utils import (
     workspaces,
 )
 
-secondary_monitor_apps = ["discord", "telegram", "edge"]
+secondary_monitor_apps = ["discord", "telegram", "chrome"]
 
 # QTILE CONSTANTS
 keys = key_bindings + create_workspace_bindings(workspaces)
@@ -26,6 +26,8 @@ widget_defaults = dict(
 )
 
 spawns = {5: "firefox -P kwork"}
+matches = {4: "vlc"}
+
 
 groups: List[ScratchPad | Group] = [
     ScratchPad(
@@ -33,10 +35,19 @@ groups: List[ScratchPad | Group] = [
         [DropDown("term", "alacritty", height=0.9, opacity=1)],  # noqa
     ),
     *[
-        Group(workspace, layout="monadtall", spawn=spawns.get(index))
+        Group(
+            workspace,
+            layout="monadtall",
+            spawn=spawns.get(index),
+        )
         for index, workspace in enumerate(workspaces, 1)
     ],
-    Group("0", layout="max", spawn="firefox -P kfun"),
+    Group(
+        "0",
+        layout="max",
+        spawn="firefox -P kfun",
+        label="",
+    ),
 ]
 
 
@@ -47,6 +58,12 @@ screens = [
         left=bar.Gap(6),
         right=bar.Gap(6),
     ),
+    # Screen(
+    #     top=bar.Bar([Mpris2()], size=30),
+    #     bottom=bar.Gap(6),
+    #     left=bar.Gap(6),
+    #     right=bar.Gap(6),
+    # ),
 ]
 
 
@@ -94,7 +111,7 @@ layouts = [
 @hook.subscribe.client_new
 def func(win):
     if any(i in win.name.lower() for i in secondary_monitor_apps):
-        win.togroup("0")
+        return win.togroup("0")
 
 
 @hook.subscribe.startup_complete
