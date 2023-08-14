@@ -103,7 +103,7 @@ alias editcommit="git commit --amend"
 
 alias dclean='docker system prune -a --volumes'
 alias kayo='gdrive2 download --recursive --skip'
-alias msr='cd ~/Desktop/Microsoft_Rewards/ && source .venv/bin/activate.fish && python ms_rewards_farmer.py --superfast --dont-check-for-updates --headless'
+alias msr='cd ~/Desktop/Microsoft_Rewards/ && source .venv/bin/activate.fish && python ms_rewards_farmer.py --superfast --dont-check-for-updates'
 
 alias cf='rm -rf ~/CP && mkdir ~/CP '
 alias loff='xrandr --output eDP1 --off'
