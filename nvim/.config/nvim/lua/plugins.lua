@@ -13,22 +13,31 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 return require("lazy").setup({
-	-- "nathom/filetype.nvim",
-
 	-- Debugguing
 	"nvim-lua/plenary.nvim",
 	"mfussenegger/nvim-dap",
 
 	-- MAKING LIFE EASIER
+	{
+		"iamcco/markdown-preview.nvim",
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	},
 	{ "preservim/tagbar", cmd = "TagbarToggle" },
 	{
 		"nvim-treesitter/nvim-treesitter",
 		event = "BufRead",
 	},
-	{ "nvim-telescope/telescope.nvim", cmd = "Telescope" },
+	{ "nvim-telescope/telescope.nvim", cmd = "Telescope", tag = "0.1.2" },
 	{ "sbdchd/neoformat", event = "BufRead" },
-    {'TimUntersberger/neogit', cmd= "Neogit"},
-	{ "jreybert/vimagit", cmd = "Magit" },
+	{
+		"TimUntersberger/neogit",
+		cmd = "Neogit",
+		config = function()
+			require("neogit").setup()
+		end,
+	},
 	{
 		"williamboman/mason.nvim",
 		config = function()
@@ -58,7 +67,7 @@ return require("lazy").setup({
 		end,
 	},
 	"hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-cmdline",
+	"hrsh7th/cmp-cmdline",
 	"hrsh7th/vim-vsnip",
 	{
 		"ray-x/lsp_signature.nvim",
@@ -85,7 +94,6 @@ return require("lazy").setup({
 		event = "BufRead",
 	},
 
-    -- "arcticicestudio/nord-vim",
 	"gbprod/nord.nvim",
 	{
 		"folke/todo-comments.nvim",
@@ -103,6 +111,7 @@ return require("lazy").setup({
 		end,
 		dependencies = { "kyazdani42/nvim-web-devicons" },
 	},
+
 	{
 		"norcalli/nvim-colorizer.lua",
 		config = function()
