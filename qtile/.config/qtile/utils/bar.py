@@ -41,11 +41,9 @@ screen0_bar = bar.Bar(
         *(widget_battery if psutil.sensors_battery() else []),
         # *widget_memory,
         *widget_volume,
-        # *widget_disk,
         *widget_clock,
         *widget_day,
         PAD,
     ],
     size=40,
-    background=color["dark2"][0],
 )

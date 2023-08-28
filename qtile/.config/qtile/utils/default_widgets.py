@@ -76,7 +76,7 @@ def get_decor(c: str) -> dict:
                 filled=True,
                 padding_x=1,
                 padding_y=7,
-            )
+            ),
         ],
     }
 
