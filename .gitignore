@@ -1,4 +1,4 @@
 undodir/
-nvim/.config/nvim/lazy-lock.json
-tmux/.config/tmux/plugins/
+**/lazy-lock.json
+**/tmux/plugins/
 __pycache__/
