@@ -112,10 +112,7 @@ hwdetect
 hwinfo
 hyperfine
 i2c-tools
-i3-wm
-i3blocks
 i3lock
-i3status
 img2pdf
 inetutils
 inxi
@@ -222,8 +219,6 @@ rtl8761usb-dkms
 s-nail
 scrot
 sd
-sddm-catppuccin-git
-sddm-git
 sg3_utils
 shell-color-scripts
 shrinkpdf
