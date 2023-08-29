@@ -22,7 +22,7 @@ groupbox_base = dict(
 )
 
 screen0_groups = GroupBox(
-    visible_groups=workspaces,
+    visible_groups=['0'] + workspaces,
     this_current_screen_border=color[ACCENT2],
     this_screen_border=color[ACCENT2],
     other_current_screen_border=color["red"],
