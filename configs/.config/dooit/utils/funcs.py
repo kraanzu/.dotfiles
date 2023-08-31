@@ -1,8 +1,10 @@
 import os
 from datetime import datetime
+from typing import List
+from dooit.api import Manager, Todo
 
 
-def colored(text, color):
+def colored(text: str, color: str) -> str:
     return f"[{color}]{text}[/{color}]"
 
 
@@ -10,11 +12,11 @@ def get_time() -> str:
     return f"{datetime.now().time().strftime('%H:%M')}"
 
 
-def get_username():
+def get_username() -> str:
     return os.getlogin()
 
 
-def get_all_todos(manager):
+def get_all_todos(manager: Manager) -> List[Todo]:
     def fill(model):
         for workspace in model.workspaces:
             fill(workspace)
@@ -27,40 +29,26 @@ def get_all_todos(manager):
     return todos
 
 
-def get_total_completed(manager):
+def get_total_completed(manager) -> int:
     todos = get_all_todos(manager)
-    return sum(1 for t in todos if t.status == "COMPLETED")
+    return sum(t.is_completed() for t in todos)
 
 
-def get_total_completed_today(manager):
+def get_total_completed_today(manager) -> int:
     todos = get_all_todos(manager)
-    return sum(
-        1
-        for t in todos
-        if t.status == "COMPLETED" and t._due._value.date() == datetime.now().date()
-    )
+    return sum(t.is_completed() and t.is_due_today() for t in todos)
 
 
-def get_total_overdue(manager):
+def get_total_overdue(manager) -> int:
     todos = get_all_todos(manager)
-    return sum(1 for t in todos if t.status == "OVERDUE")
+    return sum(t.is_overdue() for t in todos)
 
 
-def get_total_pending(manager):
+def get_total_pending(manager) -> int:
     todos = get_all_todos(manager)
-    pending = 0
-    for t in todos:
-        if t.status == "PENDING":
-            pending += t.due != "none"
-
-    return pending
+    return sum(t.is_pending() and t.has_due_date() for t in todos)
 
 
-def get_pending_today(manager):
+def get_pending_today(manager) -> int:
     todos = get_all_todos(manager)
-    pending = 0
-    for t in todos:
-        if t.status == "PENDING":
-            pending += t.due != "none" and t._due._value.date() == datetime.now().date()
-
-    return pending
+    return sum(t.is_pending() and t.is_due_today() for t in todos)
