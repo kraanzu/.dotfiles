@@ -40,4 +40,4 @@ def status(status):
     return colored(f" {icon} {status} ", "r " + color)
 
 
-bar1 = {"A": [(status, 0.01)], "C": [get_tasks_today, " ", time]}
+bar1 = {"A": [(status, 0.01)], "C": [(get_tasks_today, 1), " ", user]}
