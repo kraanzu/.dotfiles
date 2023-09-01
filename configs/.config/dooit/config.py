@@ -4,6 +4,7 @@ from utils.colors import *
 from utils.funcs import *
 
 bar = bar1
+DASHBOARD = dashboard
 
 
 TODO = {
@@ -11,7 +12,7 @@ TODO = {
     "dim": grey,
     "highlight": white,
     "editing": cyan,
-    "pointer": " ",
+    "pointer": "",
     "children_hint": colored(
         " ({done}..{total})", green
     ),  # vars: remaining, done, total
@@ -37,6 +38,6 @@ WORKSPACE = {
     "dim": grey,
     "highlight": white,
     "editing": cyan,
-    "pointer": " ",
+    "pointer": "",
     "children_hint": colored(" +{count}", "b " + green),  # "[{count}]", # vars: count
 }
