@@ -22,9 +22,7 @@ TODO = {
     "effort_color": yellow,
     "recurrence_icon": "󰕇 ",
     "recurrence_color": blue,
-    "tags_icon": " ",
-    "tags_seperator": "icon",  # icon, pipe, comma
-    "tags_color": red,
+    "tags_color": orange,
     "completed_icon": "󰄲 ",
     "pending_icon": "󰡖 ",
     "overdue_icon": "󰀧 ",
