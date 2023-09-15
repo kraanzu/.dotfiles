@@ -2,11 +2,14 @@ noremap <Up> :Neogit<cr>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+" clear highlights as well
 noremap <silent> <C-L> :nohlsearch<CR><C-L>
 
 imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
 smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
 
+" Buffer stuff
 noremap <Tab> :bn<CR>
 noremap <S-Tab> :bp<CR>
 noremap <C-q> :bd<CR>
@@ -14,7 +17,6 @@ nmap <F12> :TagbarToggle<CR>
 
 "remove blank lines
 nnoremap <leader>xx <cmd>g/^$/d<cr>
-
 
 " keeping it centered
 nnoremap n nzzzv
@@ -31,9 +33,8 @@ nnoremap <expr> j (v:count > 5 ? "m'"  . v:count : "") . 'j'
 nnoremap <expr> k (v:count > 5 ? "m'"  . v:count : "") . 'k'
 
 " Moving Text
-
-inoremap <c-k> <esc>:m .-2<CR>==i
 inoremap <c-j> <esc>:m .+1<CR>==i
+inoremap <c-k> <esc>:m .-2<CR>==i
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
