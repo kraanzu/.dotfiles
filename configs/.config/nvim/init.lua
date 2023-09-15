@@ -1,16 +1,18 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 vim.cmd([[
 set termguicolors
 ]])
+
+-- essentials
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 vim.g.vsnip_snippet_dir = "~/.config/vsnip"
-
-require("plugins")
-
 vim.api.nvim_set_keymap("n", "<leader>ff", ":Neoformat<cr>", { noremap = true })
 
+-- setup plugins
+require("plugins")
+
+-- extras
 vim.cmd([[
-set termguicolors
 colorscheme nord
 hi Normal guibg=NONE
 ]])
