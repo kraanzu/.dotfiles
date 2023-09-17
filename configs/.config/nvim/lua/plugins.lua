@@ -13,30 +13,12 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 return require("lazy").setup({
-	-- Debugguing
+	-- ESSENTIALS
 	"nvim-lua/plenary.nvim",
 	"mfussenegger/nvim-dap",
-
-	-- MAKING LIFE EASIER
-	{
-		"iamcco/markdown-preview.nvim",
-		build = function()
-			vim.fn["mkdp#util#install"]()
-		end,
-	},
-	{ "preservim/tagbar", cmd = "TagbarToggle" },
 	{
 		"nvim-treesitter/nvim-treesitter",
 		event = "BufRead",
-	},
-	{ "nvim-telescope/telescope.nvim", cmd = "Telescope", tag = "0.1.2" },
-	{ "sbdchd/neoformat", event = "BufRead" },
-	{
-		"TimUntersberger/neogit",
-		cmd = "Neogit",
-		config = function()
-			require("neogit").setup()
-		end,
 	},
 	{
 		"williamboman/mason.nvim",
@@ -46,7 +28,7 @@ return require("lazy").setup({
 		cmd = "Mason",
 	},
 
-	-- AUTOCOMPLETE BABY
+	-- LSP
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
@@ -77,13 +59,25 @@ return require("lazy").setup({
 		event = "BufWrite",
 	},
 
-	-- GIT STUFF
-	"airblade/vim-gitgutter",
-	-- { "tpope/vim-fugitive", cmd = "G" },
+	-- USEFUL STUFF
+	{ "preservim/tagbar", cmd = "TagbarToggle" },
+	{ "nvim-telescope/telescope.nvim", cmd = "Telescope", tag = "0.1.2" },
+	{ "sbdchd/neoformat", event = "BufRead" },
+	-- {
+	-- 	"TimUntersberger/neogit",
+	-- 	cmd = "Neogit",
+	-- 	config = function()
+	-- 		require("neogit").setup()
+	-- 	end,
+	-- },
 
 	-- HELPERS
 	{ "jiangmiao/auto-pairs" },
 	{ "tomtom/tcomment_vim", event = "BufRead" },
+
+	-- GIT STUFF
+	"airblade/vim-gitgutter",
+	{ "tpope/vim-fugitive", cmd = "G" },
 
 	-- EYE CANDY
 	{
@@ -137,7 +131,7 @@ return require("lazy").setup({
 		end,
 	},
 
-	-- LANGAUGE STUFF
+	-- LANGAUGE SPECIFIC
 	{ "dag/vim-fish", ft = { "fish" } },
 	{ "cespare/vim-toml", ft = { "toml" } },
 	{ "rust-lang/rust.vim", ft = { "rs" } },
@@ -146,6 +140,13 @@ return require("lazy").setup({
 		ft = { "rs" },
 		config = function()
 			require("rust-tools").setup({})
+		end,
+	},
+	{
+		"iamcco/markdown-preview.nvim",
+		ft = { "md" },
+		build = function()
+			vim.fn["mkdp#util#install"]()
 		end,
 	},
 })

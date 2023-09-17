@@ -1,4 +1,4 @@
-noremap <Up> :Neogit<cr>
+noremap <Up> :G<CR>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
