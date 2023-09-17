@@ -1,7 +1,7 @@
 noremap <Up> :G<CR>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
-noremap <Right> <NOP>
+noremap <Right> :G push<CR>
 
 " clear highlights as well
 noremap <silent> <C-L> :nohlsearch<CR><C-L>
