@@ -63,13 +63,13 @@ return require("lazy").setup({
 	{ "preservim/tagbar", cmd = "TagbarToggle" },
 	{ "nvim-telescope/telescope.nvim", cmd = "Telescope", tag = "0.1.2" },
 	{ "sbdchd/neoformat", event = "BufRead" },
-	-- {
-	-- 	"TimUntersberger/neogit",
-	-- 	cmd = "Neogit",
-	-- 	config = function()
-	-- 		require("neogit").setup()
-	-- 	end,
-	-- },
+	{
+		"TimUntersberger/neogit",
+		cmd = "Neogit",
+		config = function()
+			require("neogit").setup()
+		end,
+	},
 
 	-- HELPERS
 	{ "jiangmiao/auto-pairs" },
