@@ -19,7 +19,7 @@ END='\033[0m'
 
 # STOW all the configs
 echo -e "${G}[+] Setting up configs...${END}"
-stow configs/
+stow configs/ --target=/home/$USER/.config
 
 # Installs nord icons
 echo -en "${G}[+] Setting up icons...  ${END}"
