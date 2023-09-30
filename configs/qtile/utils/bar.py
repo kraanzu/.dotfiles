@@ -22,7 +22,7 @@ groupbox_base = dict(
 )
 
 screen0_groups = GroupBox(
-    visible_groups=['0'] + workspaces,
+    visible_groups=workspaces,
     this_current_screen_border=color[ACCENT2],
     this_screen_border=color[ACCENT2],
     other_current_screen_border=color["red"],
@@ -39,7 +39,7 @@ screen0_bar = bar.Bar(
         Spacer(),
         *widget_systray,
         *(widget_battery if psutil.sensors_battery() else []),
-        # *widget_memory,
+        *widget_memory,
         *widget_volume,
         *widget_clock,
         *widget_day,
