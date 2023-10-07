@@ -1,8 +1,8 @@
 local wezterm = require("wezterm")
-local _ = require("utils")
 local tab_bar_left = require("tab_bar_left")
-require("tab_bar_right")
 local mux = require("mux")
+require("utils")
+require("tab_extras")
 
 local config = {}
 

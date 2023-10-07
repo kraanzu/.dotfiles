@@ -17,4 +17,10 @@ function M.is_in(phrase, substring)
 	return ok
 end
 
+M.tab_separator = {
+	{ Background = { Color = "#2e3440" } },
+	{ Foreground = { Color = "#2e3440" } },
+	{ Text = " " },
+}
+
 return M

@@ -3,21 +3,9 @@ local utils = require("utils")
 
 M = {}
 
-M.tab_colors = {
-	tab_bar = {
-		background = "#2e3440",
-	},
-}
-
 local icons = {
 	vim = "",
 	nvim = "",
-}
-
-local tab_separator = {
-	{ Background = { Color = "#2e3440" } },
-	{ Foreground = { Color = "#2e3440" } },
-	{ Text = " " },
 }
 
 function M.get_icon(cmd, cwd)
@@ -67,7 +55,7 @@ wezterm.on("format-tab-title", function(tab)
 		}
 	end
 
-	utils.appendTables(Res, tab_separator)
+	utils.appendTables(Res, utils.tab_separator)
 	return Res
 end)
 
