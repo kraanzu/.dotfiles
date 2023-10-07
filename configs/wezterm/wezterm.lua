@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 local _ = require("utils")
-local tab_bar = require("tab_bar")
+local tab_bar_left = require("tab_bar_left")
 local mux = require("mux")
 
 local config = {}
@@ -18,7 +18,7 @@ config.keys = {
 	{ key = "/", mods = "CTRL", action = wezterm.action({ SendString = "\x1f" }) },
 }
 
-tab_bar.extra_config(config)
+tab_bar_left.extra_config(config)
 mux.extra_config(config)
 
 return config
