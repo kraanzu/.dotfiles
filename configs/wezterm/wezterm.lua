@@ -3,6 +3,8 @@ local tab_bar_left = require("tab_bar_left")
 local mux = require("mux")
 require("utils")
 require("tab_extras")
+require("startup")
+
 
 local config = {}
 
