@@ -11,7 +11,7 @@ config.use_fancy_tab_bar = false
 config.cell_width = 0.95
 config.window_background_opacity = 0.95
 config.font_size = 16.5
-config.hide_tab_bar_if_only_one_tab = true
+-- config.hide_tab_bar_if_only_one_tab = true
 config.font = wezterm.font("SauceCodePro Nerd Font", { weight = "DemiBold" })
 
 -- handle vim's TComment
