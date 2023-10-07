@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 local tab_bar_left = require("tab_bar_left")
-local act = wezterm.action
 local mux = require("mux")
+local keys = require("keys")
 require("utils")
 require("tab_extras")
 require("startup")
@@ -13,17 +13,11 @@ config.use_fancy_tab_bar = false
 config.cell_width = 0.95
 config.window_background_opacity = 0.95
 config.font_size = 16.5
--- config.hide_tab_bar_if_only_one_tab = true
 config.font = wezterm.font("SauceCodePro Nerd Font", { weight = "DemiBold" })
+-- config.hide_tab_bar_if_only_one_tab = true
 
--- handle vim's TComment
-config.keys = {
-	{ key = "/", mods = "CTRL", action = wezterm.action({ SendString = "\x1f" }) },
-	{ key = "RightArrow", mods = "CTRL", action = act.SwitchWorkspaceRelative(1) },
-	{ key = "LeftArrow", mods = "CTRL", action = act.SwitchWorkspaceRelative(-1) },
-}
-
-tab_bar_left.extra_config(config)
-mux.extra_config(config)
+tab_bar_left.setup(config)
+mux.setup(config)
+keys.setup(config)
 
 return config

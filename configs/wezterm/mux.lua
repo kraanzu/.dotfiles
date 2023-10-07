@@ -1,6 +1,6 @@
 local M = {}
 
-function M.extra_config(config)
+function M.setup(config)
 	config.unix_domains = {
 		{
 			name = "unix",

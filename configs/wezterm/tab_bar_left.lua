@@ -61,7 +61,7 @@ end)
 
 -- =======================================
 
-function M.extra_config(config)
+function M.setup(config)
 	config.colors = {
 		tab_bar = {
 			background = "#2e3440",
