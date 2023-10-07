@@ -1,6 +1,7 @@
 local wezterm = require("wezterm")
 local _ = require("utils")
 local tab_bar = require("tab_bar")
+local mux = require("mux")
 
 local config = {}
 
@@ -18,5 +19,6 @@ config.keys = {
 }
 
 tab_bar.extra_config(config)
+mux.extra_config(config)
 
 return config
