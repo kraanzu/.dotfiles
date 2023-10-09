@@ -18,13 +18,16 @@ B='\033[0;34m'
 END='\033[0m'
 
 # STOW all the configs
-echo -e "${G}[+] Setting up configs...${END}"
-stow configs/ --target=/home/$USER/.config
+echo -e "${G}[+] Setting up regular configs...${END}"
+stow --dir=$HOME/.dotfiles --target=/home/$USER/.config configs
+
+echo -e "${G}[+] Setting up personal configs...${END}"
+stow --dir=$HOME/.dotfiles/personal/ --target=$HOME configs
 
 # Installs nord icons
 echo -en "${G}[+] Setting up icons...  ${END}"
 mkdir -p ~/.icons
-tar -xf ~/.dotfiles/others/files/icons.tar.xz -C ~/.icons
+tar -xf ~/.dotfiles/others/icons.tar.xz -C ~/.icons
 
 # Outro
 echo -e "${G}Done!${END}"
