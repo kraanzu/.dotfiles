@@ -15,7 +15,7 @@ function M.get_icon(cmd, cwd)
 		elseif utils.is_in(cwd, "Documents") then
 			return "󰃀"
 		else
-			return "󰈺"
+			return ""
 		end
 	end
 

@@ -6,7 +6,7 @@ wezterm.on("mux-startup", function()
 		workspace = "main",
 	})
 	local _ = mux.spawn_window({
-		workspace = "scratch",
+		workspace = "extra",
 	})
 	mux.set_active_workspace("main")
 end)
