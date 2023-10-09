@@ -2,7 +2,8 @@ import os
 from libqtile.config import EzKey as Keybind
 from libqtile.lazy import lazy
 
-terminal = "alacritty"
+terminal = "wezterm-gui connect unix --workspace main"
+scratch = "wezterm-gui connect unix --workspace extra"
 home = os.path.expanduser("~")
 scripts = home + "/.config/qtile/scripts"
 myConfig = home + "/.config/qtile/config.py"
@@ -61,6 +62,11 @@ key_bindings = [
         "M-b",
         lazy.spawn(f"blueberry"),
         desc="Lauch bluetooth manager",
+    ),
+    Keybind(
+        "A-<Return>",
+        lazy.spawn(scratch),
+        desc="Launches Terminal",
     ),
     Keybind(
         "M-<Return>",

@@ -14,6 +14,8 @@ from utils import (
     workspaces,
 )
 
+terminal = "wezterm-gui"
+scratch_terminal = "wezterm-gui connect unix --workspace scratch"
 secondary_monitor_apps = ["discord", "telegram", "chrome"]
 
 # QTILE CONSTANTS
@@ -32,7 +34,7 @@ matches = {4: "vlc"}
 groups: List[ScratchPad | Group] = [
     ScratchPad(
         "scratchpad",
-        [DropDown("term", "alacritty", height=0.9, opacity=1)],  # noqa
+        [DropDown("term", terminal, height=0.9, opacity=1)],  # noqa
     ),
     *[
         Group(
