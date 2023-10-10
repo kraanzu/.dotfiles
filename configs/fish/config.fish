@@ -1,3 +1,6 @@
+# -------SOURCE SECRETS-----------------
+source $HOME/.config/fish/secrets.fish
+
 #--------CUSTOM FUNCTIONS---------------
 fish_vi_key_bindings
 
