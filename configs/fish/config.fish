@@ -102,22 +102,14 @@ alias uncommit="git reset HEAD~1"
 alias recommit="git commit --amend --no-edit"
 alias editcommit="git commit --amend"
 
-#-----MISC
-
+# MISC
 alias dclean='docker system prune -a --volumes'
 alias kayo='gdrive2 download --recursive --skip'
-alias msr='cd ~/Desktop/Microsoft_Rewards/ && source .venv/bin/activate.fish && python ms_rewards_farmer.py --superfast --dont-check-for-updates'
-
-alias cf='rm -rf ~/CP && mkdir ~/CP '
 alias loff='xrandr --output eDP1 --off'
 alias lonn='xrandr --output eDP1 --auto'
-alias doo='cd ~/Documents/dooit && source ../venv/bin/activate.fish && clear'
-alias term='cd ~/Documents/termtyper && source venv/bin/activate.fish && clear'
 
-#-----GREP COLOR
+# GREP COLOR
 alias grep='grep --color=auto'
-
-colorscript -e crunchbang-mini
 
 export PYTHONDONTWRITEBYTECODE=1
 
