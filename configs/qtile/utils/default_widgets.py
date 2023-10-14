@@ -39,7 +39,6 @@ SEP1 = Sep(linewidth=2, size_percent=65, foreground=color["dark3"])
 # SEP2 = TextBox(text="", fontsize=20, foreground=color["dark3"])
 
 ICON_WIDGET_DEFAULTS = {
-    "font": "SauceCodePro Nerd Font",
     "fontsize": 23,
 }
 
@@ -127,7 +126,6 @@ def IconWidgetPoll(func: Callable, color: str) -> GenPollText:
 # LEFTMOST ICON ON THE BAR
 widget_favicon = [
     TextBox(
-        font="SauceCodePro Nerd Font",
         foreground=color[ACCENT1],
         fontsize=23,
         text=f" {FAVICON} ",
@@ -184,7 +182,7 @@ widget_wifi = padded(
 widget_clock = padded(
     IconWidget("ﮌ", ACCENT1),
     Clock(
-        format=" %H:%M ",
+        format="%H:%M",
         **get_decor(DARK),
     ),
 )
@@ -193,17 +191,17 @@ widget_clock = padded(
 widget_day = padded(
     IconWidget("", ACCENT1),
     Clock(
-        format=" %A, %B %d ",
+        format="%A, %B %d",
         **get_decor(DARK),
     ),
 )
 
 # MEMORY WIDGET
 widget_memory = padded(
-    IconWidget("", ACCENT1),
+    IconWidget("󰸼", ACCENT1),
     Memory(
         measure_mem="M",
-        format=" {MemUsed: .0f} {mm} ",
+        format="{MemUsed:.0f} {mm}",
         **get_decor(DARK),
     ),
 )
@@ -270,9 +268,9 @@ widget_thermal = padded(
 
 # CPU WIDGET
 widget_cpu = padded(
-    IconWidget("", ACCENT1),
+    IconWidget("󰻠", ACCENT1),
     CPU(
-        format=" {load_percent}% ",
+        format="{load_percent}%",
         **get_decor(DARK),
     ),
 )

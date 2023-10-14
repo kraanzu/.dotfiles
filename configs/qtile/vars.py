@@ -1,5 +1,5 @@
 # WIDGET FONTS
-FONT = "Sauce Code Pro Semibold Nerd Font"
+FONT = "Sauce Code Pro Nerd Font"
 
 # TERMINALS
 terminal = "wezterm-gui connect unix --workspace main"

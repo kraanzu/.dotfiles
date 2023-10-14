@@ -6,7 +6,6 @@ from utils.default_widgets import *
 from qtile_extras.widget import GroupBox
 
 groupbox_base = dict(
-    font="SauceCodePro Nerd Font",
     active=color["light3"],
     inactive=color["grey"],
     disable_drag=True,
