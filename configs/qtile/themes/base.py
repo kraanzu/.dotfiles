@@ -13,6 +13,36 @@ from utils import (
     workspaces,
 )
 
+# USER CONSTANTS
+WORKSPACES = list("12345")
+EXTRA_WORKSPACE = "0"
+
+
+def get_groups(
+    workspaces: List[str] = WORKSPACES, extra_workspace: str = EXTRA_WORKSPACE
+):
+    groups = []
+
+    for index, workspace in enumerate(workspaces, 1):
+        groups.append(
+            Group(
+                workspace,
+                layout="monadtall",
+                spawn=SPAWNS.get(index),
+            )
+        )
+
+    groups.append(
+        Group(
+            "0",
+            layout="max",
+            spawn=SPAWNS.get(0),
+            label=extra_workspace,
+        )
+    )
+
+    return groups
+
 
 # QTILE CONSTANTS
 keys = key_bindings + create_workspace_bindings(workspaces)
@@ -30,25 +60,11 @@ groups: List[ScratchPad | Group] = [
         [
             DropDown(
                 name="scratch_terminal",
-                cmd="wezterm",
+                cmd=scratch_terminal,
                 height=0.9,
                 opacity=1,
             )
         ],
-    ),
-    *[
-        Group(
-            workspace,
-            layout="monadtall",
-            spawn=SPAWNS.get(index),
-        )
-        for index, workspace in enumerate(workspaces, 1)
-    ],
-    Group(
-        "0",
-        layout="max",
-        spawn=SPAWNS.get(0),
-        label="",
     ),
 ]
 
@@ -93,7 +109,7 @@ layouts = [
 ]
 
 
-# HOOKS
+# QTILE HOOKS
 
 @hook.subscribe.client_new
 def func(win):

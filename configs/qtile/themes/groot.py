@@ -3,6 +3,10 @@ from utils import screen0_bar
 from libqtile import bar
 from libqtile.config import Screen
 
+WORKSPACES = "    ".split()
+EXTRA_WORKSPACE = ""
+
+groups.extend(get_groups(WORKSPACES, EXTRA_WORKSPACE))
 
 screens = [
     Screen(
