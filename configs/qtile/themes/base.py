@@ -1,9 +1,10 @@
 import os
 from typing import List
+from libqtile.backend.base import Window
 from libqtile.layout.xmonad import MonadTall
 from libqtile.layout.floating import Floating
 from libqtile.layout.max import Max
-from libqtile.config import DropDown, ScratchPad, Group, Match
+from libqtile.config import DropDown, ScratchPad, Group
 from libqtile import hook
 from vars import *
 from utils import (
@@ -13,7 +14,9 @@ from utils import (
     workspaces,
 )
 
-# USER CONSTANTS
+# ------------------- USER CONSTANTS ---------------------
+
+FLOATING_WINS = ["feh", "flameshot", "openrgb", "popsicle"]
 WORKSPACES = list("12345")
 EXTRA_WORKSPACE = "0"
 SCRATCHPAD = ScratchPad(
@@ -49,9 +52,7 @@ def configure_workspaces(
     return groups
 
 
-# ---------------- QTILE CONSTANTS -------------------------
-
-keys = key_bindings + create_workspace_bindings(workspaces)
+# -------------------- DEFAULTS ------------------------
 
 widget_defaults = dict(
     font=FONT,
@@ -60,56 +61,35 @@ widget_defaults = dict(
     background=color["dark2"],
 )
 
-groups: List[ScratchPad | Group] = [SCRATCHPAD]
-
-
-floating_layout = Floating(
-    float_rules=[
-        Match(wm_type="utility"),
-        Match(wm_type="toolbar"),
-        Match(wm_type="splash"),
-        Match(wm_type="dialog"),
-        Match(wm_class="file_progress"),
-        Match(wm_class="confirm"),
-        Match(wm_class="dialog"),
-        Match(wm_class="download"),
-        Match(wm_class="error"),
-        Match(wm_class="notification"),
-        Match(wm_class="splash"),
-        Match(wm_class="toolbar"),
-        Match(wm_class="feh"),
-        Match(wm_class="flameshot"),
-        Match(wm_class="openrgb"),
-        Match(wm_class="Popsicle"),
-        Match(func=lambda c: c.has_fixed_size()),
-    ],
+layout_defaults = dict(
     border_width=3,
     border_focus=color["cyan"],
+    border_normal=color["dark2"],
 )
 
-layouts = [
-    MonadTall(
-        border_width=3,
-        margin=6,
-        border_focus=color["cyan"],
-        border_normal=color["dark2"],
-    ),
-    Max(
-        border_width=3,
-        margin=6,
-        border_focus=color["cyan"],
-        border_normal=color["dark2"],
-    ),
-]
+# ---------------- QTILE CONSTANTS -------------------------
 
+keys = key_bindings + create_workspace_bindings(workspaces)
+groups: List[ScratchPad | Group] = [SCRATCHPAD]
+floating_layout = Floating(None, None, **layout_defaults)
+layouts = [
+    MonadTall(**layout_defaults),
+    Max(**layout_defaults),
+]
 
 # ------------------- QTILE HOOKS ---------------------
 
 
 @hook.subscribe.client_new
-def func(win):
+def func(win: Window):
     if any(i in win.name.lower() for i in secondary_apps):
         return win.togroup("0")
+
+    # FLOAT
+    wm_class = win.get_wm_class()
+    if wm_class:
+        if any(app.lower() in FLOATING_WINS for app in wm_class):
+            return win.cmd_enable_floating()
 
 
 @hook.subscribe.startup_complete
