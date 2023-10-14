@@ -20,7 +20,7 @@ from vars import *
 keys = key_bindings + create_workspace_bindings(workspaces)
 
 widget_defaults = dict(
-    font="Sauce Code Pro Semibold Nerd Font",
+    font=FONT,
     fontsize=16,  # 16 for text, 25 for icons
     padding=2,
     background=color["dark2"],
