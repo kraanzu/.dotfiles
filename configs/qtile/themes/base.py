@@ -16,10 +16,15 @@ from utils import (
 # USER CONSTANTS
 WORKSPACES = list("12345")
 EXTRA_WORKSPACE = "0"
+SCRATCHPAD = ScratchPad(
+    name="scratchpad",
+    dropdowns=[DropDown(name="term", cmd=scratch_terminal, height=0.9, opacity=1)],
+)
 
 
-def get_groups(
-    workspaces: List[str] = WORKSPACES, extra_workspace: str = EXTRA_WORKSPACE
+def configure_workspaces(
+    workspaces: List[str] = WORKSPACES,
+    extra_workspace: str = EXTRA_WORKSPACE,
 ):
     groups = []
 
@@ -44,29 +49,18 @@ def get_groups(
     return groups
 
 
-# QTILE CONSTANTS
+# ---------------- QTILE CONSTANTS -------------------------
+
 keys = key_bindings + create_workspace_bindings(workspaces)
 
 widget_defaults = dict(
     font=FONT,
     fontsize=16,  # 16 for text, 25 for icons
-    padding=2,
+    padding=3,
     background=color["dark2"],
 )
 
-groups: List[ScratchPad | Group] = [
-    ScratchPad(
-        "scratchpad",
-        [
-            DropDown(
-                name="scratch_terminal",
-                cmd=scratch_terminal,
-                height=0.9,
-                opacity=1,
-            )
-        ],
-    ),
-]
+groups: List[ScratchPad | Group] = [SCRATCHPAD]
 
 
 floating_layout = Floating(
@@ -109,7 +103,8 @@ layouts = [
 ]
 
 
-# QTILE HOOKS
+# ------------------- QTILE HOOKS ---------------------
+
 
 @hook.subscribe.client_new
 def func(win):

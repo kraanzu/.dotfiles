@@ -6,7 +6,7 @@ from libqtile.config import Screen
 WORKSPACES = "    ".split()
 EXTRA_WORKSPACE = ""
 
-groups.extend(get_groups(WORKSPACES, EXTRA_WORKSPACE))
+groups.extend(configure_workspaces(WORKSPACES, EXTRA_WORKSPACE))
 
 screens = [
     Screen(
