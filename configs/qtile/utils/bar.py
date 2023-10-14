@@ -7,8 +7,6 @@ from qtile_extras.widget import GroupBox
 
 groupbox_base = dict(
     font="SauceCodePro Nerd Font",
-    borderwidth=2,
-    margin=4,
     active=color["light3"],
     inactive=color["grey"],
     disable_drag=True,
@@ -18,7 +16,6 @@ groupbox_base = dict(
     inactive_highlight_method="text",
     foreground=color["light1"],
     urgent_border=color["red"],
-    padding=2.5,
 )
 
 screen0_groups = GroupBox(
@@ -39,6 +36,7 @@ screen0_bar = bar.Bar(
         Spacer(),
         *widget_systray,
         *(widget_battery if psutil.sensors_battery() else []),
+        # *widget_wttr,
         *widget_memory,
         *widget_volume,
         *widget_clock,

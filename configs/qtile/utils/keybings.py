@@ -75,7 +75,7 @@ key_bindings = [
     ),
     Keybind(
         "M-s",
-        lazy.group["scratchpad"].dropdown_toggle("term"),
+        lazy.group["scratchpad"].dropdown_toggle("scratch_terminal"),
         desc="Launches Terminal Scratchpad",
     ),
     Keybind(

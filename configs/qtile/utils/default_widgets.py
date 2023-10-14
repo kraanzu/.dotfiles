@@ -36,7 +36,7 @@ groups_config = {i % 10: j for i, j in enumerate(workspaces, 1)}
 
 PAD = Spacer(length=4)
 SEP1 = Sep(linewidth=2, size_percent=65, foreground=color["dark3"])
-SEP2 = TextBox(text="", fontsize=20, foreground=color["dark3"])
+# SEP2 = TextBox(text="", fontsize=20, foreground=color["dark3"])
 
 ICON_WIDGET_DEFAULTS = {
     "font": "SauceCodePro Nerd Font",
@@ -129,7 +129,7 @@ widget_favicon = [
     TextBox(
         font="SauceCodePro Nerd Font",
         foreground=color[ACCENT1],
-        fontsize=25,
+        fontsize=23,
         text=f" {FAVICON} ",
     ),
 ]
@@ -140,26 +140,6 @@ widget_current_layout = padded(
         # foreground=color[DARK],
         **get_decor(DARK),
     )
-)
-
-# WORKSPACE WIDGET
-widget_group_box = GroupBox(
-    font="SauceCodePro Nerd Font",
-    fontsize=30,
-    visible_groups=workspaces,
-    borderwidth=2,
-    margin=4,
-    active=color["light3"],
-    inactive=color["grey"],
-    disable_drag=True,
-    highlight_color=color["light2"],
-    block_highlight_text_color=color["dark1"],
-    highlight_method="text",
-    inactive_highlight_method="block",
-    this_current_screen_border=color[ACCENT2],
-    foreground=color["light1"],
-    urgent_border=color["red"],
-    padding=2.5,
 )
 
 # SYSTRAY WIDGET
@@ -269,8 +249,8 @@ widget_nvidia_sensor = padded(
 widget_wttr = padded(
     Wttr(
         location={LOCATION: LOCATION},
-        format="%c",
-        fontsize=22,
+        format="%C",
+        # fontsize=22,
         **get_decor(ACCENT1),
     ),
     Wttr(
