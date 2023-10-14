@@ -32,22 +32,9 @@ def configure_workspaces(
     groups = []
 
     for index, workspace in enumerate(workspaces, 1):
-        groups.append(
-            Group(
-                workspace,
-                layout="monadtall",
-                spawn=SPAWNS.get(index),
-            )
-        )
+        groups.append(Group(workspace, layout="monadtall", spawn=SPAWNS.get(index)))
 
-    groups.append(
-        Group(
-            "0",
-            layout="max",
-            spawn=SPAWNS.get(0),
-            label=extra_workspace,
-        )
-    )
+    groups.append(Group("0", layout="max", spawn=SPAWNS.get(0), label=extra_workspace))
 
     return groups
 
