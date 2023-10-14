@@ -1,5 +1,5 @@
 from themes.base import *
-from utils import screen0_bar
+from bars.groot_bar import groot_bar
 from libqtile import bar
 from libqtile.config import Screen
 
@@ -10,7 +10,7 @@ groups.extend(configure_workspaces(WORKSPACES, EXTRA_WORKSPACE))
 
 screens = [
     Screen(
-        top=screen0_bar,
+        top=groot_bar,
         bottom=bar.Gap(6),
         left=bar.Gap(6),
         right=bar.Gap(6),
