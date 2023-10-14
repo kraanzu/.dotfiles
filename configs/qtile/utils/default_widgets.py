@@ -7,14 +7,12 @@ from libqtile.widget.currentlayout import CurrentLayout
 from qtile_extras.widget import (
     DF,
     CPU,
-    # CurrentLayout,
     Bluetooth,
     Battery,
     Net,
     Spacer,
     Sep,
     Systray,
-    GroupBox,
     Clock,
     Volume,
     Memory,
@@ -28,11 +26,9 @@ from qtile_extras.widget import (
 )
 
 from utils.colors import color
-from utils.groups import workspaces
 
 
 # ----------------- CONSTANTS ------------------
-groups_config = {i % 10: j for i, j in enumerate(workspaces, 1)}
 
 PAD = Spacer(length=4)
 SEP1 = Sep(linewidth=2, size_percent=65, foreground=color["dark3"])

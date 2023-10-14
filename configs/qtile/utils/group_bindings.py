@@ -58,17 +58,20 @@ def go_to_prev_group():
 
 def create_workspace_bindings(groups: List[str]) -> List[Keybind]:
     group_bindings = []
-    for index, workspace in enumerate(["0"] + groups):
+    # for index, _ in enumerate(["0"] + groups):
+    for index in range(len(groups)):
+        index = str(index + 1)
+
         group_bindings.extend(
             [
                 Keybind(
                     f"M-{index}",
-                    lazy.function(go_to_group(workspace)),
+                    lazy.function(go_to_group(str(index))),
                     desc="Focus this desktop",
                 ),
                 Keybind(
                     f"M-S-{index}",
-                    lazy.window.togroup(workspace),
+                    lazy.window.togroup(str(index)),
                     desc="Move focused window to another group",
                 ),
             ]

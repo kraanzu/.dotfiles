@@ -7,12 +7,7 @@ from libqtile.layout.max import Max
 from libqtile.config import DropDown, ScratchPad, Group
 from libqtile import hook
 from vars import *
-from utils import (
-    key_bindings,
-    color,
-    create_workspace_bindings,
-    workspaces,
-)
+from utils import key_bindings, color, create_workspace_bindings
 
 # ------------------- USER CONSTANTS ---------------------
 
@@ -32,7 +27,11 @@ def configure_workspaces(
     groups = []
 
     for index, workspace in enumerate(workspaces, 1):
-        groups.append(Group(workspace, layout="monadtall", spawn=SPAWNS.get(index)))
+        groups.append(
+            Group(
+                str(index), layout="monadtall", spawn=SPAWNS.get(index), label=workspace
+            )
+        )
 
     groups.append(Group("0", layout="max", spawn=SPAWNS.get(0), label=extra_workspace))
 
@@ -56,7 +55,7 @@ layout_defaults = dict(
 
 # ---------------- QTILE CONSTANTS -------------------------
 
-keys = key_bindings + create_workspace_bindings(workspaces)
+keys = key_bindings + create_workspace_bindings(WORKSPACES)
 groups: List[ScratchPad | Group] = [SCRATCHPAD]
 floating_layout = Floating(None, None, **layout_defaults)
 layouts = [
