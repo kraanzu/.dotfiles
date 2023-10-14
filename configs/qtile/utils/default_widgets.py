@@ -200,8 +200,8 @@ widget_day = padded(
 widget_memory = padded(
     IconWidget("󰸼", ACCENT1),
     Memory(
-        measure_mem="M",
-        format="{MemUsed:.0f} {mm}",
+        measure_mem="G",
+        format='{MemUsed:.1f}<b>GB</b>',
         **get_decor(DARK),
     ),
 )
