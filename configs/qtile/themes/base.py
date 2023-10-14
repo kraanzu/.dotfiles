@@ -5,15 +5,13 @@ from libqtile.layout.floating import Floating
 from libqtile.layout.max import Max
 from libqtile.config import DropDown, ScratchPad, Group, Match
 from libqtile import hook
-
+from vars import *
 from utils import (
     key_bindings,
     color,
     create_workspace_bindings,
     workspaces,
 )
-
-from vars import *
 
 
 # QTILE CONSTANTS
@@ -94,6 +92,8 @@ layouts = [
     ),
 ]
 
+
+# HOOKS
 
 @hook.subscribe.client_new
 def func(win):
