@@ -58,9 +58,8 @@ def go_to_prev_group():
 
 def create_workspace_bindings(groups: List[str]) -> List[Keybind]:
     group_bindings = []
-    # for index, _ in enumerate(["0"] + groups):
-    for index in range(len(groups)):
-        index = str(index + 1)
+    for index in range(len(groups) + 1):
+        index = str(index)
 
         group_bindings.extend(
             [

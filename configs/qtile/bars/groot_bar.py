@@ -1,4 +1,3 @@
-import psutil
 from libqtile import bar
 from utils.colors import color
 from utils.default_widgets import *

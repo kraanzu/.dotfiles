@@ -32,7 +32,6 @@ from utils.colors import color
 
 PAD = Spacer(length=4)
 SEP1 = Sep(linewidth=2, size_percent=65, foreground=color["dark3"])
-# SEP2 = TextBox(text="", fontsize=20, foreground=color["dark3"])
 
 ICON_WIDGET_DEFAULTS = {
     "fontsize": 23,
@@ -197,7 +196,7 @@ widget_memory = padded(
     IconWidget("󰸼", ACCENT1),
     Memory(
         measure_mem="G",
-        format='{MemUsed:.1f}<b>GB</b>',
+        format="{MemUsed:.1f}<b>GB</b>",
         **get_decor(DARK),
     ),
 )
