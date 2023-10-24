@@ -3,11 +3,11 @@ acpi
 adobe-source-han-sans-cn-fonts
 adobe-source-han-sans-jp-fonts
 adobe-source-han-sans-kr-fonts
-alacritty
 alsa-firmware
 alsa-plugins
 alsa-utils
 amd-ucode
+android-studio
 android-tools
 anydesk-bin
 arandr
@@ -43,6 +43,7 @@ dmenu
 dmidecode
 dmraid
 dnsmasq
+docker
 dosfstools
 downgrade
 dracut
@@ -87,6 +88,7 @@ gjs
 glances
 gnome-bluetooth-3.0
 gnome-disk-utility
+go
 gobject-introspection
 google-chrome
 gparted
@@ -112,7 +114,10 @@ hwdetect
 hwinfo
 hyperfine
 i2c-tools
+i3-wm
+i3blocks
 i3lock
+i3status
 img2pdf
 inetutils
 inxi
@@ -198,7 +203,9 @@ python-black
 python-capng
 python-dbus-next
 python-defusedxml
+python-image-go-nord
 python-iwlib
+python-mss
 python-packaging
 python-pip
 python-poetry
@@ -216,11 +223,14 @@ rofi
 rsync
 rtkit
 rtl8761usb-dkms
+rust-analyzer
+rustup
 s-nail
 scrot
 sd
+sddm-catppuccin-git
+sddm-git
 sg3_utils
-shell-color-scripts
 shrinkpdf
 simplescreenrecorder
 smartmontools
@@ -240,8 +250,6 @@ thunar-archive-plugin
 thunar-volman
 tk
 tldr
-tmux
-tmux-plugin-manager
 tor
 tree
 ttf-bitstream-vera
@@ -265,6 +273,7 @@ viewnior
 visual-studio-code-bin
 vlc
 welcome
+wezterm
 wget
 which
 wireplumber
@@ -293,3 +302,4 @@ xorg-xkill
 xorg-xrandr
 xterm
 yay
+yt-dlp
