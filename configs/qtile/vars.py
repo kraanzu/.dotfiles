@@ -15,10 +15,14 @@ secondary_apps = "discord telegram chrome".split()
 
 # MISC
 SPAWNS = {
-    5: "firefox -P kwork",
-    0: "firefox -P kfun",
+    5: "firefox -P kwork& && firefox -P kfun&",
 }
 
 MATCHES = {
     4: "vlc",
+}
+
+LAYOUTS = {
+    5: "max",
+    0: "max",
 }
