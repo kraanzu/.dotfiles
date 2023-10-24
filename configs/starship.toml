@@ -33,7 +33,8 @@ style = ""
 symbol = " "
 
 [git_status]
-conflicted = "ﲅ(red)"
+format = '([\[ $all_status$ahead_behind\]]($style) )'
+conflicted = "ﲅ(red) "
 ahead = "[異${count}](blue) "
 behind = "[ ${count}](bold red) "
 untracked = "[ ${count}](yellow) "
