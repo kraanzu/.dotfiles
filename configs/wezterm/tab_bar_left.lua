@@ -17,6 +17,8 @@ function M.get_icon(cmd, cwd)
 		else
 			return ""
 		end
+	elseif cmd:sub(1, 1) == "/" then
+		return "󰋊"
 	end
 
 	return icons[cmd] or ""
