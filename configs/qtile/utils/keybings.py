@@ -85,21 +85,21 @@ key_bindings = [
     ),
     Keybind(
         "M-<Up>",
-        lazy.spawn("amixer -D pulse sset Master 5%+"),
+        lazy.spawn("pactl -- set-sink-volume 0 +5%"),
         desc="Increase Volume",
     ),
     Keybind(
         "M-<Down>",
-        lazy.spawn("amixer -D pulse sset Master 5%-"),
+        lazy.spawn("pactl -- set-sink-volume 0 -5%"),
         desc="Decrease Volume",
     ),
     Keybind(
         "M-S-<Up>",
-        lazy.spawn("amixer -D pulse sset Master 2%+"),
+        lazy.spawn("pactl -- set-sink-volume 0 +2%"),
     ),
     Keybind(
         "M-S-<Down>",
-        lazy.spawn("amixer -D pulse sset Master 2%-"),
+        lazy.spawn("pactl -- set-sink-volume 0 -2%"),
     ),
     # QTILE STUFF
     Keybind(
