@@ -9,12 +9,12 @@ disabled = false
 
 #--CHARACTER MODULE
 [character]
-success_symbol = "[󰬐](bold green)"
-error_symbol   = "[󰬐](bold red)"
-vicmd_symbol   = "[󰬕](blue)"
-vimcmd_replace_one_symbol = "[󰬙](red)"
-vimcmd_replace_symbol = "[󰬙](red)"
-vimcmd_visual_symbol = "[󰬝](yellow)"
+success_symbol = "[INS](bold green)"
+error_symbol   = "[INS](bold red)"
+vicmd_symbol   = "[NOR](bold blue)"
+vimcmd_replace_one_symbol = "[REP](bold red)"
+vimcmd_replace_symbol = "[REP](bold red)"
+vimcmd_visual_symbol = "[VIS](bold yellow)"
 
 #--CMD DURATION
 [cmd_duration]
