@@ -22,10 +22,15 @@ show_notifications=true
 style = "bold red"
 format = " [$duration]($style) "
 
+# --Package Versioning
+[package]
+format='[ ](dimmed black) [$symbol$version]($style) '
+symbol=" "
+
 #--------------LANGUAGES--------------#
 
 [python]
-symbol = ""
+format = '[(\($virtualenv\) )]($style)'
 
 [rust]
 symbol = ""
