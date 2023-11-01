@@ -11,7 +11,6 @@ local config = {}
 config.color_scheme = "nord"
 config.use_fancy_tab_bar = false
 config.cell_width = 0.95
-config.window_background_opacity = 0.95
 config.font_size = 16.5
 config.font = wezterm.font("SauceCodePro Nerd Font", { weight = "DemiBold" })
 config.default_workspace = "scratch"
