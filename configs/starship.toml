@@ -9,9 +9,12 @@ disabled = false
 
 #--CHARACTER MODULE
 [character]
-success_symbol = "[](bold green)"
-error_symbol   = "[](red)"
-vicmd_symbol   = "[](yellow)"
+success_symbol = "[󰬐](bold green)"
+error_symbol   = "[󰬐](bold red)"
+vicmd_symbol   = "[󰬕](blue)"
+vimcmd_replace_one_symbol = "[󰬙](red)"
+vimcmd_replace_symbol = "[󰬙](red)"
+vimcmd_visual_symbol = "[󰬝](yellow)"
 
 #--CMD DURATION
 [cmd_duration]
@@ -34,15 +37,15 @@ symbol = " "
 
 [git_status]
 format = '([\[ $all_status$ahead_behind\]]($style) )'
-conflicted = "ﲅ(red) "
-ahead = "[異${count}](blue) "
-behind = "[ ${count}](bold red) "
-untracked = "[ ${count}](yellow) "
-stashed = "[📦 ](purple) "
-modified = "[ ${count}](blue) "
-staged = "[🗃️ ${count}](orange) "
-renamed = "[﮷ ${count}](bold red) "
-deleted = "[ ${count}](red) "
+conflicted = "(red) "
+ahead = "[ ${count}](blue) "
+behind = "[ ${count}](bold red) "
+untracked = "[ ${count}](yellow) "
+stashed = "[󱑤 ](purple) "
+modified = "[󱍸 ${count}](blue) "
+staged = "[ ${count}](orange) "
+renamed = "[󰛿 ${count}](bold red) "
+deleted = "[󰚃 ${count}](red) "
 
 
 #--------------RANDOM--------------#
@@ -50,7 +53,7 @@ deleted = "[ ${count}](red) "
 [custom.vid]
 description = "to show vlc icon to folders containing vid files"
 shell = ['bash']
-command = "echo 嗢"
+command = "echo 󰕼 "
 style = "#D08770"
 extensions = ["mp4","mkv","webm"]
 format = "[$output]($style)"
