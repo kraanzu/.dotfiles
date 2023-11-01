@@ -2,7 +2,10 @@
 
 # Don't print a new line at the start of the prompt
 add_newline = false
-
+format = '''
+[━━━━━━━━━━━━━━━━━━━━━━━━━━](black)
+$all
+'''
 # Make prompt a single line instead of two lines
 [line_break]
 disabled = false
@@ -42,6 +45,7 @@ symbol = " "
 
 [git_status]
 format = '([\[ $all_status$ahead_behind\]]($style) )'
+style="bold black"
 conflicted = "(red) "
 ahead = "[ ${count}](blue) "
 behind = "[ ${count}](bold red) "
