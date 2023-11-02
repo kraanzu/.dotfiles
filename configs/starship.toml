@@ -1,11 +1,19 @@
 #--------------BASICS--------------#
 
 # Don't print a new line at the start of the prompt
-add_newline = false
 format = '''
 [━━━━━━━━━━━━━━━━━━━━━━━━━━](black)
 $all
 '''
+add_newline = false
+palette = "nord"
+
+# --PALETTE
+[palettes.nord]
+frost_green = '#8fbcbb'
+frost_cyan = '#88c0d0'
+aurora_orange = '#d08770'
+
 # Make prompt a single line instead of two lines
 [line_break]
 disabled = false
@@ -24,6 +32,7 @@ vimcmd_visual_symbol = "[VIS](bold yellow)"
 show_notifications=true
 style = "bold red"
 format = " [$duration]($style) "
+
 
 # --Package Versioning
 [package]
@@ -46,13 +55,13 @@ symbol = " "
 [git_status]
 format = '([\[ $all_status$ahead_behind\]]($style) )'
 style="bold black"
-conflicted = "(red) "
-ahead = "[ ${count}](blue) "
+conflicted = " (red) "
+ahead = "[ ${count}](bold green) "
 behind = "[ ${count}](bold red) "
 untracked = "[ ${count}](yellow) "
 stashed = "[󱑤 ](purple) "
 modified = "[󱍸 ${count}](blue) "
-staged = "[ ${count}](orange) "
+staged = "[ ${count}](frost_green) "
 renamed = "[󰛿 ${count}](bold red) "
 deleted = "[󰚃 ${count}](red) "
 
