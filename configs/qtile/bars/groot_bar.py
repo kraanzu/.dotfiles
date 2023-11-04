@@ -1,6 +1,6 @@
 from libqtile import bar
 from utils.colors import color
-from utils.default_widgets import *
+from widgets.groot import *
 from qtile_extras.widget import GroupBox
 
 groups = GroupBox(
@@ -18,18 +18,6 @@ groups = GroupBox(
 )
 
 groot_bar = bar.Bar(
-    [
-        *widget_favicon,
-        SEP1,
-        groups,
-        Spacer(),
-        *widget_systray,
-        *(widget_battery if psutil.sensors_battery() else []),
-        *widget_memory,
-        *widget_volume,
-        *widget_clock,
-        *widget_day,
-        PAD,
-    ],
+    bar_widgets,
     size=40,
 )

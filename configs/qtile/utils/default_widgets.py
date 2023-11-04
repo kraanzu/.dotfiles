@@ -158,7 +158,7 @@ widget_battery = padded(
 widget_volume = padded(
     IconWidgetPoll(get_vol_icon, ACCENT1),
     Volume(
-        device="pulse",
+        # device="pulse",
         **get_decor(DARK),
     ),
 )

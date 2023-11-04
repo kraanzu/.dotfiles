@@ -114,3 +114,9 @@ DEFAULT_CONFIGS["weather"] = dict(
 DEFAULT_CONFIGS["cpu"] = dict(
     format="{load_percent}%",
 )
+
+
+DEFAULT_CONFIGS["volume"] = dict(
+    device="pulse",
+)
+
