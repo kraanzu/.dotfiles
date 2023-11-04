@@ -49,7 +49,7 @@ require("lualine").setup({
 					end
 					return msg
 				end,
-				icon = "漣",
+				icon = "",
 				color = { bg = "#4c566a", fg = "#a3be8c", gui = "bold" },
 			},
 		},
