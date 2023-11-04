@@ -23,13 +23,19 @@ DARK = "dark3"
 # -------------- BASIC UTIL FUNCTIONS ---------------------
 
 
+def get_default_sink() -> str:
+    sink = subprocess.check_output(["pactl", "get-default-sink"], text=True).strip("\n")
+    return sink
+
+
 def get_running_sink_form_factor():
+    sink = get_default_sink()
     pactl_output = subprocess.check_output(["pactl", "list", "sinks"], text=True)
     lines = pactl_output.split("\n")
     in_running_sink = False
     form_factor = None
     for line in lines:
-        if "State: RUNNING" in line:
+        if sink in line:
             in_running_sink = True
         elif in_running_sink and "device.form_factor" in line:
             form_factor = line.split("=")[1].strip()
@@ -119,4 +125,3 @@ DEFAULT_CONFIGS["cpu"] = dict(
 DEFAULT_CONFIGS["volume"] = dict(
     device="pulse",
 )
-
