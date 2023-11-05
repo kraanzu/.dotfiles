@@ -1,13 +1,9 @@
-import os
 from libqtile.config import EzKey as Keybind
 from libqtile.lazy import lazy
-from vars import scripts
+from vars import scripts_path, rofi_path
 
 terminal = "wezterm-gui connect unix --workspace main"
 scratch = "wezterm-gui connect unix --workspace extra"
-home = os.path.expanduser("~")
-myConfig = home + "/.config/qtile/config.py"
-rofi_path = home + "/.config/rofi"
 
 key_bindings = [
     # ROFI SCRIPTS -> Mod + Shift + <Key>
@@ -44,7 +40,7 @@ key_bindings = [
     ),
     Keybind(
         "C-A-l",
-        lazy.spawn(f"sh {scripts}/blur-lock.sh"),
+        lazy.spawn(f"sh {scripts_path}/blur-lock.sh"),
         desc="launches i3-blur lock",
     ),
     Keybind(

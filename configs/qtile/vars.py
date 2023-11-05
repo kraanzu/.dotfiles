@@ -1,3 +1,5 @@
+import os
+
 # WIDGET FONTS
 FONT = "Sauce Code Pro Nerd Font"
 
@@ -7,8 +9,9 @@ extra_terminal = "wezterm-gui connect unix --workspace extra"
 scratch_terminal = "wezterm-gui"
 
 # PATHS
-scripts_path = "~/.config/scripts"
-rofi_path = "~/.config/rofi"
+home = os.path.expanduser("~")
+scripts_path = home + "/.config/scripts"
+rofi_path = home + "/.config/rofi"
 
 # EXTRA WORKSPACE
 secondary_apps = "discord telegram chrome".split()
