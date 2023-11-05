@@ -7,7 +7,7 @@ extra_terminal = "wezterm-gui connect unix --workspace extra"
 scratch_terminal = "wezterm-gui"
 
 # PATHS
-scripts = "~/.config/qtile/scripts"
+scripts = "~/.config/scripts"
 rofi = "~/.config/rofi"
 
 # EXTRA WORKSPACE
