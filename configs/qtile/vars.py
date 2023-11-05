@@ -7,8 +7,8 @@ extra_terminal = "wezterm-gui connect unix --workspace extra"
 scratch_terminal = "wezterm-gui"
 
 # PATHS
-scripts = "~/.config/scripts"
-rofi = "~/.config/rofi"
+scripts_path = "~/.config/scripts"
+rofi_path = "~/.config/rofi"
 
 # EXTRA WORKSPACE
 secondary_apps = "discord telegram chrome".split()
