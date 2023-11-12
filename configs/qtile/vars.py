@@ -14,7 +14,7 @@ scripts_path = home + "/.config/scripts"
 rofi_path = home + "/.config/rofi"
 
 # EXTRA WORKSPACE
-secondary_apps = "discord telegram chrome".split()
+secondary_apps = "discord telegram chrome microsoft".split()
 
 # MISC
 SPAWNS = {
