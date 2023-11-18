@@ -60,6 +60,14 @@ return require("lazy").setup({
 	},
 
 	-- USEFUL STUFF
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = function()
+			require("user.copilot")
+		end,
+	},
 	{ "preservim/tagbar", cmd = "TagbarToggle" },
 	{ "nvim-telescope/telescope.nvim", cmd = "Telescope", tag = "0.1.2" },
 	{ "sbdchd/neoformat", event = "BufRead" },
@@ -87,7 +95,6 @@ return require("lazy").setup({
 		end,
 		event = "BufRead",
 	},
-
 	"gbprod/nord.nvim",
 	{
 		"folke/todo-comments.nvim",
@@ -105,17 +112,15 @@ return require("lazy").setup({
 		end,
 		dependencies = { "kyazdani42/nvim-web-devicons" },
 	},
-
 	{
 		"norcalli/nvim-colorizer.lua",
 		config = function()
 			require("colorizer").setup()
 		end,
 	},
-
 	{
 		"lukas-reineke/indent-blankline.nvim",
-        tag = "v2.20.8", 
+		tag = "v2.20.8",
 		config = function()
 			vim.opt.list = true
 			vim.opt.listchars:append("eol:↴")
