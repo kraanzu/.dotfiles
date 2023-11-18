@@ -1,56 +1,10 @@
 # -------SOURCE SECRETS-----------------
 source $HOME/.config/fish/secrets.fish
+source $HOME/.config/fish/utils.fish
+source $HOME/.config/fish/quick_scripts.fish
 
 #--------CUSTOM FUNCTIONS---------------
 fish_vi_key_bindings
-
-# merge develop branch and push
-function mmm
-    git checkout main
-    git merge develop
-    git push
-    git checkout develop
-end
-
-function com
-    g++ $argv[1] && ./a.out
-end
-
-function gdiff
-    set COMMIT $argv[1]
-    git diff $COMMIT~ $COMMIT
-end
-
-function apush
-    adb push $argv[1] /sdcard/AAA
-end
-
-function conf
-    set val $argv[1]
-
-    if [ $val = fish ]
-        nvim ~/.config/fish/config.fish
-
-    else if [ $val = starship ]
-        nvim ~/.config/starship.toml
-
-    else if [ $val = qtile ]
-        nvim ~/.config/qtile/config.py
-
-    else if [ $val = alacritty ]
-        nvim ~/.config/alacritty/alacritty.yml
-
-    else if [ $val = picom ]
-        nvim ~/.config/picom/picom.conf
-
-    else if [ $val = vim ]
-        nvim ~/.config/nvim/init.vim
-    else
-        echo Not in the config list!!
-    end
-end
-
-
 
 #----------------------------- BASICS -----------------------------------
 set fish_greeting # Supresses fish's intro message
@@ -96,17 +50,10 @@ alias cleanup='sudo pacman -Rns (pacman -Qtdq)' # remove orphaned packages
 alias df='df -h | grep -e "^/dev"' # human-readable sizes
 alias free='free -m' # show sizes in MB
 
-
 # Git Stuff
 alias uncommit="git reset HEAD~1"
 alias recommit="git commit --amend --no-edit"
 alias editcommit="git commit --amend"
-
-# MISC
-alias dclean='docker system prune -a --volumes'
-alias kayo='gdrive2 download --recursive --skip'
-alias loff='xrandr --output eDP1 --off'
-alias lonn='xrandr --output eDP1 --auto'
 
 # GREP COLOR
 alias grep='grep --color=auto'
