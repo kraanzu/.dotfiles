@@ -9,7 +9,7 @@ function M.setup(config)
 		{ key = "/", mods = "CTRL", action = wezterm.action({ SendString = "\x1f" }) },
 		{ key = "RightArrow", mods = "CTRL", action = act.SwitchWorkspaceRelative(1) },
 		{ key = "LeftArrow", mods = "CTRL", action = act.SwitchWorkspaceRelative(-1) },
-         { key = 'w', mods = "CTRL", action = act.CloseCurrentTab { confirm = false } },
+         { key = 'x', mods = "CTRL", action = act.CloseCurrentTab { confirm = false } },
 	}
 end
 
