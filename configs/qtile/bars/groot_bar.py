@@ -1,4 +1,5 @@
 from collections.abc import Callable
+from typing import Union
 from qtile_extras.widget.decorations import RectDecoration
 from utils.colors import color
 from bars.base import *
@@ -46,19 +47,15 @@ groupbox_config = dict(
 
 
 # GENERAL UTILS
-def IconWidget(icon: str, color: str = ACCENT1) -> TextBox:
-    icon = ICONS[icon]
-    return TextBox(
-        text=f"{icon}",
-        **ICON_WIDGET_DEFAULTS,
-        **get_decor(color),
-    )
+def IconWidget(icon: Union[str, Callable[..., str]], color: str = ACCENT1) -> TextBox:
+    if not callable(icon):
+        func = lambda: ICONS[icon]
+    else:
+        func = icon
 
-
-def IconWidgetPoll(func: Callable, color: str = ACCENT1) -> GenPollText:
     return GenPollText(
         func=func,
-        update_interval=2,
+        update_interval=2 * callable(icon),
         **ICON_WIDGET_DEFAULTS,
         **get_decor(color),
     )
@@ -115,7 +112,7 @@ BAR_WIDGETS = [
     IconWidget("memory"),
     Memory(**get_config("memory")),
     PAD,
-    IconWidgetPoll(get_vol_icon),
+    IconWidget(get_vol_icon),
     Volume(**get_config("volume")),
     PAD,
     IconWidget("clock"),
