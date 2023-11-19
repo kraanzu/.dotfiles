@@ -18,8 +18,9 @@ from qtile_extras.widget import (
 
 ACCENT1 = "blue"
 DARK = "dark3"
+PAD = Spacer(length=8)
 ICONS = {
-    "favicon": "ﲅ",
+    "favicon": "󰌠",
     "clock": "󰥔",
     "date": "󰃵",
     "speaker": "󰓃",
@@ -45,7 +46,7 @@ groupbox_config = dict(
 
 
 # GENERAL UTILS
-def IconWidget(icon: str, color: str) -> TextBox:
+def IconWidget(icon: str, color: str = ACCENT1) -> TextBox:
     icon = ICONS[icon]
     return TextBox(
         text=f"{icon}",
@@ -54,7 +55,7 @@ def IconWidget(icon: str, color: str) -> TextBox:
     )
 
 
-def IconWidgetPoll(func: Callable, color: str) -> GenPollText:
+def IconWidgetPoll(func: Callable, color: str = ACCENT1) -> GenPollText:
     return GenPollText(
         func=func,
         update_interval=2,
@@ -94,44 +95,35 @@ def get_decor(c: str) -> dict:
 
 
 # ACTUAL WIDGETS
-
-widget_favicon = [
+BAR_WIDGETS = [
+    # Left Section
+    # -------------------
     TextBox(
         foreground=color["blue"],
         fontsize=23,
         text=f" {ICONS['favicon']} ",
-    )
-]
-widget_systray = padded(
-    Systray(**DEFAULT_CONFIGS.get("systray")),
-)
-widget_clock = padded(
-    IconWidget("clock", ACCENT1),
-    Clock(**get_config("clock")),
-)
-widget_date = padded(
-    IconWidget("date", ACCENT1),
-    Clock(**get_config("date")),
-)
-widget_memory = padded(
-    IconWidget("memory", ACCENT1),
-    Memory(**get_config("memory")),
-)
-widget_volume = padded(
-    IconWidgetPoll(get_vol_icon, ACCENT1),
-    Volume(**get_config("volume")),
-)
-
-BAR_WIDGETS = [
-    *widget_favicon,
+    ),
     SEP1,
     GroupBox(**groupbox_config),
+    # Middle Section
+    # -------------------
     Spacer(),
-    *widget_systray,
-    *widget_memory,
-    *widget_volume,
-    *widget_clock,
-    *widget_date,
+    # Right Section
+    # -------------------
+    Systray(**DEFAULT_CONFIGS.get("systray")),
+    PAD,
+    IconWidget("memory"),
+    Memory(**get_config("memory")),
+    PAD,
+    IconWidgetPoll(get_vol_icon),
+    Volume(**get_config("volume")),
+    PAD,
+    IconWidget("clock"),
+    Clock(**get_config("clock")),
+    PAD,
+    IconWidget("date"),
+    Clock(**get_config("date")),
+    PAD,
 ]
 
 # MAIN
