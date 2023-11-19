@@ -1,19 +1,9 @@
 from collections.abc import Callable
 from typing import Union
+from libqtile import bar
 from qtile_extras.widget.decorations import RectDecoration
 from utils.colors import color
 from bars.base import *
-from libqtile import bar
-from qtile_extras.widget import (
-    TextBox,
-    GroupBox,
-    GenPollText,
-    Systray,
-    Clock,
-    Memory,
-    Volume,
-    Spacer,
-)
 
 # GLOBAL VALUES
 
@@ -64,10 +54,6 @@ def IconWidget(icon: Union[str, Callable[..., str]], color: str = ACCENT1) -> Te
 def get_vol_icon() -> str:
     icon = "headphone" if is_headphone_connected() else "speaker"
     return ICONS.get(icon, "?")
-
-
-def get_icon(icon: str, color) -> TextBox:
-    return IconWidget(icon, color)
 
 
 def get_config(name: str):

@@ -2,6 +2,16 @@ import psutil
 import subprocess
 from qtile_extras.widget import Spacer, Sep
 from utils.colors import color
+from qtile_extras.widget import (
+    TextBox,
+    GroupBox,
+    GenPollText,
+    Systray,
+    Clock,
+    Memory,
+    Volume,
+    Spacer,
+)
 
 
 # ----------------- CONSTANTS ------------------
