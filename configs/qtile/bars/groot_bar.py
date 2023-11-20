@@ -56,7 +56,7 @@ def get_vol_icon() -> str:
     return ICONS.get(icon, "?")
 
 
-def get_config(name: str):
+def config(name: str):
     return DEFAULT_CONFIGS.get(name, {}) | get_decor(DARK)
 
 
@@ -96,16 +96,16 @@ BAR_WIDGETS = [
     Systray(**DEFAULT_CONFIGS.get("systray")),
     PAD,
     IconWidget("memory"),
-    Memory(**get_config("memory")),
+    Memory(**config("memory")),
     PAD,
     IconWidget(get_vol_icon),
-    Volume(**get_config("volume")),
+    Volume(**config("volume")),
     PAD,
     IconWidget("clock"),
-    Clock(**get_config("clock")),
+    Clock(**config("clock")),
     PAD,
     IconWidget("date"),
-    Clock(**get_config("date")),
+    Clock(**config("date")),
     PAD,
 ]
 
