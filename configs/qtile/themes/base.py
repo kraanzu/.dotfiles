@@ -1,6 +1,6 @@
 import os
 from typing import List
-from libqtile.backend.base import Window
+from libqtile.backend.base.window import Window
 from libqtile.layout.xmonad import MonadTall
 from libqtile.layout.floating import Floating
 from libqtile.layout.max import Max
@@ -85,7 +85,9 @@ def func(win: Window):
     wm_class = win.get_wm_class()
     if wm_class:
         if any(app.lower() in FLOATING_WINS for app in wm_class):
-            return win.cmd_enable_floating()
+            func = win.cmd_enable_floating
+            if callable(func):
+                func()
 
 
 @hook.subscribe.startup_complete
