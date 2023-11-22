@@ -78,7 +78,7 @@ layouts = [
 
 @hook.subscribe.client_new
 def func(win: Window):
-    if any(i in win.name.lower() for i in secondary_apps):
+    if win.name and any(i in win.name.lower() for i in secondary_apps):
         return win.togroup("0")
 
     # FLOAT
@@ -92,8 +92,12 @@ def func(win: Window):
 
 @hook.subscribe.startup_complete
 def startup_complete():
+    from libqtile.log_utils import logger
+
+    logger.warning("Testing startup complete")
     os.system("xdotool key Super+0")
     os.system("xdotool key Super+1")
+    os.system('notify-send "Qtile" "Started"')
 
 
 @hook.subscribe.startup_once
