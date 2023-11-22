@@ -9,7 +9,7 @@ exclude_groups = ["scratchpad", "0"]
 
 def to_group(qtile: Qtile, name: str):
     if len(qtile.screens) == 1:
-        qtile.groups_map[name].cmd_toscreen(toggle=True)
+        qtile.groups_map[name].toscreen(toggle=True)
         return
 
     current_group = qtile.current_group.name
@@ -17,10 +17,10 @@ def to_group(qtile: Qtile, name: str):
 
     if name in exclude_groups:
         qtile.focus_screen(1)
-        qtile.groups_map[name].cmd_toscreen(toggle=can_toggle)
+        qtile.groups_map[name].toscreen(toggle=can_toggle)
     else:
         qtile.focus_screen(0)
-        qtile.groups_map[name].cmd_toscreen(toggle=can_toggle)
+        qtile.groups_map[name].toscreen(toggle=can_toggle)
 
 
 def go_to_group(name: str) -> Callable:
