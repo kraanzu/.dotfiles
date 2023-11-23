@@ -1,6 +1,7 @@
 #! /bin/bash
 lxsession &
 # xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'& # Caps_Lock is annoying
+openrgb --profile purple &
 redshift -O 5000K &
 caffeine &
 xfce4-clipman &
