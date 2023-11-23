@@ -16,7 +16,9 @@ gdrive2
 go
 google-chrome
 gparted
+gnome-disk-utility
 gpick
+htop
 hyperfine
 i2c-tools
 img2pdf
@@ -33,10 +35,10 @@ pavucontrol
 picom-ftlabs-git
 popsicle-bin
 pyright
+python-dbus-next
 python-pip
 python-poetry
 qbittorrent
-qt5ct
 qtile
 qtile-extras
 redshift
@@ -52,6 +54,7 @@ starship
 stow
 stylua
 thunar
+tk
 tree
 typescript
 update-grub
