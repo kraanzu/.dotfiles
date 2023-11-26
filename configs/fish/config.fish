@@ -59,6 +59,7 @@ alias editcommit="git commit --amend"
 alias grep='grep --color=auto'
 
 export PYTHONDONTWRITEBYTECODE=1
+export GOPATH=$HOME/.local/go
 
 export LANG=en_IN.UTF-8
 export TERM=xterm-256color
