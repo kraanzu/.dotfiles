@@ -23,6 +23,7 @@ hyperfine
 i2c-tools
 img2pdf
 ipython
+lxsession
 neofetch
 neovim
 network-manager-applet
