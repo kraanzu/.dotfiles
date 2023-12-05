@@ -37,7 +37,7 @@ return require("lazy").setup({
 			"williamboman/mason-lspconfig.nvim",
 		},
 		config = function()
-			require("user.lsp")
+			require("plugin.lsp")
 		end,
 		event = "BufRead",
 	},
@@ -45,7 +45,7 @@ return require("lazy").setup({
 	{
 		"hrsh7th/nvim-cmp",
 		config = function()
-			require("user.cmp")
+			require("plugin.cmp")
 		end,
 	},
 	"hrsh7th/cmp-buffer",
@@ -65,7 +65,7 @@ return require("lazy").setup({
 		cmd = "Copilot",
 		event = "InsertEnter",
 		config = function()
-			require("user.copilot")
+			require("plugin.copilot")
 		end,
 	},
 	{ "preservim/tagbar", cmd = "TagbarToggle" },
@@ -75,7 +75,7 @@ return require("lazy").setup({
 		"stevearc/oil.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
-			require("user.oil")
+			require("plugin.oil")
 		end,
 	},
 	{
@@ -115,7 +115,7 @@ return require("lazy").setup({
 	{
 		"nvim-lualine/lualine.nvim",
 		config = function()
-			require("user.line")
+			require("plugin.line")
 		end,
 		dependencies = { "kyazdani42/nvim-web-devicons" },
 	},
@@ -140,7 +140,7 @@ return require("lazy").setup({
 	{
 		"onsails/lspkind.nvim",
 		config = function()
-			require("user.lspkind")
+			require("plugin.lspkind")
 		end,
 	},
 
