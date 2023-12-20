@@ -1,11 +1,15 @@
-vim.opt.termguicolors = true
-vim.g.gitgutter_terminal_reports_focus = 0
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-vim.g.vsnip_snippet_dir = "~/.config/vsnip"
-vim.api.nvim_set_keymap("n", "<leader>ff", ":Neoformat<cr>", { noremap = true })
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
 
--- setup plugins
-require("plugins")
-
-vim.cmd("colorscheme nord")
+require("basics")
+require("lazy").setup("plugins")
