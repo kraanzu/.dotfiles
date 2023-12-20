@@ -2,6 +2,7 @@ return {
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		tag = "v2.20.8",
+		event = "BufRead",
 		config = function()
 			vim.opt.list = true
 			vim.opt.listchars:append("eol:↴")
