@@ -41,14 +41,3 @@ vnoremap K :m '<-2<CR>gv=gv
 
 nnoremap <leader>j :m .+1<CR>==
 nnoremap <leader>k :m .-2<CR>==
-
-lua << EOF
--- Replace word under cursor in Buffer (case-sensitive)
--- nmap <leader>sr :%s/<C-R><C-W>//gI<left><left><left>
-vim.api.nvim_set_keymap("n", "<leader>sr", ":%s/<C-R><C-W>//gI<left><left><left>", { noremap = false })
-
--- Replace word under cursor on Line (case-sensitive)
--- nmap <leader>sl :s/<C-R><C-W>//gI<left><left><left>
-vim.api.nvim_set_keymap("n", "<leader>sl", ":s/<C-R><C-W>//gI<left><left><left>", { noremap = false })
-
-EOF
