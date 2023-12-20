@@ -1,10 +1,6 @@
-local fn = vim.fn
-local loop = vim.loop
-local opt = vim.opt
-
-local lazypath = fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not loop.fs_stat(lazypath) then
-	fn.system({
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
 		"git",
 		"clone",
 		"--filter=blob:none",
@@ -13,7 +9,7 @@ if not loop.fs_stat(lazypath) then
 		lazypath,
 	})
 end
-opt.rtp:prepend(lazypath)
+vim.opt.rtp:prepend(lazypath)
 return require("lazy").setup({
 	-- ESSENTIALS
 	"nvim-lua/plenary.nvim",
@@ -156,7 +152,7 @@ return require("lazy").setup({
 		"iamcco/markdown-preview.nvim",
 		ft = { "md" },
 		build = function()
-			fn["mkdp#util#install"]()
+			vim.fn["mkdp#util#install"]()
 		end,
 	},
 })
