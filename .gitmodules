@@ -2,7 +2,3 @@
 	path = personal
 	url = git@github.com:kraanzu/personal.git
     branch = main
-[submodule "wallpapers"]
-	path = wallpapers
-	url = git@github.com:kraanzu/wallpapers.git
-    branch = main
