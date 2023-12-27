@@ -2,7 +2,7 @@
     "AutoStart": {
         "client": "localhost:6742",
         "custom": "",
-        "enabled": true,
+        "enabled": false,
         "host": "0.0.0.0",
         "port": "6742",
         "profile": "purple",
@@ -1284,8 +1284,8 @@
     "UserInterface": {
         "RunZoneChecks": true,
         "exit_profile": {
-            "profile_name": "",
-            "set_on_exit": false
+            "profile_name": "purple",
+            "set_on_exit": true
         },
         "geometry": {
             "height": 0,
