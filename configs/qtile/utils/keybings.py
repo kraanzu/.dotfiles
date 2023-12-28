@@ -1,9 +1,26 @@
 from libqtile.config import EzKey as Keybind
+from libqtile.core.manager import Qtile
 from libqtile.lazy import lazy
 from vars import scripts_path, rofi_path
+from pathlib import Path
 
 terminal = "wezterm-gui connect unix --workspace main"
 scratch = "wezterm-gui connect unix --workspace extra"
+
+def toggle_dual_monitors():
+    def __inner(qtile: Qtile) -> None:
+        import os
+        scripts_folder = Path.expanduser(Path("~/.config/scripts"))
+        screen_count = len(qtile.screens)
+        if screen_count == 1:
+            script = scripts_folder / "dual_monitor.sh"
+        else:
+            script = scripts_folder / "single_monitor.sh"
+
+        cmd = f"bash {script}"
+        os.system(cmd)
+
+    return __inner
 
 key_bindings = [
     # ROFI SCRIPTS -> Mod + Shift + <Key>
@@ -54,6 +71,10 @@ key_bindings = [
         desc="Take Screen Snip",
     ),
     # THE ESSENTIAL STUFF -> Mod + <Key>
+    Keybind(
+        "M-m",
+        lazy.function(toggle_dual_monitors()),
+    ),
     Keybind(
         "M-b",
         lazy.spawn(f"blueberry"),
