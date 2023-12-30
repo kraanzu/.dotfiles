@@ -5,3 +5,5 @@ __pycache__/
 logs/
 OpenRGB/plugins/
 sizes.ors
+/configs/qBittorrent/*
+!nord.qbtheme
