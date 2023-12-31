@@ -2,6 +2,7 @@ from libqtile.config import EzKey as Keybind
 from libqtile.core.manager import Qtile
 from libqtile.lazy import lazy
 from vars import scripts_path, rofi_path
+import os
 from pathlib import Path
 
 terminal = "wezterm-gui connect unix --workspace main"
@@ -9,11 +10,10 @@ scratch = "wezterm-gui connect unix --workspace extra"
 
 @lazy.function
 def toggle_dual_monitors(qtile: Qtile) -> None:
-    import os
     scripts_folder = Path("~/.config/scripts")
     screen_count = len(qtile.screens)
     if screen_count == 1:
-        script = scripts_folder / "dual_monitor.sh"
+        script = scripts_folder / "dual_monitors.sh"
     else:
         script = scripts_folder / "single_monitor.sh"
 
