@@ -12,6 +12,7 @@ scratch_terminal = "wezterm-gui"
 home = os.path.expanduser("~")
 scripts_path = home + "/.config/scripts"
 rofi_path = home + "/.config/rofi"
+wallpaper_path = home + "/.dotfiles/wallpapers"
 
 # EXTRA WORKSPACE
 secondary_apps = "discord telegram chrome microsoft".split()
