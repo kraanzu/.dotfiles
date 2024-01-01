@@ -17,12 +17,12 @@ screens = [
         bottom=bar.Gap(6),
         left=bar.Gap(6),
         right=bar.Gap(6),
-        # wallpaper=WALL1,
-        # wallpaper_mode="fill",
+        wallpaper=WALL1,
+        wallpaper_mode="fill",
     ),
     Screen(
-        # wallpaper=WALL2,
-        # wallpaper_mode="fill",
+        wallpaper=WALL2,
+        wallpaper_mode="fill",
         )
 ]
 
