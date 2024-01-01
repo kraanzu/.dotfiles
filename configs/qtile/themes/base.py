@@ -4,7 +4,7 @@ from libqtile.backend.base.window import Window
 from libqtile.layout.xmonad import MonadTall
 from libqtile.layout.floating import Floating
 from libqtile.layout.max import Max
-from libqtile.config import DropDown, ScratchPad, Group
+from libqtile.config import DropDown, Match, ScratchPad, Group
 from libqtile import hook
 from vars import *
 from utils import key_bindings, color, create_workspace_bindings
@@ -32,6 +32,7 @@ def configure_workspaces(
                 str(index),
                 layout=LAYOUTS.get(index, "monadtall"),
                 spawn=SPAWNS.get(index),
+                matches=[Match(wm_class=i) for i in MATCHES.get(index, [])],
                 label=workspace,
             )
         )
