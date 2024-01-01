@@ -6,8 +6,8 @@ from vars import wallpaper_path
 
 WORKSPACES = "    ".split()
 EXTRA_WORKSPACE = ""
-WALL1 = f"{wallpaper_path}/tux.png"
-WALL2 = f"{wallpaper_path}/pokeball.png"
+WALL1 = f"{wallpaper_path}/groot.png"
+WALL2 = f"{wallpaper_path}/blank.png"
 
 groups.extend(configure_workspaces(WORKSPACES, EXTRA_WORKSPACE))
 
@@ -23,6 +23,6 @@ screens = [
     Screen(
         wallpaper=WALL2,
         wallpaper_mode="fill",
-        )
+    ),
 ]
 
