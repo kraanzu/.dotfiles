@@ -11,14 +11,18 @@ scratch = "wezterm-gui connect unix --workspace extra"
 @lazy.function
 def toggle_dual_monitors(qtile: Qtile) -> None:
     scripts_folder = Path("~/.config/scripts")
-    screen_count = len(qtile.screens)
-    if screen_count == 1:
+    single = len(qtile.screens) == 1
+
+    if single:
         script = scripts_folder / "dual_monitors.sh"
     else:
         script = scripts_folder / "single_monitor.sh"
 
     cmd = f"bash {script}"
     os.system(cmd)
+
+    if single:
+        os.system("xdotool key Super+0 > ~/err.txt")
 
 key_bindings = [
     # ROFI SCRIPTS -> Mod + Shift + <Key>
