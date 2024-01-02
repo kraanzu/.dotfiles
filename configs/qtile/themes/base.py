@@ -90,16 +90,10 @@ def func(win: Window):
             if callable(func):
                 func()
 
-
-@hook.subscribe.startup_complete
-def startup_complete():
-    from libqtile.log_utils import logger
-
-    logger.warning("Testing startup complete")
+@hook.subscribe.screens_reconfigured
+def screens_reconfigured():
     os.system("xdotool key Super+0")
     os.system("xdotool key Super+1")
-    os.system('notify-send "Qtile" "Started"')
-
 
 @hook.subscribe.startup_once
 def start_once():
