@@ -21,6 +21,7 @@ screens = [
     ),
     Screen(
         wallpaper=WALL2,
+        wallpaper_mode="fill",
     ),
 ]
 
