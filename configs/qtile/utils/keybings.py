@@ -21,9 +21,6 @@ def toggle_dual_monitors(qtile: Qtile) -> None:
     cmd = f"bash {script}"
     os.system(cmd)
 
-    if single:
-        os.system("xdotool key Super+0 > ~/err.txt")
-
 key_bindings = [
     # ROFI SCRIPTS -> Mod + Shift + <Key>
     Keybind(
