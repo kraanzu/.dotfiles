@@ -1,3 +1,4 @@
+import subprocess
 import os
 from typing import List
 from libqtile.backend.base.window import Window
@@ -90,11 +91,25 @@ def func(win: Window):
             if callable(func):
                 func()
 
+
 @hook.subscribe.screens_reconfigured
 def screens_reconfigured():
+    def get_current_screen():
+        try:
+            active_desktop = subprocess.check_output(
+                "wmctrl -d | awk '/\\*/ {print $NF}'",
+                shell=True,
+                text=True,
+            ).strip()
+            return active_desktop
+        except subprocess.CalledProcessError:
+            return 1
+
     os.system("xdotool key Super+0")
-    os.system("xdotool key Super+1")
+    os.system(f"xdotool key Super+{get_current_screen()}")
+
 
 @hook.subscribe.startup_once
 def start_once():
+    """start_once."""
     os.system("~/.config/qtile/autostart.sh")
