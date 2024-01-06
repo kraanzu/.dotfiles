@@ -20,22 +20,6 @@ ICONS = {
 }
 
 
-# SETUP EXTRA WIDGET CONFIGS
-groupbox_config = dict(
-    this_current_screen_border=color["blue"],
-    this_screen_border=color["blue"],
-    active=color["light3"],
-    inactive=color["grey"],
-    highlight_color=color["dark2"],
-    highlight_method="text",
-    inactive_highlight_method="text",
-    foreground=color["light1"],
-    urgent_border=color["red"],
-    disable_drag=True,
-    fontsize=30,
-)
-
-
 # GENERAL UTILS
 def IconWidget(icon: Union[str, Callable[..., str]], color: str = ACCENT1) -> TextBox:
     if not callable(icon):
@@ -57,7 +41,11 @@ def get_vol_icon() -> str:
 
 
 def config(name: str):
-    return DEFAULT_CONFIGS.get(name, {}) | get_decor(DARK)
+    config = DEFAULT_CONFIGS.get(name, {})
+    if name not in IGNORE_EXTRA_CONFIG:
+        config |= get_decor(DARK)
+
+    return config
 
 
 def get_decor(c: str) -> dict:
@@ -87,13 +75,13 @@ BAR_WIDGETS = [
         text=f" {ICONS['favicon']} ",
     ),
     SEP1,
-    GroupBox(**groupbox_config),
+    GroupBox(**config("groupbox")),
     # Middle Section
     # -------------------
     Spacer(),
     # Right Section
     # -------------------
-    Systray(**DEFAULT_CONFIGS.get("systray")),
+    Systray(**config("systray")),
     PAD,
     IconWidget("memory"),
     Memory(**config("memory")),
