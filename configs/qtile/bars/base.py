@@ -81,6 +81,7 @@ def padded(*arr):
 
 # ---------------- DEFAULTS -----------------
 
+IGNORE_EXTRA_CONFIG = ["groupbox", "systray"]
 DEFAULT_CONFIGS = dict()
 
 DEFAULT_CONFIGS["systray"] = dict(
@@ -134,4 +135,18 @@ DEFAULT_CONFIGS["cpu"] = dict(
 
 DEFAULT_CONFIGS["volume"] = dict(
     device="pulse",
+)
+
+DEFAULT_CONFIGS["groupbox"] = dict(
+    this_current_screen_border=color["blue"],
+    this_screen_border=color["blue"],
+    active=color["light3"],
+    inactive=color["grey"],
+    highlight_color=color["dark2"],
+    highlight_method="text",
+    inactive_highlight_method="text",
+    foreground=color["light1"],
+    urgent_border=color["red"],
+    disable_drag=True,
+    fontsize=30,
 )
