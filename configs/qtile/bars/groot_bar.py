@@ -5,7 +5,7 @@ from qtile_extras.widget.decorations import RectDecoration
 from utils.colors import color
 from bars.base import *
 
-# GLOBAL VALUES
+# --------------- GLOABL VALUES -----------------
 
 ACCENT1 = "blue"
 DARK = "dark3"
@@ -20,7 +20,9 @@ ICONS = {
 }
 
 
-# GENERAL UTILS
+# --------------- GENERAL UTILS -----------------
+
+
 def IconWidget(icon: Union[str, Callable[..., str]], color: str = ACCENT1) -> TextBox:
     if not callable(icon):
         func = lambda: ICONS[icon]
@@ -65,7 +67,8 @@ def get_decor(c: str) -> dict:
     }
 
 
-# ACTUAL WIDGETS
+# ---------------- ACTUAL BAR -----------------
+
 BAR_WIDGETS = [
     # Left Section
     # -------------------
