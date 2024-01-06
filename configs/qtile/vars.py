@@ -19,11 +19,14 @@ secondary_apps = "discord telegram chrome microsoft".split()
 
 # MISC
 SPAWNS = {
+    2: ["wezterm-gui connect unix --workspace main"],
 }
 
 MATCHES = {
+    1: ["firefox"],
     4: ["vlc"],
-    5: ["firefox"],
+    5: ["brave-browser"],
+    0: ["discord", "telegram", "google-chrome", "microsoft-edge"],
 }
 
 LAYOUTS = {

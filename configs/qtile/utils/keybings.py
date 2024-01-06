@@ -46,7 +46,7 @@ key_bindings = [
     ),
     Keybind(
         "C-A-v",
-        lazy.spawn("firefox -P kfun"),
+        lazy.spawn("brave"),
         desc="Launches firefox with personal profile",
     ),
     Keybind(
