@@ -33,7 +33,6 @@ def configure_workspaces(
                 str(index),
                 layout=LAYOUTS.get(index, "monadtall"),
                 spawn=SPAWNS.get(index),
-                matches=[Match(wm_class=i) for i in MATCHES.get(index, [])],
                 label=workspace,
             )
         )
@@ -80,9 +79,6 @@ layouts = [
 
 @hook.subscribe.client_new
 def func(win: Window):
-    if win.name and any(i in win.name.lower() for i in secondary_apps):
-        return win.togroup("0")
-
     # FLOAT
     wm_class = win.get_wm_class()
     if wm_class:
@@ -90,6 +86,11 @@ def func(win: Window):
             func = win.cmd_enable_floating
             if callable(func):
                 func()
+
+        for workspace, apps in MATCHES.items():
+            if any(app.lower() in wm_class for app in apps):
+                win.togroup(str(workspace))
+                break
 
 
 @hook.subscribe.screens_reconfigured
