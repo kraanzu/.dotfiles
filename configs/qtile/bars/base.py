@@ -72,13 +72,6 @@ def battery_status():
             return ""
 
 
-# ---------------- WIDGET UTILS ------------
-
-
-def padded(*arr):
-    return [PAD] + list(arr) + [PAD]
-
-
 # ---------------- DEFAULTS -----------------
 
 IGNORE_EXTRA_CONFIG = ["groupbox", "systray"]
