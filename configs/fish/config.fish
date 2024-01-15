@@ -49,6 +49,7 @@ alias cleanup='sudo pacman -Rns (pacman -Qtdq)' # remove orphaned packages
 # adding flags
 alias df='df -h | grep -e "^/dev"' # human-readable sizes
 alias free='free -m' # show sizes in MB
+alias yts='yt-dlp --extract-audio --audio-format opus' # download youtube video as mp3
 
 # Git Stuff
 alias uncommit="git reset HEAD~1"
