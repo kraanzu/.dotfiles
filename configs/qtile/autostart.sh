@@ -2,7 +2,7 @@
 lxsession &
 # xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'& # Caps_Lock is annoying
 openrgb --profile purple &
-redshift -O 5000K &
+redshift -O 4000K &
 xfce4-clipman &
 dunst -conf ~/.config/dunst/dunstrc &
 for i in ~/.config/startup/*; do $i; done
