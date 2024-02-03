@@ -43,16 +43,16 @@ end
 
 wezterm.on("format-tab-title", function(tab)
 	local title = M.tab_title(tab)
-	if tab.is_active then
+	if not tab.is_active then
 		Res = {
-			{ Background = { Color = "#81a1c1" } },
+			{ Background = { Color = "#4c566a" } },
 			{ Foreground = { Color = "#2e3440" } },
 			{ Text = " " .. title .. " " },
 		}
 	else
 		Res = {
 			{ Background = { Color = "#4c566a" } },
-			{ Foreground = { Color = "#d8dee9" } },
+			{ Foreground = { Color = "#eceff4" } },
 			{ Text = " " .. title .. " " },
 		}
 	end
