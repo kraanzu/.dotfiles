@@ -60,7 +60,7 @@ widget_defaults = dict(
 
 layout_defaults = dict(
     border_width=3,
-    border_focus=color["cyan"],
+    border_focus=color["blue"],
     border_normal=color["dark2"],
 )
 
