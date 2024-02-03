@@ -5,7 +5,7 @@ from libqtile.backend.base.window import Window
 from libqtile.layout.xmonad import MonadTall
 from libqtile.layout.floating import Floating
 from libqtile.layout.max import Max
-from libqtile.config import DropDown, Match, ScratchPad, Group
+from libqtile.config import DropDown, ScratchPad, Group
 from libqtile import hook
 from vars import *
 from utils import key_bindings, color, create_workspace_bindings
@@ -112,5 +112,4 @@ def screens_reconfigured():
 
 @hook.subscribe.startup_once
 def start_once():
-    """start_once."""
     os.system("~/.config/qtile/autostart.sh")
