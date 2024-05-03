@@ -146,6 +146,7 @@ in
 	xclip
 	libsForQt5.qt5.qtgraphicaleffects
 	libsForQt5.qt5.qtquickcontrols2
+    nodejs_21
   ];
 
   fonts.packages = with pkgs; [
