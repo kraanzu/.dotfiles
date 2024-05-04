@@ -1,19 +1,16 @@
 { pkgs }:
 
 let
-  fs = pkgs.lib.fileset;
-  source_folder = /home/kraanzu/.dotfiles/others;
-  source_file = /home/kraanzu/.dotfiles/others/sddm_theme;
+  imgLink = "https://raw.githubusercontent.com/kraanzu/.dotfiles/nixos/others/sddm_theme.zip";
 in
 pkgs.stdenv.mkDerivation {
-  name = "sddm-chilli-theme";
-  src = fs.toSource {
-    root = source_folder;
-    fileset = source_file;
+  name = "sddm-theme";
+  src = pkgs.fetchzip {
+    url = imgLink;
+    sha256 = "sha256-5Wp3Sv2iDV7aVQzSzYI/YfrUEnRvB+TAX4lta927Sb8=";
   };
   installPhase = ''
     mkdir -p $out
-    cp -v -R ./sddm_theme/* $out
-    rm -rf ./sddm_theme
-   '';
+    cp -R ./* $out/
+    '';
 }

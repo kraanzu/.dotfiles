@@ -1,19 +1,16 @@
 { pkgs }:
 
 let
-  fs = pkgs.lib.fileset;
-  source_folder = /home/kraanzu/.dotfiles/others;
-  source_file = /home/kraanzu/.dotfiles/others/grub_theme;
+  imgLink = "https://raw.githubusercontent.com/kraanzu/.dotfiles/nixos/others/grub_theme.zip";
 in
 pkgs.stdenv.mkDerivation {
-  name = "nixos-grub-theme";
-  src = fs.toSource {
-    root = source_folder;
-    fileset = source_file;
+  name = "grub-theme";
+  src = pkgs.fetchzip {
+    url = imgLink;
+    sha256 = "sha256-iUV+6w2qacDEBnXs3YwRSFXqQ6lGZIpqoYKCJ6Xt9Lg=";
   };
   installPhase = ''
     mkdir -p $out
-    cp -v -R ./grub_theme/* $out
-    rm -rf ./grub_theme
-   '';
+    cp -R ./* $out/
+    '';
 }
