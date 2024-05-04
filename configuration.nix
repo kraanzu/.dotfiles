@@ -12,6 +12,7 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      <home-manager/nixos>
     ];
 
   # Bootloader.
@@ -61,7 +62,6 @@ in
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.sddm = {
    enable=true;
    theme="${sddm_theme}";
@@ -147,6 +147,10 @@ in
 	libsForQt5.qt5.qtgraphicaleffects
 	libsForQt5.qt5.qtquickcontrols2
     nodejs_21
+    ripgrep
+    flameshot
+    pulseaudio
+    python311Packages.ipython
   ];
 
   fonts.packages = with pkgs; [
@@ -190,4 +194,7 @@ in
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
+  home-manager.users.kraanzu = {pkgs, ...}: {
+     home.stateVersion = "23.11";
+  };
 }
