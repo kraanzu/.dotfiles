@@ -194,7 +194,11 @@ in
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  home-manager.users.kraanzu = {pkgs, ...}: {
-     home.stateVersion = "23.11";
+  home-manager = {
+    extraSpecialArgs = {inherit inputs; };
+    users = {
+      kraanzu = import ./home.nix;
+    };
   };
+
 }
