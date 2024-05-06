@@ -1,5 +1,5 @@
 {
-  description = "Your new nix config";
+  description = "Kraanzu's nix config";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
@@ -17,7 +17,6 @@
     inherit (self) outputs;
     systems = [
       "x86_64-linux"
-      # "x86_64-darwin"
     ];
     forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
@@ -39,14 +38,12 @@
       kraanzu = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          # > Our main nixos configuration file <
           ./nixos/configuration.nix
         ];
       };
     };
 
     homeConfigurations = {
-      # FIXME replace with your username@hostname
       "kraanzu" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
