@@ -125,27 +125,28 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-	git
-  	wget
-	htop
-	wezterm
-	fish
-	qtile
-	redshift
-	rofi
-	dunst
-	source-code-pro
-	os-prober
-	geoclue2
-	starship
-	neovim
-	eza
-	xfce.thunar
-	unzip
-	zip
-	xclip
-	libsForQt5.qt5.qtgraphicaleffects
-	libsForQt5.qt5.qtquickcontrols2
+    killall
+    wget
+    git
+    htop
+    wezterm
+    fish
+    qtile
+    redshift
+    rofi
+    dunst
+    source-code-pro
+    os-prober
+    geoclue2
+    starship
+    neovim
+    eza
+    xfce.thunar
+    unzip
+    zip
+    xclip
+    libsForQt5.qt5.qtgraphicaleffects
+    libsForQt5.qt5.qtquickcontrols2
     nodejs_21
     ripgrep
     flameshot
