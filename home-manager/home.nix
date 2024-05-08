@@ -10,9 +10,9 @@
     ./fish.nix
     ./qtile.nix
     ./wezterm.nix
-    # ./starship.nix
+    ./starship.nix
     ./openrgb.nix
-    # ./dooit.nix
+    ./dooit.nix
     ./rofi.nix
     ./dunst.nix
     ./nvim.nix
