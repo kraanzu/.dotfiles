@@ -126,10 +126,6 @@ DEFAULT_CONFIGS["cpu"] = dict(
 )
 
 
-DEFAULT_CONFIGS["volume"] = dict(
-    device="pulse",
-)
-
 DEFAULT_CONFIGS["groupbox"] = dict(
     this_current_screen_border=color["blue"],
     this_screen_border=color["blue"],
