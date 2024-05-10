@@ -9,7 +9,6 @@ dunst
 exa
 feh
 firefox
-firefox-profile-switcher-connector
 fish
 flameshot
 gdrive2
@@ -18,6 +17,7 @@ google-chrome
 gparted
 gnome-disk-utility
 gpick
+grub-customizer
 htop
 hyperfine
 i2c-tools
@@ -50,10 +50,9 @@ rust-analyzer
 rustup
 scrot
 sddm-catppuccin-git
-simplescreenrecorder
+simplescreenrecorder-bin
 starship
 stow
-stylua
 thunar
 tk
 tree
@@ -67,3 +66,4 @@ xdotool
 xfce4-clipman-plugin
 yay
 yt-dlp
+zig
