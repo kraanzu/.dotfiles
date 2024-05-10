@@ -2,6 +2,7 @@ android-tools
 anydesk-bin
 arandr
 blueberry
+brave-bin
 caffeine-ng
 ctags
 docker
