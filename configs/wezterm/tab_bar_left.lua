@@ -33,10 +33,9 @@ function M.get_name(title, cmd)
 end
 
 function M.tab_title(tab_info)
-	local cwd = tab_info.active_pane.current_working_dir
 	local title = tab_info.active_pane.title
 	local cmd = title:match("%S+")
-	local icon = M.get_icon(cmd, cwd)
+	local icon = M.get_icon(cmd, title)
 	local name = M.get_name(title, cmd)
 	return icon .. " " .. name
 end
