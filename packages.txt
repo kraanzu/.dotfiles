@@ -36,6 +36,7 @@ os-prober
 pavucontrol
 picom-ftlabs-git
 popsicle-bin
+protonvpn-cli-community
 pyright
 python-dbus-next
 python-pip
