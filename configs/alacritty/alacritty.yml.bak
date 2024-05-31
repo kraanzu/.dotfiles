@@ -19,6 +19,10 @@ window:
   #
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
+  #dimensions:
+  #  columns: 0
+  #  lines: 0
+
   # Window position (changes require restart)
   #
   # Specified in number of pixels.
@@ -152,7 +156,7 @@ font:
     # family: UbuntuMono Nerd Font
     # family: Monofuritalic Nerd Font Mono
     # family: TerminessTTF Nerd Font
-    family: Sauce Code Pro Nerd Font
+    family: SauceCodePro Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Italic
@@ -171,26 +175,26 @@ font:
     # family: UbuntuMono Nerd Font
     # family: Monofuritalic Nerd Font Mono
     # family: TerminessTTF Nerd Font
-    family: Sauce Code Pro Nerd Font
+    family: SauceCodePro Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
 
   # Point size
-  size: 11
+  size: 17
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
   offset:
     x: 0
-    y: 4
+    y: 1
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the right,
   # increasing `y` moves the glyph upwards.
-  glyph_offset:
-   x: 0
-   y: 2
+  #glyph_offset:
+  #  x: 0
+  #  y: 0
 
   # Thin stroke font rendering (macOS only)
   #
