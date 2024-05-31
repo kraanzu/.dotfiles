@@ -59,11 +59,11 @@ key_bindings = [
         lazy.spawn(f"sh {scripts_path}/blur-lock.sh"),
         desc="launches i3-blur lock",
     ),
-    Keybind(
-        "C-<Insert>",
-        lazy.spawn("scrot"),
-        desc="Take Screen Shot",
-    ),
+    # Keybind(
+    #     "C-<Insert>",
+    #     lazy.spawn("scrot"),
+    #     desc="Take Screen Shot",
+    # ),
     Keybind(
         "M-<Insert>",
         lazy.spawn("flameshot gui"),
