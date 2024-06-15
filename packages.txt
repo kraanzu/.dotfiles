@@ -31,6 +31,7 @@ network-manager-applet
 networkmanager
 nitrogen
 npm
+onlyoffice-bin
 openrgb-bin
 os-prober
 pavucontrol
