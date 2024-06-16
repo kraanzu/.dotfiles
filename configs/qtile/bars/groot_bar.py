@@ -73,7 +73,7 @@ BAR_WIDGETS = [
     # Left Section
     # -------------------
     TextBox(
-        foreground=color["blue"],
+        foreground=color.blue,
         fontsize=23,
         text=f" {ICONS['favicon']} ",
     ),

@@ -17,7 +17,7 @@ from qtile_extras.widget import (
 # ----------------- CONSTANTS ------------------
 
 PAD = Spacer(length=4)
-SEP1 = Sep(linewidth=2, size_percent=65, foreground=color["dark3"])
+SEP1 = Sep(linewidth=2, size_percent=65, foreground=color.dark3)
 
 ICON_WIDGET_DEFAULTS = {
     "fontsize": 23,
@@ -127,15 +127,15 @@ DEFAULT_CONFIGS["cpu"] = dict(
 
 
 DEFAULT_CONFIGS["groupbox"] = dict(
-    this_current_screen_border=color["blue"],
-    this_screen_border=color["blue"],
-    active=color["light3"],
-    inactive=color["grey"],
-    highlight_color=color["dark2"],
+    this_current_screen_border=color.blue,
+    this_screen_border=color.blue,
+    active=color.light3,
+    inactive=color.grey,
+    highlight_color=color.dark2,
     highlight_method="text",
     inactive_highlight_method="text",
-    foreground=color["light1"],
-    urgent_border=color["red"],
+    foreground=color.light1,
+    urgent_border=color.red,
     disable_drag=True,
     fontsize=30,
 )
