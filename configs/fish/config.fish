@@ -2,6 +2,8 @@
 source $HOME/.config/fish/secrets.fish
 source $HOME/.config/fish/utils.fish
 source $HOME/.config/fish/quick_scripts.fish
+source $HOME/.config/fish/triggers.fish
+
 
 #--------CUSTOM FUNCTIONS---------------
 fish_vi_key_bindings
