@@ -1,16 +1,7 @@
 from qtile_extras.widget import Spacer, Sep
-from utils import color 
+from utils import color
 from utils.functions import *
-from qtile_extras.widget import (
-    TextBox,
-    GroupBox,
-    GenPollText,
-    Systray,
-    Clock,
-    Memory,
-    Volume,
-    Spacer,
-)
+from .all_widget_imports import *
 
 
 # ----------------- CONSTANTS ------------------
