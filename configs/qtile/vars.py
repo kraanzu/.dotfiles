@@ -1,5 +1,10 @@
 import os
 
+# GLOBALS
+LOCATION = "Kolkata"  # Your location for weather
+DARK = "dark3"  # Your default value for dark
+
+
 # WIDGET FONTS
 FONT = "Sauce Code Pro Nerd Font"
 

@@ -1,6 +1,7 @@
 from qtile_extras.widget import Spacer, Sep
 from utils import color
 from utils.functions import *
+from vars import DARK, LOCATION
 from .all_widget_imports import *
 
 
@@ -12,12 +13,6 @@ SEP1 = Sep(linewidth=2, size_percent=65, foreground=color.dark3)
 ICON_WIDGET_DEFAULTS = {
     "fontsize": 23,
 }
-
-LOCATION = "Kolkata"
-FAVICON = "ﲅ"
-ACCENT1 = "blue"
-ACCENT2 = "cyan"
-DARK = "dark3"
 
 
 # -------------- BASIC UTIL FUNCTIONS ---------------------
