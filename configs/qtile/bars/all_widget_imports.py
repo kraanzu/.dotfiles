@@ -1,4 +1,4 @@
-from libqtile.widget import (
+from qtile_extras.widget import (
     TextBox,
     GroupBox,
     GenPollText,
