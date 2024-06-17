@@ -39,6 +39,7 @@ picom-ftlabs-git
 popsicle-bin
 protonvpn-cli-community
 pyright
+python-black
 python-dbus-next
 python-pip
 python-poetry
