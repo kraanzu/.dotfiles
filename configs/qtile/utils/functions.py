@@ -1,6 +1,6 @@
-
 import psutil
 import subprocess
+
 
 def get_default_sink() -> str:
     sink = subprocess.check_output(["pactl", "get-default-sink"], text=True).strip("\n")
@@ -39,4 +39,3 @@ def battery_status():
             return ""
         else:
             return ""
-
