@@ -65,6 +65,8 @@ staged = "[ ${count}](frost_green) "
 renamed = "[󰛿 ${count}](bold red) "
 deleted = "[󰚃 ${count}](red) "
 
+[aws]
+disabled = true
 
 #--------------RANDOM--------------#
 
