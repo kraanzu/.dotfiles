@@ -114,7 +114,7 @@ font:
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofur Nerd Font
-    family: SauceCodePro Nerd Font
+    family: Sauce Code Pro Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: SemiBold
@@ -183,14 +183,14 @@ font:
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
   offset:
     x: 0
-    y: 4
+    y: 8
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the right,
   # increasing `y` moves the glyph upwards.
   glyph_offset:
    x: 0
-   y: 2
+   y: 4
 
   # Thin stroke font rendering (macOS only)
   #
