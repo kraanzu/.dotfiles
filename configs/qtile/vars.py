@@ -30,8 +30,8 @@ SPAWNS = {
 MATCHES = {
     1: ["firefox"],
     4: ["vlc"],
-    5: ["brave-browser"],
-    0: ["discord", "telegram", "google-chrome", "microsoft-edge"],
+    5: ["brave-browser", "discord"],
+    0: ["telegram", "google-chrome", "microsoft-edge"],
 }
 
 LAYOUTS = {
