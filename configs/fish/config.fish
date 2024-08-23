@@ -1,5 +1,5 @@
 # -------SOURCE SECRETS-----------------
-source $HOME/.config/fish/secrets.fish
+source $HOME/.config/fish/secrets.fish  2> /dev/null
 source $HOME/.config/fish/utils.fish
 source $HOME/.config/fish/quick_scripts.fish
 source $HOME/.config/fish/triggers.fish
