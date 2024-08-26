@@ -5,7 +5,7 @@ from libqtile.config import Screen
 from vars import wallpaper_path
 
 WORKSPACES = "󰎤 󰎧 󰎪 󰎭 󰎱".split()
-EXTRA_WORKSPACE = "󰎡"
+EXTRA_WORKSPACE = "󰅗"
 WALL1 = f"{wallpaper_path}/groot.png"
 WALL2 = f"{wallpaper_path}/blank.png"
 
@@ -24,4 +24,3 @@ screens = [
         wallpaper_mode="fill",
     ),
 ]
-
