@@ -6,7 +6,7 @@ shutdown="   shutdown"
 reboot="   reboot"
 lock="   lock"
 suspend=" ⏾  hibernate"
-logout=" 﫼  logout"
+logout=" 󰍃  logout"
 
 options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
 chosen="$(echo -e "$options" | $rofi_command -dmenu -p "SELECT: ")"
