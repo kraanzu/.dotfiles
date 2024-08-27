@@ -1,5 +1,10 @@
 import os
 
+# GLOBALS
+LOCATION = "Kolkata"  # Your location for weather
+DARK = "dark3"  # Your default value for dark
+
+
 # WIDGET FONTS
 FONT = "Sauce Code Pro Nerd Font"
 
@@ -25,8 +30,8 @@ SPAWNS = {
 MATCHES = {
     1: ["firefox"],
     4: ["vlc"],
-    5: ["brave-browser"],
-    0: ["discord", "telegram", "google-chrome", "microsoft-edge"],
+    5: ["brave-browser", "discord"],
+    0: ["telegram", "google-chrome", "microsoft-edge"],
 }
 
 LAYOUTS = {

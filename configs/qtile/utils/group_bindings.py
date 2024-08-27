@@ -79,13 +79,13 @@ def create_workspace_bindings(groups: List[str]) -> List[Keybind]:
         [
             Keybind(
                 "M-<Right>",
-                lazy.function((go_to_next_group())),
+                lazy.function(go_to_next_group()),
                 # lazy.screen.next_group(),
                 desc="Move to next Group",
             ),
             Keybind(
                 "M-<Left>",
-                lazy.function((go_to_prev_group())),
+                lazy.function(go_to_prev_group()),
                 # lazy.screen.prev_group(),
                 desc="Move to previous Group",
             ),

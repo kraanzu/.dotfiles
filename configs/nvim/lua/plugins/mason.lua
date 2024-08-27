@@ -17,6 +17,7 @@ return {
                   "pyright",
                   "lua_ls",
                   "marksman",
+                  "zls",
 				},
 			})
 		end,

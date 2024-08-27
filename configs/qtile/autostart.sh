@@ -10,3 +10,4 @@ for i in ~/.config/startup/*; do $i; done
 picom &
 wezterm-mux-server --daemonize &
 firefox&
+discord&

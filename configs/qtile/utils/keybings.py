@@ -41,7 +41,7 @@ key_bindings = [
     # LAUNCHING APPS -> Ctrl + Alt + <Key>
     Keybind(
         "C-A-b",
-        lazy.spawn("firefox -P kwork"),
+        lazy.spawn("firefox"),
         desc="Launches firefox with work profile",
     ),
     Keybind(
@@ -59,11 +59,11 @@ key_bindings = [
         lazy.spawn(f"sh {scripts_path}/blur-lock.sh"),
         desc="launches i3-blur lock",
     ),
-    Keybind(
-        "C-<Insert>",
-        lazy.spawn("scrot"),
-        desc="Take Screen Shot",
-    ),
+    # Keybind(
+    #     "C-<Insert>",
+    #     lazy.spawn("scrot"),
+    #     desc="Take Screen Shot",
+    # ),
     Keybind(
         "M-<Insert>",
         lazy.spawn("flameshot gui"),

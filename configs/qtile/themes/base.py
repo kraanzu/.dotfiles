@@ -55,13 +55,13 @@ widget_defaults = dict(
     font=FONT,
     fontsize=16,  # 16 for text, 25 for icons
     padding=3,
-    background=color["dark2"],
+    background=color.dark2,
 )
 
 layout_defaults = dict(
     border_width=3,
-    border_focus=color["blue"],
-    border_normal=color["dark2"],
+    border_focus=color.blue,
+    border_normal=color.dark2,
 )
 
 # ---------------- QTILE CONSTANTS -------------------------

@@ -1,7 +1,9 @@
 # -------SOURCE SECRETS-----------------
-source $HOME/.config/fish/secrets.fish
+source $HOME/.config/fish/secrets.fish  2> /dev/null
 source $HOME/.config/fish/utils.fish
 source $HOME/.config/fish/quick_scripts.fish
+source $HOME/.config/fish/triggers.fish
+
 
 #--------CUSTOM FUNCTIONS---------------
 fish_vi_key_bindings
@@ -61,6 +63,10 @@ alias grep='grep --color=auto'
 
 export PYTHONDONTWRITEBYTECODE=1
 export GOPATH=$HOME/.local/go
+
+set NPM_PACKAGES "$HOME/.npm-packages"
+set PATH $PATH $NPM_PACKAGES/bin
+set MANPATH $NPM_PACKAGES/share/man $MANPATH  
 
 export LANG=en_IN.UTF-8
 export TERM=xterm-256color

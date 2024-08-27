@@ -12,6 +12,7 @@ return {
 	},
 	{
 		"TimUntersberger/neogit",
+		tag = "v0.0.1",
 		cmd = "Neogit",
 		config = function()
 			require("neogit").setup()
