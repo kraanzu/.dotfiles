@@ -41,7 +41,7 @@ key_bindings = [
     # LAUNCHING APPS -> Ctrl + Alt + <Key>
     Keybind(
         "C-A-b",
-        lazy.spawn("firefox -P kwork"),
+        lazy.spawn("firefox"),
         desc="Launches firefox with work profile",
     ),
     Keybind(
