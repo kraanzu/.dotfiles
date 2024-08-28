@@ -1,5 +1,5 @@
 vim.opt.termguicolors = true
-vim.opt.termsync = false
+-- vim.opt.termsync = false
 vim.g.gitgutter_terminal_reports_focus = 0
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
