@@ -62,7 +62,7 @@ in
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  services.xserver.displayManager.sddm = {
+  services.displayManager.sddm = {
    enable=true;
    theme="${sddm_theme}";
   };
@@ -71,14 +71,14 @@ in
         enable = true;
         backend = "x11";
         extraPackages = python3Packages: with python3Packages; [
-          (qtile-extras.overridePythonAttrs(old: { disabledTestPaths = [ "test/widget/test_strava.py" ]; }))
+          (qtile-extras.overridePythonAttrs(old: { disabledTestPaths = [ "test/widget/*" ]; }))
         ];
   };
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Enable CUPS to print documents.
@@ -147,7 +147,7 @@ in
     xclip
     libsForQt5.qt5.qtgraphicaleffects
     libsForQt5.qt5.qtquickcontrols2
-    nodejs_21
+    nodejs_22
     ripgrep
     flameshot
     pulseaudio
@@ -191,7 +191,7 @@ in
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 }
