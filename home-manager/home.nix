@@ -41,7 +41,12 @@
   # home.packages = with pkgs; [ steam ];
 
   programs.home-manager.enable = true;
-  programs.git.enable = true;
+  programs.git = {
+  enable = true;
+  userEmail = "kraanzu@gmail.com";
+  userName = "kraanzu";
+  };
+
   # home.file.".config/wezterm/wezterm.lua".source = ../configs/wezterm/wezterm.lua;
   # home.file.".config/fish".source = ../configs/fish;
 
