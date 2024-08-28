@@ -135,7 +135,7 @@ key_bindings = [
     ),
     Keybind(
         "M-S-r",
-        lazy.restart(),
+        lazy.reload_config(),
         desc="Soft Reload",
     ),
     Keybind(
