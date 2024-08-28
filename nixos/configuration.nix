@@ -70,9 +70,7 @@ in
   services.xserver.windowManager.qtile = {
         enable = true;
         backend = "x11";
-        extraPackages = python3Packages: with python3Packages; [
-          (qtile-extras.overridePythonAttrs(old: { disabledTestPaths = [ "test/widget/*" ]; }))
-        ];
+        extraPackages = p: with p; [ qtile-extras ];
   };
 
   # Configure keymap in X11
