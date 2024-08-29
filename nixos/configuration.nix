@@ -137,6 +137,7 @@ in
     stow
     xfce.xfce4-clipman-plugin
     lxde.lxsession
+    lxappearance
     openrgb
     networkmanagerapplet
     blueberry
