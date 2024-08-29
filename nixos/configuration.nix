@@ -113,6 +113,7 @@ in
 
   # shell
   programs.fish.enable = true;
+  services.hardware.openrgb.enable = true;
 	
   users.users.kraanzu = {
     isNormalUser = true;
