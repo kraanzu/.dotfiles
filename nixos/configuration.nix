@@ -5,7 +5,6 @@
 { config, pkgs, inputs, ... }:
 
 let 
- sddm_theme = "${import ./sddm_theme.nix {inherit pkgs;}}";
  grub_theme = "${import ./grub_theme.nix {inherit pkgs;}}";
 in
 {
@@ -38,6 +37,10 @@ in
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+  boot.initrd.kernelModules = [ "amdgpu" ];
+  services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "amdgpu" ];
+
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -59,12 +62,8 @@ in
     LC_TIME = "en_IN";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
   services.displayManager.sddm = {
    enable=true;
-   theme="${sddm_theme}";
   };
 
   services.xserver.windowManager.qtile = {
@@ -72,6 +71,8 @@ in
         backend = "x11";
         extraPackages = p: with p; [ qtile-extras ];
   };
+
+  programs.hyprland.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -130,6 +131,7 @@ in
     wezterm
     fish
     qtile
+    kitty
     redshift
     rofi
     dunst
@@ -150,19 +152,31 @@ in
     flameshot
     pulseaudio
     python311Packages.ipython
+    hyprland
+    wofi
+    hyprshade
+    foot
+    alacritty
+    wl-gammarelay-rs
   ];
 
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "SourceCodePro" ]; })
   ];
 
-  services.geoclue2.enable=true;
-  # services.redshift = {
-  # enable = true;
-  # latitude = 22.572645;
-  # longitude = 88.363892;
-  # };
-
+  # services.geoclue2.enable=true;
+  location.provider = "geoclue2";
+  services.redshift = {
+    enable = true;
+    brightness = {
+      day = "1";
+      night = "1";
+    };
+    temperature = {
+      day = 7000;
+      night = 3700;
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
