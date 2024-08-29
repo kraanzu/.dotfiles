@@ -67,9 +67,9 @@ in
   };
 
   services.xserver.windowManager.qtile = {
-        enable = true;
-        backend = "x11";
-        extraPackages = p: with p; [ qtile-extras ];
+    enable = true;
+    backend = "x11";
+    extraPackages = p: with p; [ qtile-extras ];
   };
 
   programs.hyprland.enable = true;
@@ -124,6 +124,7 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+  sddm
     killall
     wget
     git
@@ -165,30 +166,18 @@ in
   ];
 
   # services.geoclue2.enable=true;
-  location.provider = "geoclue2";
+  # location.provider = "geoclue2";
+  location.latitude = 22.5744;
+  location.longitude = 88.3629;
+
   services.redshift = {
     enable = true;
-    brightness = {
-      day = "1";
-      night = "1";
-    };
     temperature = {
       day = 7000;
-      night = 3700;
+      night = 7000;
     };
   };
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
