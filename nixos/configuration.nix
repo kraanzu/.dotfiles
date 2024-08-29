@@ -134,7 +134,7 @@ in
   sddm
   direnv
   dunst
-    # discord
+    discord
     stow
     xfce.xfce4-clipman-plugin
     lxde.lxsession
