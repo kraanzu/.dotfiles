@@ -132,7 +132,6 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   sddm
-  direnv
   dunst
     discord
     stow

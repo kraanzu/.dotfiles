@@ -70,4 +70,3 @@ set MANPATH $NPM_PACKAGES/share/man $MANPATH
 export LANG=en_IN.UTF-8
 export TERM=xterm-256color
 starship init fish | source
-direnv hook fish | source
