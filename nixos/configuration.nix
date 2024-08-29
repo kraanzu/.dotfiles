@@ -132,6 +132,15 @@ in
   environment.systemPackages = with pkgs; [
   sddm
   direnv
+  dunst
+    # discord
+    stow
+    xfce.xfce4-clipman-plugin
+    lxde.lxsession
+    openrgb
+    networkmanagerapplet
+    blueberry
+    caffeine-ng
     killall
     wget
     git
