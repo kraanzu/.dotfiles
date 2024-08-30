@@ -11,14 +11,12 @@ inputs,
   ];
 
   networking.hostName = "nixos";
-  boot.initrd.kernelModules = ["amdgpu"];
-  services.xserver.videoDrivers = ["amdgpu"];
 
+  # drivers
+  mynix.amdgpu.enable = true;
+
+  # eye candy
   mynix.sddm_chili.enable = true;
-
-  services.displayManager.sddm = {
-    enable = true;
-  };
 
   services.xserver.windowManager.qtile = {
     enable = true;

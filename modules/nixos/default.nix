@@ -1,3 +1,6 @@
 {
-  imports = [./sddm_chili];
+  imports = [
+  ./sddm_chili
+  ./amdgpu
+  ];
 }
