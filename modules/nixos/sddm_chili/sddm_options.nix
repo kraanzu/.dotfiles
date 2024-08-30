@@ -1,3 +1,5 @@
+# SDDM CHILI THEME
+
 {
   config,
   lib,
@@ -5,7 +7,7 @@
   ...
 }:
 with lib; let
-  sddm_chili = import ./sddm_chili.nix {inherit pkgs;};
+  sddm_chili_theme = import ./sddm_chili.nix {inherit pkgs;};
 in {
   options = {
     sddm_chili.enable = lib.mkOption {
@@ -19,12 +21,12 @@ in {
     environment.systemPackages = [
       pkgs.libsForQt5.qt5.qtgraphicaleffects
       pkgs.libsForQt5.qt5.qtquickcontrols2
-      sddm_chili
+      sddm_chili_theme
     ];
 
     services.displayManager.sddm = {
       enable = true;
-      theme = "${sddm_chili}";
+      theme = "${sddm_chili_theme}";
     };
   };
 }
