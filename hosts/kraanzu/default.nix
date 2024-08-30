@@ -14,7 +14,7 @@ inputs,
   boot.initrd.kernelModules = ["amdgpu"];
   services.xserver.videoDrivers = ["amdgpu"];
 
-  sddm_chili.enable = true;
+  mynix.sddm_chili.enable = true;
 
   services.displayManager.sddm = {
     enable = true;
