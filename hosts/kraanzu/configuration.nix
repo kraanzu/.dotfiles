@@ -1,18 +1,19 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, inputs, ... }:
-
-let 
- grub_theme = "${import ./grub_theme.nix {inherit pkgs;}}";
-in
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.home-manager
-    ];
+  config,
+  pkgs,
+  inputs,
+  ...
+}: let
+  grub_theme = "${import ./grub_theme.nix {inherit pkgs;}}";
+in {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.home-manager
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = false;
@@ -22,11 +23,11 @@ in
       canTouchEfiVariables = true;
     };
     grub = {
-    theme = "${grub_theme}"; 
-    useOSProber = true;
-       efiSupport = true;
-       #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
-       device = "nodev";
+      theme = "${grub_theme}";
+      useOSProber = true;
+      efiSupport = true;
+      #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
+      device = "nodev";
     };
   };
 
@@ -38,14 +39,13 @@ in
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   # services.lorri.enable = true;
 
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.initrd.kernelModules = ["amdgpu"];
   services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "amdgpu" ];
-    services.picom = {
+  services.xserver.videoDrivers = ["amdgpu"];
+  services.picom = {
     enable = true;
     vSync = true;
   };
-
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -69,13 +69,13 @@ in
   };
 
   services.displayManager.sddm = {
-   enable=true;
+    enable = true;
   };
 
   services.xserver.windowManager.qtile = {
     enable = true;
     backend = "x11";
-    extraPackages = p: with p; [ qtile-extras ];
+    extraPackages = p: with p; [qtile-extras];
   };
 
   programs.hyprland.enable = true;
@@ -116,12 +116,12 @@ in
   # shell
   programs.fish.enable = true;
   services.hardware.openrgb.enable = true;
-	
+
   users.users.kraanzu = {
     isNormalUser = true;
-    shell=pkgs.fish;
+    shell = pkgs.fish;
     description = "kraanzu";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
       firefox
     ];
@@ -133,9 +133,9 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  alejandra
-  sddm
-  dunst
+    alejandra
+    sddm
+    dunst
     discord
     stow
     xfce.xfce4-clipman-plugin
@@ -183,7 +183,7 @@ in
   ];
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "SourceCodePro" ]; })
+    (nerdfonts.override {fonts = ["SourceCodePro"];})
   ];
 
   # services.geoclue2.enable=true;

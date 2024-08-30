@@ -1,5 +1,4 @@
-{ pkgs ? import <nixpkgs> {} }:
-
+{pkgs ? import <nixpkgs> {}}:
 pkgs.mkShell {
   buildInputs = [
     pkgs.python311
@@ -14,4 +13,3 @@ pkgs.mkShell {
     echo "Welcome to your Python development environment with Qtile and Qtile_extras!"
   '';
 }
-

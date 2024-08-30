@@ -1,8 +1,10 @@
-{ config, lib, pkgs, ... }:
-
-with lib;
-
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
   sddm_chili = pkgs.stdenv.mkDerivation rec {
     pname = "sddm-chili";
     version = "0.1.5";
@@ -21,8 +23,7 @@ let
 
     buildPhase = "true";
   };
-in
-{
+in {
   options = {
     sddm_chili.enable = lib.mkOption {
       type = lib.types.bool;
@@ -39,9 +40,7 @@ in
     ];
 
     services.displayManager.sddm = {
-     theme="${sddm_chili}";
+      theme = "${sddm_chili}";
     };
-
   };
 }
-

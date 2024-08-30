@@ -3,6 +3,6 @@
   home.file."OpenRGB" = {
     source = ../configs/OpenRGB;
     target = ".config/OpenRGB"; # This is where you want to symlink it to
-    recursive=true;
+    recursive = true;
   };
 }

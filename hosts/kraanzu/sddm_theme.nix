@@ -1,5 +1,4 @@
-{ pkgs }:
-
+{pkgs}:
 pkgs.stdenv.mkDerivation rec {
   pname = "sddm-chili";
   version = "0.1.5"; # Adjust the version as needed

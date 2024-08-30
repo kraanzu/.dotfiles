@@ -40,8 +40,8 @@
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
 
-  gtk.enable=true;
-  qt.enable=true;
+  gtk.enable = true;
+  qt.enable = true;
 
   gtk.theme.name = "Nordic";
   gtk.theme.package = pkgs.nordic;
@@ -52,12 +52,11 @@
   gtk.cursorTheme.name = "Nordic-cursor";
   gtk.cursorTheme.package = pkgs.nordic;
 
-
   programs.home-manager.enable = true;
   programs.git = {
-  enable = true;
-  userEmail = "kraanzu@gmail.com";
-  userName = "kraanzu";
+    enable = true;
+    userEmail = "kraanzu@gmail.com";
+    userName = "kraanzu";
   };
 
   # home.file.".config/wezterm/wezterm.lua".source = ../configs/wezterm/wezterm.lua;
