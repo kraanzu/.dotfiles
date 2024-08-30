@@ -6,12 +6,9 @@
   pkgs,
   inputs,
   ...
-}: let
-  grub_theme = "${import ./grub_theme.nix {inherit pkgs;}}";
-in {
+}: {
   imports = [
     # Include the results of the hardware scan.
-    ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -23,7 +20,6 @@ in {
       canTouchEfiVariables = true;
     };
     grub = {
-      theme = "${grub_theme}";
       useOSProber = true;
       efiSupport = true;
       #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
