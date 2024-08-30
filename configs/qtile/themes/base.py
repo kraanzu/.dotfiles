@@ -112,4 +112,4 @@ def screens_reconfigured():
 
 @hook.subscribe.startup_once
 def start_once():
-    os.system("~/.config/qtile/autostart.sh")
+    os.system("bash ~/.config/qtile/autostart.sh")
