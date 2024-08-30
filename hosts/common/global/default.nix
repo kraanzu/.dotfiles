@@ -9,5 +9,7 @@
     ./misc.nix
     ./fish.nix
     ./x11.nix
+    ./redshift.nix
+    ./fonts.nix
   ];
 }

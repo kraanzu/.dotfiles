@@ -40,15 +40,5 @@
     ];
   };
 
-  fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["SourceCodePro"];})
-  ];
-  services.redshift = {
-    enable = true;
-    temperature = {
-      day = 4000;
-      night = 4000;
-    };
-  };
   system.stateVersion = "24.05"; # Did you read the comment?
 }
