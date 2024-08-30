@@ -6,12 +6,12 @@
 
 let 
  grub_theme = "${import ./grub_theme.nix {inherit pkgs;}}";
- sddm_theme = "${import ./sddm_theme.nix {inherit pkgs;}}";
 in
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../modules/nixos/sddm_chili.nix
       inputs.home-manager.nixosModules.home-manager
     ];
 
@@ -71,8 +71,8 @@ in
 
   services.displayManager.sddm = {
    enable=true;
-   theme="${sddm_theme}";
   };
+  sddm_chili.enable = true;
 
   services.xserver.windowManager.qtile = {
     enable = true;
