@@ -5,7 +5,7 @@ inputs,
 }:
 {
   imports = [
-  ../common/global
+  ../common
   ./hardware-configuration.nix
   ./ext_drives.nix
   ];
