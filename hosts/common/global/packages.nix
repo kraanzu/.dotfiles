@@ -18,6 +18,8 @@
     xclip
     ripgrep
     bluez
+    pulseaudio
+    tree
 
     # shell stuff
     fish
@@ -36,6 +38,8 @@
     flameshot
     dunst
     rofi
+    gnome.gnome-disk-utility
+    gnome.nautilus
 
     # extras
     alejandra
