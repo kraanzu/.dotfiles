@@ -38,6 +38,7 @@
     flameshot
     dunst
     rofi
+    vlc
     gnome.gnome-disk-utility
     gnome.nautilus
 
