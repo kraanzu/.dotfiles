@@ -6,6 +6,7 @@
 
 let 
  grub_theme = "${import ./grub_theme.nix {inherit pkgs;}}";
+ sddm_theme = "${import ./sddm_theme.nix {inherit pkgs;}}";
 in
 {
   imports =
@@ -70,6 +71,7 @@ in
 
   services.displayManager.sddm = {
    enable=true;
+   theme="${sddm_theme}";
   };
 
   services.xserver.windowManager.qtile = {

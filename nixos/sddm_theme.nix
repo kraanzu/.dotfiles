@@ -1,16 +1,20 @@
 { pkgs }:
 
-let
-  imgLink = "https://raw.githubusercontent.com/kraanzu/.dotfiles/nixos/others/sddm_theme.zip";
-in
-pkgs.stdenv.mkDerivation {
-  name = "sddm-theme";
-  src = pkgs.fetchzip {
-    url = imgLink;
-    sha256 = "sha256-5Wp3Sv2iDV7aVQzSzYI/YfrUEnRvB+TAX4lta927Sb8=";
+pkgs.stdenv.mkDerivation rec {
+  pname = "sddm-chili";
+  version = "0.1.5"; # Adjust the version as needed
+
+  src = pkgs.fetchFromGitHub {
+    owner = "MarianArlt";
+    repo = pname;
+    rev = version;
+    sha256 = "sha256-wxWsdRGC59YzDcSopDRzxg8TfjjmA3LHrdWjepTuzgw="; # Replace with the correct hash
   };
+
   installPhase = ''
     mkdir -p $out
-    cp -R ./* $out/
-    '';
+    cp -r ./* $out
+  '';
+
+  buildPhase = "true";
 }
