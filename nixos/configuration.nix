@@ -178,6 +178,7 @@ in
     foot
     alacritty
     wl-gammarelay-rs
+    bluez
   ];
 
   fonts.packages = with pkgs; [
