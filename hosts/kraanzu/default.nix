@@ -21,9 +21,6 @@ inputs,
   # WMs
   mynix.wm.qtile.enable = true;
 
-
-  programs.hyprland.enable = true;
-
   services.hardware.openrgb.enable = true;
 
   users.users.kraanzu = {
