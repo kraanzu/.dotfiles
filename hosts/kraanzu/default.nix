@@ -18,11 +18,9 @@ inputs,
   # eye candy
   mynix.sddm_chili.enable = true;
 
-  services.xserver.windowManager.qtile = {
-    enable = true;
-    backend = "x11";
-    extraPackages = p: with p; [qtile-extras];
-  };
+  # WMs
+  mynix.wm.qtile.enable = true;
+
 
   programs.hyprland.enable = true;
 
