@@ -1,6 +1,11 @@
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
-    ./configuration.nix
+    inputs.home-manager.nixosModules.home-manager
+
     ./boot.nix
     ./locale.nix
     ./keymap.nix
@@ -12,4 +17,7 @@
     ./redshift.nix
     ./fonts.nix
   ];
+
+  system.stateVersion = "24.05";
+
 }
