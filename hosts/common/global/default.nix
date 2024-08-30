@@ -16,6 +16,7 @@
     ./x11.nix
     ./redshift.nix
     ./fonts.nix
+    ./usb.nix
   ];
 
   system.stateVersion = "24.05";
