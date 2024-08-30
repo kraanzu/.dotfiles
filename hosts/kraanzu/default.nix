@@ -7,6 +7,7 @@ inputs,
   imports = [
   ../common/global
   ./hardware-configuration.nix
+  ./ext_drives.nix
   ];
 
   networking.hostName = "nixos";
