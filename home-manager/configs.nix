@@ -13,7 +13,7 @@
       target = ".config/dunst"; # This is where you want to symlink it to
     };
 
-    "fish_config" = {
+    "fish" = {
       source = ../configs/fish;
       target = ".config/fish"; # This is where you want to symlink it to
     };
@@ -29,7 +29,7 @@
       recursive = true;
     };
 
-    "qtile_config" = {
+    "qtile" = {
       source = ../configs/qtile;
       target = ".config/qtile"; # This is where you want to symlink it to
     };
