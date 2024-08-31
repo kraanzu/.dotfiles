@@ -46,5 +46,6 @@
     discord
     qtile
     nodejs_22
+    poetry
   ];
 }
