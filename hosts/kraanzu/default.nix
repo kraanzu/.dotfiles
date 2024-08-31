@@ -7,6 +7,7 @@
     ../common
     ./hardware-configuration.nix
     ./ext_drives.nix
+    ./tempwork.nix # temp stuff for gigs
   ];
 
   networking.hostName = "nixos";
