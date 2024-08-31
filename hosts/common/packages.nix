@@ -48,5 +48,8 @@
     nodejs_22
     poetry
     python311Packages.pip
+
+    # languages
+    zig
   ];
 }
