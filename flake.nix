@@ -12,12 +12,14 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-unstable,
     home-manager,
     ...
   } @ inputs: let
     inherit (self) outputs;
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
   in {
     devShells.x86_64-linux.default = pkgs.mkShell {};
     overlays = import ./overlays {inherit inputs;};
@@ -26,7 +28,7 @@
 
     nixosConfigurations = {
       kraanzu = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs outputs pkgs-unstable;};
         modules = [
           ./hosts/kraanzu
         ];
@@ -35,8 +37,8 @@
 
     homeConfigurations = {
       kraanzu = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs;};
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs outputs pkgs-unstable;};
         modules = [
           ./home-manager/home.nix
         ];
