@@ -1,13 +1,12 @@
 {
-pkgs,
-inputs,
-...
-}:
-{
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
-  ../common
-  ./hardware-configuration.nix
-  ./ext_drives.nix
+    ../common
+    ./hardware-configuration.nix
+    ./ext_drives.nix
   ];
 
   networking.hostName = "nixos";

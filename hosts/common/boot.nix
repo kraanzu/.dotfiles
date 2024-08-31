@@ -1,4 +1,4 @@
-{inputs, ... }:{
+{inputs, ...}: {
   imports = [inputs.grub2-themes.nixosModules.default];
 
   boot.loader.systemd-boot.enable = false;

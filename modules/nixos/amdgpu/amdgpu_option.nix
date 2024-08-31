@@ -3,8 +3,7 @@
   lib,
   ...
 }:
-with lib;
-{
+with lib; {
   options = {
     mynix.amdgpu.enable = lib.mkOption {
       type = lib.types.bool;
@@ -18,4 +17,3 @@ with lib;
     services.xserver.videoDrivers = ["amdgpu"];
   };
 }
-

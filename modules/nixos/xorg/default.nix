@@ -3,8 +3,7 @@
   lib,
   ...
 }:
-with lib;
-{
+with lib; {
   options = {
     mynix.x11.enable = lib.mkOption {
       type = lib.types.bool;
@@ -28,4 +27,3 @@ with lib;
     };
   };
 }
-

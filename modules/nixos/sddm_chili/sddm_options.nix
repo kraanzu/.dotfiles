@@ -1,5 +1,4 @@
 # SDDM CHILI THEME
-
 {
   config,
   lib,

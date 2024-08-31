@@ -1,8 +1,8 @@
 {
   imports = [
-  ./sddm_chili
-  ./amdgpu
-  ./qtile
-  ./xorg
+    ./sddm_chili
+    ./amdgpu
+    ./qtile
+    ./xorg
   ];
 }

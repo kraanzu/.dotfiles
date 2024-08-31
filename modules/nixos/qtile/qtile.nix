@@ -3,8 +3,7 @@
   lib,
   ...
 }:
-with lib;
-{
+with lib; {
   options = {
     mynix.wm.qtile.enable = lib.mkOption {
       type = lib.types.bool;
@@ -21,6 +20,5 @@ with lib;
       backend = "x11";
       extraPackages = p: with p; [qtile-extras];
     };
-
   };
 }
