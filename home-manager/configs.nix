@@ -5,48 +5,48 @@
 
     "dooit" = {
       source = ../configs/dooit;
-      target = ".config/dooit"; # This is where you want to symlink it to
+      target = ".config/dooit";
     };
 
     "dunst" = {
       source = ../configs/dunst;
-      target = ".config/dunst"; # This is where you want to symlink it to
+      target = ".config/dunst";
     };
 
     "fish" = {
       source = ../configs/fish;
-      target = ".config/fish"; # This is where you want to symlink it to
+      target = ".config/fish";
     };
 
     "nvim" = {
       source = ../configs/nvim;
-      target = ".config/nvim"; # This is where you want to symlink it to
+      target = ".config/nvim";
     };
 
     "OpenRGB" = {
       source = ../configs/OpenRGB;
-      target = ".config/OpenRGB"; # This is where you want to symlink it to
+      target = ".config/OpenRGB";
       recursive = true;
     };
 
     "qtile" = {
       source = ../configs/qtile;
-      target = ".config/qtile"; # This is where you want to symlink it to
+      target = ".config/qtile";
     };
 
     "rofi" = {
       source = ../configs/rofi;
-      target = ".config/rofi"; # This is where you want to symlink it to
+      target = ".config/rofi";
     };
 
     "starship" = {
       source = ../configs/starship.toml;
-      target = ".config/starship.toml"; # This is where you want to symlink it to
+      target = ".config/starship.toml";
     };
 
     "wezterm" = {
       source = ../configs/wezterm;
-      target = ".config/wezterm"; # This is where you want to symlink it to
+      target = ".config/wezterm";
     };
   };
 }
