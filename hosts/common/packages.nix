@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
+{pkgs, pkgs-unstable, ...}: {
+  environment.systemPackages = (with pkgs; [
     # basic utilties
     networkmanagerapplet
     blueberry
@@ -29,7 +29,6 @@
     # terminal
     wezterm
     kitty
-    neovim
 
     # gui utils
     sddm
@@ -51,5 +50,11 @@
 
     # languages
     zig
-  ];
+  ])
+
+  ++
+
+  (with pkgs-unstable; [
+    neovim
+  ]);
 }
