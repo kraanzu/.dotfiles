@@ -14,10 +14,13 @@ with lib;
   };
 
   config = mkIf config.mynix.wm.qtile.enable {
+    mynix.x11.enable = true;
+
     services.xserver.windowManager.qtile = {
       enable = true;
       backend = "x11";
       extraPackages = p: with p; [qtile-extras];
     };
+
   };
 }
