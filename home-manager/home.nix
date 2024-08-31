@@ -7,15 +7,7 @@
   ...
 }: {
   imports = [
-    ./fish.nix
-    ./qtile.nix
-    ./wezterm.nix
-    ./starship.nix
-    ./openrgb.nix
-    ./dooit.nix
-    ./rofi.nix
-    ./dunst.nix
-    ./nvim.nix
+    ./configs.nix
   ];
 
   nixpkgs = {
