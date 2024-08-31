@@ -21,6 +21,7 @@
     "nvim" = {
       source = ../configs/nvim;
       target = ".config/nvim";
+      recursive = true;
     };
 
     "OpenRGB" = {
