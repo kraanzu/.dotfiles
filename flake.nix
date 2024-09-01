@@ -7,6 +7,11 @@
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     grub2-themes.url = "github:vinceliuice/grub2-themes";
+
+    mysecrets = {
+      url = "git+ssh://git@github.com/kraanzu/personal.git?ref=main&shallow=1";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -14,6 +19,7 @@
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
+    mysecrets,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -34,7 +40,7 @@
 
     nixosConfigurations = {
       nzxt = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs pkgs-unstable;};
+        specialArgs = {inherit inputs outputs pkgs-unstable mysecrets;};
         modules = [
           ./hosts/nzxt
         ];
@@ -44,7 +50,7 @@
     homeConfigurations = {
       nzxt = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs pkgs-unstable;};
+        extraSpecialArgs = {inherit inputs outputs pkgs-unstable mysecrets;};
         modules = [
           ./home/nzxt
         ];

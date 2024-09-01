@@ -1,3 +1,4 @@
+{mysecrets, ... }:
 {
   home.file = {
     # All config files symlinked!
