@@ -1,14 +1,24 @@
-# Kraanzu's Dotfiles :)
+# Kraanzu's NixOS Dotfiles
 
-Dotfiles for my qtile setup :)
+> [!NOTE]
+>
+> **System Information:**
+>
+> - **OS:** NixOS
+> - **Window Manager:** Qtile
+> - **Shell:** Fish
+> - **Terminal:** Kitty
+> - **Editor:** Neovim
+
 
 ## Setup
+
 ```bash
-git clone https://github.com/kraanzu/.dotfiles.git ~/.dotfiles
-cd ~/.dotfiles/
-bash setup.sh
+sudo nixos-rebuild switch --flake .
+home-manager switch --flake . -b backup
 ```
+
 
 ## A screenshot of the desktop
 
-![screen](https://user-images.githubusercontent.com/97718086/192107951-c90b29aa-ca58-4fd4-ab6c-33dd070c4efb.png)
+![screenshot](https://github.com/user-attachments/assets/c634acad-4f79-452b-8890-e742a104e7cd)
