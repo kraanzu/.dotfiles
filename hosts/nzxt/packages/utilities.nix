@@ -17,5 +17,6 @@
     rofi
     gnome.nautilus
     vlc
+    gdrive
   ];
 }
