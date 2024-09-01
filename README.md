@@ -7,7 +7,7 @@
 > - **OS:** NixOS
 > - **Window Manager:** Qtile
 > - **Shell:** Fish
-> - **Terminal:** Kitty
+> - **Terminal:** Wezterm
 > - **Editor:** Neovim
 
 
