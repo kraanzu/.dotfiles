@@ -13,11 +13,14 @@
       zig
       lua
       nodejs_22 # neovim copilot
+      go
 
       # LSP
       pyright
       zls
       luajitPackages.lua-lsp
+      marksman
+      gopls
 
       # FORMATTER
       black
