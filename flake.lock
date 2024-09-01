@@ -42,10 +42,10 @@
     "mysecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1725184016,
-        "narHash": "sha256-0ZkcJ2+02GvZRMR76mjqh/6N7ZRvsKivOO1N9ieb7BU=",
+        "lastModified": 1725192459,
+        "narHash": "sha256-ppQgD44vOqGBAkS1YxIqYEeLHDWZdNiv1TkheOPDe+w=",
         "ref": "main",
-        "rev": "2f2961e41788d106919345ef0a901e6517e51594",
+        "rev": "394205b71557e5ff9db105222aabf6f473d8f6ba",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/kraanzu/personal.git"
