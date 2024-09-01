@@ -10,6 +10,7 @@ in {
     ../common
     ./theme.nix
     ./configs.nix
+    ./wallpapers.nix
   ];
 
   home = {
