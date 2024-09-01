@@ -2,20 +2,25 @@
   config,
   pkgs,
   ...
-}: {
+}: 
+let 
+  user_name = "kraanzu";
+  user_email = "kraanzu@gmail.com";
+in
+{
   imports = [
     ../common
     ./theme.nix
   ];
 
   home = {
-    username = "kraanzu";
-    homeDirectory = "/home/kraanzu";
+    username = "${user_name}";
+    homeDirectory = "/home/${user_name}";
   };
 
   programs.git = {
     enable = true;
-    userEmail = "kraanzu@gmail.com";
-    userName = "kraanzu";
+    userEmail = "${user_email}";
+    userName = "${user_name}";
   };
 }
