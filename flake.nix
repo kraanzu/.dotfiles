@@ -1,5 +1,5 @@
 {
-  description = "Kraanzu's nix config";
+  description = "Kraanzu's NixOS config";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
@@ -33,20 +33,20 @@
     homeManagerModules = import ./modules/home-manager;
 
     nixosConfigurations = {
-      kraanzu = nixpkgs.lib.nixosSystem {
+      nzxt = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs pkgs-unstable;};
         modules = [
-          ./hosts/kraanzu
+          ./hosts/nzxt
         ];
       };
     };
 
     homeConfigurations = {
-      kraanzu = home-manager.lib.homeManagerConfiguration {
+      nzxt = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs pkgs-unstable;};
         modules = [
-          ./home/kraanzu
+          ./home/nzxt
         ];
       };
     };

@@ -12,7 +12,7 @@
     ./tempwork.nix # temp stuff for gigs
   ];
 
-  networking.hostName = "nixos";
+  networking.hostName = "nzxt";
 
   # drivers
   mynix.amdgpu.enable = true;
