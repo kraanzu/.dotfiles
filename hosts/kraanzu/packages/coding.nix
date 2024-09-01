@@ -8,6 +8,7 @@
     python3
     zig
     lua
+    nodejs_22 # neovim copilot
 
     # LSP
     pyright
