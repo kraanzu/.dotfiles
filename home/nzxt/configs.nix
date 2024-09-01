@@ -1,4 +1,7 @@
 {mysecrets, ... }:
+let 
+  secretspath = builtins.toString mysecrets;
+in
 {
   home.file = {
     # All config files symlinked!
@@ -16,6 +19,13 @@
     "fish" = {
       source = ../../configs/fish;
       target = ".config/fish";
+      recursive = true;
+    };
+
+    "fish_secrets" = {
+      source = "${secretspath}/secrets.fish";
+      target = ".config/fish/secrets.fish";
+      recursive = true;
     };
 
     "nvim" = {
