@@ -19,6 +19,7 @@
       bluez
       pulseaudio
       tree
+      home-manager
 
       # shell stuff
       fish
