@@ -1,23 +1,24 @@
 {mysecrets, ... }:
 let 
   secretspath = builtins.toString mysecrets;
+  base_config = builtins.toString ../../configs;
 in
 {
   home.file = {
     # All config files symlinked!
 
     "dooit" = {
-      source = ../../configs/dooit;
+      source = "${base_config}/dooit";
       target = ".config/dooit";
     };
 
     "dunst" = {
-      source = ../../configs/dunst;
+      source = "${base_config}/dunst";
       target = ".config/dunst";
     };
 
     "fish" = {
-      source = ../../configs/fish;
+      source = "${base_config}/fish";
       target = ".config/fish";
       recursive = true;
     };
@@ -29,34 +30,34 @@ in
     };
 
     "nvim" = {
-      source = ../../configs/nvim;
+      source = "${base_config}/nvim";
       target = ".config/nvim";
       recursive = true;
     };
 
     "OpenRGB" = {
-      source = ../../configs/OpenRGB;
+      source = "${base_config}/OpenRGB";
       target = ".config/OpenRGB";
       recursive = true;
     };
 
     "qtile" = {
-      source = ../../configs/qtile;
+      source = "${base_config}/qtile";
       target = ".config/qtile";
     };
 
     "rofi" = {
-      source = ../../configs/rofi;
+      source = "${base_config}/rofi";
       target = ".config/rofi";
     };
 
     "starship" = {
-      source = ../../configs/starship.toml;
+      source = "${base_config}/starship.toml";
       target = ".config/starship.toml";
     };
 
     "wezterm" = {
-      source = ../../configs/wezterm;
+      source = "${base_config}/wezterm";
       target = ".config/wezterm";
     };
   };
