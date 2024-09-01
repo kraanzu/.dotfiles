@@ -40,7 +40,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs pkgs-unstable;};
         modules = [
-          ./home-manager/home.nix
+          ./home/home.nix
         ];
       };
     };
