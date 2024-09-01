@@ -1,9 +1,7 @@
-{mysecrets, ... }:
-let 
+{mysecrets, ...}: let
   secretspath = builtins.toString mysecrets;
   base_config = builtins.toString ../../configs;
-in
-{
+in {
   home.file = {
     # All config files symlinked!
 
@@ -20,12 +18,6 @@ in
     "fish" = {
       source = "${base_config}/fish";
       target = ".config/fish";
-      recursive = true;
-    };
-
-    "fish_secrets" = {
-      source = "${secretspath}/secrets.fish";
-      target = ".config/fish/secrets.fish";
       recursive = true;
     };
 
@@ -59,6 +51,25 @@ in
     "wezterm" = {
       source = "${base_config}/wezterm";
       target = ".config/wezterm";
+    };
+
+    # Secrets
+    "fish_secrets" = {
+      source = "${secretspath}/secrets.fish";
+      target = ".config/fish/secrets.fish";
+      recursive = true;
+    };
+
+    "gdrive" = {
+      source = "${secretspath}/gdrive";
+      target = ".gdrive";
+      recursive = true;
+    };
+
+    "textual-web" = {
+      source = "${secretspath}/textual-web";
+      target = ".config/textual-web";
+      recursive = true;
     };
   };
 }
