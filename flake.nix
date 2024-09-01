@@ -34,7 +34,6 @@
     };
   in {
     devShells.x86_64-linux.default = pkgs.mkShell {};
-    overlays = import ./overlays {inherit inputs;};
     nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;
 
