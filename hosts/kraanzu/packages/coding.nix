@@ -28,5 +28,6 @@
 
   (with pkgs-unstable; [
     neovim
+    vscode
   ]);
 }
