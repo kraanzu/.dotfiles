@@ -18,5 +18,7 @@
     gnome.nautilus
     vlc
     gdrive
+    firefox
+    brave
   ];
 }

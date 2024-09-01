@@ -30,8 +30,5 @@
     shell = pkgs.fish;
     description = "kraanzu";
     extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-      firefox
-    ];
   };
 }
