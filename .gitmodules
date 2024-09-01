@@ -1,4 +1,0 @@
-[submodule "personal"]
-	path = personal
-	url = git@github.com:kraanzu/personal.git
-    branch = main
