@@ -11,6 +11,7 @@ in
   imports = [
     ../common
     ./theme.nix
+    ./configs.nix
   ];
 
   home = {
