@@ -1,9 +1,0 @@
-undodir/
-**/lazy-lock.json
-**/tmux/plugins/
-__pycache__/
-logs/
-OpenRGB/plugins/
-sizes.ors
-/configs/qBittorrent/*
-!nord.qbtheme
