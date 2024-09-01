@@ -57,6 +57,22 @@
         "url": "ssh://git@github.com/kraanzu/personal.git"
       }
     },
+    "mywalls": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1725193814,
+        "narHash": "sha256-6odVw0hOecTMyPRwp82DPg2yMdrvHQVfum4Eyb54idU=",
+        "owner": "kraanzu",
+        "repo": "nord_walls",
+        "rev": "b7ba446c0cc4cd1770587c086dbf49a078085426",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kraanzu",
+        "repo": "nord_walls",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1725191391,
@@ -110,6 +126,7 @@
         "grub2-themes": "grub2-themes",
         "home-manager": "home-manager",
         "mysecrets": "mysecrets",
+        "mywalls": "mywalls",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable"
       }
