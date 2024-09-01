@@ -2,12 +2,10 @@
   config,
   pkgs,
   ...
-}: 
-let 
+}: let
   user_name = "kraanzu";
   user_email = "kraanzu@gmail.com";
-in
-{
+in {
   imports = [
     ../common
     ./theme.nix

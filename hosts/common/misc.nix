@@ -4,7 +4,7 @@
   networking.networkmanager.enable = true;
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowUnfreePredicate = (pkg: true);
+  nixpkgs.config.allowUnfreePredicate = pkg: true;
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 

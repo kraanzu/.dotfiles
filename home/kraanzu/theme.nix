@@ -1,8 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-{
+{pkgs, ...}: {
   gtk.enable = true;
   qt.enable = true;
 
@@ -15,4 +11,3 @@
   gtk.cursorTheme.name = "Nordic-cursor";
   gtk.cursorTheme.package = pkgs.nordic;
 }
-

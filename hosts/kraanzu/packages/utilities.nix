@@ -1,6 +1,9 @@
-{pkgs, pkgs-unstable, ...}: {
+{
+  pkgs,
+  pkgs-unstable,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
-
     # basic utilties
     blueberry
     networkmanagerapplet

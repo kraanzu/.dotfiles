@@ -1,34 +1,35 @@
-{pkgs, pkgs-unstable, ...}: {
-    environment.systemPackages = (with pkgs; [
+{
+  pkgs,
+  pkgs-unstable,
+  ...
+}: {
+  environment.systemPackages =
+    (with pkgs; [
+      # terminals
+      wezterm
 
-    # terminals
-    wezterm
+      # LANG
+      python3
+      zig
+      lua
+      nodejs_22 # neovim copilot
 
-    # LANG
-    python3
-    zig
-    lua
-    nodejs_22 # neovim copilot
+      # LSP
+      pyright
+      zls
+      luajitPackages.lua-lsp
 
-    # LSP
-    pyright
-    zls
-    luajitPackages.lua-lsp
+      # FORMATTER
+      black
+      alejandra
+      stylua
 
-    # FORMATTER
-    black
-    alejandra
-    stylua
-
-    # extras
-    poetry
-    python311Packages.pip
-  ])
-
-  ++
-
-  (with pkgs-unstable; [
-    neovim
-    vscode
-  ]);
+      # extras
+      poetry
+      python311Packages.pip
+    ])
+    ++ (with pkgs-unstable; [
+      neovim
+      vscode
+    ]);
 }
