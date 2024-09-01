@@ -1,24 +1,11 @@
 {
-  inputs,
-  outputs,
-  lib,
   config,
   pkgs,
   ...
 }: {
   imports = [
-    ./configs.nix
+    ../common
   ];
-
-  nixpkgs = {
-    # You can add overlays here
-    overlays = [
-    ];
-    # Configure your nixpkgs instance
-    config = {
-      allowUnfree = true;
-    };
-  };
 
   home = {
     username = "kraanzu";
@@ -43,7 +30,4 @@
     userEmail = "kraanzu@gmail.com";
     userName = "kraanzu";
   };
-
-  systemd.user.startServices = "sd-switch";
-  home.stateVersion = "23.11";
 }
