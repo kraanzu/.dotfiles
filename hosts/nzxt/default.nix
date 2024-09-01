@@ -28,7 +28,6 @@
   users.users.kraanzu = {
     isNormalUser = true;
     shell = pkgs.fish;
-    description = "kraanzu";
     extraGroups = ["networkmanager" "wheel"];
   };
 }
