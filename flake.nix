@@ -12,6 +12,11 @@
       url = "git+ssh://git@github.com/kraanzu/personal.git?ref=main&shallow=1";
       flake = false;
     };
+
+    mywalls = {
+      url = "github:kraanzu/nord_walls";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -20,6 +25,7 @@
     nixpkgs-unstable,
     home-manager,
     mysecrets,
+    mywalls,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -39,7 +45,7 @@
 
     nixosConfigurations = {
       nzxt = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs pkgs-unstable mysecrets;};
+        specialArgs = {inherit inputs outputs pkgs-unstable mysecrets mywalls;};
         modules = [
           ./hosts/nzxt
         ];
@@ -49,7 +55,7 @@
     homeConfigurations = {
       nzxt = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs pkgs-unstable mysecrets;};
+        extraSpecialArgs = {inherit inputs outputs pkgs-unstable mysecrets mywalls;};
         modules = [
           ./home/nzxt
         ];
