@@ -18,8 +18,8 @@
   } @ inputs: let
     inherit (self) outputs;
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-    pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+    pkgs = import nixpkgs { system = "${system}"; config = { allowUnfree = true; }; };
+    pkgs-unstable = import nixpkgs-unstable { system = "${system}"; config = { allowUnfree = true; }; };
   in {
     devShells.x86_64-linux.default = pkgs.mkShell {};
     overlays = import ./overlays {inherit inputs;};
