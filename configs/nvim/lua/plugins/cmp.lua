@@ -15,5 +15,5 @@ return {
 	{ "hrsh7th/nvim-cmp", event = "BufRead" },
 	{ "hrsh7th/cmp-buffer", event = "BufRead" },
 	{ "hrsh7th/vim-vsnip", event = "BufRead" },
-    { "hrsh7th/cmp-cmdline"},
+	{ "hrsh7th/cmp-cmdline" },
 }

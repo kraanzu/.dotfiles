@@ -54,7 +54,7 @@ return {
 					lualine_z = {
 						-- Lsp server name .
 						{
-                            show_lsp,
+							show_lsp,
 							icon = "",
 							color = { bg = "#4c566a", fg = "#a3be8c", gui = "bold" },
 						},

@@ -43,7 +43,7 @@ require("telescope").setup({
 		path_display = { "truncate" },
 		winblend = 0,
 		border = {},
-        borderchars = { "━", "┃", "━", "┃", "┏", "┓", "┛", "┗" },
+		borderchars = { "━", "┃", "━", "┃", "┏", "┓", "┛", "┗" },
 		color_devicons = true,
 		set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
 		file_previewer = require("telescope.previewers").vim_buffer_cat.new,

@@ -61,7 +61,7 @@ for _, lsp in pairs(servers) do
 end
 
 require("lspconfig").lua_ls.setup({
-    cmd = { "lua-lsp" },
+	cmd = { "lua-lsp" },
 	settings = {
 		Lua = {
 			diagnostics = {

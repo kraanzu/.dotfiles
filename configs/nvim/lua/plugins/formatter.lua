@@ -21,7 +21,7 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			python = { "black" },
-            nix = {"alejandra"},
+			nix = { "alejandra" },
 		},
 		-- Set default options
 		default_format_opts = {
