@@ -5,9 +5,10 @@
 }: {
   imports = [
     ../common
+    ./packages
+
     ./hardware-configuration.nix
     ./ext_drives.nix
-    ./coding.nix
     ./tempwork.nix # temp stuff for gigs
   ];
 
