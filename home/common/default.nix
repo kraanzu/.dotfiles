@@ -6,16 +6,9 @@
     ./configs.nix
   ];
 
-  nixpkgs = {
-    # You can add overlays here
-    overlays = [
-    ];
-    # Configure your nixpkgs instance
-    config = {
-      allowUnfree = true;
-    };
-  };
-
+  nixpkgs.config.allowUnfree = true;
   systemd.user.startServices = "sd-switch";
+
+  programs.home-manager.enable = true;
   home.stateVersion = "23.11";
 }
