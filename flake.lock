@@ -42,10 +42,10 @@
     "mysecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1725192459,
-        "narHash": "sha256-ppQgD44vOqGBAkS1YxIqYEeLHDWZdNiv1TkheOPDe+w=",
+        "lastModified": 1725273629,
+        "narHash": "sha256-MCJo5RXczMGz0JlTF7JFRqDFjyPD9nSMihgQPVwgwsA=",
         "ref": "main",
-        "rev": "394205b71557e5ff9db105222aabf6f473d8f6ba",
+        "rev": "a066773ffe416a5731b0e952d69001bcaceb9d3e",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/kraanzu/personal.git"
@@ -75,11 +75,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1725191391,
-        "narHash": "sha256-mX5xUFt7fUH3uSWcboiuFrQQipwsIqdtDLCezYZ3Rr0=",
+        "lastModified": 1725273523,
+        "narHash": "sha256-GATpIbWL7EFUm/Is2NJ36nrQ5K3lD94k74YxT9GLwLM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5cbbd23d5de47e31a8db5351c89afb7e5197819c",
+        "rev": "31e42275fb83c17c0a5a949b95823caa0b739320",
         "type": "github"
       },
       "original": {
@@ -91,11 +91,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1724819573,
-        "narHash": "sha256-GnR7/ibgIH1vhoy8cYdmXE6iyZqKqFxQSVkFgosBh6w=",
+        "lastModified": 1725103162,
+        "narHash": "sha256-Ym04C5+qovuQDYL/rKWSR+WESseQBbNAe5DsXNx5trY=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "71e91c409d1e654808b2621f28a327acfdad8dc2",
+        "rev": "12228ff1752d7b7624a54e9c1af4b222b3c1073b",
         "type": "github"
       },
       "original": {
