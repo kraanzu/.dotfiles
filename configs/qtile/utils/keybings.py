@@ -8,6 +8,7 @@ from pathlib import Path
 terminal = "wezterm-gui connect unix --workspace main"
 scratch = "wezterm-gui connect unix --workspace extra"
 
+
 @lazy.function
 def toggle_dual_monitors(qtile: Qtile) -> None:
     scripts_folder = Path("~/.config/scripts")
@@ -20,6 +21,7 @@ def toggle_dual_monitors(qtile: Qtile) -> None:
 
     cmd = f"bash {script}"
     os.system(cmd)
+
 
 key_bindings = [
     # ROFI SCRIPTS -> Mod + Shift + <Key>

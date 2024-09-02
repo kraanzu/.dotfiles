@@ -5,7 +5,7 @@ from utils.funcs import *
 
 bar = bar1
 DASHBOARD = dashboard
-SAVE_ON_ESCAPE = True # whether to cancel the todo or save it when esc is pressed. `False` means cancel
+SAVE_ON_ESCAPE = True  # whether to cancel the todo or save it when esc is pressed. `False` means cancel
 
 
 TODO = {

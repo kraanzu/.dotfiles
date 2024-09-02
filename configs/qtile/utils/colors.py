@@ -20,4 +20,5 @@ class Color:
     def __getitem__(self, item):
         return getattr(self, item)
 
+
 color = Color()
