@@ -21,6 +21,7 @@
       tree
       home-manager
       cloc
+      imagemagick
 
       # shell stuff
       fish
