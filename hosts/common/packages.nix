@@ -20,6 +20,7 @@
       pulseaudio
       tree
       home-manager
+      cloc
 
       # shell stuff
       fish
