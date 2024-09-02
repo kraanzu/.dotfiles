@@ -2,6 +2,10 @@
   gtk.enable = true;
   qt.enable = true;
 
+  home.pointerCursor.gtk.enable = true;
+  home.pointerCursor.name = "Nordic-cursors";
+  home.pointerCursor.package = pkgs.nordic;
+
   gtk.theme.name = "Nordic-bluish-accent";
   gtk.theme.package = pkgs.nordic;
 
