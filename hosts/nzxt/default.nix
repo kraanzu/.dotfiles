@@ -10,6 +10,7 @@
     ./hardware-configuration.nix
     ./ext_drives.nix
     ./tempwork.nix # temp stuff for gigs
+    ./office.nix # work stuff
   ];
 
   networking.hostName = "nzxt";
