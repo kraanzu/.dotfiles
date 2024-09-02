@@ -7,5 +7,6 @@
     ./utilities.nix
     ./coding.nix
     ./socials.nix
+    ./adb.nix
   ];
 }
