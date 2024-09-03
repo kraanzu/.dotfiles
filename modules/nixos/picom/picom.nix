@@ -17,7 +17,7 @@ in {
       frameOpacity = 0.7;
       inactiveDimFixed = true;
 
-      cornerRadius = 20;
+      cornerRadius = 0;
 
       blur = {
         method = "gaussian";
