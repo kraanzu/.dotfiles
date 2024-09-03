@@ -1,4 +1,3 @@
-# extract automatically
 function ext
     set destination $argv[-1]
 
@@ -19,36 +18,18 @@ function ext
     end
 end
 
-# config files
-function conf
-    set val $argv[1]
-
-    if [ $val = fish ]
-        nvim ~/.config/fish/config.fish
-
-    else if [ $val = starship ]
-        nvim ~/.config/starship.toml
-
-    else if [ $val = qtile ]
-        nvim ~/.config/qtile/config.py
-
-    else if [ $val = alacritty ]
-        nvim ~/.config/alacritty/alacritty.yml
-
-    else if [ $val = picom ]
-        nvim ~/.config/picom/picom.conf
-
-    else if [ $val = vim ]
-        nvim ~/.config/nvim/init.vim
-    else
-        echo Not in the config list!!
-    end
-end
-
 # merge develop branch and push
 function mmm
     git checkout main
     git merge develop
     git push
     git checkout develop
+end
+
+function shell
+  if test -d .venv
+    source .venv/bin/activate.fish
+  else
+    python3 -m venv .venv
+    source .venv/bin/activate.fish
 end
