@@ -1,5 +1,6 @@
 # -------SOURCE SECRETS-----------------
 source $HOME/.config/fish/secrets.fish  2> /dev/null
+source $HOME/.config/fish/nixos.fish
 source $HOME/.config/fish/utils.fish
 source $HOME/.config/fish/quick_scripts.fish
 
@@ -38,14 +39,6 @@ alias ls='exa -F --color=always --group-directories-first' # my preferred listin
 alias la='exa -a --color=always --group-directories-first' # all files and dirs
 alias ll='exa -l --color=always --group-directories-first' # long format
 alias lt='exa -aT --color=always --group-directories-first' # tree listing
-
-# pacman and yay
-alias pacman='sudo pacman'
-alias pacsyu='sudo pacman -Syyu' # update only standard pkgs
-alias yaysua='yay -Sua --noconfirm' # update only AUR pkgs
-alias yaysyu='yay -Syu --noconfirm' # update standard pkgs and AUR pkgs
-alias unlock='sudo rm /var/lib/pacman/db.lck' # remove pacman lock
-alias cleanup='sudo pacman -Rns (pacman -Qtdq)' # remove orphaned packages
 
 # adding flags
 alias df='df -h | grep -e "^/dev"' # human-readable sizes
