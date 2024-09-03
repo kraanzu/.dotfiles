@@ -20,5 +20,6 @@
     gdrive
     firefox
     brave
+    picom
   ];
 }
