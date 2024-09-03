@@ -4,5 +4,6 @@
     ./amdgpu
     ./qtile
     ./xorg
+    ./picom
   ];
 }
