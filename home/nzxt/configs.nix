@@ -5,11 +5,6 @@ in {
   home.file = {
     # All config files symlinked!
 
-    "picom" = {
-      source = "${base_config}/picom";
-      target = ".config/picom";
-    };
-
     "dooit" = {
       source = "${base_config}/dooit";
       target = ".config/dooit";
