@@ -13,6 +13,8 @@ with lib; {
   };
 
   config = mkIf config.mynix.x11.enable {
+
+    mynix.picom.enable = true;
     services.xserver = {
       enable = true;
       xkb = {
