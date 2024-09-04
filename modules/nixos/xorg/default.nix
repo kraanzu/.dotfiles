@@ -13,7 +13,6 @@ with lib; {
   };
 
   config = mkIf config.mynix.x11.enable {
-
     mynix.picom.enable = true;
     services.xserver = {
       enable = true;
@@ -21,11 +20,6 @@ with lib; {
         variant = "";
         layout = "us";
       };
-    };
-
-    services.picom = {
-      enable = true;
-      vSync = true;
     };
   };
 }
