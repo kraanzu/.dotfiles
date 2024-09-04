@@ -57,6 +57,38 @@ in {
         detectClientOpacity = true;
         detectTransient = true;
         useDamage = true;
+
+        shadow-exclude = [
+         "QTILE_INTERNAL:32c = 1"
+        ];
+
+        # RULES
+        wintypes = {
+          tooltip = {
+            fade = false;
+            shadow = true;
+            opacity = 0.75;
+            "full-shadow" = false;
+          };
+          dock = {
+            "blur-background" = false;
+            "corner-radius" = 0;
+          };
+          desktop = {
+            "blur-background" = false;
+            "corner-radius" = 0;
+          };
+          notification = {
+            shadow = false;
+          };
+          dropdown_menu = {
+            opacity = 0.75;
+          };
+          popup_menu = {
+            opacity = 0.75;
+          };
+          unknown = {};
+        };
       };
     };
   };
