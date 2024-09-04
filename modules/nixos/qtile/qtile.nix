@@ -14,7 +14,6 @@ with lib; {
 
   config = mkIf config.mynix.wm.qtile.enable {
     mynix.x11.enable = true;
-    mynix.picom.enable = true;
 
     services.xserver.windowManager.qtile = {
       enable = true;
