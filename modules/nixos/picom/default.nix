@@ -57,31 +57,6 @@ in {
         detectClientOpacity = true;
         detectTransient = true;
         useDamage = true;
-
-        rules = [
-          {
-            match = "window_type = 'tooltip'";
-            fade = false;
-            shadow = true;
-            opacity = 0.75;
-            fullShadow = false;
-          }
-          {
-            match = "window_type = 'dock' || window_type = 'desktop' || _GTK_FRAME_EXTENTS@";
-            blurBackground = false;
-          }
-          {
-            match = "window_type != 'dock'";
-          }
-          {
-            match = "window_type = 'dock' || window_type = 'desktop'";
-            cornerRadius = 0;
-          }
-          {
-            match = "name = 'Notification' || class_g = 'Conky' || class_g ?= 'Notify-osd' || class_g = 'Cairo-clock' || _GTK_FRAME_EXTENTS@";
-            shadow = false;
-          }
-        ];
       };
     };
   };
