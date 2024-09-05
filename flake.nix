@@ -55,7 +55,10 @@
     homeConfigurations = {
       nzxt = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs pkgs-unstable mysecrets mywalls;};
+        extraSpecialArgs = {
+          inherit inputs outputs pkgs-unstable mysecrets mywalls;
+          osConfig = outputs.nixosConfigurations.nzxt.config;
+        };
         modules = [
           ./home/nzxt
         ];
