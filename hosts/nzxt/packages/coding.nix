@@ -21,6 +21,7 @@
       luajitPackages.lua-lsp
       marksman
       gopls
+      nixd
 
       # FORMATTER
       black
