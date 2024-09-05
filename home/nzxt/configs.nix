@@ -10,10 +10,10 @@ in {
       target = ".config/dooit";
     };
 
-    "dunst" = {
-      source = "${base_config}/dunst";
-      target = ".config/dunst";
-    };
+    # "dunst" = {
+    #   source = "${base_config}/dunst";
+    #   target = ".config/dunst";
+    # };
 
     "fish" = {
       source = "${base_config}/fish";
