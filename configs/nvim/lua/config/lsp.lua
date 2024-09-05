@@ -52,7 +52,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 	},
 }
 
-local servers = { "pyright", "marksman", "lua_ls", "rust_analyzer", "gopls", "zls" }
+local servers = { "pyright", "marksman", "lua_ls", "rust_analyzer", "gopls", "zls", "nixd" }
 for _, lsp in pairs(servers) do
 	require("lspconfig")[lsp].setup({
 		on_attach = on_attach,
