@@ -2,14 +2,13 @@
   lib,
   osConfig,
   ...
-}:
-with lib; let
+}: let
   bg = "#252a34";
   white = "#D8DEE9";
   red = "#BF616A";
   blue = "#81A1C1";
 in {
-  config = mkIf osConfig.mynix.x11.enable {
+  config = lib.mkIf osConfig.mynix.x11.enable {
     services.dunst = {
       enable = true;
       settings = {
