@@ -1,16 +1,15 @@
 {
-  config,
   lib,
+  osConfig,
   ...
 }:
 with lib; let
-  sysconfig = (import <nixpkgs/nixos> {}).config;
   bg = "#252a34";
   white = "#D8DEE9";
   red = "#BF616A";
   blue = "#81A1C1";
 in {
-  config = mkIf sysconfig.mynix.x11.enable {
+  config = mkIf osConfig.mynix.x11.enable {
     services.dunst = {
       enable = true;
       settings = {
