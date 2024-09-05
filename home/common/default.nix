@@ -1,5 +1,4 @@
-{config, ...}: {
-
+{
   imports = [../../modules/home-manager];
 
   nixpkgs.config.allowUnfree = true;
