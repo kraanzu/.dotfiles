@@ -67,7 +67,7 @@
   };
 
   font = {
-    size = 11;
+    size = 15;
 
     bold = {
       family = "SauceCodePro Nerd Font";
