@@ -4,5 +4,6 @@
   imports = [
     ./dunst
     ./rofi
+    ./alacritty
   ];
 }
