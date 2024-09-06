@@ -1,7 +1,7 @@
 from libqtile.config import EzKey as Keybind
 from libqtile.core.manager import Qtile
 from libqtile.lazy import lazy
-from vars import scripts_path, rofi_path
+from vars import scripts_path
 import os
 from pathlib import Path
 
@@ -27,7 +27,7 @@ key_bindings = [
     # ROFI SCRIPTS -> Mod + Shift + <Key>
     Keybind(
         "M-S-<Return>",
-        lazy.spawn(f"rofi -no-lazy-grab -show drun -modi window,drun"),
+        lazy.spawn("rofi -show drun"),
         desc="Launch rofi app-launcer",
     ),
     # LAUNCHING APPS -> Ctrl + Alt + <Key>
@@ -88,7 +88,7 @@ key_bindings = [
     ),
     Keybind(
         "M-x",
-        lazy.spawn(f"bash {rofi_path}/powermenu.sh"),
+        lazy.spawn("rofi -show power-menu"),
         desc="Shows rofi power-menu",
     ),
     Keybind(
