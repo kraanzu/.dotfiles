@@ -7,6 +7,7 @@
     (with pkgs; [
       # terminals
       wezterm
+      alacritty
 
       # LANG
       python3
