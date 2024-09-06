@@ -6,8 +6,9 @@
   ...
 }: let
   default_modes = "window,drun,run,ssh,combi";
+  plugin_modes = "emoji";
   power_mode = "power-menu:${pkgs.rofi-power-menu}/bin/rofi-power-menu";
-  rofi_modes = "${default_modes},${power_mode}";
+  rofi_modes = "${default_modes},${plugin_modes},${power_mode}";
 in {
   config = lib.mkIf osConfig.mynix.x11.enable {
     programs.rofi = {
