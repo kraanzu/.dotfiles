@@ -11,7 +11,6 @@ in {
     ./theme.nix
     ./configs.nix
     ./wallpapers.nix
-    ./monitors.nix
   ];
 
   home = {

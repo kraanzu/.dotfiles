@@ -11,6 +11,7 @@
     ./ext_drives.nix
     ./tempwork.nix # temp stuff for gigs
     ./office.nix # work stuff
+    ./monitors.nix
   ];
 
   networking.hostName = "nzxt";

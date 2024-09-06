@@ -8,9 +8,12 @@ let
     HDMI-A-0 = hdmi_edid;
   };
 in {
-  programs.autorandr = {
+  services.autorandr = {
     enable = true;
+    defaultTarget = "single-monitor";
+
     profiles = {
+
       "dual-monitor" = {
         fingerprint = fingerprints;
         config = {
