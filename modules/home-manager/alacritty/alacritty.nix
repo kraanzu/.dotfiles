@@ -1,6 +1,6 @@
-{
+{pkgs, ...}: {
   programs.alacritty = {
-    enable = true;
+    enable = pkgs.alacritty != null;
     settings = import ./alacritty_theme.nix;
   };
 }
