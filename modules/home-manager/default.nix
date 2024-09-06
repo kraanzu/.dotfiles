@@ -3,5 +3,6 @@
 {
   imports = [
     ./dunst
+    ./rofi
   ];
 }
