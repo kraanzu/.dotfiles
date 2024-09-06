@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   osConfig,
   ...
@@ -9,6 +10,11 @@
   blue = "#81A1C1";
 in {
   config = lib.mkIf osConfig.mynix.x11.enable {
+    home.packages = with pkgs; [
+      dunst
+      libnotify
+    ];
+
     services.dunst = {
       enable = true;
       settings = {
