@@ -38,10 +38,11 @@ in {
       target = ".config/qtile";
     };
 
-    "rofi" = {
-      source = "${base_config}/rofi";
-      target = ".config/rofi";
-    };
+    # "rofi" = {
+    #   source = "${base_config}/rofi";
+    #   target = ".config/rofi";
+    #   recursive = true;
+    # };
 
     "starship" = {
       source = "${base_config}/starship.toml";
