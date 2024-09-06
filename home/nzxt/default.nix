@@ -11,6 +11,7 @@ in {
     ./theme.nix
     ./configs.nix
     ./wallpapers.nix
+    ./mimeapps.nix
   ];
 
   home = {
