@@ -3,7 +3,6 @@ from libqtile.core.manager import Qtile
 from libqtile.lazy import lazy
 from vars import scripts_path
 import os
-from pathlib import Path
 
 terminal = "wezterm-gui connect unix --workspace main"
 scratch = "wezterm-gui connect unix --workspace extra"
@@ -11,16 +10,14 @@ scratch = "wezterm-gui connect unix --workspace extra"
 
 @lazy.function
 def toggle_dual_monitors(qtile: Qtile) -> None:
-    scripts_folder = Path("~/.config/scripts")
     single = len(qtile.screens) == 1
 
     if single:
-        script = scripts_folder / "dual_monitors.sh"
+        script = "autorandr --load dual-monitor"
     else:
-        script = scripts_folder / "single_monitor.sh"
+        script = "autorandr --load single-monitor"
 
-    cmd = f"bash {script}"
-    os.system(cmd)
+    os.system(script)
 
 
 key_bindings = [
