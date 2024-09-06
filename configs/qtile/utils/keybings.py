@@ -26,18 +26,8 @@ def toggle_dual_monitors(qtile: Qtile) -> None:
 key_bindings = [
     # ROFI SCRIPTS -> Mod + Shift + <Key>
     Keybind(
-        "M-S-t",
-        lazy.spawn(f"bash {rofi_path}/tmux"),
-        desc="Launch rofi tmux-switcher",
-    ),
-    Keybind(
-        "M-S-a",
-        lazy.spawn(f"python {rofi_path}/audio_switcher.py"),
-        desc="Launch rofi audio-switcher",
-    ),
-    Keybind(
         "M-S-<Return>",
-        lazy.spawn(f"bash {rofi_path}/window_list"),
+        lazy.spawn(f"rofi -no-lazy-grab -show drun -modi window,drun"),
         desc="Launch rofi app-launcer",
     ),
     # LAUNCHING APPS -> Ctrl + Alt + <Key>
