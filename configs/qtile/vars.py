@@ -15,7 +15,6 @@ scratch_terminal = "wezterm-gui"
 
 # PATHS
 home = os.path.expanduser("~")
-scripts_path = home + "/.config/scripts"
 wallpaper_path = home + "/.wallpapers"
 
 # EXTRA WORKSPACE

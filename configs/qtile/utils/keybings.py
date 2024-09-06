@@ -1,7 +1,6 @@
 from libqtile.config import EzKey as Keybind
 from libqtile.core.manager import Qtile
 from libqtile.lazy import lazy
-from vars import scripts_path
 import os
 
 terminal = "wezterm-gui connect unix --workspace main"
@@ -42,11 +41,6 @@ key_bindings = [
         "C-A-e",
         lazy.spawn("evince"),
         desc="Launces Evince PDF Reader",
-    ),
-    Keybind(
-        "C-A-l",
-        lazy.spawn(f"sh {scripts_path}/blur-lock.sh"),
-        desc="launches i3-blur lock",
     ),
     # Keybind(
     #     "C-<Insert>",
