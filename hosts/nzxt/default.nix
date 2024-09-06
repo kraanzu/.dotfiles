@@ -1,8 +1,12 @@
 {
   pkgs,
-  inputs,
   ...
-}: {
+}: 
+
+let 
+  cursor = pkgs.callPackage ./extra/cursor.nix { };
+in
+{
   imports = [
     ../common
     ./packages
@@ -13,6 +17,8 @@
     ./office.nix # work stuff
     ./monitors.nix
   ];
+
+  environment.systemPackages = [ cursor ];
 
   networking.hostName = "nzxt";
 
