@@ -21,5 +21,6 @@
     firefox
     brave
     picom
+    anydesk
   ];
 }
