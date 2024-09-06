@@ -13,7 +13,7 @@
         rofi-emoji
       ];
       extraConfig = {
-        modes = "window,drun,run,ssh,combi,calc,power-menu:${pkgs.rofi-power-menu}/bin/rofi-power-menu";
+        modes = "window,drun,run,ssh,combi,power-menu:${pkgs.rofi-power-menu}/bin/rofi-power-menu";
       };
 
       theme = let
