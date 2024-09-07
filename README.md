@@ -21,4 +21,5 @@ home-manager switch -b backup --flake .#nzxt
 
 ## A screenshot of the desktop
 
-![screenshot](https://github.com/user-attachments/assets/c634acad-4f79-452b-8890-e742a104e7cd)
+![screenshot](https://github.com/user-attachments/assets/849afd1f-298c-41bc-b7c6-a02507cc4a6b)
+
