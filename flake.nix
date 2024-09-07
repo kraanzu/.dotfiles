@@ -30,14 +30,13 @@
   } @ inputs: let
     inherit (self) outputs;
     system = "x86_64-linux";
-    pkgs = import nixpkgs {
+    default_config = {
       system = "${system}";
       config = {allowUnfree = true;};
     };
-    pkgs-unstable = import nixpkgs-unstable {
-      system = "${system}";
-      config = {allowUnfree = true;};
-    };
+
+    pkgs = import nixpkgs default_config;
+    pkgs-unstable = import nixpkgs-unstable default_config;
   in {
     packages = import ./pkgs pkgs;
     devShells.x86_64-linux.default = pkgs.mkShell {};
