@@ -72,5 +72,10 @@ in {
       target = ".config/textual-web";
       recursive = true;
     };
+
+    "aws" = {
+      source = "${secretspath}/aws";
+      target = ".aws";
+    };
   };
 }
