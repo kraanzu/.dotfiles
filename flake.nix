@@ -39,13 +39,17 @@
       config = {allowUnfree = true;};
     };
   in {
+    packages = import ./pkgs pkgs;
     devShells.x86_64-linux.default = pkgs.mkShell {};
     nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;
 
     nixosConfigurations = {
       nzxt = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs pkgs-unstable mysecrets mywalls;};
+        specialArgs = {
+          inherit inputs outputs pkgs-unstable mysecrets mywalls;
+          packages = outputs.packages;
+        };
         modules = [
           ./hosts/nzxt
         ];
