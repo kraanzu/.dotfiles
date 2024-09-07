@@ -11,7 +11,7 @@ ACCENT1 = "blue"
 DARK = "dark3"
 PAD = Spacer(length=8)
 ICONS = {
-    "favicon": "󰌠",
+    "favicon": "",
     "clock": "󰥔",
     "date": "󰃵",
     "speaker": "󰓃",
@@ -74,7 +74,7 @@ BAR_WIDGETS = [
     # -------------------
     TextBox(
         foreground=color.blue,
-        fontsize=23,
+        fontsize=25,
         text=f" {ICONS['favicon']} ",
     ),
     SEP1,
