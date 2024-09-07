@@ -112,4 +112,13 @@ def screens_reconfigured():
 
 @hook.subscribe.startup_once
 def start_once():
-    os.system("bash ~/.config/qtile/autostart.sh")
+    commands = """
+    openrgb --profile purple
+    xfce4-clipman
+    wezterm-mux-server --daemonize
+    firefox
+    discord
+    """
+
+    for cmd in commands.splitlines():
+        os.system(cmd + " &")
