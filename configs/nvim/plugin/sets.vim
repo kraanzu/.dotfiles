@@ -12,7 +12,7 @@ set expandtab
 set hidden
 set smartcase
 set encoding=utf-8
-set shell=/bin/bash
+set shell=bash
 set completeopt=menu,menuone,noselect
 set noshowmode  " to get rid of thing like --INSERT--
 set noshowcmd  " to get rid of display of last command
