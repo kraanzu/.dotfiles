@@ -10,7 +10,7 @@
   gtk.theme.package = pkgs.nordic;
 
   gtk.iconTheme.name = "Papirus";
-  gtk.iconTheme.package = pkgs.papirus-nord.override { accent = "polarnight2"; };
+  gtk.iconTheme.package = pkgs.papirus-nord.override {accent = "polarnight2";};
 
   gtk.cursorTheme.name = "Nordic-cursors";
   gtk.cursorTheme.package = pkgs.nordic;

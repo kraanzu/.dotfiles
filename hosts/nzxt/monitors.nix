@@ -13,7 +13,6 @@ in {
     defaultTarget = "single-monitor";
 
     profiles = {
-
       "dual-monitor" = {
         fingerprint = fingerprints;
         config = {

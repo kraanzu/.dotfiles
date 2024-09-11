@@ -8,8 +8,7 @@
   curl,
   yq,
   common-updater-scripts,
-}:
-let
+}: let
   pname = "cursor";
   version = "0.40.3";
   appKey = "230313mzl4w4u92";
@@ -17,61 +16,60 @@ let
     url = "https://download.todesktop.com/${appKey}/cursor-0.40.3-build-240829epqamqp7h-x86_64.AppImage";
     hash = "sha256-qF9vqfvGRGDJ4dZxYzvRFdIKxt6ieiQXupPiOzkF4us=";
   };
-  appimageContents = appimageTools.extractType2 { inherit version pname src; };
+  appimageContents = appimageTools.extractType2 {inherit version pname src;};
 in
-stdenvNoCC.mkDerivation {
-  inherit pname version;
+  stdenvNoCC.mkDerivation {
+    inherit pname version;
 
-  src = appimageTools.wrapType2 { inherit version pname src; };
+    src = appimageTools.wrapType2 {inherit version pname src;};
 
-  nativeBuildInputs = [ makeWrapper ];
+    nativeBuildInputs = [makeWrapper];
 
-  installPhase = ''
-    runHook preInstall
+    installPhase = ''
+      runHook preInstall
 
-    mkdir -p $out/
-    cp -r bin $out/bin
+      mkdir -p $out/
+      cp -r bin $out/bin
 
-    mkdir -p $out/share/cursor
-    cp -a ${appimageContents}/locales $out/share/cursor
-    cp -a ${appimageContents}/resources $out/share/cursor
-    cp -a ${appimageContents}/usr/share/icons $out/share/
-    install -Dm 644 ${appimageContents}/cursor.desktop -t $out/share/applications/
+      mkdir -p $out/share/cursor
+      cp -a ${appimageContents}/locales $out/share/cursor
+      cp -a ${appimageContents}/resources $out/share/cursor
+      cp -a ${appimageContents}/usr/share/icons $out/share/
+      install -Dm 644 ${appimageContents}/cursor.desktop -t $out/share/applications/
 
-    substituteInPlace $out/share/applications/cursor.desktop --replace-fail "AppRun" "cursor"
+      substituteInPlace $out/share/applications/cursor.desktop --replace-fail "AppRun" "cursor"
 
-    wrapProgram $out/bin/cursor \
-      --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations}} --no-update"
+      wrapProgram $out/bin/cursor \
+        --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations}} --no-update"
 
-    runHook postInstall
-  '';
+      runHook postInstall
+    '';
 
-  passthru = {
-    updateScript = lib.getExe (writeShellApplication {
-      name = "update-cursor";
-      runtimeInputs = [
-        curl
-        yq
-        common-updater-scripts
-      ];
-      text = ''
-        set -o errexit
-        latestLinux="$(curl -s https://download.todesktop.com/${appKey}/latest-linux.yml)"
-        version="$(echo "$latestLinux" | yq -r .version)"
-        filename="$(echo "$latestLinux" | yq -r '.files[] | .url | select(. | endswith(".AppImage"))')"
-        update-source-version cursor "$version" "" "https://download.todesktop.com/${appKey}/$filename" --source-key=src.src
-      '';
-    });
-  };
+    passthru = {
+      updateScript = lib.getExe (writeShellApplication {
+        name = "update-cursor";
+        runtimeInputs = [
+          curl
+          yq
+          common-updater-scripts
+        ];
+        text = ''
+          set -o errexit
+          latestLinux="$(curl -s https://download.todesktop.com/${appKey}/latest-linux.yml)"
+          version="$(echo "$latestLinux" | yq -r .version)"
+          filename="$(echo "$latestLinux" | yq -r '.files[] | .url | select(. | endswith(".AppImage"))')"
+          update-source-version cursor "$version" "" "https://download.todesktop.com/${appKey}/$filename" --source-key=src.src
+        '';
+      });
+    };
 
-  meta = {
-    description = "AI-powered code editor built on vscode";
-    homepage = "https://cursor.com";
-    license = lib.licenses.unfree;
-    sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
-    maintainers = with lib.maintainers; [ sarahec ];
-    platforms = [ "x86_64-linux" ];
-    mainProgram = "cursor";
-  };
-}
-
+    meta = {
+      description = "AI-powered code editor built on vscode";
+      homepage = "https://cursor.com";
+      license = lib.licenses.unfree;
+      sourceProvenance = with lib.sourceTypes; [binaryNativeCode];
+      maintainers = with lib.maintainers; [sarahec];
+      platforms = ["x86_64-linux"];
+      mainProgram = "cursor";
+    };
+  }

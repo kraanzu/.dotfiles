@@ -1,7 +1,7 @@
 {
   colors = {
     draw_bold_text_with_bright_colors = true;
-    
+
     bright = {
       black = "#4c566a";
       blue = "#81a1c1";
@@ -185,7 +185,7 @@
   window = {
     opacity = 1;
     title = "Alacritty";
-    
+
     class = {
       general = "Alacritty";
       instance = "Alacritty";
