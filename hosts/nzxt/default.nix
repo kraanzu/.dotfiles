@@ -28,7 +28,12 @@
   mynix.wm.qtile.enable = true;
 
   services.hardware.openrgb.enable = true;
+
   services.getty.autologinUser = "kraanzu";
+  services.xserver.displayManager.sddm.autoLogin = {
+    enable = true;
+    user = "kraanzu";
+  };
 
   users.users.kraanzu = {
     isNormalUser = true;
