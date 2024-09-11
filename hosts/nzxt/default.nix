@@ -30,7 +30,7 @@
   services.hardware.openrgb.enable = true;
 
   services.getty.autologinUser = "kraanzu";
-  services.xserver.displayManager.sddm.autoLogin = {
+  services.displayManager.autoLogin = {
     enable = true;
     user = "kraanzu";
   };
