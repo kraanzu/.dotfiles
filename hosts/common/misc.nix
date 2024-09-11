@@ -9,4 +9,5 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   programs.dconf.enable = true;
+  programs.command-not-found.enable = true;
 }
