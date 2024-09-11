@@ -25,7 +25,7 @@
       nixd
 
       # FORMATTER
-      black
+      ruff
       alejandra
       stylua
 
