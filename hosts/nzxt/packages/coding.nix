@@ -30,6 +30,7 @@
       stylua
 
       # extras
+      uv
       poetry
       python311Packages.pip
     ])
