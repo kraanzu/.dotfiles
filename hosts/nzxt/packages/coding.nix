@@ -30,12 +30,13 @@
       stylua
 
       # extras
-      uv
+      # uv
       poetry
       python311Packages.pip
     ])
     ++ (with pkgs-unstable; [
       neovim
       vscode
+      uv
     ]);
 }
