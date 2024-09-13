@@ -33,6 +33,7 @@
       # uv
       poetry
       python311Packages.pip
+      binutils # for pyinstaller
     ])
     ++ (with pkgs-unstable; [
       neovim
