@@ -19,6 +19,7 @@
     ./fonts.nix
     ./usb.nix
     ./housekeeping.nix
+    ./ld.nix
   ];
 
   system.stateVersion = "24.05";

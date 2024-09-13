@@ -11,5 +11,4 @@
 
   programs.dconf.enable = true;
   programs.command-not-found.enable = true;
-  programs.nix-ld.enable = true;
 }
