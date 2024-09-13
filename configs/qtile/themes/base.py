@@ -112,7 +112,7 @@ def screens_reconfigured():
 
 @hook.subscribe.startup_once
 def start_once():
-    commands = """
+    commands = """\
     openrgb --profile purple
     xfce4-clipman
     wezterm-mux-server --daemonize
