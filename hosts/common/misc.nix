@@ -1,5 +1,6 @@
 {
   services.printing.enable = false;
+  security.polkit.enable = true;
 
   networking.networkmanager.enable = true;
 
@@ -10,4 +11,5 @@
 
   programs.dconf.enable = true;
   programs.command-not-found.enable = true;
+  programs.nix-ld.enable = true;
 }
