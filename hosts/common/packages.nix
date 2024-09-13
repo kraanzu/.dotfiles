@@ -22,6 +22,7 @@
       home-manager
       cloc
       imagemagick
+      popsicle
 
       # shell stuff
       fish
