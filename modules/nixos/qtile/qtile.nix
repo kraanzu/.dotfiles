@@ -16,7 +16,6 @@
 
     services.xserver.windowManager.qtile = {
       enable = true;
-      backend = "x11";
       extraPackages = p:
         with p; [
           qtile-extras
