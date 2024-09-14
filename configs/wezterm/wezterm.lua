@@ -8,6 +8,7 @@ require("startup")
 
 local config = {}
 
+config.front_end = "WebGpu"
 config.color_scheme = "nord"
 config.use_fancy_tab_bar = false
 config.font_size = 16.5
