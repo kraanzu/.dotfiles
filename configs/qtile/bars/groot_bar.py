@@ -90,7 +90,7 @@ BAR_WIDGETS = [
     Memory(**config("memory")),
     PAD,
     IconWidget(get_vol_icon),
-    Volume(**config("volume")),
+    PulseVolume(**config("volume")),
     PAD,
     IconWidget("clock"),
     Clock(**config("clock")),

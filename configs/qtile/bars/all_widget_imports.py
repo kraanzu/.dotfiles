@@ -5,8 +5,8 @@ from qtile_extras.widget import (
     Systray,
     Clock,
     Memory,
-    Volume,
     Spacer,
+    PulseVolume,
 )
 
 __all__ = [
@@ -16,6 +16,6 @@ __all__ = [
     "Systray",
     "Clock",
     "Memory",
-    "Volume",
     "Spacer",
+    "PulseVolume",
 ]

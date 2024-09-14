@@ -20,6 +20,7 @@
         with p; [
           qtile-extras
           dbus-next
+          pulsectl-asyncio
         ];
     };
   };
