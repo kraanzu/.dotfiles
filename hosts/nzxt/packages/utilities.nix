@@ -1,6 +1,5 @@
 {
   pkgs,
-  pkgs-unstable,
   ...
 }: {
   environment.systemPackages = with pkgs; [
@@ -13,9 +12,9 @@
     sddm
     flameshot
     dunst
-    gnome.gnome-disk-utility
+    gnome-disk-utility
     rofi
-    gnome.nautilus
+    nautilus
     vlc
     gdrive
     firefox

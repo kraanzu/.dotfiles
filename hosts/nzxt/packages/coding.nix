@@ -1,43 +1,40 @@
 {
   pkgs,
-  pkgs-unstable,
   ...
 }: {
-  environment.systemPackages =
-    (with pkgs; [
-      # terminals
-      wezterm
-      alacritty
+  environment.systemPackages = with pkgs; [
+    # terminals
+    wezterm
+    alacritty
 
-      # LANG
-      python3
-      zig
-      lua
-      nodejs_22 # neovim copilot
-      go
+    # LANG
+    python3
+    zig
+    lua
+    nodejs_22 # neovim copilot
+    go
 
-      # LSP
-      pyright
-      zls
-      luajitPackages.lua-lsp
-      marksman
-      gopls
-      nixd
+    # LSP
+    pyright
+    zls
+    luajitPackages.lua-lsp
+    marksman
+    gopls
+    nixd
 
-      # FORMATTER
-      ruff
-      alejandra
-      stylua
+    # FORMATTER
+    ruff
+    alejandra
+    stylua
 
-      # extras
-      # uv
-      poetry
-      python311Packages.pip
-      binutils # for pyinstaller
-    ])
-    ++ (with pkgs-unstable; [
-      neovim
-      vscode
-      uv
-    ]);
+    # extras
+    # uv
+    poetry
+    python311Packages.pip
+    binutils # for pyinstaller
+
+    # dev tools
+    neovim
+    vscode
+  ];
 }
