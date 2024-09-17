@@ -20,7 +20,7 @@ return {
 		-- Define your formatters
 		formatters_by_ft = {
 			lua = { "stylua" },
-			python = { "black" },
+			python = { "ruff_python_formatter" },
 			nix = { "alejandra" },
 		},
 		-- Set default options
