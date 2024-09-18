@@ -1,0 +1,3 @@
+{
+  imports = [./picom.nix];
+}

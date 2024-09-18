@@ -1,13 +1,8 @@
-{
-  config,
-  lib,
-  ...
-}:
-with lib; let
+let
   shadow_offset_x = -7;
   shadow_offset_y = -7;
 in {
-  config = mkIf config.mynix.picom.enable {
+  config = {
     services.picom = {
       enable = true;
       settings = {
@@ -55,23 +50,31 @@ in {
           dock = {
             "blur-background" = false;
             "corner-radius" = 0;
+            shadow = false;
           };
           desktop = {
             "blur-background" = false;
             "corner-radius" = 0;
+            shadow = false;
           };
           notification = {
             shadow = false;
           };
           dropdown_menu = {
-            opacity = 0.75;
+            opacity = 1;
             "blur-background" = false;
+            shadow = false;
           };
           popup_menu = {
-            opacity = 0.75;
+            opacity = 1;
             "blur-background" = false;
+            shadow = false;
           };
-          unknown = {};
+          unknown = {
+            opacity = 1;
+            "blur-background" = false;
+            shadow = false;
+          };
         };
       };
     };

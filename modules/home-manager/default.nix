@@ -5,5 +5,6 @@
     ./dunst
     ./rofi
     ./alacritty
+    ./picom
   ];
 }
