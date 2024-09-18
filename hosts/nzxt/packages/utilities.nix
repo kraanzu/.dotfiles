@@ -19,7 +19,6 @@
     gdrive
     firefox
     brave
-    picom
     anydesk
   ];
 }
