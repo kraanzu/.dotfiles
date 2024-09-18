@@ -65,9 +65,11 @@ in {
           };
           dropdown_menu = {
             opacity = 0.75;
+            "blur-background" = false;
           };
           popup_menu = {
             opacity = 0.75;
+            "blur-background" = false;
           };
           unknown = {};
         };
