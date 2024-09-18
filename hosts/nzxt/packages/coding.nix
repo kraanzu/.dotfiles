@@ -27,11 +27,15 @@
     alejandra
     stylua
 
-    # extras
+    # runners
+    gcc # rust linker issue + CP
+    rustup
     uv
     poetry
     python311Packages.pip
-    binutils # for pyinstaller
+
+    # extras
+    binutils # for binary packaging
 
     # dev tools
     neovim
