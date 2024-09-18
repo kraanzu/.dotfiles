@@ -19,9 +19,15 @@ return {
 	opts = {
 		-- Define your formatters
 		formatters_by_ft = {
-			lua = { "stylua" },
-			python = { "ruff_python_formatter" },
+			python = function(bufnr)
+				if require("conform").get_formatter_info("ruff_format", bufnr).available then
+					return { "ruff_format" }
+				else
+					return { "black" }
+				end
+			end,
 			nix = { "alejandra" },
+			lua = { "stylua" },
 		},
 		-- Set default options
 		default_format_opts = {
