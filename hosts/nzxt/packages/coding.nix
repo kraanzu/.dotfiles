@@ -28,7 +28,7 @@
     stylua
 
     # extras
-    # uv
+    uv
     poetry
     python311Packages.pip
     binutils # for pyinstaller
