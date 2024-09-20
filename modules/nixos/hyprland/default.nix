@@ -1,0 +1,3 @@
+{
+  imports = [./hyprland.nix];
+}

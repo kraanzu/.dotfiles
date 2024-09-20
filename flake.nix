@@ -10,6 +10,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     grub2-themes.url = "github:vinceliuice/grub2-themes";
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
     mysecrets = {
       url = "git+ssh://git@github.com/kraanzu/personal.git?ref=main&shallow=1";
@@ -34,8 +35,11 @@
     inherit (self) outputs;
     system = "x86_64-linux";
     default_config = {
-      system = "${system}";
+      inherit system;
       config = {allowUnfree = true;};
+      overlays = [
+        inputs.hyprpanel.overlay
+      ];
     };
 
     pkgs = import nixpkgs default_config;
@@ -44,6 +48,9 @@
     devShells.x86_64-linux.default = pkgs.mkShell {};
     nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;
+    overlays = [
+      inputs.hyprpanel.overlay
+    ];
 
     nixosConfigurations = {
       nzxt = nixpkgs.lib.nixosSystem {
@@ -64,6 +71,7 @@
         extraSpecialArgs = {
           inherit inputs outputs mysecrets mywalls;
           osConfig = outputs.nixosConfigurations.nzxt.config;
+          overlays = inputs.hyprpanel.overlay;
         };
         modules = [
           ./home/nzxt
