@@ -28,6 +28,7 @@
     stylua
 
     # runners
+    gnumake # make
     gcc # rust linker issue + CP
     rustup
     uv
