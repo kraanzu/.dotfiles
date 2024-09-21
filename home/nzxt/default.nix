@@ -19,6 +19,9 @@ in {
     homeDirectory = "/home/${user_name}";
   };
 
+  xdg.userDirs.enable = true;
+  xdg.userDirs.createDirectories = true;
+
   programs.git = {
     enable = true;
     userEmail = "${user_email}";
