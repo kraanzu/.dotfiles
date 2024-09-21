@@ -10,11 +10,6 @@ in {
       target = ".config/dooit";
     };
 
-    # "dunst" = {
-    #   source = "${base_config}/dunst";
-    #   target = ".config/dunst";
-    # };
-
     "fish" = {
       source = "${base_config}/fish";
       target = ".config/fish";
@@ -37,12 +32,6 @@ in {
       source = "${base_config}/qtile";
       target = ".config/qtile";
     };
-
-    # "rofi" = {
-    #   source = "${base_config}/rofi";
-    #   target = ".config/rofi";
-    #   recursive = true;
-    # };
 
     "starship" = {
       source = "${base_config}/starship.toml";
