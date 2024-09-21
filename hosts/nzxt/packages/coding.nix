@@ -38,6 +38,7 @@
 
     # extras
     binutils # for binary packaging
+    ctags
 
     # dev tools
     neovim
