@@ -15,6 +15,7 @@
     go
 
     # LSP
+    pylyzer
     pyright
     zls
     luajitPackages.lua-lsp
