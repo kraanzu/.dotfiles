@@ -20,5 +20,6 @@
     firefox
     brave
     anydesk
+    simplescreenrecorder
   ];
 }
