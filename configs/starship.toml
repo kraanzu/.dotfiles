@@ -48,6 +48,11 @@ format = '[(\($virtualenv\) )]($style)'
 symbol = ""
 style = ""
 
+[nix_shell]
+symbol = " "
+format = '[\[$symbol$state( $name )\]]($style) '
+impure_msg = ""
+
 #--------------GIT STUFF--------------#
 [git_branch]
 symbol = " "
