@@ -14,7 +14,7 @@
     ./monitors.nix
   ];
 
-  environment.systemPackages = [packages.cursor];
+  environment.systemPackages = with packages; [cursor dooit];
 
   networking.hostName = "nzxt";
 
