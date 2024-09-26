@@ -1,11 +1,12 @@
-{ lib
-, fetchFromGitHub
-, dooit
-, python3
-, testers
-, nix-update-script
+{
+  lib,
+  fetchFromGitHub,
+  fetchPypi,
+  dooit,
+  python3,
+  testers,
+  nix-update-script,
 }:
-
 python3.pkgs.buildPythonApplication rec {
   pname = "dooit";
   version = "2.2.0";
@@ -36,7 +37,7 @@ python3.pkgs.buildPythonApplication rec {
     (python3.pkgs.textual.overrideAttrs (oldAttrs: rec {
       version = "0.47.0";
       doCheck = false;
-      src = python3.pkgs.fetchPypi {
+      src = fetchPypi {
         pname = "textual";
         version = "0.47.0";
         sha256 = "sha256-YTkSBBqoc55O9yi7KYttAPK/4/5SisZLwMzAb0/2VuA=";
@@ -54,7 +55,7 @@ python3.pkgs.buildPythonApplication rec {
       command = "HOME=$(mktemp -d) dooit --version";
     };
 
-    updateScript = nix-update-script { };
+    updateScript = nix-update-script {};
   };
 
   meta = with lib; {
@@ -62,7 +63,7 @@ python3.pkgs.buildPythonApplication rec {
     homepage = "https://github.com/kraanzu/dooit";
     changelog = "https://github.com/kraanzu/dooit/blob/v${version}/CHANGELOG.md";
     license = licenses.mit;
-    maintainers = with maintainers; [ khaneliman wesleyjrz kraanzu];
+    maintainers = with maintainers; [khaneliman wesleyjrz];
     mainProgram = "dooit";
   };
 }
