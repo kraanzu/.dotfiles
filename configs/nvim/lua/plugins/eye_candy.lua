@@ -7,4 +7,7 @@ return {
 			require("colorizer").setup()
 		end,
 	},
+	{
+		"stevearc/dressing.nvim",
+	},
 }
