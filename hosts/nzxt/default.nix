@@ -14,7 +14,12 @@
     ./monitors.nix
   ];
 
-  environment.systemPackages = with packages; [cursor dooit];
+  environment.systemPackages = with packages; [cursor ];
+  virtualisation.docker.enable = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
 
   networking.hostName = "nzxt";
 
