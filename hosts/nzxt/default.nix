@@ -14,7 +14,7 @@
     ./monitors.nix
   ];
 
-  environment.systemPackages = with packages; [cursor ];
+  environment.systemPackages = with packages; [cursor dooit];
   virtualisation.docker.enable = true;
   virtualisation.docker.rootless = {
     enable = true;

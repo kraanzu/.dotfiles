@@ -1,12 +1,14 @@
 {
   lib,
   fetchFromGitHub,
-  fetchPypi,
   dooit,
-  python3,
+  python311,
   testers,
   nix-update-script,
 }:
+let
+  python3 = python311;
+in
 python3.pkgs.buildPythonApplication rec {
   pname = "dooit";
   version = "2.2.0";
@@ -19,13 +21,9 @@ python3.pkgs.buildPythonApplication rec {
     hash = "sha256-GtXRzj+o+FClleh73kqelk0JrSyafZhf847lX1BiS9k=";
   };
 
-  nativeBuildInputs = with python3.pkgs; [
-    poetry-core
-    pythonRelaxDepsHook
-  ];
+  build-system = with python3.pkgs; [ poetry-core ];
 
   pythonRelaxDeps = [
-    "textual"
     "tzlocal"
   ];
 
@@ -34,14 +32,20 @@ python3.pkgs.buildPythonApplication rec {
     pyperclip
     python-dateutil
     pyyaml
-    (python3.pkgs.textual.overrideAttrs (oldAttrs: rec {
-      version = "0.47.0";
-      doCheck = false;
-      src = fetchPypi {
-        pname = "textual";
-        version = "0.47.0";
-        sha256 = "sha256-YTkSBBqoc55O9yi7KYttAPK/4/5SisZLwMzAb0/2VuA=";
+    (textual.overridePythonAttrs (oldAttrs: {
+      version = "0.47.1";
+      src = fetchFromGitHub {
+        owner = "Textualize";
+        repo = "textual";
+        rev = "refs/tags/v0.47.1";
+        hash = "sha256-RFaZKQ+0o6ZvfZxx95a1FjSHVJ0VOIAfzkdxYQXYBKU=";
       };
+      disabledTests = [
+        "test_tracked_slugs"
+        "test_textual_env_var"
+        "test_register_language"
+        "test_register_language_existing_language"
+      ];
     }))
     tzlocal
   ];
@@ -55,15 +59,18 @@ python3.pkgs.buildPythonApplication rec {
       command = "HOME=$(mktemp -d) dooit --version";
     };
 
-    updateScript = nix-update-script {};
+    updateScript = nix-update-script { };
   };
 
   meta = with lib; {
-    description = "A TUI todo manager";
+    description = "TUI todo manager";
     homepage = "https://github.com/kraanzu/dooit";
     changelog = "https://github.com/kraanzu/dooit/blob/v${version}/CHANGELOG.md";
     license = licenses.mit;
-    maintainers = with maintainers; [khaneliman wesleyjrz];
+    maintainers = with maintainers; [
+      khaneliman
+      wesleyjrz
+    ];
     mainProgram = "dooit";
   };
 }
