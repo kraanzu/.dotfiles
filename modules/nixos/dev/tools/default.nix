@@ -1,7 +1,7 @@
 {
   imports = [
     ./docker.nix
-    ./neovim.nix
+    ./editor.nix
     ./terminal.nix
   ];
 }
