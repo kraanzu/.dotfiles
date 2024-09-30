@@ -1,11 +1,15 @@
 class Color:
-    transparent = ["#2e3440", "#2e3440"]
+    extra_dark = ["#252a34", "#252a34"]
+
     dark1 = ["#2e3440", "#2e3440"]
-    dark2 = ["#252a34", "#252a34"]
+    dark2 = ["#3b4252", "#3b4252"]
     dark3 = ["#434c5e", "#434c5e"]
+    dark4 = ["#4c566a", "#4c566a"]
+
     light1 = ["#d8dee9", "#d8dee9"]
-    light2 = ["#3b4252", "#3b4252"]
+    light2 = ["#e5e9f0", "#e5e9f0"]
     light3 = ["#e5e9f0", "#e5e9f0"]
+
     red = ["#bf616a", "#bf616a"]
     green = ["#a3be8c", "#a3be8c"]
     yellow = ["#ebcb8b", "#ebcb8b"]

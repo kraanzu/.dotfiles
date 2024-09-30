@@ -55,7 +55,7 @@ widget_defaults = dict(
     font=FONT,
     fontsize=16,  # 16 for text, 25 for icons
     padding=3,
-    background=color.dark2,
+    background=color.extra_dark,
 )
 
 layout_defaults = dict(

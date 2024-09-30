@@ -55,7 +55,7 @@ decoration_group = {
     "fontweight": "bold",
     "decorations": [
         RectDecoration(
-            colour=color.light2,
+            colour=color.dark3,
             radius=5,
             filled=True,
             padding_y=7,
