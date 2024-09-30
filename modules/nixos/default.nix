@@ -3,5 +3,6 @@
     ./hardware
     ./wm
     ./services
+    ./dev
   ];
 }
