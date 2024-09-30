@@ -1,9 +1,7 @@
 {
   imports = [
-    ./sddm_chili
-    ./amdgpu
-    ./qtile
-    ./xorg
-    ./hyprland
+    ./hardware
+    ./wm
+    ./services
   ];
 }
