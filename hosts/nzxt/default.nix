@@ -24,7 +24,7 @@
   networking.hostName = "nzxt";
 
   # drivers
-  mynix.amdgpu.enable = true;
+  mynix.hardware.amdgpu.enable = true;
 
   # eye candy
   mynix.sddm_chili.enable = true;
