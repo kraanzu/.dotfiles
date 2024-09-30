@@ -5,14 +5,14 @@
 }:
 with lib; {
   options = {
-    mynix.x11.enable = lib.mkOption {
+    mynix.services.x11.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Enable XORG";
     };
   };
 
-  config = mkIf config.mynix.x11.enable {
+  config = mkIf config.mynix.services.x11.enable {
     services.xserver = {
       enable = true;
       xkb = {

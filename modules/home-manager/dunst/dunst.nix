@@ -9,7 +9,7 @@
   red = "#BF616A";
   blue = "#81A1C1";
 in {
-  config = lib.mkIf osConfig.mynix.x11.enable {
+  config = lib.mkIf osConfig.mynix.services.x11.enable {
     home.packages = with pkgs; [
       dunst
       libnotify

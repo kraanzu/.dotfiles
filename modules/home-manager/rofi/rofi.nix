@@ -20,7 +20,7 @@
     "power-menu:${pkgs.rofi-power-menu}/bin/rofi-power-menu"
   ];
 in {
-  config = lib.mkIf osConfig.mynix.x11.enable {
+  config = lib.mkIf osConfig.mynix.services.x11.enable {
     programs.rofi = {
       enable = true;
       plugins = with pkgs; [
