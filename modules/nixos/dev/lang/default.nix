@@ -6,5 +6,6 @@
     ./go.nix
     ./lua.nix
     ./nix.nix
+    ./markdown.nix
   ];
 }

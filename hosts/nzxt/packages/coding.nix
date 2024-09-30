@@ -10,9 +10,6 @@
     # LANG
     nodejs_22 # neovim copilot
 
-    # LSP
-    marksman
-
     # runners
     gnumake # make
     gcc # rust linker issue + CP
