@@ -1,5 +1,10 @@
 {
   imports = [
+
+    # base devel
+    ./_base.nix
+
+    # langs
     ./python.nix
     ./zig.nix
     ./rust.nix
