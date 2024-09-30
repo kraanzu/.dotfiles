@@ -1,10 +1,8 @@
 {
   pkgs,
-  config,
-  lib,
   ...
 }: {
-  config = lib.mkIf config.mynix.dev.tools.neovim.enable {
+  config = {
     environment.systemPackages = with pkgs; [
       # dev tools
       neovim
