@@ -15,11 +15,6 @@
   ];
 
   environment.systemPackages = with packages; [cursor dooit];
-  virtualisation.docker.enable = true;
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
 
   networking.hostName = "nzxt";
 
