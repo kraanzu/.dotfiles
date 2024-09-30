@@ -56,9 +56,9 @@ decoration_group = {
     "decorations": [
         RectDecoration(
             colour=color.dark3,
-            radius=5,
+            radius=3,
             filled=True,
-            padding_y=7,
+            padding_y=6.5,
             padding_x=2,
             group=True,
         )
