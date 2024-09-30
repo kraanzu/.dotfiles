@@ -1,8 +1,6 @@
-from collections.abc import Callable
-from typing import Union
 from libqtile import bar
 from qtile_extras.widget.decorations import RectDecoration
-from utils.colors import color
+from utils.colors import Color, color
 from bars.base import *
 
 # --------------- GLOABL VALUES -----------------
@@ -23,42 +21,13 @@ ICONS = {
 # --------------- GENERAL UTILS -----------------
 
 
-def IconWidget(icon: Union[str, Callable[..., str]], color: str = ACCENT1) -> TextBox:
-    if not callable(icon):
-        func = lambda: ICONS[icon]
-    else:
-        func = icon
-
-    return GenPollText(
-        func=func,
-        update_interval=2 * callable(icon),
-        **ICON_WIDGET_DEFAULTS,
-        **get_decor(color),
-    )
-
-
-def get_vol_icon() -> str:
-    icon = "headphone" if is_headphone_connected() else "speaker"
-    return ICONS.get(icon, "?")
-
-
-def config(name: str):
-    config = DEFAULT_CONFIGS.get(name, {})
-    if name not in IGNORE_EXTRA_CONFIG:
-        config |= get_decor(DARK)
-
-    return config
-
-
-def get_decor(c: str) -> dict:
-    fg = "dark2" if not "dark" in c else "light3"
+def get_decor(fg=Color.blue, bg=Color.dark1) -> dict:
     return {
-        "fmt": " {} ",
-        "foreground": color[fg],
+        "foreground": fg,
         "decorations": [
             RectDecoration(
-                colour=color[c],
-                radius=0,
+                colour=bg,
+                radius=5,
                 filled=True,
                 padding_x=1,
                 padding_y=7,
@@ -67,37 +36,45 @@ def get_decor(c: str) -> dict:
     }
 
 
+favicon = TextBox(text=" 󰌠 ", fontsize=23, foreground=color.blue)
+groupbox = GroupBox(
+    this_current_screen_border=color.blue,
+    this_screen_border=color.blue,
+    active=color.light3,
+    inactive=color.grey,
+    highlight_color=color.dark2,
+    highlight_method="text",
+    inactive_highlight_method="text",
+    foreground=color.light1,
+    urgent_border=color.red,
+    disable_drag=True,
+    fontsize=30,
+)
+
+spacer = Spacer()
+
+systray = Systray()
+memory = Memory(measure_mem="G", format=" RAM:  {MemUsed:.1f}<b>GB</b> ", **get_decor())
+volume = PulseVolume(fmt=" VOL: {} ", **get_decor())
+clock = Clock(format=" TIME: %H:%M ", **get_decor())
+date = Clock(format=" %A, %B %d ", **get_decor())
+
+
 # ---------------- ACTUAL BAR -----------------
 
 BAR_WIDGETS = [
-    # Left Section
-    # -------------------
-    TextBox(
-        foreground=color.blue,
-        fontsize=23,
-        text=f" {ICONS['favicon']} ",
-    ),
+    # left
+    favicon,
     SEP1,
-    GroupBox(**config("groupbox")),
-    # Middle Section
-    # -------------------
-    Spacer(),
-    # Right Section
-    # -------------------
-    Systray(**config("systray")),
-    PAD,
-    IconWidget("memory"),
-    Memory(**config("memory")),
-    PAD,
-    IconWidget(get_vol_icon),
-    PulseVolume(**config("volume")),
-    PAD,
-    IconWidget("clock"),
-    Clock(**config("clock")),
-    PAD,
-    IconWidget("date"),
-    Clock(**config("date")),
-    PAD,
+    groupbox,
+    # middle
+    spacer,
+    # right
+    systray,
+    memory,
+    volume,
+    clock,
+    date,
 ]
 
 # MAIN
