@@ -51,13 +51,41 @@ groupbox = GroupBox(
     fontsize=30,
 )
 
+decoration_group = {
+    "fontweight": "bold",
+    "decorations": [
+        RectDecoration(
+            colour=color.light2,
+            radius=5,
+            filled=True,
+            padding_y=7,
+            padding_x=2,
+            group=True,
+        )
+    ],
+    "padding": 3,
+}
+
 spacer = Spacer()
 
 systray = Systray()
-memory = Memory(measure_mem="G", format=" RAM:  {MemUsed:.1f}<b>GB</b> ", **get_decor())
-volume = PulseVolume(fmt=" VOL: {} ", **get_decor())
-clock = Clock(format=" TIME: %H:%M ", **get_decor())
-date = Clock(format=" %A, %B %d ", **get_decor())
+
+memory_icon = TextBox(
+    text=" 󰍛 ", fontsize=23, foreground=color.blue, **decoration_group
+)
+memory = Memory(measure_mem="G", format="{MemUsed:.1f}<b>GB</b> ", **decoration_group)
+
+volume_icon = TextBox(
+    text=" 󰓃 ", fontsize=23, foreground=color.blue, **decoration_group
+)
+volume = PulseVolume(fmt="{} ", **decoration_group)
+
+
+clock_icon = TextBox(text=" 󰥔 ", fontsize=23, foreground=color.blue, **decoration_group)
+clock = Clock(format="%H:%M ", **decoration_group)
+
+date_icon = TextBox(text=" 󰃵 ", fontsize=23, foreground=color.blue, **decoration_group)
+date = Clock(format="%A, %B %d ", **decoration_group)
 
 
 # ---------------- ACTUAL BAR -----------------
@@ -71,10 +99,19 @@ BAR_WIDGETS = [
     spacer,
     # right
     systray,
+    PAD,
+    memory_icon,
     memory,
+    PAD,
+    volume_icon,
     volume,
+    PAD,
+    clock_icon,
     clock,
+    PAD,
+    date_icon,
     date,
+    PAD,
 ]
 
 # MAIN
