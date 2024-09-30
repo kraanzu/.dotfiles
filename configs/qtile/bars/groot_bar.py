@@ -3,20 +3,7 @@ from qtile_extras.widget.decorations import RectDecoration
 from utils.colors import Color, color
 from bars.base import *
 
-# --------------- GLOABL VALUES -----------------
-
-ACCENT1 = "blue"
-DARK = "dark3"
 PAD = Spacer(length=8)
-ICONS = {
-    "favicon": "󰌠",
-    "clock": "󰥔",
-    "date": "󰃵",
-    "speaker": "󰓃",
-    "headphone": "󰋋",
-    "memory": "󰍛",
-}
-
 
 # --------------- GENERAL UTILS -----------------
 
