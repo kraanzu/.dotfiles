@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   config,
   lib,
@@ -13,7 +14,12 @@
   };
 
   config = lib.mkIf config.mynix.wm.hyprland.enable {
-    environment.systemPackages = [pkgs.kitty];
+    # overlay to include in pkgs
+    nixpkgs.overlays = [
+      inputs.hyprpanel.overlay
+    ];
+
     programs.hyprland.enable = true;
+    environment.systemPackages = with pkgs; [kitty hyprpanel];
   };
 }
