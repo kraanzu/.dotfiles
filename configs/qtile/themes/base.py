@@ -1,6 +1,6 @@
 import subprocess
 import os
-from typing import List
+from typing import List, LiteralString
 from libqtile.backend.base.window import Window
 from libqtile.layout.xmonad import MonadTall
 from libqtile.layout.floating import Floating
@@ -13,7 +13,7 @@ from utils import key_bindings, color, create_workspace_bindings
 # ------------------- USER CONSTANTS ---------------------
 
 FLOATING_WINS = ["feh", "flameshot", "openrgb", "popsicle"]
-WORKSPACES = list("12345")
+WORKSPACES = "1 2 3 4 5".split()
 EXTRA_WORKSPACE = "0"
 SCRATCHPAD = ScratchPad(
     name="scratchpad",
@@ -22,7 +22,7 @@ SCRATCHPAD = ScratchPad(
 
 
 def configure_workspaces(
-    workspaces: List[str] = WORKSPACES,
+    workspaces: List[LiteralString] = WORKSPACES,
     extra_workspace: str = EXTRA_WORKSPACE,
 ):
     groups = []

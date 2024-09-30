@@ -9,7 +9,9 @@ EXTRA_WORKSPACE = "󰅗"
 WALL1 = f"{wallpaper_path}/groot.png"
 WALL2 = f"{wallpaper_path}/blank.png"
 
-groups.extend(configure_workspaces(WORKSPACES, EXTRA_WORKSPACE))
+groups.extend(
+    configure_workspaces(WORKSPACES, EXTRA_WORKSPACE),
+)
 
 screens = [
     Screen(
