@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.hm.openrgb;
+  cfg = config.services.openrgb;
 in {
-  options.hm.openrgb.enable = mkOption {
+  options.services.openrgb.enable = mkOption {
     type = types.bool;
     default = true;
     description = "Enable OpenRGB with systemd service";

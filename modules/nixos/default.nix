@@ -4,6 +4,5 @@
     ./wm
     ./services
     ./dev
-    ./openrgb
   ];
 }
