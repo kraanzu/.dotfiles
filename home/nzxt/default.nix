@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+let
   user_name = "kraanzu";
   user_email = "kraanzu@gmail.com";
 in {
@@ -19,8 +15,10 @@ in {
     homeDirectory = "/home/${user_name}";
   };
 
-  xdg.userDirs.enable = true;
-  xdg.userDirs.createDirectories = true;
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = true;
+  };
 
   programs.git = {
     enable = true;
