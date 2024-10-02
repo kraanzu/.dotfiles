@@ -23,9 +23,8 @@
     fish
     starship
     eza
-    python311Packages.ipython
 
-    # dev tools
-    neovim
+    # others
+    qbittorrent
   ];
 }
