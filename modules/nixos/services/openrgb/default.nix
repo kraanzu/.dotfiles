@@ -27,7 +27,7 @@ in {
       description = "OpenRGB Server";
       serviceConfig = {
         ExecStart = "${pkgs.openrgb}/bin/openrgb --server --profile ${cfg.profile}";
-        Restart = "always";
+        Restart = "on-failure";
       };
       wantedBy = ["default.target"];
     };
