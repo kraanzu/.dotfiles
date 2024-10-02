@@ -112,8 +112,7 @@ def screens_reconfigured():
 
 @hook.subscribe.startup_once
 def start_once():
-    commands = """\
-    openrgb --profile purple
+    commands = """
     xfce4-clipman
     wezterm-mux-server --daemonize
     firefox
