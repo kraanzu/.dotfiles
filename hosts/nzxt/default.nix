@@ -28,8 +28,6 @@
   mynix.wm.qtile.enable = true;
   mynix.wm.hyprland.enable = true;
 
-  services.hardware.openrgb.enable = true;
-
   services.getty.autologinUser = "kraanzu";
   services.displayManager.autoLogin = {
     enable = true;
