@@ -23,6 +23,10 @@
 
   # eye candy
   mynix.sddm_chili.enable = true;
+  mynix.services.openrgb = {
+    enable = true;
+    profile = "purple";
+  };
 
   # WMs
   mynix.wm.qtile.enable = true;

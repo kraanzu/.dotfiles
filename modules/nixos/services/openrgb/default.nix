@@ -5,12 +5,19 @@
   ...
 }:
 with lib; let
-  cfg = config.services.openrgb;
+  cfg = config.mynix.services.openrgb;
 in {
-  options.services.openrgb.enable = mkOption {
-    type = types.bool;
-    default = true;
-    description = "Enable OpenRGB with systemd service";
+  options.mynix.services.openrgb = {
+    enable = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable OpenRGB with systemd service";
+    };
+
+    profile = mkOption {
+      type = types.str;
+      description = "Default profile to load on OpenRGB start";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -19,8 +26,8 @@ in {
     systemd.user.services.openrgb = {
       description = "OpenRGB Server";
       serviceConfig = {
-        ExecStart = "${pkgs.openrgb}/bin/openrgb --server --profile purple";
-        Restart = "on-failure";
+        ExecStart = "${pkgs.openrgb}/bin/openrgb --server --profile ${cfg.profile}";
+        Restart = "always";
       };
       wantedBy = ["default.target"];
     };
