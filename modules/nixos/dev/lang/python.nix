@@ -27,6 +27,9 @@
       # package managers
       poetry
       uv
+
+      # repl
+      python312Packages.ipython
     ];
   };
 }
