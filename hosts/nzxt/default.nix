@@ -1,5 +1,4 @@
 {
-  packages,
   pkgs,
   ...
 }: {
@@ -13,8 +12,6 @@
     ./office.nix # work stuff
     ./monitors.nix
   ];
-
-  environment.systemPackages = with packages; [cursor dooit];
 
   networking.hostName = "nzxt";
 
