@@ -14,13 +14,7 @@ set TERM xterm-256color # Sets the terminal type
 set EDITOR nvim #Sets Editor to neovim
 set VISUAL nvim
 
-set fish_color_normal '#88C0D0'
-set fish_color_autosuggestion '#B48EAD'
-set fish_color_qouted '#EBCB8B'
-set fish_color_command '#8FBCBB'
-set fish_color_error '#BF616A'
-set fish_color_param '#88C0D0'
-set fish_color_keyword '#D8DEE9'
+fish_config theme choose Nord
 
 #----------------------------- ALIASES --------------------------------
 
