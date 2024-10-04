@@ -17,5 +17,3 @@ end
 # MISC
 alias dclean='docker system prune -a --volumes'
 alias kayo='gdrive download --recursive --skip --path ~/HDD/anime/'
-alias loff='xrandr --output eDP1 --off'
-alias lonn='xrandr --output eDP1 --auto'
