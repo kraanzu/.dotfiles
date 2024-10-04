@@ -1,9 +1,9 @@
 {
-  pkgs,
+  packages,
   ...
 }: {
   config = {
-    environment.systemPackages = with pkgs; [
+    environment.systemPackages = with packages; [
       # my projects
       dooit
       smassh
