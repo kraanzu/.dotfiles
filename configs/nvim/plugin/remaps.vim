@@ -15,9 +15,6 @@ noremap <S-Tab> :bp<CR>
 noremap <C-q> :bd<CR>
 nmap <F12> :TagbarToggle<CR>
 
-"remove blank lines
-nnoremap <leader>xx <cmd>g/^$/d<cr>
-
 " keeping it centered
 nnoremap n nzzzv
 nnoremap N Nzzzv
@@ -32,12 +29,5 @@ inoremap ? ?<c-g>u
 nnoremap <expr> j (v:count > 5 ? "m'"  . v:count : "") . 'j'
 nnoremap <expr> k (v:count > 5 ? "m'"  . v:count : "") . 'k'
 
-" Moving Text
-inoremap <c-j> <esc>:m .+1<CR>==i
-inoremap <c-k> <esc>:m .-2<CR>==i
-
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-
-nnoremap <leader>j :m .+1<CR>==
-nnoremap <leader>k :m .-2<CR>==
