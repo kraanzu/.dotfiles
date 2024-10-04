@@ -7,6 +7,7 @@
       # dev tools
       neovim
       vscode
+      # code-cursor
     ];
   };
 }
