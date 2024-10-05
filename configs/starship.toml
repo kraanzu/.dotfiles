@@ -73,6 +73,13 @@ deleted = "[󰚃 ${count}](red) "
 [aws]
 disabled = true
 
+[bun]
+disabled = true
+
+[nodejs]
+disabled = true
+
+
 #--------------RANDOM--------------#
 
 [custom.vid]
