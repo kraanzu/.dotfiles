@@ -22,7 +22,6 @@ DEFAULT_CONFIGS = defaultdict(dict)
 
 DEFAULT_CONFIGS["systray"] = dict(
     icon_size=20,
-    padding=2,
     foreground=color[DARK],
 )
 
@@ -88,30 +87,49 @@ DEFAULT_CONFIGS["groupbox"] = dict(
 )
 
 
-class widget:
+class Widget:
+    def __init__(self, common_attrs={}, icon_attrs={}):
+        self.common_attrs = common_attrs
+        self.icon_attrs = icon_attrs
 
-    @classmethod
-    def memory(cls, **kwargs):
-        vars = DEFAULT_CONFIGS["memory"] | kwargs
+    def get_config(self, widget_name):
+        return DEFAULT_CONFIGS[widget_name] | self.common_attrs
+
+    def groupbox(self, **kwargs):
+        vars = self.get_config("groupbox") | kwargs
+        return GroupBox(**vars)
+
+    def memory(self, **kwargs):
+        vars = self.get_config("memory") | kwargs
         return Memory(**vars)
 
-
-    @classmethod
-    def volume(cls, **kwargs):
-        vars = DEFAULT_CONFIGS["volume"] | kwargs
+    def volume(self, **kwargs):
+        vars = self.get_config("volume") | kwargs
         return PulseVolume(**vars)
 
-    @classmethod
-    def clock(cls, **kwargs):
-        vars = DEFAULT_CONFIGS["clock"] | kwargs
+    def clock(self, **kwargs):
+        vars = self.get_config("clock") | kwargs
         return Clock(**vars)
 
-    @classmethod
-    def date(cls, **kwargs):
-        vars = DEFAULT_CONFIGS["date"] | kwargs
+    def date(self, **kwargs):
+        vars = self.get_config("date") | kwargs
         return Clock(**vars)
 
-    @classmethod
-    def icon(cls, text, **kwargs):
-        vars = ICON_WIDGET_DEFAULTS | kwargs
+    def systray(self, **kwargs):
+        vars = self.get_config("systray") | kwargs
+        return Systray(**vars)
+
+    # --------------------------------------------------
+
+    def icon(self, text, **kwargs):
+        vars = ICON_WIDGET_DEFAULTS | self.common_attrs | self.icon_attrs | kwargs
         return TextBox(text=text, **vars)
+
+    def pad(self, length=4):
+        return Spacer(length=length)
+
+    def spacer(self):
+        return Spacer()
+
+    def line_separator(self):
+        return Sep(linewidth=2, size_percent=65, foreground=color.dark3)
