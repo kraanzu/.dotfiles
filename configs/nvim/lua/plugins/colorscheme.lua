@@ -6,6 +6,7 @@ return {
 			vim.cmd.colorscheme("nord")
 		end,
 	},
+    { 'myagko/nymph', branch = 'Nvim' },
 	{
 		"neanias/everforest-nvim",
 		version = false,
