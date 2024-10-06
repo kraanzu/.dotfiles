@@ -17,6 +17,7 @@ COMMON_ATTRS = {
             border_width=5,
         ),
         BorderDecoration(
+            border_width=3,
             colour=color.dark4,
             padding_y=6,
             padding_x=2,
@@ -32,9 +33,7 @@ groupbox_config = dict(
     fontsize=20,
     rounded=False,
     highlight_method="block",
-    inactive=color.grey,
-    this_current_screen_border=color.blue,
-    hide_unused=True,
+    this_current_screen_border=color.cyan,
 )
 
 
