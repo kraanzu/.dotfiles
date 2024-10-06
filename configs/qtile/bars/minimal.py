@@ -1,4 +1,5 @@
 from libqtile import bar
+from qtile_extras.widget import decorations
 from qtile_extras.widget.decorations import RectDecoration, BorderDecoration
 from qtile_extras.widget.groupbox2 import Box, GroupBoxRule
 from utils.colors import color
@@ -77,6 +78,8 @@ bar_middle = [
 ]
 
 bar_right = [
+    widget.systray(decorations=[]),
+    widget.pad(length=6),
     widget.volume(fmt = " 󰕾 {} "),
     widget.pad(length=8),
     widget.clock(fmt=" {} "),
