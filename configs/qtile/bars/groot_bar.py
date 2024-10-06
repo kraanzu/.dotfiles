@@ -1,27 +1,12 @@
 from libqtile import bar
 from qtile_extras.widget.decorations import RectDecoration
-from utils.colors import Color, color
+from utils.colors import color
 from bars.base import *
+from bars.base import widget
 
 PAD = Spacer(length=8)
 
 # --------------- GENERAL UTILS -----------------
-
-
-def get_decor(fg=Color.blue, bg=Color.dark1) -> dict:
-    return {
-        "foreground": fg,
-        "decorations": [
-            RectDecoration(
-                colour=bg,
-                radius=5,
-                filled=True,
-                padding_x=1,
-                padding_y=7,
-            ),
-        ],
-    }
-
 
 favicon = TextBox(text=" 󰌠 ", fontsize=23, foreground=color.blue)
 groupbox = GroupBox(
@@ -39,7 +24,7 @@ groupbox = GroupBox(
 )
 
 decoration_group = {
-    "fontweight": "bold",
+    "padding": 0,
     "decorations": [
         RectDecoration(
             colour=color.dark3,
@@ -50,29 +35,26 @@ decoration_group = {
             group=True,
         )
     ],
-    "padding": 3,
 }
 
 spacer = Spacer()
 
 systray = Systray()
 
-memory_icon = TextBox(
-    text=" 󰍛 ", fontsize=23, foreground=color.blue, **decoration_group
-)
-memory = Memory(measure_mem="G", format="{MemUsed:.1f}<b>GB</b> ", **decoration_group)
+memory_icon = widget.icon(" 󰍛 ", foreground=color.blue,  **decoration_group)
+memory = widget.memory(**decoration_group)
 
 volume_icon = TextBox(
     text=" 󰓃 ", fontsize=23, foreground=color.blue, **decoration_group
 )
-volume = PulseVolume(fmt="{} ", **decoration_group)
+volume = widget.volume(**decoration_group)
 
 
 clock_icon = TextBox(text=" 󰥔 ", fontsize=23, foreground=color.blue, **decoration_group)
-clock = Clock(format="%H:%M ", **decoration_group)
+clock = widget.clock(**decoration_group)
 
 date_icon = TextBox(text=" 󰃵 ", fontsize=23, foreground=color.blue, **decoration_group)
-date = Clock(format="%A, %B %d ", **decoration_group)
+date = widget.date(**decoration_group)
 
 
 # ---------------- ACTUAL BAR -----------------

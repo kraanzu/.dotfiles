@@ -1,3 +1,4 @@
+from collections import defaultdict
 from qtile_extras.widget import Spacer, Sep
 from utils import color
 from utils.functions import *
@@ -14,14 +15,10 @@ ICON_WIDGET_DEFAULTS = {
     "fontsize": 23,
 }
 
-
-# -------------- BASIC UTIL FUNCTIONS ---------------------
-
-
 # ---------------- DEFAULTS -----------------
 
 IGNORE_EXTRA_CONFIG = ["groupbox", "systray"]
-DEFAULT_CONFIGS = dict()
+DEFAULT_CONFIGS = defaultdict(dict)
 
 DEFAULT_CONFIGS["systray"] = dict(
     icon_size=20,
@@ -39,16 +36,16 @@ DEFAULT_CONFIGS["wifi"] = dict(
 )
 
 DEFAULT_CONFIGS["clock"] = dict(
-    format="%H:%M",
+    format="%H:%M ",
 )
 
 DEFAULT_CONFIGS["date"] = dict(
-    format="%A, %B %d",
+    format="%A, %B %d ",
 )
 
 DEFAULT_CONFIGS["memory"] = dict(
     measure_mem="G",
-    format="{MemUsed:.1f}<b>GB</b>",
+    format="{MemUsed:.1f}<b>GB</b> ",
 )
 
 DEFAULT_CONFIGS["disk"] = dict(
@@ -71,6 +68,10 @@ DEFAULT_CONFIGS["cpu"] = dict(
     format="{load_percent}%",
 )
 
+DEFAULT_CONFIGS["volume"] = dict(
+    fmt="{} ",
+)
+
 
 DEFAULT_CONFIGS["groupbox"] = dict(
     this_current_screen_border=color.blue,
@@ -85,3 +86,32 @@ DEFAULT_CONFIGS["groupbox"] = dict(
     disable_drag=True,
     fontsize=30,
 )
+
+
+class widget:
+
+    @classmethod
+    def memory(cls, **kwargs):
+        vars = DEFAULT_CONFIGS["memory"] | kwargs
+        return Memory(**vars)
+
+
+    @classmethod
+    def volume(cls, **kwargs):
+        vars = DEFAULT_CONFIGS["volume"] | kwargs
+        return PulseVolume(**vars)
+
+    @classmethod
+    def clock(cls, **kwargs):
+        vars = DEFAULT_CONFIGS["clock"] | kwargs
+        return Clock(**vars)
+
+    @classmethod
+    def date(cls, **kwargs):
+        vars = DEFAULT_CONFIGS["date"] | kwargs
+        return Clock(**vars)
+
+    @classmethod
+    def icon(cls, text, **kwargs):
+        vars = ICON_WIDGET_DEFAULTS | kwargs
+        return TextBox(text=text, **vars)
