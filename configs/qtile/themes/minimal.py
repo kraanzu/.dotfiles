@@ -6,7 +6,7 @@ from vars import wallpaper_path
 
 WORKSPACES = "1 2 3 4 5".split()
 EXTRA_WORKSPACE = "0"
-WALL = f"{wallpaper_path}/blank.png"
+WALL = f"{wallpaper_path}/terminal.png"
 
 groups.extend(
     configure_workspaces(WORKSPACES, EXTRA_WORKSPACE),
