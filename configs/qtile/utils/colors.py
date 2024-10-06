@@ -1,5 +1,5 @@
 class Color:
-    extra_dark = ["#252a34", "#252a34"]
+    extra_dark = "#272c36"
 
     dark1 = "#2e3440"
     dark2 = "#3b4252"
@@ -16,8 +16,8 @@ class Color:
     magenta = "#b48ead"
     grey = "#4c566a"
     orange = "#d08770"
-    cyan = "#88c0d0"
-    cyan2 = "#8fbcbb"
+    cyan = "#8fbcbb"
+    cyan2 = "#88c0d0"
     blue = "#84A7C0"
     blue2 = "#5e81ac"
 
