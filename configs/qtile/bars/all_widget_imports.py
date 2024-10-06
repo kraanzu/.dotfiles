@@ -1,6 +1,7 @@
 from qtile_extras.widget import (
     TextBox,
     GroupBox,
+    GroupBox2,
     GenPollText,
     Systray,
     Clock,
@@ -12,6 +13,7 @@ from qtile_extras.widget import (
 __all__ = [
     "TextBox",
     "GroupBox",
+    "GroupBox2",
     "GenPollText",
     "Systray",
     "Clock",
