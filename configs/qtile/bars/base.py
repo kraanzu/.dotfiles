@@ -35,11 +35,11 @@ DEFAULT_CONFIGS["wifi"] = dict(
 )
 
 DEFAULT_CONFIGS["clock"] = dict(
-    format="%H:%M ",
+    format="%H:%M",
 )
 
 DEFAULT_CONFIGS["date"] = dict(
-    format="%A, %B %d ",
+    format="%a, %b %d",
 )
 
 DEFAULT_CONFIGS["memory"] = dict(
@@ -97,7 +97,7 @@ class Widget:
 
     def groupbox(self, **kwargs):
         vars = self.get_config("groupbox") | kwargs
-        return GroupBox(**vars)
+        return GroupBox2(**vars)
 
     def memory(self, **kwargs):
         vars = self.get_config("memory") | kwargs
@@ -125,8 +125,8 @@ class Widget:
         vars = ICON_WIDGET_DEFAULTS | self.common_attrs | self.icon_attrs | kwargs
         return TextBox(text=text, **vars)
 
-    def pad(self, length=4):
-        return Spacer(length=length)
+    def pad(self, length=4, **kwargs):
+        return Spacer(length=length, **kwargs)
 
     def spacer(self):
         return Spacer()
