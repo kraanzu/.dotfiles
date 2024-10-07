@@ -71,6 +71,11 @@ DEFAULT_CONFIGS["volume"] = dict(
     fmt="{} ",
 )
 
+DEFAULT_CONFIGS["do_not_disturb"] = dict(
+    enabled_icon=" 󰂛 ",
+    disabled_icon=" 󰂚 ",
+)
+
 
 DEFAULT_CONFIGS["groupbox"] = dict(
     this_current_screen_border=color.blue,
@@ -119,9 +124,13 @@ class Widget:
         vars = self.get_config("systray") | kwargs
         return Systray(**vars)
 
-    def widget_box(self, widgets = [], **kwargs):
+    def widget_box(self, widgets=[], **kwargs):
         vars = self.get_config("widget_box") | kwargs
         return WidgetBox(widgets, **vars)
+
+    def do_not_disturb(self, **kwargs):
+        vars = self.get_config("do_not_disturb") | kwargs
+        return DoNotDisturb(**vars)
 
     # --------------------------------------------------
 

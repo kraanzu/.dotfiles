@@ -1,5 +1,4 @@
 from libqtile import bar
-from qtile_extras.widget import decorations
 from qtile_extras.widget.decorations import RectDecoration, BorderDecoration
 from qtile_extras.widget.groupbox2 import Box, GroupBoxRule
 from utils.colors import color
@@ -25,6 +24,21 @@ COMMON_ATTRS = {
         ),
     ],
 }
+
+dnd_decoration = dict(
+    padding=3,
+    foreground=color.dark2,
+    decorations=[
+        RectDecoration(
+            colour=color.cyan,
+            radius=1,
+            filled=True,
+            padding_y=6.5,
+            group=True,
+            border_width=5,
+        ),
+    ],
+)
 
 widget = Widget(common_attrs=COMMON_ATTRS)
 
@@ -95,6 +109,8 @@ bar_right = [
     widget.clock(fmt=" {} "),
     widget.pad(length=8),
     widget.date(fmt=" {} "),
+    widget.pad(length=6),
+    widget.do_not_disturb(**dnd_decoration),
     widget.pad(length=6),
 ]
 
