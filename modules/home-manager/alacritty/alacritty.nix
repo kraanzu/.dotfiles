@@ -1,6 +1,6 @@
 {
   programs.alacritty = {
-    enable = false;
+    enable = true;
     settings = import ./alacritty_theme.nix;
   };
 }
