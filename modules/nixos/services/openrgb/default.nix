@@ -26,7 +26,7 @@ in {
     systemd.user.services.openrgb = {
       description = "OpenRGB Server";
       serviceConfig = {
-        ExecStart = "${pkgs.openrgb}/bin/openrgb --server --profile ${cfg.profile}";
+        ExecStart = "${pkgs.openrgb}/bin/openrgb --profile ${cfg.profile}";
         Restart = "on-failure";
       };
       wantedBy = ["default.target"];
