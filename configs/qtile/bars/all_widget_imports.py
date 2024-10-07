@@ -8,6 +8,7 @@ from qtile_extras.widget import (
     Memory,
     Spacer,
     PulseVolume,
+    WidgetBox,
 )
 
 __all__ = [
@@ -20,4 +21,5 @@ __all__ = [
     "Memory",
     "Spacer",
     "PulseVolume",
+    "WidgetBox",
 ]
