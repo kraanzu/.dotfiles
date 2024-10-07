@@ -5,6 +5,7 @@ class Color:
     dark2 = "#3b4252"
     dark3 = "#434c5e"
     dark4 = "#4c566a"
+    dark5 = "#6a7894"
 
     light1 = "#d8dee9"
     light2 = "#e5e9f0"

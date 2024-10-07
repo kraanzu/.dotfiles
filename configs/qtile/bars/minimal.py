@@ -47,7 +47,7 @@ def set_label_color(rule: GroupBoxRule, box: Box):
     elif box.occupied:
         rule.text_colour = color.light1
     else:
-        rule.text_colour = color.grey
+        rule.text_colour = color.dark5
 
     return True
 
