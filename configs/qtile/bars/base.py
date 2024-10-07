@@ -119,6 +119,10 @@ class Widget:
         vars = self.get_config("systray") | kwargs
         return Systray(**vars)
 
+    def widget_box(self, widgets = [], **kwargs):
+        vars = self.get_config("widget_box") | kwargs
+        return WidgetBox(widgets, **vars)
+
     # --------------------------------------------------
 
     def icon(self, text, **kwargs):

@@ -40,6 +40,7 @@ def draw_main_box(box: Box):
     box.drawer.set_source_rgb(color.cyan)
     box.drawer.ctx.fill()
 
+
 def set_label_color(rule: GroupBoxRule, box: Box):
     if box.focused:
         rule.text_colour = color.dark1
@@ -78,9 +79,18 @@ bar_middle = [
 ]
 
 bar_right = [
-    widget.systray(decorations=[]),
+    widget.widget_box(
+        [
+            widget.pad(length=6),
+            widget.systray(decorations=[]),
+            widget.pad(length=6),
+        ],
+        text_closed="  ",
+        text_open="  ",
+        close_button_location="right",
+    ),
     widget.pad(length=6),
-    widget.volume(fmt = " 󰕾 {} "),
+    widget.volume(fmt=" 󰕾 {} "),
     widget.pad(length=8),
     widget.clock(fmt=" {} "),
     widget.pad(length=8),
