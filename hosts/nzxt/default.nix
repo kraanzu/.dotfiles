@@ -27,7 +27,7 @@
 
   # WMs
   mynix.wm.qtile.enable = true;
-  mynix.wm.hyprland.enable = false;
+  # mynix.wm.hyprland.enable = true;
 
   services.getty.autologinUser = "kraanzu";
   services.displayManager.autoLogin = {
