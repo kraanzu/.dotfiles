@@ -1,7 +1,6 @@
-from typing import Literal
+from typing import Literal, Self
 from libqtile.bar import Bar
-
-from bars.minimal import minimal_bar
+from bars import *
 
 
 class KzTheme:
@@ -24,10 +23,10 @@ class KzTheme:
         try:
             return getattr(cls, f"theme_{name}")()
         except Exception as _:
-            return cls.theme_wave() # Default theme
+            return cls.theme_wave()  # Default theme
 
     @classmethod
-    def theme_wave(cls):
+    def theme_wave(cls) -> Self:
         return cls(
             workspaces=["1", "2", "3", "4", "5"],
             extra_workspace="0",
@@ -36,7 +35,7 @@ class KzTheme:
         )
 
     @classmethod
-    def theme_groot(cls):
+    def theme_groot(cls) -> Self:
         return cls(
             workspaces=["1", "2", "3", "4", "5"],
             extra_workspace="0",
