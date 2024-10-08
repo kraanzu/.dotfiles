@@ -37,8 +37,8 @@ class KzTheme:
     @classmethod
     def theme_groot(cls) -> Self:
         return cls(
-            workspaces=["1", "2", "3", "4", "5"],
-            extra_workspace="0",
+            workspaces=["󰎤", "󰎧", "󰎪", "󰎭", "󰎱"],
+            extra_workspace="󰅗",
             wallpaper="groot",
             bar=groot_bar,
         )
