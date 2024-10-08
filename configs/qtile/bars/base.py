@@ -126,7 +126,7 @@ class Widget:
 
     def widget_box(self, widgets=[], **kwargs):
         vars = self.get_config("widget_box") | kwargs
-        return WidgetBox(widgets, **vars)
+        return WidgetBox(widgets = widgets, **vars)
 
     def do_not_disturb(self, **kwargs):
         vars = self.get_config("do_not_disturb") | kwargs
