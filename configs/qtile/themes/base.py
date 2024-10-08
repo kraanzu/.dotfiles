@@ -93,23 +93,6 @@ def func(win: Window):
                 break
 
 
-@hook.subscribe.screens_reconfigured
-def screens_reconfigured():
-    def get_current_screen():
-        try:
-            active_desktop = subprocess.check_output(
-                "wmctrl -d | awk '/\\*/ {print $NF}'",
-                shell=True,
-                text=True,
-            ).strip()
-            return active_desktop
-        except subprocess.CalledProcessError:
-            return 1
-
-    os.system("xdotool key Super+0")
-    os.system(f"xdotool key Super+{get_current_screen()}")
-
-
 @hook.subscribe.startup_once
 def start_once():
     commands = """
