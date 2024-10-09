@@ -19,13 +19,13 @@ COMMON_ATTRS = {
     ],
 }
 
-dnd_decoration = dict(
+alt_decoration = dict(
     padding=3,
     foreground=color.dark2,
     decorations=[
         RectDecoration(
             colour=color.cyan,
-            radius=1,
+            radius=7,
             filled=True,
             padding_y=6.5,
             group=True,
@@ -67,6 +67,9 @@ groupbox_config = dict(
 
 bar_left = [
     widget.pad(length=8),
+    widget.pad(length=4, **alt_decoration),
+    widget.icon(" ", fontsize = 20,  **alt_decoration),
+    widget.pad(length=8),
     widget.clock(fmt=" {} "),
     widget.pad(length=8),
     widget.date(fmt=" {} "),
@@ -89,6 +92,7 @@ bar_right = [
         text_closed="  ",
         text_open="  ",
         close_button_location="right",
+        **alt_decoration,
     ),
     widget.pad(length=6),
     widget.volume(fmt=" 󰕾 {} "),
