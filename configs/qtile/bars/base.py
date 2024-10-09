@@ -76,6 +76,8 @@ DEFAULT_CONFIGS["do_not_disturb"] = dict(
     disabled_icon=" 󰂚 ",
 )
 
+DEFAULT_CONFIGS["window_name"] = dict(format="{class}")
+
 
 DEFAULT_CONFIGS["groupbox"] = dict(
     this_current_screen_border=color.blue,
@@ -126,11 +128,15 @@ class Widget:
 
     def widget_box(self, widgets=[], **kwargs):
         vars = self.get_config("widget_box") | kwargs
-        return WidgetBox(widgets = widgets, **vars)
+        return WidgetBox(widgets=widgets, **vars)
 
     def do_not_disturb(self, **kwargs):
         vars = self.get_config("do_not_disturb") | kwargs
         return DoNotDisturb(**vars)
+
+    def window_name(self, **kwargs):
+        vars = self.get_config("window_name") | kwargs
+        return WindowName(**vars)
 
     # --------------------------------------------------
 

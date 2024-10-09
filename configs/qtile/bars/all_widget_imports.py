@@ -10,6 +10,7 @@ from qtile_extras.widget import (
     PulseVolume,
     WidgetBox,
     DoNotDisturb,
+    WindowName,
 )
 
 __all__ = [
@@ -24,4 +25,5 @@ __all__ = [
     "PulseVolume",
     "WidgetBox",
     "DoNotDisturb",
+    "WindowName",
 ]
