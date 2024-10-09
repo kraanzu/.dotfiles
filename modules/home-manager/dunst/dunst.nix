@@ -24,7 +24,7 @@ in {
           width = 300;
           height = 80;
           origin = "top-right";
-          offset = "20x60";
+          offset = "20x20";
           corner_radius = 0;
           scale = 0;
           notification_limit = 0;
