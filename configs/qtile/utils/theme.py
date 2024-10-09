@@ -20,6 +20,9 @@ class ThemeManager:
 
     @classmethod
     def set_theme(cls, theme: str, qtile: Qtile):
+        if not theme:
+            return
+
         with open(THEME_FILE_PATH, "w") as f:
             f.write(theme)
 
@@ -36,7 +39,7 @@ class ThemeManager:
             ]
 
         def show_rofi():
-            themes = "\n".join(get_all_themes())
+            themes = "\n".join([''] + get_all_themes())
             rofi_cmd = f"echo -e '{themes}' | rofi -dmenu -p 'Select theme' -i"
             return os.popen(rofi_cmd).read().strip()
 
