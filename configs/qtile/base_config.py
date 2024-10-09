@@ -1,17 +1,15 @@
 import subprocess
 import os
 from typing import List
-from libqtile import bar
 from libqtile.backend.base.window import Window
 from libqtile.layout.xmonad import MonadTall
 from libqtile.layout.floating import Floating
 from libqtile.layout.max import Max
-from libqtile.config import DropDown, ScratchPad, Group, Screen
+from libqtile.config import DropDown, ScratchPad, Group
 from libqtile import hook
 from vars import *
-from utils import key_bindings, create_workspace_bindings
+from utils import key_bindings
 from utils.colors import color
-from utils.theme import KzTheme
 
 # ------------------- USER CONSTANTS ---------------------
 
@@ -69,7 +67,7 @@ layout_defaults = dict(
 
 # ---------------- QTILE CONSTANTS -------------------------
 
-keys = key_bindings + create_workspace_bindings(WORKSPACES)
+keys = key_bindings
 groups: List[ScratchPad | Group] = [SCRATCHPAD]
 floating_layout = Floating(None, None, **layout_defaults)
 layouts = [

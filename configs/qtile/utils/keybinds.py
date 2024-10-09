@@ -1,7 +1,7 @@
 from libqtile.config import EzKey as Keybind
 from libqtile.core.manager import Qtile
 from libqtile.lazy import lazy
-from utils.theme import KzTheme, ThemeManager
+from utils.theme import ThemeManager
 import os
 
 terminal = "wezterm-gui connect unix --workspace main"
@@ -21,6 +21,16 @@ def toggle_dual_monitors(qtile: Qtile) -> None:
 
 
 key_bindings = [
+    Keybind(
+        "M-<Right>",
+        lazy.screen.next_group(),
+        desc="Move to next Group",
+    ),
+    Keybind(
+        "M-<Left>",
+        lazy.screen.prev_group(),
+        desc="Move to previous Group",
+    ),
     Keybind(
         "M-S-t",
         lazy.function(ThemeManager.start_theme_switcher),
