@@ -89,6 +89,6 @@ class KzTheme:
         return cls(
             workspaces=["󱓻", "󱓻", "󱓻", "󱓻", "󱓻"],
             extra_workspace="󱓻",
-            wallpaper="tree",
+            wallpaper="nixos",
             bar=three_bar,
         )
