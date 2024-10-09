@@ -10,7 +10,7 @@ COMMON_ATTRS = {
     "decorations": [
         RectDecoration(
             colour=color.dark2,
-            radius=10,
+            radius=7,
             filled=True,
             padding_y=5,
             group=True,
@@ -51,14 +51,15 @@ def set_label_color(rule: GroupBoxRule, box: Box):
 
 
 groupbox_config = dict(
-    fontsize=20,
-    rounded=False,
+    fontsize=25,
+    rounded=True,
     this_current_screen_border=color.cyan,
     padding_x=6,
     padding_y=10,
     rules=[
         GroupBoxRule().when(func=set_label_color),
     ],
+    decorations = [],
 )
 
 
@@ -74,9 +75,7 @@ bar_left = [
 
 bar_middle = [
     widget.spacer(),
-    widget.pad(**COMMON_ATTRS),
     widget.groupbox(**groupbox_config),
-    widget.pad(**COMMON_ATTRS),
     widget.spacer(),
 ]
 

@@ -87,8 +87,8 @@ class KzTheme:
     @classmethod
     def theme_three(cls) -> Self:
         return cls(
-            workspaces=["󰈹", " ", "", "󰕼", "󰭹"],
-            extra_workspace="󰂭 ",
+            workspaces=["󱓻", "󱓻", "󱓻", "󱓻", "󱓻"],
+            extra_workspace="󱓻",
             wallpaper="tree",
             bar=three_bar,
         )
