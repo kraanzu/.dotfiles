@@ -1,4 +1,5 @@
 from base_config import *
+from libqtile import bar
 from utils.theme import ThemeManager, KzTheme
 
 
