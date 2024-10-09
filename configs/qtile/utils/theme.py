@@ -4,6 +4,7 @@ from typing import Literal, Self
 from libqtile.core.manager import Qtile
 from libqtile.bar import Bar
 from bars import *
+from utils.rofi import run_rofi
 
 THEME_FILE_PATH = Path.home() / ".qtile_theme"
 
@@ -38,12 +39,8 @@ class ThemeManager:
                 if name.startswith("theme_")
             ]
 
-        def show_rofi():
-            themes = "\n".join([''] + get_all_themes())
-            rofi_cmd = f"echo -e '{themes}' | rofi -dmenu -p 'Select theme' -i"
-            return os.popen(rofi_cmd).read().strip()
-
-        theme = show_rofi()
+        themes = get_all_themes()
+        theme = run_rofi(themes, "theme:")
         cls.set_theme(theme, qtile)
 
 
