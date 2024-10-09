@@ -6,7 +6,7 @@ from bars.base import *
 from bars.base import Widget
 
 test_deco = RectDecoration(
-    colour=color.cyan,
+    colour=color.blue,
     radius=7,
     filled=True,
     padding_y=6.5,
