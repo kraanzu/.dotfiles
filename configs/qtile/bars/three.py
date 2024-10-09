@@ -9,7 +9,7 @@ COMMON_ATTRS = {
     "padding": 0,
     "decorations": [
         RectDecoration(
-            colour=color.dark2,
+            colour=color.dark4,
             radius=7,
             filled=True,
             padding_y=5,
@@ -59,7 +59,7 @@ groupbox_config = dict(
     rules=[
         GroupBoxRule().when(func=set_label_color),
     ],
-    decorations = [],
+    decorations=[],
 )
 
 
