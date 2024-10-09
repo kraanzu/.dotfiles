@@ -9,7 +9,7 @@ COMMON_ATTRS = {
     "padding": 0,
     "decorations": [
         RectDecoration(
-            colour=color.dark4,
+            colour=color.dark3,
             radius=7,
             filled=True,
             padding_y=5,
