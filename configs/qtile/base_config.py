@@ -9,7 +9,8 @@ from libqtile.layout.max import Max
 from libqtile.config import DropDown, ScratchPad, Group, Screen
 from libqtile import hook
 from vars import *
-from utils import key_bindings, color, create_workspace_bindings
+from utils import key_bindings, create_workspace_bindings
+from utils.colors import color
 from utils.theme import KzTheme
 
 # ------------------- USER CONSTANTS ---------------------
