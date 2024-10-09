@@ -51,7 +51,7 @@ def set_label_color(rule: GroupBoxRule, box: Box):
 
 
 groupbox_config = dict(
-    fontsize=25,
+    fontsize=27,
     rounded=True,
     this_current_screen_border=color.cyan,
     padding_x=6,
