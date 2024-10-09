@@ -5,17 +5,29 @@ from utils.colors import color
 from bars.base import *
 from bars.base import Widget
 
+test_deco = RectDecoration(
+    colour=color.cyan,
+    radius=7,
+    filled=True,
+    padding_y=6.5,
+    group=True,
+    border_width=5,
+)
+
+rect_decoration = RectDecoration(
+    colour=color.dark3,
+    radius=7,
+    filled=True,
+    padding_y=6.5,
+    group=True,
+    border_width=5,
+)
+
+
 COMMON_ATTRS = {
     "padding": 0,
     "decorations": [
-        RectDecoration(
-            colour=color.dark3,
-            radius=7,
-            filled=True,
-            padding_y=5,
-            group=True,
-            border_width=5,
-        ),
+        rect_decoration,
     ],
 }
 
@@ -67,11 +79,22 @@ groupbox_config = dict(
 
 bar_left = [
     widget.pad(length=8),
-    widget.pad(length=4, **alt_decoration),
-    widget.icon(" ", fontsize = 20,  **alt_decoration),
+    widget.pad(length=8, decorations=[rect_decoration]),
+    widget.icon(" ", fontsize=20, foreground=color.cyan),
+    widget.pad(length=4, decorations=[rect_decoration]),
     widget.pad(length=8),
+    widget.icon(
+        " 󱑀 ",
+        decorations=[rect_decoration, test_deco],
+        foreground=color.extra_dark,
+    ),
     widget.clock(fmt=" {} "),
     widget.pad(length=8),
+    widget.icon(
+        " 󰃵 ",
+        decorations=[rect_decoration, test_deco],
+        foreground=color.extra_dark,
+    ),
     widget.date(fmt=" {} "),
     widget.pad(length=6),
 ]
@@ -89,13 +112,26 @@ bar_right = [
             widget.systray(decorations=[]),
             widget.pad(length=6),
         ],
-        text_closed="  ",
-        text_open="  ",
+        text_closed="  ",
+        text_open="  ",
         close_button_location="right",
-        **alt_decoration,
+        foreground=color.cyan,
     ),
     widget.pad(length=6),
-    widget.volume(fmt=" 󰕾 {} "),
+    widget.icon(
+        " 󰕾 ",
+        fontsize=20,
+        decorations=[rect_decoration, test_deco],
+        foreground=color.extra_dark,
+    ),
+    widget.volume(fmt=" {} "),
+    widget.pad(length=6),
+    widget.icon(
+        " 󰍛 ",
+        decorations=[rect_decoration, test_deco],
+        foreground=color.extra_dark,
+    ),
+    widget.memory(fmt=" {} "),
     widget.pad(length=6),
 ]
 
