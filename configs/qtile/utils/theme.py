@@ -1,6 +1,47 @@
+import os
+from pathlib import Path
 from typing import Literal, Self
+from libqtile.core.manager import Qtile
 from libqtile.bar import Bar
 from bars import *
+
+THEME_FILE_PATH = Path.home() / ".qtile_theme"
+
+
+class ThemeManager:
+    @classmethod
+    def get_theme(cls):
+        if not THEME_FILE_PATH.exists():
+            return KzTheme.theme_wave()
+
+        with open(THEME_FILE_PATH, "r") as f:
+            name = f.read().strip()
+            return KzTheme.from_name(name)
+
+    @classmethod
+    def set_theme(cls, theme: str, qtile: Qtile):
+        with open(THEME_FILE_PATH, "w") as f:
+            f.write(theme)
+
+        qtile.reload_config()
+        os.system(f'notify-send "Switched to theme {theme}"')
+
+    @classmethod
+    def start_theme_switcher(cls, qtile: Qtile):
+        def get_all_themes():
+            return [
+                name[len("theme_") :]
+                for name in dir(KzTheme)
+                if name.startswith("theme_")
+            ]
+
+        def show_rofi():
+            themes = "\n".join(get_all_themes())
+            rofi_cmd = f"echo -e '{themes}' | rofi -dmenu -p 'Select theme' -i"
+            return os.popen(rofi_cmd).read().strip()
+
+        theme = show_rofi()
+        cls.set_theme(theme, qtile)
 
 
 class KzTheme:

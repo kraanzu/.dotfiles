@@ -1,6 +1,7 @@
 from libqtile.config import EzKey as Keybind
 from libqtile.core.manager import Qtile
 from libqtile.lazy import lazy
+from utils.theme import KzTheme, ThemeManager
 import os
 
 terminal = "wezterm-gui connect unix --workspace main"
@@ -20,6 +21,11 @@ def toggle_dual_monitors(qtile: Qtile) -> None:
 
 
 key_bindings = [
+    Keybind(
+        "M-S-t",
+        lazy.function(ThemeManager.start_theme_switcher),
+        desc="Launch rofi app-launcer",
+    ),
     # ROFI SCRIPTS -> Mod + Shift + <Key>
     Keybind(
         "M-S-<Return>",

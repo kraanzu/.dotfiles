@@ -1,7 +1,6 @@
-from pathlib import Path
 from base_config import *
+from utils.theme import ThemeManager, KzTheme
 
-THEME_FILE_PATH = Path.home() / ".qtile_theme"
 
 def apply_theme(theme: KzTheme):
     global screens, groups
@@ -26,16 +25,9 @@ def apply_theme(theme: KzTheme):
         )
     ]
 
-def get_current_theme() -> KzTheme:
-    if not THEME_FILE_PATH.exists():
-        return KzTheme.theme_wave()
-
-    with open(THEME_FILE_PATH, "r") as f:
-        name =  f.read().strip()
-        return KzTheme.from_name(name)
 
 def main():
-    theme = get_current_theme()
-    apply_theme(theme)
+    apply_theme(ThemeManager.get_theme())
+
 
 main()
