@@ -17,7 +17,6 @@ ICON_WIDGET_DEFAULTS = {
 
 # ---------------- DEFAULTS -----------------
 
-IGNORE_EXTRA_CONFIG = ["groupbox", "systray"]
 DEFAULT_CONFIGS = defaultdict(dict)
 
 DEFAULT_CONFIGS["systray"] = dict(
