@@ -22,16 +22,6 @@ def toggle_dual_monitors(qtile: Qtile) -> None:
 
 key_bindings = [
     Keybind(
-        "M-<Right>",
-        lazy.screen.next_group(),
-        desc="Move to next Group",
-    ),
-    Keybind(
-        "M-<Left>",
-        lazy.screen.prev_group(),
-        desc="Move to previous Group",
-    ),
-    Keybind(
         "M-S-t",
         lazy.function(ThemeManager.start_theme_switcher),
         desc="Launch rofi app-launcer",

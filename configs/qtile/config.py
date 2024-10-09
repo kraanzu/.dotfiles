@@ -1,4 +1,5 @@
 from base_config import *
+from libqtile.config import Screen
 from libqtile import bar
 from utils.theme import ThemeManager, KzTheme
 
@@ -8,8 +9,7 @@ def apply_theme(theme: KzTheme):
 
     groups.extend(
         configure_workspaces(
-            theme.workspaces,
-            theme.extra_workspace,
+            theme.workspaces + [theme.extra_workspace],
         ),
     )
 

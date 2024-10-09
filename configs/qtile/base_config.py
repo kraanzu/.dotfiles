@@ -9,6 +9,7 @@ from libqtile.config import DropDown, ScratchPad, Group
 from libqtile import hook
 from vars import *
 from utils import key_bindings
+from utils.group_bindings import create_workspace_bindings
 from utils.colors import color
 
 # ------------------- USER CONSTANTS ---------------------
@@ -22,10 +23,7 @@ SCRATCHPAD = ScratchPad(
 )
 
 
-def configure_workspaces(
-    workspaces: list[str] = WORKSPACES,
-    extra_workspace: str = EXTRA_WORKSPACE,
-):
+def configure_workspaces(workspaces: list[str] = WORKSPACES):
     groups = []
 
     for index, workspace in enumerate(workspaces, 1):
@@ -37,15 +35,6 @@ def configure_workspaces(
                 label=workspace,
             )
         )
-
-    groups.append(
-        Group(
-            "0",
-            layout=LAYOUTS.get(0, "max"),
-            spawn=SPAWNS.get(0),
-            label=extra_workspace,
-        )
-    )
 
     return groups
 
@@ -67,7 +56,7 @@ layout_defaults = dict(
 
 # ---------------- QTILE CONSTANTS -------------------------
 
-keys = key_bindings
+keys = key_bindings + create_workspace_bindings()
 groups: List[ScratchPad | Group] = [SCRATCHPAD]
 floating_layout = Floating(None, None, **layout_defaults)
 layouts = [
@@ -128,5 +117,3 @@ def start_once():
 # QTILE CONFIG
 # From: KzTheme
 # ------------------------------------------
-
-
