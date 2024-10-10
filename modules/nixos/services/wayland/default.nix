@@ -1,4 +1,5 @@
 {
+  pkgs,
   config,
   lib,
   ...
@@ -14,5 +15,10 @@ with lib; {
 
   config = mkIf config.mynix.services.wayland.enable {
     programs.xwayland.enable = true;
+    systemd.user.services.mako = {
+      description = "Mako Notification Daemon";
+      serviceConfig.ExecStart = "${pkgs.mako}/bin/mako";
+      wantedBy = ["default.target"];
+    };
   };
 }
