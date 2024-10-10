@@ -18,6 +18,8 @@
     cloc
     imagemagick
     popsicle
+    wmctrl
+    xdotool
 
     # shell stuff
     fish
