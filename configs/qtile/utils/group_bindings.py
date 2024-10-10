@@ -65,7 +65,7 @@ def create_workspace_bindings(total_groups: int = 6) -> List[Keybind]:
             [
                 Keybind(
                     f"M-{index}",
-                    lazy.group[str(index)].toscreen(),
+                    lazy.group[str(index)].toscreen(toggle  = True),
                     desc="Focus this desktop",
                 ),
                 Keybind(
