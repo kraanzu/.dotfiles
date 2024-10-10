@@ -12,7 +12,7 @@ with lib; {
     };
   };
 
-  config =
-    mkIf config.mynix.services.wayland.enable {
-    };
+  config = mkIf config.mynix.services.wayland.enable {
+    programs.xwayland.enable = true;
+  };
 }

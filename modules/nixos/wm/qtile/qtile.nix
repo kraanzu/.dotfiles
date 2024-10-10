@@ -12,7 +12,10 @@
   };
 
   config = lib.mkIf config.mynix.wm.qtile.enable {
-    mynix.services.x11.enable = true;
+    mynix.services = {
+      x11.enable = true;
+      wayland.enable = true;
+    };
 
     services.xserver.windowManager.qtile = {
       enable = true;
