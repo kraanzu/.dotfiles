@@ -29,10 +29,10 @@ MATCHES = {
     1: ["firefox"],
     4: ["vlc"],
     5: ["brave-browser", "discord"],
-    0: ["telegram", "google-chrome", "microsoft-edge"],
+    6: ["telegram", "google-chrome", "microsoft-edge"],
 }
 
 LAYOUTS = {
     5: "max",
-    0: "max",
+    6: "max",
 }
