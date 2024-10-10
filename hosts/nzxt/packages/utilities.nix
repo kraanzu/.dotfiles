@@ -11,7 +11,6 @@
     lxde.lxsession
     sddm
     flameshot
-    dunst
     gnome-disk-utility
     rofi
     nautilus
