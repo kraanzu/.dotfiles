@@ -3,6 +3,7 @@
 {
   imports = [
     ./dunst
+    ./mako
     ./rofi
     ./alacritty
     ./picom
