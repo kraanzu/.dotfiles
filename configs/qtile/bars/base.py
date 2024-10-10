@@ -1,3 +1,4 @@
+from libqtile import qtile
 from collections import defaultdict
 from qtile_extras.widget import Spacer, Sep
 from utils.colors import color
@@ -123,7 +124,10 @@ class Widget:
 
     def systray(self, **kwargs):
         vars = self.get_config("systray") | kwargs
-        return Systray(**vars)
+        if qtile.core.name == 'x11':
+            return Systray(**vars)
+        else:
+            return StatusNotifier(**vars)
 
     def widget_box(self, widgets=[], **kwargs):
         vars = self.get_config("widget_box") | kwargs
