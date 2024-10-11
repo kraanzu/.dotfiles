@@ -8,9 +8,7 @@ def apply_theme(theme: KzTheme):
     global screens, groups
 
     groups.extend(
-        configure_workspaces(
-            theme.workspaces + [theme.extra_workspace],
-        ),
+        configure_workspaces(theme.workspaces),
     )
 
     wallpaper = f"{wallpaper_path}/{theme.wallpaper}.png"

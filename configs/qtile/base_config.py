@@ -16,7 +16,6 @@ from utils.colors import color
 
 FLOATING_WINS = ["feh", "flameshot", "openrgb", "popsicle"]
 WORKSPACES = ["1", "2", "3", "4", "5"]
-EXTRA_WORKSPACE = "0"
 SCRATCHPAD = ScratchPad(
     name="scratchpad",
     dropdowns=[DropDown(name="term", cmd=scratch_terminal, height=0.9, opacity=1)],

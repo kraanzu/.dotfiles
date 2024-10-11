@@ -48,13 +48,11 @@ class KzTheme:
     def __init__(
         self,
         workspaces: list[str],
-        extra_workspace: str,
         wallpaper: str,
         bar: Bar,
         bar_position: Literal["top", "bottom"] = "bottom",
     ):
         self.workspaces = workspaces
-        self.extra_workspace = extra_workspace
         self.wallpaper = wallpaper
         self.bar = bar
         self.bar_position = bar_position
@@ -69,8 +67,7 @@ class KzTheme:
     @classmethod
     def theme_wave(cls) -> Self:
         return cls(
-            workspaces=["1", "2", "3", "4", "5"],
-            extra_workspace="0",
+            workspaces=["1", "2", "3", "4", "5", "6"],
             wallpaper="the_great_wave",
             bar=minimal_bar,
         )
@@ -78,8 +75,7 @@ class KzTheme:
     @classmethod
     def theme_three(cls) -> Self:
         return cls(
-            workspaces=["󱓻", "󱓻", "󱓻", "󱓻", "󱓻"],
-            extra_workspace="󱓻",
+            workspaces=["󱓻", "󱓻", "󱓻", "󱓻", "󱓻", "󱓻"],
             wallpaper="nixos",
             bar=three_bar,
         )
