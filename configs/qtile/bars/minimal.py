@@ -110,8 +110,8 @@ bar_right = [
     widget.pad(length=8),
     widget.date(fmt=" {} "),
     widget.pad(length=6),
-    # widget.do_not_disturb(**dnd_decoration),
-    # widget.pad(length=6),
+    widget.do_not_disturb(**dnd_decoration),
+    widget.pad(length=6),
 ]
 
 minimal_bar = bar.Bar(
