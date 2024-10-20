@@ -20,5 +20,6 @@
     brave
     anydesk
     simplescreenrecorder
+    protonvpn-cli_2
   ];
 }
