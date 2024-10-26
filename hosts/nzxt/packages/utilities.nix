@@ -21,5 +21,7 @@
     anydesk
     simplescreenrecorder
     protonvpn-cli_2
+    ntfs3g
+    gparted
   ];
 }
