@@ -28,6 +28,7 @@ return {
 			end,
 			nix = { "alejandra" },
 			lua = { "stylua" },
+            typescript = { "prettierd" },
 		},
 		-- Set default options
 		default_format_opts = {
