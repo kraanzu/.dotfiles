@@ -141,6 +141,10 @@ class Widget:
         vars = self.get_config("window_name") | kwargs
         return WindowName(**vars)
 
+    def github_notifications(self, **kwargs):
+        vars = self.get_config("window_name") | kwargs
+        return GithubNotifications(**vars)
+
     # --------------------------------------------------
 
     def icon(self, text, **kwargs):

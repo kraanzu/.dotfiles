@@ -12,6 +12,7 @@ from qtile_extras.widget import (
     WidgetBox,
     DoNotDisturb,
     WindowName,
+    GithubNotifications,
 )
 
 __all__ = [
@@ -28,4 +29,5 @@ __all__ = [
     "WidgetBox",
     "DoNotDisturb",
     "WindowName",
+    "GithubNotifications",
 ]

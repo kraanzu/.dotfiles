@@ -1,4 +1,5 @@
 {
+  pkgs,
   config,
   lib,
   ...
@@ -16,6 +17,8 @@
       x11.enable = true;
       wayland.enable = true;
     };
+
+    environment.systemPackages = [pkgs.python312Packages.requests];
 
     services.xserver.windowManager.qtile = {
       enable = true;
