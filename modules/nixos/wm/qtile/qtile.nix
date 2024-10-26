@@ -24,6 +24,7 @@
           qtile-extras
           dbus-next
           pulsectl-asyncio
+          requests
         ];
     };
   };
