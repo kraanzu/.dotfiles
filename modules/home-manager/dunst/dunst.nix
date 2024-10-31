@@ -21,7 +21,7 @@ in {
         global = {
           monitor = 0;
           follow = "mouse";
-          width = 300;
+          width = 350;
           height = 150;
           origin = "top-right";
           offset = "20x20";
