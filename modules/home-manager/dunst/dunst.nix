@@ -22,7 +22,7 @@ in {
           monitor = 0;
           follow = "mouse";
           width = 300;
-          height = 80;
+          height = 150;
           origin = "top-right";
           offset = "20x20";
           corner_radius = 0;
