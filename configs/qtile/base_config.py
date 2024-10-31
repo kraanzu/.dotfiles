@@ -152,8 +152,8 @@ def ghn_notification():
             notification_type, bg=notification_color[notification_type]
         )
 
-        repo = "  " + notification["repository"]["full_name"]
-        repo = stylize(repo, bold=False, fg=color.blue)
+        repo = " " + notification["repository"]["full_name"]
+        repo = stylize(repo, bold=True, bg=color.blue)
 
         qtile.spawn(
             f"""notify-send -t 20000 "Github" "{repo} {notification_type}\n{title}" """
