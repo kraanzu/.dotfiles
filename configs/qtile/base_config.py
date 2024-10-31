@@ -1,3 +1,4 @@
+from pathlib import Path
 import subprocess
 import os
 from typing import List
@@ -12,6 +13,7 @@ from utils import key_bindings
 from utils.group_bindings import create_workspace_bindings
 from utils.colors import color
 import qtile_extras.hook
+import requests
 
 # ------------------- USER CONSTANTS ---------------------
 
@@ -112,6 +114,28 @@ def start_once():
     for cmd in commands.splitlines():
         os.system(cmd + " &")
 
+
 @qtile_extras.hook.subscribe.ghn_new_notification
 def ghn_notification():
-    qtile.spawn("notify-send 'Github' 'A new notification'")
+    token_location = Path("~/.config/qtile-extras/github.token").expanduser()
+    if not token_location.exists():
+        return
+
+    token = token_location.read_text().strip()
+    url = "https://api.github.com/notifications"
+    headers = {
+        "Authorization": f"token {token}",
+        "Accept": "application/vnd.github.v3+json",
+    }
+
+    response = requests.get(url, headers=headers)
+
+    if response.status_code != 200:
+        return
+
+    for notification in response.json():
+        title = notification["subject"]["title"]
+        repo = notification["repository"]["full_name"]
+        qtile.spawn(f"notify-send 'Github' <b>'{repo}</b>\n{title}'")
+
+    return response.json()
