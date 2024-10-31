@@ -79,7 +79,7 @@ DEFAULT_CONFIGS["do_not_disturb"] = dict(
 DEFAULT_CONFIGS["window_name"] = dict(format="{class}")
 
 DEFAULT_CONFIGS["github_notifications"] = dict(
-    icon_size=16,
+    icon_size=18,
     update_interval=60,
     active_colour = color.cyan,
 )
