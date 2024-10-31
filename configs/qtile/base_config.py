@@ -6,11 +6,12 @@ from libqtile.layout.xmonad import MonadTall
 from libqtile.layout.floating import Floating
 from libqtile.layout.max import Max
 from libqtile.config import DropDown, ScratchPad, Group
-from libqtile import hook
+from libqtile import hook, qtile
 from vars import *
 from utils import key_bindings
 from utils.group_bindings import create_workspace_bindings
 from utils.colors import color
+import qtile_extras.hook
 
 # ------------------- USER CONSTANTS ---------------------
 
@@ -111,8 +112,6 @@ def start_once():
     for cmd in commands.splitlines():
         os.system(cmd + " &")
 
-
-# ------------------------------------------
-# QTILE CONFIG
-# From: KzTheme
-# ------------------------------------------
+@qtile_extras.hook.subscribe.ghn_new_notification
+def ghn_notification():
+    qtile.spawn("notify-send 'Github' 'A new notification'")
