@@ -134,6 +134,13 @@ def ghn_notification():
     if response.status_code != 200:
         return
 
+    def stylize(text: str, bold: bool = True, fg=color.dark1, bg=color.dark1):
+        stylized = f"<span color='{fg}' background='{bg}'> {text} </span>"
+        if bold:
+            return f"<b>{stylized}</b>"
+
+        return stylized
+
     for notification in response.json():
         title = notification["subject"]["title"]
 
@@ -141,13 +148,15 @@ def ghn_notification():
         notification_color.update({"Issue": color.red, "PullRequest": color.green})
 
         notification_type = notification["subject"]["type"]
-        notification_type = f"<span color='{notification_color[notification_type]}'>{notification_type}</span>"
+        notification_type = stylize(
+            notification_type, bg=notification_color[notification_type]
+        )
 
-        repo = notification["repository"]["full_name"]
-        repo = f"<b><span color='{color.blue}'> {repo}</span></b>"
+        repo = "  " + notification["repository"]["full_name"]
+        repo = stylize(repo, bold=False, fg=color.blue)
 
         qtile.spawn(
-            f"""notify-send -t 20000 "Github" "{repo} ({notification_type})\n{title}" """
+            f"""notify-send -t 20000 "Github" "{repo} {notification_type}\n{title}" """
         )
 
     return response.json()
