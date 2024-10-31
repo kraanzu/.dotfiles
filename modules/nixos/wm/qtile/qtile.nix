@@ -20,12 +20,6 @@
 
     services.xserver.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
 
-    environment.systemPackages = [
-      pkgs.python312Packages.requests
-      pkgs.librsvg
-      pkgs.gdk-pixbuf.dev
-    ];
-
     services.xserver.windowManager.qtile = {
       enable = true;
       extraPackages = p:
