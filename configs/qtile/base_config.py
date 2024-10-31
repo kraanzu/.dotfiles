@@ -1,3 +1,4 @@
+from collections import defaultdict
 from pathlib import Path
 import subprocess
 import os
@@ -135,7 +136,18 @@ def ghn_notification():
 
     for notification in response.json():
         title = notification["subject"]["title"]
+
+        notification_color = defaultdict(lambda: color.cyan)
+        notification_color.update({"Issue": color.red, "PullRequest": color.green})
+
+        notification_type = notification["subject"]["type"]
+        notification_type = f"<span color='{notification_color[notification_type]}'>{notification_type}</span>"
+
         repo = notification["repository"]["full_name"]
-        qtile.spawn(f"notify-send 'Github' <b>'{repo}</b>\n{title}'")
+        repo = f"<b><span color='{color.blue}'> {repo}</span></b>"
+
+        qtile.spawn(
+            f"""notify-send -t 20000 "Github" "{repo} ({notification_type})\n{title}" """
+        )
 
     return response.json()
