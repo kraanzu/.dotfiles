@@ -78,7 +78,11 @@ DEFAULT_CONFIGS["do_not_disturb"] = dict(
 
 DEFAULT_CONFIGS["window_name"] = dict(format="{class}")
 
-DEFAULT_CONFIGS["github_notifications"] = dict(icon_size=16)
+DEFAULT_CONFIGS["github_notifications"] = dict(
+    icon_size=16,
+    update_interval=60,
+    active_colour = color.cyan,
+)
 
 DEFAULT_CONFIGS["groupbox"] = dict(
     this_current_screen_border=color.blue,
@@ -125,7 +129,7 @@ class Widget:
 
     def systray(self, **kwargs):
         vars = self.get_config("systray") | kwargs
-        if qtile.core.name == 'x11':
+        if qtile.core.name == "x11":
             return Systray(**vars)
         else:
             return StatusNotifier(**vars)
