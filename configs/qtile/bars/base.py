@@ -78,6 +78,7 @@ DEFAULT_CONFIGS["do_not_disturb"] = dict(
 
 DEFAULT_CONFIGS["window_name"] = dict(format="{class}")
 
+DEFAULT_CONFIGS["github_notifications"] = dict(icon_size=16)
 
 DEFAULT_CONFIGS["groupbox"] = dict(
     this_current_screen_border=color.blue,
@@ -142,7 +143,7 @@ class Widget:
         return WindowName(**vars)
 
     def github_notifications(self, **kwargs):
-        vars = self.get_config("window_name") | kwargs
+        vars = self.get_config("github_notifications") | kwargs
         return GithubNotifications(**vars)
 
     # --------------------------------------------------
