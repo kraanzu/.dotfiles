@@ -10,7 +10,6 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     grub2-themes.url = "github:vinceliuice/grub2-themes";
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
     mysecrets = {
       url = "git+ssh://git@github.com/kraanzu/personal.git?ref=main&shallow=1";

@@ -1,6 +1,5 @@
 {
   imports = [
     ./qtile
-    ./hyprland
   ];
 }
