@@ -7,7 +7,7 @@
   options = {
     mynix.dev.lang.lua.enable = lib.mkOption {
       type = lib.types.bool;
-      default = false;
+      default = true;
       description = "Setup lua stuff";
     };
   };
