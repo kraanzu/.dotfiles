@@ -18,7 +18,7 @@
       wayland.enable = true;
     };
 
-    services.xserver.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
+    programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
 
     services.xserver.windowManager.qtile = {
       enable = true;
