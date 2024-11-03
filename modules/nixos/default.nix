@@ -4,5 +4,6 @@
     ./wm
     ./services
     ./dev
+    ./sec
   ];
 }
