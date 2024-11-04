@@ -10,6 +10,7 @@
     ./rust.nix
     ./go.nix
     ./lua.nix
+    ./ts.nix
     ./nix.nix
     ./markdown.nix
   ];
