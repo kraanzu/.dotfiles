@@ -9,6 +9,9 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    dooit.url = "github:kraanzu/dooit/develop";
+    dooit-extras.url = "github:dooit-org/dooit-extras";
+
     grub2-themes.url = "github:vinceliuice/grub2-themes";
 
     mysecrets = {
@@ -54,6 +57,11 @@
         modules = [
           ./hosts/nzxt
           nix-index-database.nixosModules.nix-index
+          {
+            environment.systemPackages = [
+              inputs.dooit.packages.${system}.default
+            ];
+          }
         ];
       };
     };
