@@ -12,7 +12,7 @@
     dooit.url = "github:kraanzu/dooit/flake";
     dooit-extras.url = "github:dooit-org/dooit-extras";
 
-    grub2-themes.url = "github:vinceliuice/grub2-themes";
+    grub2-themes.url = "github:vinceliuice/grub2-themes/2024-08-19";
 
     mysecrets = {
       url = "git+ssh://git@github.com/kraanzu/personal.git?ref=main&shallow=1";
