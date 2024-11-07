@@ -9,7 +9,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    dooit.url = "github:kraanzu/dooit/develop";
+    dooit.url = "github:kraanzu/dooit/flake";
     dooit-extras.url = "github:dooit-org/dooit-extras";
 
     grub2-themes.url = "github:vinceliuice/grub2-themes";
