@@ -5,11 +5,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1730950727,
-        "narHash": "sha256-v0D0kpc+2bZcc847x2u8KAKdw71kCJyvZIxhHAvanho=",
+        "lastModified": 1730952461,
+        "narHash": "sha256-RR9d+nYtzr8GnusGKLWtLMYEZFovHyvB5OfoaCrJlOw=",
         "owner": "kraanzu",
         "repo": "dooit",
-        "rev": "804d346f521cb6066cf01d2cf406d9974fc128ff",
+        "rev": "34b059e52e213a532e329df41d4f65a06c285ae8",
         "type": "github"
       },
       "original": {
