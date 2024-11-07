@@ -57,11 +57,6 @@
         modules = [
           ./hosts/nzxt
           nix-index-database.nixosModules.nix-index
-          {
-            environment.systemPackages = [
-              inputs.dooit.packages.${system}.default
-            ];
-          }
         ];
       };
     };
