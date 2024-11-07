@@ -1,8 +1,11 @@
 {
+  pkgs,
   inputs,
   ...
 }: {
+  nixpkgs.overlays = [inputs.dooit.overlay];
+
   environment.systemPackages = [
-    inputs.dooit.packages.x86_64-linux.default
+    pkgs.dooit
   ];
 }
