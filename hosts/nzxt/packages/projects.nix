@@ -1,11 +1,16 @@
 {
-  pkgs,
   inputs,
+  pkgs,
   ...
-}: {
-  nixpkgs.overlays = [inputs.dooit.overlay];
-
+}: let
+  custom_dooit = pkgs.dooit.override {
+    extraPackages = [
+      pkgs.dooit-extras
+    ];
+  };
+in {
+  nixpkgs.overlays = [inputs.dooit.overlay inputs.dooit-extras.overlay];
   environment.systemPackages = [
-    pkgs.dooit
+    custom_dooit
   ];
 }
