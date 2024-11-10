@@ -22,6 +22,8 @@
 
       # formatter
       prettierd
+
+      bun
     ];
   };
 }
