@@ -16,7 +16,6 @@ in {
 
   config = mkIf cfg.enable {
     mynix = {
-      suites.common = enabled;
       dev.lang = {
         python = enabled;
         nix = enabled;
