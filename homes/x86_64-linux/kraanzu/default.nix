@@ -15,7 +15,10 @@ in {
     ./mimeapps.nix
   ];
   mynix = {
-    desktop.rofi = enabled;
+    desktop = {
+      rofi = enabled;
+      dunst = enabled;
+    };
     terminals = {
       alacritty = enabled;
     };
