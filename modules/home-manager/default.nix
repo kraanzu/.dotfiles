@@ -7,5 +7,6 @@
     ./rofi
     ./alacritty
     ./picom
+    ./dooit.nix
   ];
 }

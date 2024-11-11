@@ -69,7 +69,7 @@
           osConfig = outputs.nixosConfigurations.nzxt.config;
         };
         modules = [
-          ./home/nzxt
+          ./home-manager/dooit.nix
         ];
       };
     };
