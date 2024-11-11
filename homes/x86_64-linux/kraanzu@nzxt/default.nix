@@ -3,7 +3,7 @@ let
   user_email = "kraanzu@gmail.com";
 in {
   imports = [
-    ../common
+    ./common
     ./theme.nix
     ./configs.nix
     ./wallpapers.nix

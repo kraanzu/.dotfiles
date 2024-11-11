@@ -7,7 +7,7 @@ with lib; {
   options = {
     mynix.services.x11.enable = lib.mkOption {
       type = lib.types.bool;
-      default = false;
+      default = true;
       description = "Enable XORG";
     };
   };

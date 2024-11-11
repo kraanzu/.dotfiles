@@ -14,7 +14,7 @@
 
   config = lib.mkIf config.mynix.wm.qtile.enable {
     mynix.services = {
-      x11.enable = true;
+      # x11.enable = true;
       wayland.enable = true;
     };
 

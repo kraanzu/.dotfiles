@@ -7,7 +7,7 @@
     inputs.home-manager.nixosModules.home-manager
 
     # modules
-    ../../modules/nixos
+    ../../../../modules/nixos
 
     ./boot.nix
     ./locale.nix

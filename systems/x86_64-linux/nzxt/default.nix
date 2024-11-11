@@ -3,7 +3,7 @@
   ...
 }: {
   imports = [
-    ../common
+    ./common
     ./packages
 
     ./hardware-configuration.nix

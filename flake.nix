@@ -3,6 +3,12 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    snowfall-lib = {
+      url = "github:snowfallorg/lib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -25,53 +31,33 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nix-index-database,
-    home-manager,
-    mysecrets,
-    mywalls,
-    ...
-  } @ inputs: let
-    inherit (self) outputs;
-    system = "x86_64-linux";
-    default_config = {
-      inherit system;
-      config = {allowUnfree = true;};
-    };
-
-    pkgs = import nixpkgs default_config;
-  in {
-    packages = import ./pkgs pkgs;
-    devShells.x86_64-linux.default = pkgs.mkShell {};
-    nixosModules = import ./modules/nixos;
-    homeManagerModules = import ./modules/home-manager;
-
-    nixosConfigurations = {
-      nzxt = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs outputs mysecrets mywalls;
-          packages = outputs.packages;
+  outputs = inputs:
+    inputs.snowfall-lib.mkFlake {
+      inherit inputs;
+      src = ./.;
+      snowfall = {
+        namespace = "mynix";
+        meta = {
+          name = "mynix"; # TODO: Change this
+          title = "Kraanzu's NixOS config";
         };
-        modules = [
-          ./hosts/nzxt
-          nix-index-database.nixosModules.nix-index
-        ];
       };
-    };
 
-    homeConfigurations = {
-      nzxt = home-manager.lib.homeManagerConfiguration {
-        pkgs = pkgs;
-        extraSpecialArgs = {
-          inherit inputs outputs mysecrets mywalls;
-          osConfig = outputs.nixosConfigurations.nzxt.config;
-        };
-        modules = [
-          ./home-manager/dooit.nix
-        ];
+      channels-config = {
+        allowUnfree = true;
       };
+
+      systems.modules.nixos = with inputs; [
+        nix-index-database.nixosModules.nix-index
+      ];
+
+      homes.users."kraanzu@nzxt".specialArgs = {
+        mysecrets = inputs.mysecrets;
+        mywalls = inputs.mywalls;
+      };
+      #
+      # homes.modules = with inputs; [
+      #   # my-input.homeModules.my-module
+      # ];
     };
-  };
 }
