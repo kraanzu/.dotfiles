@@ -1,5 +1,5 @@
-{mywalls, ...}: let
-  wallpath = builtins.toString mywalls;
+{inputs, ...}: let
+  wallpath = builtins.toString inputs.mywalls;
 in {
   home.file = {
     "wallpapers" = {

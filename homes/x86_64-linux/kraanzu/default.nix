@@ -1,4 +1,9 @@
-let
+{
+  lib,
+  namespace,
+  ...
+}:
+with lib.${namespace}; let
   user_name = "kraanzu";
   user_email = "kraanzu@gmail.com";
 in {
@@ -9,11 +14,7 @@ in {
     ./wallpapers.nix
     ./mimeapps.nix
   ];
-
-  home = {
-    username = "${user_name}";
-    homeDirectory = "/home/${user_name}";
-  };
+  mynix.rofi = enabled;
 
   xdg.userDirs = {
     enable = true;

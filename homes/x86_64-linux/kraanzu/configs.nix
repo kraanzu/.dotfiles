@@ -1,5 +1,5 @@
-{mysecrets, ...}: let
-  secretspath = builtins.toString mysecrets;
+{inputs, ...}: let
+  secretspath = builtins.toString inputs.mysecrets;
   base_config = builtins.toString ../../../configs;
 in {
   home.file = {
