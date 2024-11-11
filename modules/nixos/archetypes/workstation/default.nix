@@ -20,7 +20,7 @@ in {
         common = enabled;
         desktop = enabled;
         development = enabled;
-        # social = enabled;
+        social = enabled;
       };
     };
   };
