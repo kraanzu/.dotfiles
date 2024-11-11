@@ -16,7 +16,7 @@ in {
 
   config = mkIf cfg.enable {
     mynix = {
-      social = {
+      apps = {
         discord = enabled;
         telegram = enabled;
       };
