@@ -18,7 +18,7 @@ in {
     mynix = {
       desktop = {
         qtile = enabled;
-        login.sddm_chili = enabled;
+        login.sddm-chili = enabled;
       };
     };
   };

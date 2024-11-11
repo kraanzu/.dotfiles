@@ -9,7 +9,6 @@
     xfce.xfce4-clipman-plugin
     caffeine-ng
     lxde.lxsession
-    sddm
     flameshot
     gnome-disk-utility
     rofi
