@@ -19,9 +19,9 @@
     # extra config
     "power-menu:${pkgs.rofi-power-menu}/bin/rofi-power-menu"
   ];
-  cfg = config.${namespace}.rofi;
+  cfg = config.${namespace}.desktop.rofi;
 in {
-  options.${namespace}.rofi.enable = lib.mkOption {
+  options.${namespace}.desktop.rofi.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Enable rofi";

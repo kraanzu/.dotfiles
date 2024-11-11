@@ -5,9 +5,9 @@
   namespace,
   ...
 }: let
-  cfg = config.${namespace}.tools.alacritty;
+  cfg = config.${namespace}.terminals.alacritty;
 in {
-  options.${namespace}.tools.alacritty.enable = lib.mkOption {
+  options.${namespace}.terminals.alacritty.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Enable alacritty";
