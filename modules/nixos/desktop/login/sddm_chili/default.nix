@@ -14,7 +14,7 @@ in {
   options = {
     ${namespace}.desktop.login.sddm_chili.enable = lib.mkOption {
       type = lib.types.bool;
-      default = true;
+      default = false;
       description = "Enable the SDDM Chili package.";
     };
   };
@@ -26,6 +26,7 @@ in {
       sddm_chili_theme
     ];
 
+    services.xserver.enable = true;
     services.displayManager.sddm = {
       enable = true;
       theme = "${sddm_chili_theme}";

@@ -1,5 +1,5 @@
 {
-  imports = [../../../../modules/home-manager];
+  # imports = [../../../../modules/home-manager];
 
   systemd.user.startServices = "sd-switch";
 

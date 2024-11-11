@@ -1,3 +1,0 @@
-{lib, ...}: {
-  imports = [./dunst.nix];
-}
