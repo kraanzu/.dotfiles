@@ -8,7 +8,7 @@ with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.suites.social;
 in {
-  options.${namespace}.suites.desktop.enable = lib.mkOption {
+  options.${namespace}.suites.social.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Social Suite";
