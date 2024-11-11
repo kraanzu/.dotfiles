@@ -14,7 +14,12 @@ in {
     ./wallpapers.nix
     ./mimeapps.nix
   ];
-  mynix.rofi = enabled;
+  mynix = {
+    rofi = enabled;
+    tools = {
+      alacritty = enabled;
+    };
+  };
 
   xdg.userDirs = {
     enable = true;
