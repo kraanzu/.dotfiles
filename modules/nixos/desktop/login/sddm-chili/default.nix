@@ -26,7 +26,7 @@ in {
     services.xserver.enable = true;
     services.displayManager.sddm = {
       enable = true;
-      theme = "${pkgs.mynix.sddm-chili}";
+      theme = "${pkgs.${namespace}.sddm-chili}";
     };
   };
 }
