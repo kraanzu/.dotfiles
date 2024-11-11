@@ -1,8 +1,6 @@
 {
-  options,
   config,
   lib,
-  pkgs,
   namespace,
   ...
 }:
@@ -10,8 +8,10 @@ with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.archetypes.workstation;
 in {
-  options.${namespace}.archetypes.workstation = with types; {
-    enable = mkBoolOpt false "Whether or not to enable the workstation archetype.";
+  options.${namespace}.archetypes.workstation.enable = lib.mkOption {
+    type = lib.types.bool;
+    default = false;
+    description = "Enable Workstation archetype.";
   };
 
   config = mkIf cfg.enable {
@@ -20,7 +20,7 @@ in {
         common = enabled;
         desktop = enabled;
         development = enabled;
-        social = enabled;
+        # social = enabled;
       };
     };
   };

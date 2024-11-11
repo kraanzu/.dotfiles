@@ -1,9 +1,13 @@
 {
+  lib,
   pkgs,
+  namespace,
   ...
-}: {
+}:
+with lib;
+with lib.${namespace}; let
+in {
   imports = [
-    ./common
     ./packages
 
     ./hardware-configuration.nix
@@ -15,19 +19,14 @@
 
   networking.hostName = "nzxt";
 
-  # drivers
-  mynix.hardware.amdgpu.enable = true;
-
-  # eye candy
-  mynix.sddm_chili.enable = true;
-  mynix.services.openrgb = {
-    enable = true;
-    profile = "purple";
+  mynix = {
+    archetypes = {
+      workstation = enabled;
+    };
+    hardware = {
+      amdgpu = enabled;
+    };
   };
-
-  # WMs
-  mynix.wm.qtile.enable = true;
-  # mynix.wm.hyprland.enable = true;
 
   services.getty.autologinUser = "kraanzu";
   services.displayManager.autoLogin = {

@@ -8,7 +8,7 @@
   cfg = config.${namespace}.desktop.qtile;
 in {
   options = {
-    ${namespace}.wm.qtile.enable = lib.mkOption {
+    ${namespace}.desktop.qtile.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Enable Qtile WM";

@@ -49,6 +49,7 @@
 
       systems.modules.nixos = with inputs; [
         nix-index-database.nixosModules.nix-index
+        grub2-themes.nixosModules.default
       ];
 
       homes.users."kraanzu@nzxt".specialArgs = {
