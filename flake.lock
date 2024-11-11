@@ -5,15 +5,15 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1731295220,
-        "narHash": "sha256-LlEI+81U7TKXXAoKM0pxWoCOqSXTVecl+lB75nEQwlc=",
-        "owner": "kraanzu",
+        "lastModified": 1731299427,
+        "narHash": "sha256-AwVOP0TL90fBCznf5+qlBcr0xQM5SGivlzFGKSTGXNE=",
+        "owner": "dooit-org",
         "repo": "dooit",
-        "rev": "4f7b2a4a4a45754be0a888011c2685d943362179",
+        "rev": "6640794300b68b3d6a94a84bf9ea0278e38bf7d2",
         "type": "github"
       },
       "original": {
-        "owner": "kraanzu",
+        "owner": "dooit-org",
         "ref": "hm-module",
         "repo": "dooit",
         "type": "github"
@@ -25,11 +25,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1731226990,
-        "narHash": "sha256-TErBCFoauaXhCzOFotIlZfmk2wASXDcm07yhRTtxEZ0=",
+        "lastModified": 1731300260,
+        "narHash": "sha256-rXXPUT0zXLtT5qo+S0ERg3aJCcpUaunuPed/QY8URDU=",
         "owner": "dooit-org",
         "repo": "dooit-extras",
-        "rev": "f6815c1ffeb93f334ab03a09d76e35962bce3df8",
+        "rev": "27c289db3ebd563a2a4d827cad49675357073498",
         "type": "github"
       },
       "original": {
@@ -43,16 +43,15 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1730972007,
-        "narHash": "sha256-U1C1Ht6sNh1skjukGKeCcOxYMplsJ+XCWH/Pa4ylZZc=",
-        "owner": "kraanzu",
+        "lastModified": 1731291969,
+        "narHash": "sha256-T5ig2M7NiT2duUsdhNG/OlzCyLQjnVFgcPEF0BTqvFI=",
+        "owner": "dooit-org",
         "repo": "dooit",
-        "rev": "1f6b32c2c99b05196d1bb0e4445e2ee46dd76e37",
+        "rev": "ce798e4125f8c4365bed9f80c0699d2695f46792",
         "type": "github"
       },
       "original": {
-        "owner": "kraanzu",
-        "ref": "develop",
+        "owner": "dooit-org",
         "repo": "dooit",
         "type": "github"
       }
@@ -200,11 +199,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1731295185,
-        "narHash": "sha256-RaK3jMQ6X8FVESUSURB2An9FYmCfh3nEy8sUyxc/nJk=",
+        "lastModified": 1731300017,
+        "narHash": "sha256-TgaP4OCna4rjAyJRVu0sfeeMxX3sP2B6fydZcjWN51M=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "87e3803821210c537acfce075adf5cd030e963b3",
+        "rev": "7ff8d0f160be9c618c1e27b383b09d96b1b53a88",
         "type": "github"
       },
       "original": {
