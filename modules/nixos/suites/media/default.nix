@@ -18,6 +18,8 @@ in {
     mynix = {
       apps = {
         vlc = enabled;
+        anydesk = enabled;
+        simplescreenrecorder = enabled;
       };
 
       tools = {
