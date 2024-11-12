@@ -8,7 +8,6 @@ with lib.${namespace}; let
   user_email = "kraanzu@gmail.com";
 in {
   imports = [
-    ./theme.nix
     ./configs.nix
     ./mimeapps.nix
   ];
@@ -20,6 +19,7 @@ in {
       rofi = enabled;
       dunst = enabled;
       wallpapers = enabled;
+      nord_theme = enabled;
     };
     terminals = {
       alacritty = enabled;
