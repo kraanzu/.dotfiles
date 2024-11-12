@@ -8,7 +8,7 @@ with lib.${namespace}; let
   user_email = "kraanzu@gmail.com";
 in {
   imports = [
-    ./configs.nix
+    ./dotfiles.nix
   ];
   mynix = {
     apps = {

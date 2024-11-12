@@ -1,6 +1,6 @@
 {inputs, ...}: let
   secretspath = builtins.toString inputs.mysecrets;
-  base_config = builtins.toString ../../../configs;
+  base_config = builtins.toString ./configs;
 in {
   home.file = {
     # All config files symlinked!
