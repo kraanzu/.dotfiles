@@ -8,8 +8,6 @@ with lib;
 with lib.${namespace}; let
 in {
   imports = [
-    ./packages
-
     ./hardware-configuration.nix
     ./ext_drives.nix
     ./work.nix # work stuff
@@ -39,6 +37,6 @@ in {
   users.users.kraanzu = {
     isNormalUser = true;
     shell = pkgs.fish;
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "adbusers"];
   };
 }

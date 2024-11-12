@@ -20,6 +20,7 @@ in {
     programs.dconf.enable = true;
     programs.nix-index-database.comma.enable = true;
     programs.nix-ld.enable = true;
+    programs.adb.enable = true;
 
     nix.settings.experimental-features = ["nix-command" "flakes"];
   };
