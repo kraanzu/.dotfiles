@@ -29,6 +29,9 @@ in {
       apps = {
         brave = enabled;
       };
+      desktop = {
+        utilities = enabled;
+      };
     };
   };
 }
