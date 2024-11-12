@@ -10,7 +10,7 @@ in {
   imports = [
     ./hardware-configuration.nix
     ./ext_drives.nix
-    ./work.nix # work stuff
+    ./work.nix
     ./monitors.nix
   ];
 

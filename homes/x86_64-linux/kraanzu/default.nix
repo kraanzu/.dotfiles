@@ -8,7 +8,6 @@ with lib.${namespace}; let
   user_email = "kraanzu@gmail.com";
 in {
   imports = [
-    ./common
     ./theme.nix
     ./configs.nix
     ./wallpapers.nix
@@ -37,4 +36,8 @@ in {
     userEmail = "${user_email}";
     userName = "${user_name}";
   };
+
+  systemd.user.startServices = "sd-switch";
+  programs.home-manager.enable = true;
+  home.stateVersion = "23.11";
 }
