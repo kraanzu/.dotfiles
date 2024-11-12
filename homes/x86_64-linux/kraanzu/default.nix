@@ -11,15 +11,12 @@ in {
     ./dotfiles.nix
   ];
   mynix = {
-    apps = {
-      firefox = enabled;
+    suites = {
+      common = enabled;
     };
     desktop = {
       rofi = enabled;
       dunst = enabled;
-      wallpapers = enabled;
-      nord_theme = enabled;
-      mimeapps = enabled;
     };
     terminals = {
       alacritty = enabled;
