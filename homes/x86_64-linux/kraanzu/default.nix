@@ -15,6 +15,9 @@ in {
     ./mimeapps.nix
   ];
   mynix = {
+    apps = {
+      firefox = enabled;
+    };
     desktop = {
       rofi = enabled;
       dunst = enabled;

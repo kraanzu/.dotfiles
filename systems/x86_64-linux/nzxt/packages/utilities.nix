@@ -15,7 +15,6 @@
     nautilus
     vlc
     gdrive
-    firefox
     brave
     anydesk
     simplescreenrecorder
