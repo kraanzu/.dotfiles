@@ -22,12 +22,6 @@ in {
       recursive = true;
     };
 
-    "OpenRGB" = {
-      source = "${base_config}/OpenRGB";
-      target = ".config/OpenRGB";
-      recursive = true;
-    };
-
     "qtile" = {
       source = "${base_config}/qtile";
       target = ".config/qtile";

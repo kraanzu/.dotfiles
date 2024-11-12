@@ -16,8 +16,9 @@ in {
     };
 
     profile = mkOption {
-      type = types.str;
-      description = "Default profile to load on OpenRGB start";
+      type = types.path;
+      default = ./profile.orp; # Convert relative path to absolute
+      description = "Profile to load on OpenRGB start";
     };
   };
 

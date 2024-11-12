@@ -25,6 +25,9 @@ in {
     hardware = {
       amdgpu = enabled;
     };
+    apps = {
+      openrgb = enabled;
+    };
   };
 
   services.getty.autologinUser = "kraanzu";
