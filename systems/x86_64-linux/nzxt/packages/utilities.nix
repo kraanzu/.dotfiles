@@ -13,7 +13,6 @@
     gnome-disk-utility
     rofi
     nautilus
-    vlc
     gdrive
     brave
     anydesk

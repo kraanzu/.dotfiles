@@ -21,6 +21,7 @@ in {
         desktop = enabled;
         development = enabled;
         social = enabled;
+        media = enabled;
       };
     };
   };
