@@ -1,62 +1,66 @@
-{inputs, ...}: let
+{
+  inputs,
+  namespace,
+  ...
+}: let
   secretspath = builtins.toString inputs.mysecrets;
   base_config = builtins.toString ./configs;
 in {
   home.file = {
     # All config files symlinked!
 
-    "dooit" = {
+    "${namespace}.dooit" = {
       source = "${base_config}/dooit";
       target = ".config/dooit";
     };
 
-    "fish" = {
+    "${namespace}.fish" = {
       source = "${base_config}/fish";
       target = ".config/fish";
       recursive = true;
     };
 
-    "nvim" = {
+    "n${namespace}.vim" = {
       source = "${base_config}/nvim";
       target = ".config/nvim";
       recursive = true;
     };
 
-    "qtile" = {
+    "${namespace}.qtile" = {
       source = "${base_config}/qtile";
       target = ".config/qtile";
     };
 
-    "starship" = {
+    "${namespace}.starship" = {
       source = "${base_config}/starship.toml";
       target = ".config/starship.toml";
     };
 
-    "wezterm" = {
+    "${namespace}.wezterm" = {
       source = "${base_config}/wezterm";
       target = ".config/wezterm";
     };
 
     # Secrets
-    "fish_secrets" = {
+    "${namespace}.fish_secrets" = {
       source = "${secretspath}/secrets.fish";
       target = ".config/fish/secrets.fish";
       recursive = true;
     };
 
-    "gdrive" = {
+    "${namespace}.gdrive" = {
       source = "${secretspath}/gdrive";
       target = ".gdrive";
       recursive = true;
     };
 
-    "textual-web" = {
+    "${namespace}.textual-web" = {
       source = "${secretspath}/textual-web";
       target = ".config/textual-web";
       recursive = true;
     };
 
-    "aws" = {
+    "${namespace}.aws" = {
       source = "${secretspath}/aws";
       target = ".aws";
     };

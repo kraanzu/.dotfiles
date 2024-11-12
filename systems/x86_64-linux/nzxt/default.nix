@@ -36,7 +36,6 @@ in {
 
   users.users.kraanzu = {
     isNormalUser = true;
-    shell = pkgs.fish;
     extraGroups = ["networkmanager" "wheel" "adbusers"];
   };
 }
