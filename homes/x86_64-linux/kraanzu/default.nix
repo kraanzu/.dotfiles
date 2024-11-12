@@ -10,7 +10,6 @@ in {
   imports = [
     ./theme.nix
     ./configs.nix
-    ./wallpapers.nix
     ./mimeapps.nix
   ];
   mynix = {
@@ -20,6 +19,7 @@ in {
     desktop = {
       rofi = enabled;
       dunst = enabled;
+      wallpapers = enabled;
     };
     terminals = {
       alacritty = enabled;
