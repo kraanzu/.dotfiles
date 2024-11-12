@@ -32,6 +32,9 @@ in {
       desktop = {
         utilities = enabled;
       };
+      tools = {
+        disk-utilities = enabled;
+      };
     };
   };
 }
