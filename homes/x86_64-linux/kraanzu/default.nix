@@ -9,7 +9,6 @@ with lib.${namespace}; let
 in {
   imports = [
     ./configs.nix
-    ./mimeapps.nix
   ];
   mynix = {
     apps = {
@@ -20,6 +19,7 @@ in {
       dunst = enabled;
       wallpapers = enabled;
       nord_theme = enabled;
+      mimeapps = enabled;
     };
     terminals = {
       alacritty = enabled;
