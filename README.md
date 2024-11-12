@@ -15,7 +15,6 @@
 
 ```bash
 sudo nixos-rebuild switch --flake .#nzxt
-home-manager switch -b backup --flake .#nzxt
 ```
 
 
