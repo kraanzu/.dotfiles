@@ -19,6 +19,10 @@ in {
       apps = {
         vlc = enabled;
       };
+
+      tools = {
+        gdrive = enabled;
+      };
     };
   };
 }

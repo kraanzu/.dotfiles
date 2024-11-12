@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     # basic utilties
-    gdrive
     anydesk
     simplescreenrecorder
     protonvpn-cli_2
