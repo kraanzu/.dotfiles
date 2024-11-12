@@ -26,6 +26,9 @@ in {
         usb = enabled;
         xkb = enabled;
       };
+      apps = {
+        brave = enabled;
+      };
     };
   };
 }

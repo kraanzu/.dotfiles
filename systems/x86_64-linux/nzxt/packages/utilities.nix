@@ -11,10 +11,8 @@
     lxde.lxsession
     flameshot
     gnome-disk-utility
-    rofi
     nautilus
     gdrive
-    brave
     anydesk
     simplescreenrecorder
     protonvpn-cli_2
