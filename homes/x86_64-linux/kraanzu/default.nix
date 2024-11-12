@@ -17,6 +17,7 @@ in {
     desktop = {
       rofi = enabled;
       dunst = enabled;
+      picom = enabled;
     };
     terminals = {
       alacritty = enabled;
