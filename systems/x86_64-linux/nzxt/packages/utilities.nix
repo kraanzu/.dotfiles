@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     # basic utilties
-    flameshot
     gdrive
     anydesk
     simplescreenrecorder

@@ -18,6 +18,7 @@ in {
   config = lib.mkIf cfg.enable {
     programs.gdk-pixbuf.modulePackages = [pkgs.librsvg];
     ${namespace}.tools.redshift.enable = true;
+    environment.systemPackages = with pkgs; [flameshot];
 
     services.xserver.windowManager.qtile = {
       enable = true;
