@@ -33,6 +33,9 @@ in {
 
       # repl
       python312Packages.ipython
+
+      # pyinstaller requirement
+      binutils
     ];
   };
 }
