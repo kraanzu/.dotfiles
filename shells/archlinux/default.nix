@@ -12,6 +12,14 @@ mkShell {
     # Get the current working directory
     CURRENT_DIR=$(pwd)
 
+    if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+      # Set the current directory as a safe directory for Git
+      git config --global --add safe.directory "$PWD"
+
+      # Turn off git tracking of file permissions
+      git config core.fileMode false
+    fi
+
     # Run the docker container with the current directory mounted to /shared
     docker run -it --rm -v "$CURRENT_DIR:/shared" archlinux bash -c "
       # Sync the latest mirrors
