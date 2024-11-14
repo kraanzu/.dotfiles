@@ -20,6 +20,7 @@ in {
         python = enabled;
         nix = enabled;
         lua = enabled;
+        markdown = enabled;
       };
       tools = {
         wezterm = enabled;
