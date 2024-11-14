@@ -15,7 +15,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    dooit.url = "github:dooit-org/dooit/hm-module";
+    dooit.url = "github:dooit-org/dooit";
     dooit-extras.url = "github:dooit-org/dooit-extras";
 
     grub2-themes.url = "github:vinceliuice/grub2-themes/2024-08-19";
