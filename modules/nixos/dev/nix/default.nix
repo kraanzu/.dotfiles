@@ -10,7 +10,7 @@ in {
   options = {
     mynix.dev.lang.nix.enable = lib.mkOption {
       type = lib.types.bool;
-      default = true;
+      default = false;
       description = "Setup nix stuff";
     };
   };

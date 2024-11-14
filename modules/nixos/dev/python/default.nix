@@ -10,7 +10,7 @@ in {
   options = {
     ${namespace}.dev.lang.python.enable = lib.mkOption {
       type = lib.types.bool;
-      default = true;
+      default = false;
       description = "Setup python stuff";
     };
   };

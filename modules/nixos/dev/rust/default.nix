@@ -10,7 +10,7 @@ in {
   options = {
     mynix.dev.lang.rust.enable = lib.mkOption {
       type = lib.types.bool;
-      default = true;
+      default = false;
       description = "Setup rust stuff";
     };
   };
