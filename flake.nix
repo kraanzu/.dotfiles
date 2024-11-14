@@ -38,7 +38,7 @@
       snowfall = {
         namespace = "mynix";
         meta = {
-          name = "mynix"; # TODO: Change this
+          name = "mynix";
           title = "Kraanzu's NixOS config";
         };
       };
