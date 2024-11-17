@@ -16,6 +16,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     grub2-themes.url = "github:vinceliuice/grub2-themes/2024-08-19";
+    grub2-themes.inputs.nixpkgs.follows = "nixpkgs";
 
     mysecrets = {
       url = "git+ssh://git@github.com/kraanzu/personal.git?ref=main&shallow=1";
