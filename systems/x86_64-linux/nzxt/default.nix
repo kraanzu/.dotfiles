@@ -38,4 +38,6 @@ in {
     isNormalUser = true;
     extraGroups = ["networkmanager" "wheel" "adbusers"];
   };
+
+  system.stateVersion = "25.05";
 }
