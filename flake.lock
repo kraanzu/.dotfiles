@@ -55,7 +55,9 @@
     },
     "grub2-themes": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1724048800,
@@ -148,22 +150,6 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1731844478,
-        "narHash": "sha256-OF4+uMv1tJRlM3rW08VCPRTRcY93DlW9gerL0McwdII=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "5d76b5e4865fdcb02c32f2e4694f60e4b2a30fb5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "master",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
         "lastModified": 1731676054,
         "narHash": "sha256-OZiZ3m8SCMfh3B6bfGC/Bm4x3qc1m2SVEAlkV6iY7Yg=",
         "owner": "nixos",
@@ -185,7 +171,7 @@
         "mysecrets": "mysecrets",
         "mywalls": "mywalls",
         "nix-index-database": "nix-index-database",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs",
         "snowfall-lib": "snowfall-lib"
       }
     },
