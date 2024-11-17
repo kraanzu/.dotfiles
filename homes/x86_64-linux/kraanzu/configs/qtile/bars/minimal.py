@@ -26,7 +26,7 @@ COMMON_ATTRS = {
 }
 
 dnd_decoration = dict(
-    padding=3,
+    padding=10,
     foreground=color.dark2,
     decorations=[
         RectDecoration(
@@ -112,7 +112,7 @@ bar_right = [
     widget.pad(length=6),
     widget.github_notifications(padding=10),
     widget.pad(length=6),
-    widget.do_not_disturb(**dnd_decoration),
+    widget.text("󰚥", fontsize=23, **dnd_decoration),
     widget.pad(length=6),
 ]
 

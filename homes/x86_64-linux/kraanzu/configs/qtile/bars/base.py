@@ -81,7 +81,7 @@ DEFAULT_CONFIGS["window_name"] = dict(format="{class}")
 DEFAULT_CONFIGS["github_notifications"] = dict(
     icon_size=18,
     update_interval=60,
-    active_colour = color.cyan,
+    active_colour=color.cyan,
 )
 
 DEFAULT_CONFIGS["groupbox"] = dict(
@@ -149,6 +149,10 @@ class Widget:
     def github_notifications(self, **kwargs):
         vars = self.get_config("github_notifications") | kwargs
         return GithubNotifications(**vars)
+
+    def text(self, text, **kwargs):
+        vars = self.common_attrs | kwargs
+        return TextBox(text=text, **vars)
 
     # --------------------------------------------------
 
