@@ -67,8 +67,8 @@
       },
       "original": {
         "owner": "vinceliuice",
+        "ref": "2024-08-19",
         "repo": "grub2-themes",
-        "rev": "775e4f7487fb4e56da215f6bcd9dcc7585db0352",
         "type": "github"
       }
     },
