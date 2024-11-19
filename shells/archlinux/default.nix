@@ -27,7 +27,7 @@ mkShell {
       pacman -Sy --noconfirm
 
       # Install required packages
-      pacman -S --noconfirm base-devel neovim git fish tmux sudo
+      pacman -S --noconfirm base-devel neovim git fish tmux sudo python3
 
       # Create user and add sudo permissions
       useradd -m -G wheel -s /usr/bin/fish test
