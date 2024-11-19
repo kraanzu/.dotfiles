@@ -39,6 +39,17 @@ mkShell {
       # Create a symlink from /home/test/shared to /shared
       ln -s /shared /home/test/shared
 
+      # Run additional commands as 'test' user
+      sudo -u test bash -c '
+        cd ~
+        sudo pacman -S --needed --noconfirm git base-devel
+        git clone https://aur.archlinux.org/yay-bin.git
+        cd yay-bin
+        makepkg -si --noconfirm
+        cd ..
+        rm -rf yay-bin
+      '
+
       # Switch to 'test' user and start 'fish' shell
       sudo -u test -i fish
     "
