@@ -9,10 +9,10 @@ in {
   home.file = {
     # All config files symlinked!
 
-    "${namespace}.dooit" = {
-      source = "${base_config}/dooit";
-      target = ".config/dooit";
-    };
+    # "${namespace}.dooit" = {
+    #   source = "${base_config}/dooit";
+    #   target = ".config/dooit";
+    # };
 
     "${namespace}.fish" = {
       source = "${base_config}/fish";
