@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   config,
   namespace,
   ...
@@ -17,6 +18,11 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [
+      dunst
+      libnotify
+    ];
+
     services.dunst = {
       enable = true;
       settings = {
