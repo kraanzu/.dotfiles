@@ -17,6 +17,7 @@ config.font = wezterm.font("SauceCodePro Nerd Font", { weight = "DemiBold" })
 config.default_workspace = "scratch"
 config.window_background_opacity = 1
 config.hide_tab_bar_if_only_one_tab = true
+config.max_fps = 144
 
 tab_bar_left.setup(config)
 mux.setup(config)
