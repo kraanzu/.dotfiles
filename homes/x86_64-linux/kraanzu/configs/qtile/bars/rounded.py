@@ -135,7 +135,7 @@ bar_right = [
     widget.pad(length=6),
 ]
 
-three_bar = bar.Bar(
+rounded_bar = bar.Bar(
     bar_left + bar_middle + bar_right,
     size=40,
 )

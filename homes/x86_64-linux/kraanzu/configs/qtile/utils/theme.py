@@ -13,7 +13,7 @@ class ThemeManager:
     @classmethod
     def get_theme(cls):
         if not THEME_FILE_PATH.exists():
-            return KzTheme.theme_wave()
+            return KzTheme.theme_simple()
 
         with open(THEME_FILE_PATH, "r") as f:
             name = f.read().strip()
@@ -62,20 +62,20 @@ class KzTheme:
         try:
             return getattr(cls, f"theme_{name}")()
         except Exception as _:
-            return cls.theme_wave()  # Default theme
+            return cls.theme_simple()  # Default theme
 
     @classmethod
-    def theme_wave(cls) -> Self:
+    def theme_simple(cls) -> Self:
         return cls(
             workspaces=["1", "2", "3", "4", "5", "6"],
             wallpaper="the_great_wave",
-            bar=minimal_bar,
+            bar=simple_bar,
         )
 
     @classmethod
-    def theme_three(cls) -> Self:
+    def theme_rounded(cls) -> Self:
         return cls(
             workspaces=["󱓻", "󱓻", "󱓻", "󱓻", "󱓻", "󱓻"],
             wallpaper="nixos",
-            bar=three_bar,
+            bar=rounded_bar,
         )
