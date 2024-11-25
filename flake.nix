@@ -55,7 +55,7 @@
         mysecrets = inputs.mysecrets;
         mywalls = inputs.mywalls;
       };
-      #
+
       # homes.modules = with inputs; [
       #   # my-input.homeModules.my-module
       # ];

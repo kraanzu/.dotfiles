@@ -37,5 +37,5 @@ in {
 
   systemd.user.startServices = "sd-switch";
   programs.home-manager.enable = true;
-  home.stateVersion = "25.05";
+  home.stateVersion = "24.11";
 }

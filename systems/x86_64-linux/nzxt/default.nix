@@ -1,6 +1,5 @@
 {
   lib,
-  pkgs,
   namespace,
   ...
 }:
@@ -16,7 +15,7 @@ in {
 
   networking.hostName = "nzxt";
 
-  mynix = {
+  ${namespace} = {
     archetypes = {
       workstation = enabled;
     };
@@ -39,5 +38,5 @@ in {
     extraGroups = ["networkmanager" "wheel" "adbusers"];
   };
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "24.11";
 }
