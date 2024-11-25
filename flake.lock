@@ -115,11 +115,11 @@
     "mywalls": {
       "flake": false,
       "locked": {
-        "lastModified": 1731845649,
-        "narHash": "sha256-uJqqg2noRUAYRP0qBenZNrRCIa6ftsK1tFHLjzBYsi8=",
+        "lastModified": 1732537159,
+        "narHash": "sha256-sWNt8KYBLyTTrDoRi2PbfM/+DgE2T+LwFe1J91YdJEk=",
         "owner": "kraanzu",
         "repo": "nord_walls",
-        "rev": "a6d7170ebf40471b5462a74e1bbfe433a710f3ad",
+        "rev": "33436ca29fd622ba0a324e349c24a3d833ee240c",
         "type": "github"
       },
       "original": {
