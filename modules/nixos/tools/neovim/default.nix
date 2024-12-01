@@ -21,6 +21,7 @@ in {
 
       nodejs_22 # copilot
       ctags # toggle bar
+      gcc # Treesiter
     ];
   };
 }
