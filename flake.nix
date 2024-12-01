@@ -18,6 +18,9 @@
     grub2-themes.url = "github:vinceliuice/grub2-themes/2024-08-19";
     grub2-themes.inputs.nixpkgs.follows = "nixpkgs";
 
+    dooit.url = "github:dooit-org/dooit";
+    dooit-extras.url = "github:dooit-org/dooit-extras";
+
     mysecrets = {
       url = "git+ssh://git@github.com/kraanzu/personal.git?ref=main&shallow=1";
       flake = false;
@@ -56,8 +59,8 @@
         mywalls = inputs.mywalls;
       };
 
-      # homes.modules = with inputs; [
-      #   # my-input.homeModules.my-module
-      # ];
+      homes.modules = with inputs; [
+        dooit.homeManagerModules.default
+      ];
     };
 }

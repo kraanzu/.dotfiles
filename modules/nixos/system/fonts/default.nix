@@ -14,8 +14,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    fonts.packages = with pkgs; [
-      (nerdfonts.override {fonts = ["SourceCodePro"];})
-    ];
+    fonts.packages = with pkgs; [nerd-fonts.sauce-code-pro];
   };
 }
