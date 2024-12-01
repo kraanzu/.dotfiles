@@ -24,16 +24,15 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1733071687,
-        "narHash": "sha256-9n2PmeIrqPuj+NtrWGcvD/TO43VLLDe7F8au71Qwm80=",
+        "lastModified": 1733020862,
+        "narHash": "sha256-6GMCMxMu3sh/yFiTuEIzeNco4XkvUBOzZqD67+wD7f4=",
         "owner": "dooit-org",
         "repo": "dooit-extras",
-        "rev": "c16ad591833ef33b58769fe1a76197079b9eb865",
+        "rev": "adaa1f3c60f7598f121fb97eef9e991af11e51a6",
         "type": "github"
       },
       "original": {
         "owner": "dooit-org",
-        "ref": "install-fix",
         "repo": "dooit-extras",
         "type": "github"
       }
