@@ -22,6 +22,7 @@ in {
         lua = enabled;
         markdown = enabled;
         ts = enabled;
+        go = enabled;
       };
       tools = {
         wezterm = enabled;
