@@ -1,1 +1,7 @@
-/nix/store/b2s3833v63zy8vld5j48fsqy2psf2gsl-home-manager-files/.config/nvim/lua/plugins/treesitter.lua
+return {
+	"nvim-treesitter/nvim-treesitter",
+	event = "BufRead",
+	config = function()
+		require("nvim-treesitter.configs").setup({ highlight = { enable = true } })
+	end,
+}

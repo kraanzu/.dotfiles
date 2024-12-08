@@ -1,1 +1,9 @@
-/nix/store/b2s3833v63zy8vld5j48fsqy2psf2gsl-home-manager-files/.config/nvim/lua/plugins/smooth_scroll.lua
+return {
+	{
+		"karb94/neoscroll.nvim",
+		event = "BufRead",
+		config = function()
+			require("neoscroll").setup()
+		end,
+	},
+}

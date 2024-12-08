@@ -1,1 +1,13 @@
-/nix/store/b2s3833v63zy8vld5j48fsqy2psf2gsl-home-manager-files/.config/nvim/lua/plugins/eye_candy.lua
+return {
+	-- EYE CANDY
+	{
+		"norcalli/nvim-colorizer.lua",
+		event = "BufRead",
+		config = function()
+			require("colorizer").setup()
+		end,
+	},
+	{
+		"stevearc/dressing.nvim",
+	},
+}
