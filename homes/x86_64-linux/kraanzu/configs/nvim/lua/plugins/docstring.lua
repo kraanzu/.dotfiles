@@ -1,8 +1,1 @@
-return {
-	-- "heavenshell/vim-pydocstring",
-	-- build = "make install",
-	-- config = function()
-	-- 	vim.g.pydocstring_formatter = "google"
-	--     vim.api.nvim_set_keymap("n", "<leader>ds", ":Pydocstring<cr>", { noremap = true })
-	-- end,
-}
+/nix/store/b2s3833v63zy8vld5j48fsqy2psf2gsl-home-manager-files/.config/nvim/lua/plugins/docstring.lua

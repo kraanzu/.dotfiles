@@ -1,10 +1,1 @@
-return {
-	-- "OXY2DEV/markview.nvim",
-	-- lazy = false, -- Recommended
-	-- -- ft = "markdown" -- If you decide to lazy-load anyway
-    --
-	-- dependencies = {
-	-- 	"nvim-treesitter/nvim-treesitter",
-	-- 	"nvim-tree/nvim-web-devicons",
-	-- },
-}
+/nix/store/b2s3833v63zy8vld5j48fsqy2psf2gsl-home-manager-files/.config/nvim/lua/plugins/markview.lua

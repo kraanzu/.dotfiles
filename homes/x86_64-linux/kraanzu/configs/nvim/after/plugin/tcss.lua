@@ -1,8 +1,1 @@
-local client = vim.lsp.start_client({
-	name = "tcss-lsp",
-	cmd = { "/home/kraanzu/Projects/tcss-lsp/tcss-lsp" },
-})
-
-if not client then
-	print("Failed to start tcss-lsp")
-end
+/nix/store/b2s3833v63zy8vld5j48fsqy2psf2gsl-home-manager-files/.config/nvim/after/plugin/tcss.lua

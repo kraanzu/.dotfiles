@@ -1,9 +1,1 @@
-return {
-	{
-		"nvim-telescope/telescope.nvim",
-		-- tag = "0.1.2",
-		config = function()
-			require("config.telescope")
-		end,
-	},
-}
+/nix/store/b2s3833v63zy8vld5j48fsqy2psf2gsl-home-manager-files/.config/nvim/lua/plugins/telescope.lua

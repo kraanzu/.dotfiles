@@ -1,5 +1,1 @@
-return {
-	"windwp/nvim-autopairs",
-	event = "InsertEnter",
-	opts = {}, -- this is equalent to setup({}) function
-}
+/nix/store/b2s3833v63zy8vld5j48fsqy2psf2gsl-home-manager-files/.config/nvim/lua/plugins/auto_pairs.lua

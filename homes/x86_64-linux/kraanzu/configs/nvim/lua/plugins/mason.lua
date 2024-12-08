@@ -1,9 +1,1 @@
-return {
-	{
-		"williamboman/mason.nvim",
-		config = function()
-			require("mason").setup()
-		end,
-		cmd = "Mason",
-	},
-}
+/nix/store/b2s3833v63zy8vld5j48fsqy2psf2gsl-home-manager-files/.config/nvim/lua/plugins/mason.lua

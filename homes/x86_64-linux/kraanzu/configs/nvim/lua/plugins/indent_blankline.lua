@@ -1,15 +1,1 @@
-return {
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		tag = "v2.20.8",
-		event = "BufRead",
-		config = function()
-			vim.opt.list = true
-			vim.opt.listchars:append("eol:↴")
-			require("indent_blankline").setup({
-				space_char_blankline = " ",
-				show_current_context = true,
-			})
-		end,
-	},
-}
+/nix/store/b2s3833v63zy8vld5j48fsqy2psf2gsl-home-manager-files/.config/nvim/lua/plugins/indent_blankline.lua
