@@ -19,7 +19,7 @@
     grub2-themes.inputs.nixpkgs.follows = "nixpkgs";
 
     dooit.url = "github:dooit-org/dooit";
-    dooit-extras.url = "github:dooit-org/dooit-extras";
+    dooit-extras.url = "github:dooit-org/dooit-extras/nix-fix";
 
     mysecrets = {
       url = "git+ssh://git@github.com/kraanzu/personal.git?ref=main&shallow=1";

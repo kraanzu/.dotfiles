@@ -25,6 +25,9 @@ in {
         nord_theme = enabled;
         mimeapps = enabled;
       };
+      projects = {
+        dooit = enabled;
+      };
     };
   };
 }
