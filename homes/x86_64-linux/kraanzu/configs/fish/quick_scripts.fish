@@ -16,4 +16,4 @@ end
 
 # MISC
 alias dclean='docker system prune -a --volumes'
-alias kayo='gdrive download --recursive --skip --path ~/HDD/anime/'
+alias kayo='gdrive files download --recursive --destination ~/HDD/anime/'

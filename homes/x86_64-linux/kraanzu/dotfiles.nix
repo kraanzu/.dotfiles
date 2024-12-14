@@ -48,11 +48,11 @@ in {
       recursive = true;
     };
 
-    "${namespace}.gdrive" = {
-      source = "${secretspath}/gdrive";
-      target = ".gdrive";
-      recursive = true;
-    };
+    # "${namespace}.gdrive" = {
+    #   source = "${secretspath}/gdrive";
+    #   target = ".config/gdrive3";
+    #   recursive = true;
+    # };
 
     "${namespace}.textual-web" = {
       source = "${secretspath}/textual-web";
