@@ -3,6 +3,7 @@
   lib,
   pkgs,
   namespace,
+  inputs,
   ...
 }:
 with lib; let
@@ -21,7 +22,7 @@ in {
 
     programs.dooit = {
       enable = true;
-      # extraPackages = [pkgs.dooit-extras];
+      extraPackages = [ inputs.dooit-extras.packages.${pkgs.system}.default ];
     };
   };
 }
