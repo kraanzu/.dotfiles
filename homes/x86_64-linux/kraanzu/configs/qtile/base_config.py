@@ -110,6 +110,7 @@ def start_once():
     wezterm-mux-server --daemonize
     firefox
     discord
+    nm-applet
     """
 
     for cmd in commands.splitlines():
