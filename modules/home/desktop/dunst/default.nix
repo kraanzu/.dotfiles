@@ -30,7 +30,7 @@ in {
           monitor = 0;
           follow = "mouse";
           width = 350;
-          height = 150;
+          height = 100;
           origin = "top-right";
           offset = "20x20";
           corner_radius = 0;
