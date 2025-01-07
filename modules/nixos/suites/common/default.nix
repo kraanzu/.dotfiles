@@ -35,6 +35,7 @@ in {
       tools = {
         disk-utilities = enabled;
         protonvpn = enabled;
+        droidcam = enabled;
       };
     };
   };
