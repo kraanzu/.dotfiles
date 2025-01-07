@@ -26,7 +26,7 @@ in {
         mimeapps = enabled;
       };
       projects = {
-        dooit = enabled;
+        # dooit = enabled;
       };
     };
   };
