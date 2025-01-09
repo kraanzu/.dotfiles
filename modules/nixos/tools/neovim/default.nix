@@ -19,6 +19,7 @@ in {
       wezterm # terminal
       neovim
 
+      python312Packages.debugpy # python dap
       nodejs_22 # copilot
       ctags # toggle bar
       gcc # Treesiter
