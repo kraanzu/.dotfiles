@@ -5,7 +5,7 @@
   namespace,
   ...
 }: let
-  cfg = config.${namespace}.tools.neovim;
+  cfg = config.${namespace}.tools.gdrive;
 in {
   options = {
     ${namespace}.tools.gdrive.enable = lib.mkOption {

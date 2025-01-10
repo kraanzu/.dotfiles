@@ -15,7 +15,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    mynix = {
+    ${namespace} = {
       dev.lang = {
         python = enabled;
         nix = enabled;
@@ -26,10 +26,7 @@ in {
       };
       tools = {
         wezterm = enabled;
-
         docker = enabled;
-
-        neovim = enabled;
         vscode = enabled;
         code-cursor = enabled;
       };

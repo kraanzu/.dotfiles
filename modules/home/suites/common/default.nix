@@ -19,6 +19,7 @@ in {
     ${namespace} = {
       apps = {
         firefox = enabled;
+        neovim = enabled;
       };
       desktop = {
         wallpapers = enabled;
