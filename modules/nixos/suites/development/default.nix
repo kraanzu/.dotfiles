@@ -29,6 +29,7 @@ in {
         docker = enabled;
         vscode = enabled;
         code-cursor = enabled;
+        zed = enabled;
       };
     };
   };
