@@ -20,6 +20,7 @@ in {
     home.pointerCursor.gtk.enable = true;
     home.pointerCursor.name = "Nordic-cursors";
     home.pointerCursor.package = pkgs.nordic;
+    home.pointerCursor.size = 20;
 
     gtk.theme.name = "Nordic-bluish-accent";
     gtk.theme.package = pkgs.nordic;
