@@ -111,6 +111,7 @@ def start_once():
     firefox
     discord
     nm-applet
+    caffeine
     """
 
     for cmd in commands.splitlines():
