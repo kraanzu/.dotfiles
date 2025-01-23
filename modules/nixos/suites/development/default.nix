@@ -17,6 +17,7 @@ in {
   config = mkIf cfg.enable {
     ${namespace} = {
       dev.lang = {
+        cpp = enabled;
         python = enabled;
         nix = enabled;
         lua = enabled;
