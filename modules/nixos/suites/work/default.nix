@@ -17,8 +17,8 @@ in {
   config = mkIf cfg.enable {
     mynix = {
       apps = {
-        slack = enable;
-        chrome = enable;
+        slack = enabled;
+        chrome = enabled;
       };
     };
   };
