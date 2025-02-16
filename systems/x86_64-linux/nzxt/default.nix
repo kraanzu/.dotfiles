@@ -9,7 +9,6 @@ in {
   imports = [
     ./hardware-configuration.nix
     ./ext_drives.nix
-    ./work.nix
     ./monitors.nix
   ];
 
@@ -18,6 +17,9 @@ in {
   ${namespace} = {
     archetypes = {
       workstation = enabled;
+    };
+    suites = {
+      work = enabled;
     };
     hardware = {
       amdgpu = enabled;
