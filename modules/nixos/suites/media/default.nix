@@ -20,7 +20,6 @@ in {
         vlc = enabled;
         anydesk = enabled;
         simplescreenrecorder = enabled;
-        zoom = enabled;
       };
 
       tools = {
