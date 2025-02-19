@@ -19,6 +19,7 @@ in {
       apps = {
         slack = enabled;
         chrome = enabled;
+        postman = enabled;
         zoom = enabled;
       };
     };
