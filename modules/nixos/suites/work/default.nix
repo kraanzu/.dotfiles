@@ -21,6 +21,7 @@ in {
         chrome = enabled;
         postman = enabled;
         zoom = enabled;
+        libreoffice = enabled;
       };
     };
   };
