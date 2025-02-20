@@ -17,6 +17,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [pkgs.libreoffice-bin];
+    environment.systemPackages = [pkgs.libreoffice];
   };
 }
