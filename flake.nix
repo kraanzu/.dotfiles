@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    darwin.url = "github:LnL7/nix-darwin/master";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     snowfall-lib = {
       url = "github:snowfallorg/lib";
@@ -47,6 +49,11 @@
       channels-config = {
         allowUnfree = true;
       };
+
+      # systems.modules.darwin = with inputs; [
+      #   nix-darwin.darwinModules.default
+      #   home-manager.darwinModules.home-manager
+      # ];
 
       systems.modules.nixos = with inputs; [
         nix-index-database.nixosModules.nix-index
