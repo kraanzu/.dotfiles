@@ -50,11 +50,6 @@
         allowUnfree = true;
       };
 
-      # systems.modules.darwin = with inputs; [
-      #   nix-darwin.darwinModules.default
-      #   home-manager.darwinModules.home-manager
-      # ];
-
       systems.modules.nixos = with inputs; [
         nix-index-database.nixosModules.nix-index
         grub2-themes.nixosModules.default
