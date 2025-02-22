@@ -25,7 +25,7 @@ in {
       apps.postman = enabled;
       tools = {
         wezterm = enabled;
-        docker = enabled;
+        # docker = enabled;
         vscode = enabled;
         code-cursor = enabled;
         zed = enabled;
