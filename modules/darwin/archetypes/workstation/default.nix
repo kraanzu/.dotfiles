@@ -18,6 +18,10 @@ in {
     mynix = {
       suites = {
         common = enabled;
+        work = enabled;
+        development = enabled;
+        media = enabled;
+        social = enabled;
       };
     };
   };
