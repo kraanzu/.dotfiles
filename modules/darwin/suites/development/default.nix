@@ -22,6 +22,7 @@ in {
         lua = enabled;
         markdown = enabled;
       };
+      apps.postman = enabled;
       tools = {
         wezterm = enabled;
         docker = enabled;
