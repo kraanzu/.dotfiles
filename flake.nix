@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     darwin.url = "github:LnL7/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
+    # mac-app-util.url = "github:hraban/mac-app-util";
 
     snowfall-lib = {
       url = "github:snowfallorg/lib";
@@ -49,6 +50,10 @@
       channels-config = {
         allowUnfree = true;
       };
+
+      # system.modules.darwin = with inputs; [
+      #   mac-app-util.darwinModules.default
+      # ];
 
       systems.modules.nixos = with inputs; [
         nix-index-database.nixosModules.nix-index
