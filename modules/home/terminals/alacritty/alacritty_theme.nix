@@ -70,12 +70,12 @@
     size = 15;
 
     bold = {
-      family = "SauceCodePro Nerd Font";
+      family = "JetBrainsMono Nerd Font";
       style = "Bold";
     };
 
     bold_italic = {
-      family = "Sauce Code Pro Nerd Font";
+      family = "JetBrainsMono Nerd Font";
       style = "Bold Italic";
     };
 
@@ -85,12 +85,12 @@
     };
 
     italic = {
-      family = "Sauce Code Pro Nerd Font";
+      family = "JetBrainsMono Nerd Font";
       style = "Italic";
     };
 
     normal = {
-      family = "SauceCodePro Nerd Font";
+      family = "JetBrainsMono Nerd Font";
       style = "SemiBold";
     };
 

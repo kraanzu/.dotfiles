@@ -6,7 +6,7 @@ DARK = "dark3"  # Your default value for dark
 
 
 # WIDGET FONTS
-FONT = "Sauce Code Pro Nerd Font"
+FONT = "JetBrainsMono Nerd Font"
 
 # TERMINALS
 terminal = "wezterm-gui connect unix --workspace main"

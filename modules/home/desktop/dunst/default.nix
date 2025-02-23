@@ -52,7 +52,7 @@ in {
           separator_color = "frame";
           sort = true;
           idle_threshold = 120;
-          font = "SauceCodePro Nerd Font 12";
+          font = "JetBrainsMono Nerd Font 12";
           line_height = 2;
           markup = "full";
           format = "<b>%s</b>\n%b";
