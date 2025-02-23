@@ -15,7 +15,7 @@ in {
     description = "Enable mako";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     home.packages = with pkgs; [
       mako
       libnotify

@@ -27,7 +27,7 @@ in {
     description = "Enable rofi";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     programs.rofi = {
       enable = true;
       plugins = with pkgs; [

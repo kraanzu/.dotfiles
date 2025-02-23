@@ -13,7 +13,7 @@ in {
     description = "Enable nord gtk theme";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     gtk.enable = true;
     qt.enable = true;
 

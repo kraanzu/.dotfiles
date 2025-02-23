@@ -16,7 +16,7 @@ in {
     };
   };
 
-  config = mkIf cfg.enable {
+  config = mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     programs.firefox = {
       enable = true;
       profiles.kraanzu = {

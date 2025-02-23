@@ -2,6 +2,7 @@
   namespace,
   config,
   lib,
+  pkgs,
   ...
 }: let
   cfg = config.${namespace}.desktop.mimeapps;
@@ -12,7 +13,7 @@ in {
     description = "Enable mimeapps";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     xdg.mimeApps.defaultApplications = {
       "x-scheme-handler/http" = ["firefox.desktop"];
       "x-scheme-handler/https" = ["firefox.desktop"];

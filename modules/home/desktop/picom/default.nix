@@ -2,6 +2,7 @@
   lib,
   config,
   namespace,
+  pkgs,
   ...
 }: let
   cfg = config.${namespace}.desktop.picom;
@@ -14,7 +15,7 @@ in {
     description = "Enable picom";
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     services.picom = {
       enable = true;
       settings = {
