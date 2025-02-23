@@ -4,7 +4,6 @@ return {
 	cmd = { "ConformInfo" },
 	keys = {
 		{
-			-- Customize or remove this keymap to your liking
 			"<leader>ff",
 			function()
 				require("conform").format({ async = true })
@@ -13,11 +12,7 @@ return {
 			desc = "Format buffer",
 		},
 	},
-	-- This will provide type hinting with LuaLS
-	---@module "conform"
-	---@type conform.setupOpts
 	opts = {
-		-- Define your formatters
 		formatters_by_ft = {
 			python = function(bufnr)
 				if require("conform").get_formatter_info("ruff_format", bufnr).available then
@@ -28,7 +23,7 @@ return {
 			end,
 			nix = { "alejandra" },
 			lua = { "stylua" },
-            typescript = { "prettierd" },
+			typescript = { "prettierd" },
 		},
 		-- Set default options
 		default_format_opts = {
@@ -46,7 +41,6 @@ return {
 		},
 	},
 	init = function()
-		-- If you want the formatexpr, here is the place to set it
 		vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 	end,
 }

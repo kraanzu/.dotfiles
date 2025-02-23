@@ -56,7 +56,7 @@ return {
 						{
 							show_lsp,
 							icon = "",
-							color = { bg = "#4c566a", fg = "#a3be8c", gui = "bold" },
+							color = { fg = "#4c566a", bg = "#a3be8c", gui = "bold" },
 						},
 					},
 				},

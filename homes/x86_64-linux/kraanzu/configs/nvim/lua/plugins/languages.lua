@@ -1,5 +1,4 @@
 return {
-	-- LANGAUGE SPECIFIC
 	{ "dag/vim-fish", ft = { "fish" } },
 	{ "cespare/vim-toml", ft = { "toml" } },
 	{ "rust-lang/rust.vim", ft = { "rs" } },
