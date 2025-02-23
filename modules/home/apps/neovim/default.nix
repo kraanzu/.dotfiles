@@ -27,5 +27,13 @@ in {
         gcc # Treesiter
       ];
     };
+
+    home.file = {
+      "${namespace}.vim" = {
+        source = ./config;
+        target = ".config/nvim";
+        recursive = true;
+      };
+    };
   };
 }

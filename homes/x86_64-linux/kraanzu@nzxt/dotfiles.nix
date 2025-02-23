@@ -20,12 +20,6 @@ in {
       recursive = true;
     };
 
-    "n${namespace}.vim" = {
-      source = "${base_config}/nvim";
-      target = ".config/nvim";
-      recursive = true;
-    };
-
     "${namespace}.qtile" = {
       source = "${base_config}/qtile";
       target = ".config/qtile";
