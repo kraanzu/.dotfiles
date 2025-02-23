@@ -14,6 +14,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    fonts.packages = with pkgs; [nerd-fonts.sauce-code-pro];
+    fonts.packages = with pkgs; [nerd-fonts.sauce-code-pro nerd-fonts.jetbrains-mono];
   };
 }
