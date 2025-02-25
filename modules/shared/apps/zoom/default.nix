@@ -17,6 +17,8 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [pkgs.zoom-us];
+    environment.systemPackages = with pkgs; [
+      zoom-us
+    ];
   };
 }

@@ -8,17 +8,5 @@
 with lib; let
   cfg = config.${namespace}.apps.discord;
 in {
-  options.${namespace}.apps.discord = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable discord";
-    };
-  };
-
-  config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      discord
-    ];
-  };
+  imports = [ (lib.snowfall.fs.get-file "modules/shared/apps/discord/default.nix") ];
 }

@@ -13,6 +13,7 @@ in {
     enable = mkBoolOpt false "Whether or not to enable vlc.";
   };
 
+  # ovveride
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       vlc-bin

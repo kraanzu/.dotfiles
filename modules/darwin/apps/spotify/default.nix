@@ -8,6 +8,8 @@
 with lib; let
   cfg = config.${namespace}.apps.soptify;
 in {
+
+  imports = [ (lib.snowfall.fs.get-file "modules/shared/apps/spotify/default.nix") ];
   options.${namespace}.apps.soptify = {
     enable = mkOption {
       type = types.bool;

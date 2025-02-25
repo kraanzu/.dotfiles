@@ -17,6 +17,8 @@ in {
   };
 
   config = mkIf cfg.enable {
-    homebrew.casks = [ "zoom" ];
+    environment.systemPackages = with pkgs; [
+      zoom-us
+    ];
   };
 }
