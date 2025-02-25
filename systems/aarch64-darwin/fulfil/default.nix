@@ -15,6 +15,7 @@ with lib.${namespace};
     onActivation.cleanup = "zap";
   };
 
+  fonts.packages = with pkgs; [nerd-fonts.sauce-code-pro nerd-fonts.jetbrains-mono];
   system.activationScripts.applications.text =
     let
       env = pkgs.buildEnv {
