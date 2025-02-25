@@ -17,6 +17,8 @@ in {
   };
 
   config = mkIf cfg.enable {
-    homebrew.casks = [ "discord" ];
+    environment.systemPackages = with pkgs; [
+      discord
+    ];
   };
 }
