@@ -14,6 +14,8 @@ in {
   };
 
   config = mkIf cfg.enable {
-    homebrew.casks = [ "vlc" ];
+    environment.systemPackages = with pkgs; [
+      vlc-bin
+    ];
   };
 }
