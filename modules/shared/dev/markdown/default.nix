@@ -5,10 +5,10 @@
   namespace,
   ...
 }: let
-  cfg = config.${namespace}.dev.lang.markdown;
+  cfg = config.${namespace}.dev.markdown;
 in {
   options = {
-    ${namespace}.dev.lang.markdown.enable = lib.mkOption {
+    ${namespace}.dev.markdown.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Setup markdown stuff";

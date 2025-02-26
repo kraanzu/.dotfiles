@@ -16,7 +16,7 @@ in {
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    soptify
-  ];
+  config = mkIf cfg.enable {
+    environment.systemPackages = [pkgs.spotify];
+  };
 }

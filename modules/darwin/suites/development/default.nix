@@ -16,16 +16,15 @@ in {
 
   config = mkIf cfg.enable {
     ${namespace} = {
-      dev.lang = {
+      dev = {
         python = enabled;
         nix = enabled;
         lua = enabled;
         markdown = enabled;
       };
-      apps.postman = enabled;
-      tools = {
+      apps = {
+        postman = enabled;
         wezterm = enabled;
-        # docker = enabled;
         vscode = enabled;
         code-cursor = enabled;
         zed = enabled;

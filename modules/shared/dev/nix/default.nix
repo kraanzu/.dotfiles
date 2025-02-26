@@ -5,10 +5,10 @@
   namespace,
   ...
 }: let
-  cfg = config.${namespace}.dev.lang.nix;
+  cfg = config.${namespace}.dev.nix;
 in {
   options = {
-    mynix.dev.lang.nix.enable = lib.mkOption {
+    mynix.dev.nix.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Setup nix stuff";

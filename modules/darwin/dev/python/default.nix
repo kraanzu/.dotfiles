@@ -7,5 +7,5 @@
 }: let
   cfg = config.${namespace}.dev.lang.python;
 in {
-  imports = [ (lib.snowfall.fs.get-file "modules/shared/dev/nix/python.nix") ];
+  imports = [ (lib.snowfall.fs.get-file "modules/shared/dev/python/default.nix") ];
 }

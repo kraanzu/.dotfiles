@@ -8,7 +8,7 @@
   cfg = config.${namespace}.dev.lang.go;
 in {
   options = {
-    ${namespace}.dev.lang.go.enable = lib.mkOption {
+    ${namespace}.dev.go.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Setup go stuff";

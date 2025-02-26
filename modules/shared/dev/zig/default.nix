@@ -8,7 +8,7 @@
   cfg = config.${namespace}.dev.lang.zig;
 in {
   options = {
-    ${namespace}.dev.lang.zig.enable = lib.mkOption {
+    ${namespace}.dev.zig.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Setup zig stuff";

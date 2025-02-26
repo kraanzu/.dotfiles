@@ -5,10 +5,10 @@
   namespace,
   ...
 }: let
-  cfg = config.${namespace}.dev.lang.python;
+  cfg = config.${namespace}.dev.python;
 in {
   options = {
-    ${namespace}.dev.lang.python.enable = lib.mkOption {
+    ${namespace}.dev.python.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Setup python stuff";

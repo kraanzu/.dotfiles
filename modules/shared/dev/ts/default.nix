@@ -8,7 +8,7 @@
   cfg = config.${namespace}.dev.lang.ts;
 in {
   options = {
-    ${namespace}.dev.lang.ts.enable = lib.mkOption {
+    ${namespace}.dev.ts.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Setup Typescript stuff";

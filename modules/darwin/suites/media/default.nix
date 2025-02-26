@@ -20,10 +20,6 @@ in {
         vlc = enabled;
         anydesk = enabled;
       };
-
-      tools = {
-        gdrive = enabled;
-      };
     };
   };
 }

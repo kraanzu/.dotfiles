@@ -5,10 +5,10 @@
   namespace,
   ...
 }: let
-  cfg = config.${namespace}.dev.lang.lua;
+  cfg = config.${namespace}.dev.lua;
 in {
   options = {
-    ${namespace}.dev.lang.lua.enable = lib.mkOption {
+    ${namespace}.dev.lua.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Setup lua stuff";
