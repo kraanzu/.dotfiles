@@ -112,15 +112,15 @@ bar_right = [
     widget.pad(length=6),
     widget.github_notifications(padding=10),
     widget.pad(length=6),
-    widget.text(
-        "󰚥",
-        fontsize=23,
-        mouse_callbacks={
-            "Button1": lazy.lazy.spawn("reboot"),
-        },
-        **dnd_decoration,
-    ),
-    widget.pad(length=6),
+    # widget.text(
+    #     "󰚥",
+    #     fontsize=23,
+    #     mouse_callbacks={
+    #         "Button1": lazy.lazy.spawn("reboot"),
+    #     },
+    #     **dnd_decoration,
+    # ),
+    # widget.pad(length=6),
 ]
 
 simple_bar = bar.Bar(
