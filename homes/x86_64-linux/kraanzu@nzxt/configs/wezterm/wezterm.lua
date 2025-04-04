@@ -12,12 +12,12 @@ config.enable_wayland = true
 config.front_end = "WebGpu"
 config.color_scheme = "nord"
 config.use_fancy_tab_bar = false
-config.font_size = 15
+config.font_size = 14
 config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "DemiBold" })
 config.default_workspace = "scratch"
 config.window_background_opacity = 1
 -- config.hide_tab_bar_if_only_one_tab = true
-config.max_fps = 144
+config.max_fps = 120
 
 tab_bar_left.setup(config)
 mux.setup(config)

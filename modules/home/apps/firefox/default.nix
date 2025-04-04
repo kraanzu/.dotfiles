@@ -24,7 +24,7 @@ in {
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         };
         userChrome = ''
-          @import "${pkgs.${namespace}.firefox-nordic-theme}/userChrome.css";
+          # @import "${pkgs.${namespace}.firefox-nordic-theme}/userChrome.css";
         '';
       };
     };
