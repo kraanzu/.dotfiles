@@ -23,11 +23,6 @@
     dooit.url = "github:dooit-org/dooit";
     dooit-extras.url = "github:dooit-org/dooit-extras/nix-fix";
 
-    mysecrets = {
-      url = "git+ssh://git@github.com/kraanzu/personal.git?ref=main&shallow=1";
-      flake = false;
-    };
-
     mywalls = {
       url = "github:kraanzu/nord_walls";
       flake = false;
@@ -58,7 +53,6 @@
       ];
 
       homes.users."kraanzu@nzxt".specialArgs = {
-        mysecrets = inputs.mysecrets;
         mywalls = inputs.mywalls;
       };
 

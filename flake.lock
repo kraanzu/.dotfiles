@@ -158,35 +158,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1743717835,
-        "narHash": "sha256-LJm6FoIcUoBw3w25ty12/sBfut4zZuNGdN0phYj/ekU=",
+        "lastModified": 1743788974,
+        "narHash": "sha256-2LeVyQZI2wTkSzMLvnN/kJjXVWp4HCVUoq17Bv8TNTk=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "66a6ec65f84255b3defb67ff45af86c844dd451b",
+        "rev": "0f5908daf890c3d7e7052bef1d6deb0f2710aaa1",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
         "type": "github"
-      }
-    },
-    "mysecrets": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1734087534,
-        "narHash": "sha256-ZMYfqCvs5HEY6URZF0B6BrbHHsXPiyoCvWCRikVA104=",
-        "ref": "main",
-        "rev": "9c636549709cbf541074043cf097d58c942179b7",
-        "shallow": true,
-        "type": "git",
-        "url": "ssh://git@github.com/kraanzu/personal.git"
-      },
-      "original": {
-        "ref": "main",
-        "shallow": true,
-        "type": "git",
-        "url": "ssh://git@github.com/kraanzu/personal.git"
       }
     },
     "mywalls": {
@@ -296,7 +278,6 @@
         "dooit-extras": "dooit-extras",
         "grub2-themes": "grub2-themes",
         "home-manager": "home-manager",
-        "mysecrets": "mysecrets",
         "mywalls": "mywalls",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_4",
