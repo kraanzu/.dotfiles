@@ -7,9 +7,6 @@ with lib.${namespace}; let
   user_name = "kraanzu";
   user_email = "kraanzu@gmail.com";
 in {
-  imports = [
-    # ./dotfiles.nix
-  ];
   mynix = {
     apps = {
       neovim = enabled;
