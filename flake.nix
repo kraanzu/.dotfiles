@@ -29,9 +29,8 @@
     };
   };
 
-  outputs =
-    inputs:
-    inputs.snowfall-lib.mkFlake {
+  outputs = inputs: let
+    lib = inputs.snowfall-lib.mkLib {
       inherit inputs;
       src = ./.;
       snowfall = {
@@ -41,7 +40,9 @@
           title = "Kraanzu's NixOS config";
         };
       };
-
+    };
+  in
+    lib.mkFlake {
       channels-config = {
         allowUnfree = true;
       };
