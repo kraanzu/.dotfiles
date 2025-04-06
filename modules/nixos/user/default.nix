@@ -6,11 +6,11 @@
   ...
 }: let
   inherit (lib) types mkIf;
-  inherit (lib.${namespace}) mkOpt;
+  inherit (lib.mynix) mkOpt;
 
-  cfg = config.${namespace}.user;
+  cfg = config.mynix.user;
 in {
-  options.${namespace}.user = {
+  options.mynix.user = {
     name = mkOpt types.str "kraanzu" "The user account.";
     email = mkOpt types.str "kraanzu@gmail.com" "The email of the user.";
     fullName = mkOpt types.str "Murli Tawari" "The full name of the user.";

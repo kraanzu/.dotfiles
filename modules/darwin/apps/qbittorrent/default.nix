@@ -6,9 +6,9 @@
   ...
 }:
 with lib; let
-  cfg = config.${namespace}.apps.qbittorrent;
+  cfg = config.mynix.apps.qbittorrent;
 in {
-  options.${namespace}.apps.qbittorrent = {
+  options.mynix.apps.qbittorrent = {
     enable = mkOption {
       type = types.bool;
       default = false;

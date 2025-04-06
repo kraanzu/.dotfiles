@@ -9,9 +9,9 @@
   white = "#D8DEE9";
   red = "#BF616A";
   blue = "#81A1C1";
-  cfg = config.${namespace}.desktop.dunst;
+  cfg = config.mynix.desktop.dunst;
 in {
-  options.${namespace}.desktop.dunst.enable = lib.mkOption {
+  options.mynix.desktop.dunst.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Enable dunst";

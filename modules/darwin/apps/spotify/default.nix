@@ -6,9 +6,9 @@
   ...
 }:
 with lib; let
-  cfg = config.${namespace}.apps.soptify;
+  cfg = config.mynix.apps.soptify;
 in {
-  options.${namespace}.apps.soptify = {
+  options.mynix.apps.soptify = {
     enable = mkOption {
       type = types.bool;
       default = false;

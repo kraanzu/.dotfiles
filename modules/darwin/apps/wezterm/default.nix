@@ -5,10 +5,10 @@
   namespace,
   ...
 }: let
-  cfg = config.${namespace}.apps.wezterm;
+  cfg = config.mynix.apps.wezterm;
 in {
   options = {
-    ${namespace}.apps.wezterm.enable = lib.mkOption {
+    mynix.apps.wezterm.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Enable Wezterm";

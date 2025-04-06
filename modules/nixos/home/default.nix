@@ -5,9 +5,9 @@
   namespace,
   ...
 }: let
-  inherit (lib.${namespace}) mkOpt;
+  inherit (lib.mynix) mkOpt;
 in {
-  options.${namespace}.home = with lib.types; {
+  options.mynix.home = with lib.types; {
     file = mkOpt attrs {} "A set of files to be managed by home-manager's <option>home.file</option>.";
     configFile =
       mkOpt attrs {}
@@ -17,15 +17,15 @@ in {
   };
 
   config = {
-    ${namespace}.home.extraOptions = {
-      home.file = lib.mkAliasDefinitions options.${namespace}.home.file;
+    mynix.home.extraOptions = {
+      home.file = lib.mkAliasDefinitions options.mynix.home.file;
       xdg.enable = true;
-      xdg.configFile = lib.mkAliasDefinitions options.${namespace}.home.configFile;
+      xdg.configFile = lib.mkAliasDefinitions options.mynix.home.configFile;
     };
 
-    snowfallorg.users.${config.${namespace}.user.name}.home.config =
+    snowfallorg.users.${config.mynix.user.name}.home.config =
       lib.mkAliasDefinitions
-      options.${namespace}.home.extraOptions;
+      options.mynix.home.extraOptions;
 
     home-manager = {
       # enables backing up existing files instead of erroring if conflicts exist

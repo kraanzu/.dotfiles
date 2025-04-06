@@ -5,9 +5,9 @@
   config,
   ...
 }: let
-  cfg = config.${namespace}.system.sound;
+  cfg = config.mynix.system.sound;
 in {
-  options.${namespace}.system.sound.enable = lib.mkOption {
+  options.mynix.system.sound.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Setup sound";

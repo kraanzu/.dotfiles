@@ -5,10 +5,10 @@
   namespace,
   ...
 }: let
-  cfg = config.${namespace}.desktop.qtile;
+  cfg = config.mynix.desktop.qtile;
 in {
   options = {
-    ${namespace}.desktop.qtile.enable = lib.mkOption {
+    mynix.desktop.qtile.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Enable Qtile WM";
@@ -17,7 +17,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     programs.gdk-pixbuf.modulePackages = [pkgs.librsvg];
-    ${namespace}.tools.redshift.enable = true;
+    mynix.tools.redshift.enable = true;
     environment.systemPackages = with pkgs; [flameshot];
 
     services.xserver.windowManager.qtile = {

@@ -5,10 +5,10 @@
   ...
 }:
 with lib;
-with lib.${namespace}; let
-  cfg = config.${namespace}.suites.common;
+with lib.mynix; let
+  cfg = config.mynix.suites.common;
 in {
-  options.${namespace}.suites.common.enable = lib.mkOption {
+  options.mynix.suites.common.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Common Config";

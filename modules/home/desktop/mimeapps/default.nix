@@ -5,9 +5,9 @@
   pkgs,
   ...
 }: let
-  cfg = config.${namespace}.desktop.mimeapps;
+  cfg = config.mynix.desktop.mimeapps;
 in {
-  options.${namespace}.desktop.mimeapps.enable = lib.mkOption {
+  options.mynix.desktop.mimeapps.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Enable mimeapps";

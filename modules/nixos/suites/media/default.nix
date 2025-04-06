@@ -5,10 +5,10 @@
   ...
 }:
 with lib;
-with lib.${namespace}; let
-  cfg = config.${namespace}.suites.media;
+with lib.mynix; let
+  cfg = config.mynix.suites.media;
 in {
-  options.${namespace}.suites.media.enable = lib.mkOption {
+  options.mynix.suites.media.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Media Suite";

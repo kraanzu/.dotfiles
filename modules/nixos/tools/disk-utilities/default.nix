@@ -5,10 +5,10 @@
   namespace,
   ...
 }: let
-  cfg = config.${namespace}.tools.disk-utilities;
+  cfg = config.mynix.tools.disk-utilities;
 in {
   options = {
-    ${namespace}.tools.disk-utilities.enable = lib.mkOption {
+    mynix.tools.disk-utilities.enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
       description = "Enable Disk Utilities";

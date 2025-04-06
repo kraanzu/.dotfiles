@@ -5,7 +5,7 @@
   namespace,
   ...
 }: let
-  cfg = config.${namespace}.dev.nix;
+  cfg = config.mynix.dev.nix;
 in {
   options = {
     mynix.dev.nix.enable = lib.mkOption {

@@ -6,9 +6,9 @@
   ...
 }:
 with lib; let
-  cfg = config.${namespace}.apps.postman;
+  cfg = config.mynix.apps.postman;
 in {
-  options.${namespace}.apps.postman = {
+  options.mynix.apps.postman = {
     enable = mkOption {
       type = types.bool;
       default = false;

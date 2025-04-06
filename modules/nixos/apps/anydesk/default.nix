@@ -6,9 +6,9 @@
   ...
 }:
 with lib; let
-  cfg = config.${namespace}.apps.anydesk;
+  cfg = config.mynix.apps.anydesk;
 in {
-  options.${namespace}.apps.anydesk = {
+  options.mynix.apps.anydesk = {
     enable = mkOption {
       type = types.bool;
       default = false;

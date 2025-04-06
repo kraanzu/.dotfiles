@@ -5,9 +5,9 @@
   config,
   ...
 }: let
-  cfg = config.${namespace}.system.locale;
+  cfg = config.mynix.system.locale;
 in {
-  options.${namespace}.system.locale.enable = lib.mkOption {
+  options.mynix.system.locale.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Setup locale";

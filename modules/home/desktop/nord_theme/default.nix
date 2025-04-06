@@ -5,9 +5,9 @@
   pkgs,
   ...
 }: let
-  cfg = config.${namespace}.desktop.nord_theme;
+  cfg = config.mynix.desktop.nord_theme;
 in {
-  options.${namespace}.desktop.nord_theme.enable = lib.mkOption {
+  options.mynix.desktop.nord_theme.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Enable nord gtk theme";

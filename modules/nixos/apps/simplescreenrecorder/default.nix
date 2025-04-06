@@ -6,9 +6,9 @@
   ...
 }:
 with lib; let
-  cfg = config.${namespace}.apps.simplescreenrecorder;
+  cfg = config.mynix.apps.simplescreenrecorder;
 in {
-  options.${namespace}.apps.simplescreenrecorder = {
+  options.mynix.apps.simplescreenrecorder = {
     enable = mkOption {
       type = types.bool;
       default = false;

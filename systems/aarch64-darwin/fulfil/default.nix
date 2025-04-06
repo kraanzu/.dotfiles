@@ -5,7 +5,7 @@
   config,
   ...
 }:
-with lib.${namespace};
+with lib.mynix;
 {
   environment.systemPath = [ "/opt/homebrew/bin" ];
   ids.gids.nixbld = 350;
@@ -37,7 +37,7 @@ with lib.${namespace};
       done
     '';
 
-  ${namespace} = {
+  mynix = {
     archetypes = {
       workstation = enabled;
     };

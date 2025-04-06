@@ -5,10 +5,10 @@
   namespace,
   ...
 }: let
-  cfg = config.${namespace}.dev.lang.cpp;
+  cfg = config.mynix.dev.lang.cpp;
 in {
   options = {
-    ${namespace}.dev.lang.cpp.enable = lib.mkOption {
+    mynix.dev.lang.cpp.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Setup cpp stuff";

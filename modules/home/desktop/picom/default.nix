@@ -5,11 +5,11 @@
   pkgs,
   ...
 }: let
-  cfg = config.${namespace}.desktop.picom;
+  cfg = config.mynix.desktop.picom;
   shadow_offset_x = -7;
   shadow_offset_y = -7;
 in {
-  options.${namespace}.desktop.picom.enable = lib.mkOption {
+  options.mynix.desktop.picom.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Enable picom";

@@ -5,7 +5,7 @@
   namespace,
   ...
 }: let
-  cfg = config.${namespace}.dev.lang.go;
+  cfg = config.mynix.dev.lang.go;
 in {
   options = {
     mynix.dev.lang.rust.enable = lib.mkOption {

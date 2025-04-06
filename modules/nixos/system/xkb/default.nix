@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.${namespace}.system.xkb;
+  cfg = config.mynix.system.xkb;
 in {
-  options.${namespace}.system.xkb.enable = lib.mkOption {
+  options.mynix.system.xkb.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Setup xkb";

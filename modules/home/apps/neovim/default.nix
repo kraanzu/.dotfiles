@@ -6,9 +6,9 @@
   ...
 }:
 with lib; let
-  cfg = config.${namespace}.apps.neovim;
+  cfg = config.mynix.apps.neovim;
 in {
-  options.${namespace}.apps.neovim = {
+  options.mynix.apps.neovim = {
     enable = mkOption {
       type = types.bool;
       default = false;

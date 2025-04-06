@@ -4,9 +4,9 @@
   config,
   ...
 }: let
-  cfg = config.${namespace}.system.boot;
+  cfg = config.mynix.system.boot;
 in {
-  options.${namespace}.system.boot.enable = lib.mkOption {
+  options.mynix.system.boot.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Enable boot configuration.";

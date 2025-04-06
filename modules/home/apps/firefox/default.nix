@@ -6,9 +6,9 @@
   ...
 }:
 with lib; let
-  cfg = config.${namespace}.apps.firefox;
+  cfg = config.mynix.apps.firefox;
 in {
-  options.${namespace}.apps.firefox = {
+  options.mynix.apps.firefox = {
     enable = mkOption {
       type = types.bool;
       default = false;
@@ -24,7 +24,7 @@ in {
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         };
         userChrome = ''
-          # @import "${pkgs.${namespace}.firefox-nordic-theme}/userChrome.css";
+          # @import "${pkgs.mynix.firefox-nordic-theme}/userChrome.css";
         '';
       };
     };

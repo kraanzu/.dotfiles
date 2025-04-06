@@ -6,9 +6,9 @@
   ...
 }:
 with lib; let
-  cfg = config.${namespace}.apps.slack;
+  cfg = config.mynix.apps.slack;
 in {
-  options.${namespace}.apps.slack = {
+  options.mynix.apps.slack = {
     enable = mkOption {
       type = types.bool;
       default = false;

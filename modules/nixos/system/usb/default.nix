@@ -4,9 +4,9 @@
   config,
   ...
 }: let
-  cfg = config.${namespace}.system.usb;
+  cfg = config.mynix.system.usb;
 in {
-  options.${namespace}.system.usb.enable = lib.mkOption {
+  options.mynix.system.usb.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Setup usb stuff";

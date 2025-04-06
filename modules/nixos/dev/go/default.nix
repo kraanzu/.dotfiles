@@ -5,10 +5,10 @@
   namespace,
   ...
 }: let
-  cfg = config.${namespace}.dev.lang.go;
+  cfg = config.mynix.dev.lang.go;
 in {
   options = {
-    ${namespace}.dev.lang.go.enable = lib.mkOption {
+    mynix.dev.lang.go.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Setup go stuff";

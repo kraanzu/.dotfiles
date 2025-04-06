@@ -6,9 +6,9 @@
   ...
 }:
 with lib; let
-  cfg = config.${namespace}.apps.discord;
+  cfg = config.mynix.apps.discord;
 in {
-  options.${namespace}.apps.discord = {
+  options.mynix.apps.discord = {
     enable = mkOption {
       type = types.bool;
       default = false;

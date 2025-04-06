@@ -7,9 +7,9 @@
   ...
 }:
 with lib; let
-  cfg = config.${namespace}.projects.dooit;
+  cfg = config.mynix.projects.dooit;
 in {
-  options.${namespace}.projects.dooit = {
+  options.mynix.projects.dooit = {
     enable = mkOption {
       type = types.bool;
       default = false;

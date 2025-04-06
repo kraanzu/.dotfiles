@@ -5,9 +5,9 @@
   namespace,
   ...
 }: let
-  cfg = config.${namespace}.terminals.alacritty;
+  cfg = config.mynix.terminals.alacritty;
 in {
-  options.${namespace}.terminals.alacritty.enable = lib.mkOption {
+  options.mynix.terminals.alacritty.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Enable alacritty";

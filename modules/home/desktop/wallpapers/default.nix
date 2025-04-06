@@ -6,9 +6,9 @@
   ...
 }: let
   wallpath = builtins.toString inputs.mywalls;
-  cfg = config.${namespace}.desktop.wallpapers;
+  cfg = config.mynix.desktop.wallpapers;
 in {
-  options.${namespace}.desktop.wallpapers.enable = lib.mkOption {
+  options.mynix.desktop.wallpapers.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Enable desktop wallpapers";

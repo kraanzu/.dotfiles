@@ -5,10 +5,10 @@
   namespace,
   ...
 }: let
-  cfg = config.${namespace}.dev.lang.python;
+  cfg = config.mynix.dev.lang.python;
 in {
   options = {
-    ${namespace}.dev.lang.python.enable = lib.mkOption {
+    mynix.dev.lang.python.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Setup python stuff";

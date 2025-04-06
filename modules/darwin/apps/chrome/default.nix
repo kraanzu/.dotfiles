@@ -6,9 +6,9 @@
   ...
 }:
 with lib; let
-  cfg = config.${namespace}.apps.chrome;
+  cfg = config.mynix.apps.chrome;
 in {
-  options.${namespace}.apps.chrome = {
+  options.mynix.apps.chrome = {
     enable = mkOption {
       type = types.bool;
       default = false;

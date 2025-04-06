@@ -5,10 +5,10 @@
   namespace,
   ...
 }: let
-  cfg = config.${namespace}.dev.lang.zig;
+  cfg = config.mynix.dev.lang.zig;
 in {
   options = {
-    ${namespace}.dev.lang.zig.enable = lib.mkOption {
+    mynix.dev.lang.zig.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Setup zig stuff";

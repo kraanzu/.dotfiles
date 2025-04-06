@@ -4,7 +4,7 @@
   ...
 }:
 with lib;
-with lib.${namespace}; let
+with lib.mynix; let
 in {
   imports = [
     ./hardware-configuration.nix
@@ -14,7 +14,7 @@ in {
 
   networking.hostName = "nzxt";
 
-  ${namespace} = {
+  mynix = {
     archetypes = {
       workstation = enabled;
     };

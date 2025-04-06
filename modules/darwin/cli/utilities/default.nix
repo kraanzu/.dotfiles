@@ -5,9 +5,9 @@
   config,
   ...
 }: let
-  cfg = config.${namespace}.system.utilties;
+  cfg = config.mynix.system.utilties;
 in {
-  options.${namespace}.system.utilties.enable = lib.mkOption {
+  options.mynix.system.utilties.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Setup utilties";

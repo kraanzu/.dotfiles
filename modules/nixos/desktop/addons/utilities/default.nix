@@ -7,10 +7,10 @@
   ...
 }:
 with lib; let
-  cfg = config.${namespace}.desktop.utilities;
+  cfg = config.mynix.desktop.utilities;
 in {
   options = {
-    ${namespace}.desktop.utilities.enable = lib.mkOption {
+    mynix.desktop.utilities.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Enable desktop utilities such as network manager, clipboard manager, etc.";

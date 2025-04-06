@@ -7,10 +7,10 @@
   ...
 }:
 with lib; let
-  cfg = config.${namespace}.desktop.login.sddm-chili;
+  cfg = config.mynix.desktop.login.sddm-chili;
 in {
   options = {
-    ${namespace}.desktop.login.sddm-chili.enable = lib.mkOption {
+    mynix.desktop.login.sddm-chili.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Enable the SDDM Chili package.";
@@ -26,7 +26,7 @@ in {
     services.xserver.enable = true;
     services.displayManager.sddm = {
       enable = true;
-      theme = "${pkgs.${namespace}.sddm-chili}";
+      theme = "${pkgs.mynix.sddm-chili}";
     };
   };
 }

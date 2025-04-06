@@ -5,10 +5,10 @@
   ...
 }:
 with lib;
-with lib.${namespace}; let
-  cfg = config.${namespace}.suites.desktop;
+with lib.mynix; let
+  cfg = config.mynix.suites.desktop;
 in {
-  options.${namespace}.suites.desktop.enable = lib.mkOption {
+  options.mynix.suites.desktop.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Desktop Config";

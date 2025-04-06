@@ -5,10 +5,10 @@
   ...
 }:
 with lib;
-with lib.${namespace}; let
-  cfg = config.${namespace}.suites.social;
+with lib.mynix; let
+  cfg = config.mynix.suites.social;
 in {
-  options.${namespace}.suites.social.enable = lib.mkOption {
+  options.mynix.suites.social.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Social Suite";

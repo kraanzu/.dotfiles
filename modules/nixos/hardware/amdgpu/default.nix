@@ -5,10 +5,10 @@
   ...
 }:
 with lib; let
-  cfg = config.${namespace}.hardware.amdgpu;
+  cfg = config.mynix.hardware.amdgpu;
 in {
   options = {
-    ${namespace}.hardware.amdgpu.enable = lib.mkOption {
+    mynix.hardware.amdgpu.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Enable AMD GPU";

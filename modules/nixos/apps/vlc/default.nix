@@ -6,10 +6,10 @@
   ...
 }:
 with lib;
-with lib.${namespace}; let
-  cfg = config.${namespace}.apps.vlc;
+with lib.mynix; let
+  cfg = config.mynix.apps.vlc;
 in {
-  options.${namespace}.apps.vlc = with types; {
+  options.mynix.apps.vlc = with types; {
     enable = mkBoolOpt false "Whether or not to enable vlc.";
   };
 

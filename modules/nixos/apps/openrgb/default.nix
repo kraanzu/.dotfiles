@@ -6,9 +6,9 @@
   ...
 }:
 with lib; let
-  cfg = config.${namespace}.apps.openrgb;
+  cfg = config.mynix.apps.openrgb;
 in {
-  options.${namespace}.apps.openrgb = {
+  options.mynix.apps.openrgb = {
     enable = mkOption {
       type = types.bool;
       default = false;

@@ -7,9 +7,9 @@
 }: let
   bg = "#252a34";
   blue = "#81A1C1";
-  cfg = config.${namespace}.desktop.mako;
+  cfg = config.mynix.desktop.mako;
 in {
-  options.${namespace}.desktop.mako.enable = lib.mkOption {
+  options.mynix.desktop.mako.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Enable mako";

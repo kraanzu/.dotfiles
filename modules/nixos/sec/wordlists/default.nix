@@ -5,10 +5,10 @@
   lib,
   ...
 }: let
-  cfg = config.${namespace}.sec.wordlists;
+  cfg = config.mynix.sec.wordlists;
 in {
   options = {
-    ${namespace}.sec.wordlists.enable = lib.mkOption {
+    mynix.sec.wordlists.enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
       description = "Setup wordlists";

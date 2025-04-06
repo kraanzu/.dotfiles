@@ -5,10 +5,10 @@
   namespace,
   ...
 }: let
-  cfg = config.${namespace}.dev.lang.ts;
+  cfg = config.mynix.dev.lang.ts;
 in {
   options = {
-    ${namespace}.dev.ts.enable = lib.mkOption {
+    mynix.dev.ts.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Setup Typescript stuff";

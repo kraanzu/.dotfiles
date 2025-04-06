@@ -5,17 +5,17 @@
   ...
 }:
 with lib;
-with lib.${namespace}; let
-  cfg = config.${namespace}.suites.development;
+with lib.mynix; let
+  cfg = config.mynix.suites.development;
 in {
-  options.${namespace}.suites.development.enable = lib.mkOption {
+  options.mynix.suites.development.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Development Config";
   };
 
   config = mkIf cfg.enable {
-    ${namespace} = {
+    mynix = {
       dev.lang = {
         cpp = enabled;
         python = enabled;

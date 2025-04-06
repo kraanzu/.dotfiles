@@ -5,9 +5,9 @@
   config,
   ...
 }: let
-  cfg = config.${namespace}.system.fonts;
+  cfg = config.mynix.system.fonts;
 in {
-  options.${namespace}.system.fonts.enable = lib.mkOption {
+  options.mynix.system.fonts.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Setup fonts";

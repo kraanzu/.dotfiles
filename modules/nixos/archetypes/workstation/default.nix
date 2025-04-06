@@ -5,10 +5,10 @@
   ...
 }:
 with lib;
-with lib.${namespace}; let
-  cfg = config.${namespace}.archetypes.workstation;
+with lib.mynix; let
+  cfg = config.mynix.archetypes.workstation;
 in {
-  options.${namespace}.archetypes.workstation.enable = lib.mkOption {
+  options.mynix.archetypes.workstation.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Enable Workstation archetype.";

@@ -6,9 +6,9 @@
   ...
 }:
 with lib; let
-  cfg = config.${namespace}.apps.libreoffice;
+  cfg = config.mynix.apps.libreoffice;
 in {
-  options.${namespace}.apps.libreoffice = {
+  options.mynix.apps.libreoffice = {
     enable = mkOption {
       type = types.bool;
       default = false;

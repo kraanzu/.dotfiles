@@ -6,9 +6,9 @@
   ...
 }:
 with lib; let
-  cfg = config.${namespace}.apps.brave;
+  cfg = config.mynix.apps.brave;
 in {
-  options.${namespace}.apps.brave = {
+  options.mynix.apps.brave = {
     enable = mkOption {
       type = types.bool;
       default = false;

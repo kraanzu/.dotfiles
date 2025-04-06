@@ -5,10 +5,10 @@
   namespace,
   ...
 }: let
-  cfg = config.${namespace}.dev.lua;
+  cfg = config.mynix.dev.lua;
 in {
   options = {
-    ${namespace}.dev.lua.enable = lib.mkOption {
+    mynix.dev.lua.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Setup lua stuff";

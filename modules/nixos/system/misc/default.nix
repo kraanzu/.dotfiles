@@ -4,9 +4,9 @@
   config,
   ...
 }: let
-  cfg = config.${namespace}.system.misc;
+  cfg = config.mynix.system.misc;
 in {
-  options.${namespace}.system.misc.enable = lib.mkOption {
+  options.mynix.system.misc.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Setup misc items";

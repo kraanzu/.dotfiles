@@ -5,9 +5,9 @@
   config,
   ...
 }: let
-  cfg = config.${namespace}.system.shell;
+  cfg = config.mynix.system.shell;
 in {
-  options.${namespace}.system.shell.enable = lib.mkOption {
+  options.mynix.system.shell.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Setup shell";

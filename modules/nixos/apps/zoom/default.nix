@@ -6,9 +6,9 @@
   ...
 }:
 with lib; let
-  cfg = config.${namespace}.apps.zoom;
+  cfg = config.mynix.apps.zoom;
 in {
-  options.${namespace}.apps.zoom = {
+  options.mynix.apps.zoom = {
     enable = mkOption {
       type = types.bool;
       default = false;

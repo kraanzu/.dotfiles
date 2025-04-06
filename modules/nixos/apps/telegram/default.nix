@@ -6,9 +6,9 @@
   ...
 }:
 with lib; let
-  cfg = config.${namespace}.apps.telegram;
+  cfg = config.mynix.apps.telegram;
 in {
-  options.${namespace}.apps.telegram = {
+  options.mynix.apps.telegram = {
     enable = mkOption {
       type = types.bool;
       default = false;

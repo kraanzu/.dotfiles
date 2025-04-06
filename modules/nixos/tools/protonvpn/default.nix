@@ -5,10 +5,10 @@
   namespace,
   ...
 }: let
-  cfg = config.${namespace}.tools.protonvpn;
+  cfg = config.mynix.tools.protonvpn;
 in {
   options = {
-    ${namespace}.tools.protonvpn.enable = lib.mkOption {
+    mynix.tools.protonvpn.enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
       description = "Enable Protonvpn";

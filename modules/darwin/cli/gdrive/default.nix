@@ -5,10 +5,10 @@
   namespace,
   ...
 }: let
-  cfg = config.${namespace}.cli.gdrive;
+  cfg = config.mynix.cli.gdrive;
 in {
   options = {
-    ${namespace}.cli.gdrive.enable = lib.mkOption {
+    mynix.cli.gdrive.enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
       description = "Enable Google Drive CLI";
