@@ -37,6 +37,11 @@ in
     user = "kraanzu";
   };
 
+    programs.gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+
   users.users.kraanzu = {
     isNormalUser = true;
     extraGroups = [
