@@ -6,9 +6,9 @@
   ...
 }:
 with lib; let
-  cfg = config.mynix.tools.zed;
+  cfg = config.mynix.apps.zed;
 in {
-  options.mynix.tools.zed = {
+  options.mynix.apps.zed = {
     enable = mkOption {
       type = types.bool;
       default = false;

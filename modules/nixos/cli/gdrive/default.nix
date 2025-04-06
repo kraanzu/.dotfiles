@@ -5,18 +5,18 @@
   namespace,
   ...
 }: let
-  cfg = config.mynix.tools.vscode;
+  cfg = config.mynix.cli.gdrive;
 in {
   options = {
-    mynix.tools.vscode.enable = lib.mkOption {
+    mynix.cli.gdrive.enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
-      description = "Enable VSCode";
+      description = "Enable Google Drive CLI";
     };
   };
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      vscode
+      gdrive3
     ];
   };
 }

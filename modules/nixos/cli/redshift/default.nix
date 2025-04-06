@@ -4,10 +4,10 @@
   namespace,
   ...
 }: let
-  cfg = config.mynix.tools.redshift;
+  cfg = config.mynix.cli.redshift;
 in {
   options = {
-    mynix.tools.redshift.enable = lib.mkOption {
+    mynix.cli.redshift.enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
       description = "Enable redshift";

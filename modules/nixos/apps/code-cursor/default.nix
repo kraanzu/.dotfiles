@@ -5,18 +5,18 @@
   namespace,
   ...
 }: let
-  cfg = config.mynix.tools.wezterm;
+  cfg = config.mynix.apps.code-cursor;
 in {
   options = {
-    mynix.tools.wezterm.enable = lib.mkOption {
+    mynix.apps.code-cursor.enable = lib.mkOption {
       type = lib.types.bool;
-      default = false;
-      description = "Enable Wezterm";
+      default = true;
+      description = "Enable Cursor IDE";
     };
   };
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      wezterm
+      code-cursor
     ];
   };
 }

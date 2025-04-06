@@ -5,20 +5,18 @@
   namespace,
   ...
 }: let
-  cfg = config.mynix.tools.disk-utilities;
+  cfg = config.mynix.apps.vscode;
 in {
   options = {
-    mynix.tools.disk-utilities.enable = lib.mkOption {
+    mynix.apps.vscode.enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
-      description = "Enable Disk Utilities";
+      description = "Enable VSCode";
     };
   };
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      gnome-disk-utility
-      ntfs3g
-      gparted
+      vscode
     ];
   };
 }

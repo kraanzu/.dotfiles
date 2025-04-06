@@ -4,10 +4,10 @@
   namespace,
   ...
 }: let
-  cfg = config.mynix.tools.docker;
+  cfg = config.mynix.cli.docker;
 in {
   options = {
-    mynix.tools.docker.enable = lib.mkOption {
+    mynix.cli.docker.enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
       description = "Enable Docker";

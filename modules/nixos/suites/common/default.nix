@@ -32,10 +32,12 @@ in {
       desktop = {
         utilities = enabled;
       };
-      tools = {
+      apps = {
         disk-utilities = enabled;
-        protonvpn = enabled;
         droidcam = enabled;
+      };
+      cli = {
+        protonvpn = enabled;
       };
     };
   };

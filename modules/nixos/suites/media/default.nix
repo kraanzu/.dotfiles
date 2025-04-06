@@ -22,7 +22,7 @@ in {
         simplescreenrecorder = enabled;
       };
 
-      tools = {
+      cli = {
         gdrive = enabled;
       };
     };

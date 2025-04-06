@@ -25,12 +25,13 @@ in {
         ts = enabled;
         go = enabled;
       };
-      tools = {
+      apps = {
         wezterm = enabled;
-        docker = enabled;
-        vscode = enabled;
         code-cursor = enabled;
         zed = enabled;
+      };
+      cli = {
+        docker = enabled;
       };
     };
   };

@@ -5,18 +5,20 @@
   namespace,
   ...
 }: let
-  cfg = config.mynix.tools.code-cursor;
+  cfg = config.mynix.apps.disk-utilities;
 in {
   options = {
-    mynix.tools.code-cursor.enable = lib.mkOption {
+    mynix.apps.disk-utilities.enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
-      description = "Enable Cursor IDE";
+      description = "Enable Disk Utilities";
     };
   };
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      code-cursor
+      gnome-disk-utility
+      ntfs3g
+      gparted
     ];
   };
 }
