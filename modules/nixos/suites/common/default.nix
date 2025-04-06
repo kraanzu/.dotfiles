@@ -40,6 +40,7 @@ in
       };
       cli = {
         protonvpn = enabled;
+        git-crypt = enabled;
       };
     };
   };
