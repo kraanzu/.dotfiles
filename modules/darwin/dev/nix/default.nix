@@ -5,7 +5,24 @@
   namespace,
   ...
 }: let
-  cfg = config.${namespace}.dev.lang.nix;
+  cfg = config.${namespace}.dev.nix;
 in {
-  imports = [ (lib.snowfall.fs.get-file "modules/shared/dev/nix/default.nix") ];
+  options = {
+    mynix.dev.nix.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Setup nix stuff";
+    };
+  };
+
+  config = lib.mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      # lsp
+      nixd
+
+      # formatter
+      alejandra
+      nixfmt-rfc-style
+    ];
+  };
 }

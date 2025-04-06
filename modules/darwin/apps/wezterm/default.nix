@@ -7,5 +7,16 @@
 }: let
   cfg = config.${namespace}.apps.wezterm;
 in {
-  imports = [ (lib.snowfall.fs.get-file "modules/shared/apps/wezterm/default.nix") ];
+  options = {
+    ${namespace}.apps.wezterm.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable Wezterm";
+    };
+  };
+  config = lib.mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      wezterm
+    ];
+  };
 }

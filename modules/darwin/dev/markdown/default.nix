@@ -5,7 +5,20 @@
   namespace,
   ...
 }: let
-  cfg = config.${namespace}.dev.lang.markdown;
+  cfg = config.${namespace}.dev.markdown;
 in {
-  imports = [ (lib.snowfall.fs.get-file "modules/shared/dev/markdown/default.nix") ];
+  options = {
+    ${namespace}.dev.markdown.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Setup markdown stuff";
+    };
+  };
+
+  config = lib.mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      # lsp
+      marksman
+    ];
+  };
 }

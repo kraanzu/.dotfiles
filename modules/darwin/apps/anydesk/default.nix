@@ -8,5 +8,15 @@
 with lib; let
   cfg = config.${namespace}.apps.anydesk;
 in {
-  imports = [ (lib.snowfall.fs.get-file "modules/shared/apps/anydesk/default.nix") ];
+  options.${namespace}.apps.anydesk = {
+    enable = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable anydesk";
+    };
+  };
+
+  config = mkIf cfg.enable {
+    homebrew.casks = [ "anydesk" ];
+  };
 }

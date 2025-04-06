@@ -8,8 +8,15 @@
 with lib; let
   cfg = config.${namespace}.apps.postman;
 in {
-  imports = [ (lib.snowfall.fs.get-file "modules/shared/apps/postman/default.nix") ];
-  # config = mkIf cfg.enable {
-  #   homebrew.casks = [ "postman" ];
-  # };
+  options.${namespace}.apps.postman = {
+    enable = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable Postman";
+    };
+  };
+
+  config = mkIf cfg.enable {
+    environment.systemPackages = [pkgs.postman];
+  };
 }

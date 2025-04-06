@@ -8,5 +8,15 @@
 with lib; let
   cfg = config.${namespace}.apps.zed;
 in {
-  imports = [ (lib.snowfall.fs.get-file "modules/shared/apps/zed/default.nix") ];
+  options.${namespace}.apps.zed = {
+    enable = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable zed editor";
+    };
+  };
+
+  config = mkIf cfg.enable {
+    environment.systemPackages = [pkgs.zed-editor];
+  };
 }

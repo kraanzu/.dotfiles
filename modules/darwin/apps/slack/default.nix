@@ -8,8 +8,15 @@
 with lib; let
   cfg = config.${namespace}.apps.slack;
 in {
-  imports = [ (lib.snowfall.fs.get-file "modules/shared/apps/slack/default.nix") ];
-  # config = mkIf cfg.enable {
-  #   homebrew.casks = [ "slack" ];
-  # };
+  options.${namespace}.apps.slack = {
+    enable = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable slack desktop";
+    };
+  };
+
+  config = mkIf cfg.enable {
+    environment.systemPackages = [pkgs.slack];
+  };
 }

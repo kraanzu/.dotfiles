@@ -8,5 +8,17 @@
 with lib; let
   cfg = config.${namespace}.apps.zoom;
 in {
-  imports = [ (lib.snowfall.fs.get-file "modules/shared/apps/zoom/default.nix") ];
+  options.${namespace}.apps.zoom = {
+    enable = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable zoom";
+    };
+  };
+
+  config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      zoom-us
+    ];
+  };
 }

@@ -8,9 +8,15 @@
 with lib; let
   cfg = config.${namespace}.apps.chrome;
 in {
-  imports = [ (lib.snowfall.fs.get-file "modules/shared/apps/chrome/default.nix") ];
+  options.${namespace}.apps.chrome = {
+    enable = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable google chrome";
+    };
+  };
 
-  # config = mkIf cfg.enable {
-  #   homebrew.casks = [ "google-chrome" ];
-  # };
+  config = mkIf cfg.enable {
+    environment.systemPackages = [pkgs.google-chrome];
+  };
 }
