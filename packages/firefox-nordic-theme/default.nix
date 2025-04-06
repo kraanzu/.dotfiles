@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 pkgs.fetchFromGitHub {
   owner = "EliverLara";
   repo = "firefox-nordic-theme";

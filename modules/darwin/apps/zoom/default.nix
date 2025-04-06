@@ -2,12 +2,14 @@
   config,
   lib,
   pkgs,
-  namespace,
+
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.mynix.apps.zoom;
-in {
+in
+{
   options.mynix.apps.zoom = {
     enable = mkOption {
       type = types.bool;

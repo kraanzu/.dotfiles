@@ -1,13 +1,15 @@
 {
   inputs,
-  namespace,
+
   config,
   lib,
   ...
-}: let
+}:
+let
   wallpath = builtins.toString inputs.mywalls;
   cfg = config.mynix.desktop.wallpapers;
-in {
+in
+{
   options.mynix.desktop.wallpapers.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;

@@ -1,11 +1,13 @@
 {
-  namespace,
+
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.mynix.system.boot;
-in {
+in
+{
   options.mynix.system.boot.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;

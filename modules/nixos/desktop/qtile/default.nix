@@ -2,11 +2,13 @@
   pkgs,
   config,
   lib,
-  namespace,
+
   ...
-}: let
+}:
+let
   cfg = config.mynix.desktop.qtile;
-in {
+in
+{
   options = {
     mynix.desktop.qtile.enable = lib.mkOption {
       type = lib.types.bool;
@@ -16,14 +18,14 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    programs.gdk-pixbuf.modulePackages = [pkgs.librsvg];
+    programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
     mynix.cli.redshift.enable = true;
-    environment.systemPackages = with pkgs; [flameshot];
+    environment.systemPackages = with pkgs; [ flameshot ];
 
     services.xserver.windowManager.qtile = {
       enable = true;
-      extraPackages = p:
-        with p; [
+      extraPackages =
+        p: with p; [
           qtile-extras
           dbus-next
           pulsectl-asyncio

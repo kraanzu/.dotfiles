@@ -1,12 +1,14 @@
 {
   lib,
-  namespace,
+
   ...
 }:
-with lib.mynix; let
+with lib.mynix;
+let
   user_name = "kraanzu";
   user_email = "kraanzu@gmail.com";
-in {
+in
+{
   mynix = {
     apps = {
       neovim = enabled;

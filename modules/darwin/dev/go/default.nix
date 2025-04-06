@@ -2,11 +2,13 @@
   pkgs,
   config,
   lib,
-  namespace,
+
   ...
-}: let
+}:
+let
   cfg = config.mynix.dev.lang.go;
-in {
+in
+{
   options = {
     mynix.dev.go.enable = lib.mkOption {
       type = lib.types.bool;

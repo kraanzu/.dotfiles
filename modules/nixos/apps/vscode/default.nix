@@ -2,11 +2,13 @@
   pkgs,
   lib,
   config,
-  namespace,
+
   ...
-}: let
+}:
+let
   cfg = config.mynix.apps.vscode;
-in {
+in
+{
   options = {
     mynix.apps.vscode.enable = lib.mkOption {
       type = lib.types.bool;

@@ -2,14 +2,16 @@
   config,
   lib,
   pkgs,
-  namespace,
+
   ...
-}: let
+}:
+let
   inherit (lib) types mkIf;
   inherit (lib.mynix) mkOpt;
 
   cfg = config.mynix.user;
-in {
+in
+{
   options.mynix.user = {
     name = mkOpt types.str "kraanzu" "The user account.";
     email = mkOpt types.str "kraanzu@gmail.com" "The email of the user.";

@@ -1,12 +1,14 @@
 {
   pkgs,
-  namespace,
+
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.mynix.system.utilties;
-in {
+in
+{
   options.mynix.system.utilties.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;

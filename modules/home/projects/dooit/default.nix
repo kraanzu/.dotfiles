@@ -2,13 +2,15 @@
   config,
   lib,
   pkgs,
-  namespace,
+
   inputs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.mynix.projects.dooit;
-in {
+in
+{
   options.mynix.projects.dooit = {
     enable = mkOption {
       type = types.bool;
@@ -18,7 +20,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    nixpkgs.overlays = [inputs.dooit-extras.overlay];
+    nixpkgs.overlays = [ inputs.dooit-extras.overlay ];
 
     programs.dooit = {
       enable = true;

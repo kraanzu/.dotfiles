@@ -1,11 +1,13 @@
 {
   lib,
-  namespace,
+
   ...
 }:
 with lib;
-with lib.mynix; let
-in {
+with lib.mynix;
+let
+in
+{
   imports = [
     ./hardware-configuration.nix
     ./ext_drives.nix
@@ -37,7 +39,11 @@ in {
 
   users.users.kraanzu = {
     isNormalUser = true;
-    extraGroups = ["networkmanager" "wheel" "adbusers"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "adbusers"
+    ];
   };
 
   system.stateVersion = "24.11";

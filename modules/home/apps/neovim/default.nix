@@ -2,12 +2,14 @@
   config,
   lib,
   pkgs,
-  namespace,
+
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.mynix.apps.neovim;
-in {
+in
+{
   options.mynix.apps.neovim = {
     enable = mkOption {
       type = types.bool;

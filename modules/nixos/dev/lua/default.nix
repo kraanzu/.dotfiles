@@ -2,11 +2,13 @@
   pkgs,
   config,
   lib,
-  namespace,
+
   ...
-}: let
+}:
+let
   cfg = config.mynix.dev.lang.lua;
-in {
+in
+{
   options = {
     mynix.dev.lang.lua.enable = lib.mkOption {
       type = lib.types.bool;

@@ -1,4 +1,5 @@
-{mkLiteral}: {
+{ mkLiteral }:
+{
   "*" = {
     "al" = mkLiteral "#00000000";
     "bg" = mkLiteral "#252a34ff";
@@ -52,7 +53,12 @@
     "spacing" = mkLiteral "0px";
     "text-color" = mkLiteral "@fg";
     "padding" = mkLiteral "1px";
-    "children" = map mkLiteral ["prompt" "textbox-prompt-colon" "entry" "case-indicator"];
+    "children" = map mkLiteral [
+      "prompt"
+      "textbox-prompt-colon"
+      "entry"
+      "case-indicator"
+    ];
   };
 
   "mainbox" = {

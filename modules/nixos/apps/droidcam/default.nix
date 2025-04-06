@@ -1,12 +1,14 @@
 {
   config,
   lib,
-  namespace,
+
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.mynix.apps.droidcam;
-in {
+in
+{
   options.mynix.apps.droidcam = {
     enable = mkOption {
       type = types.bool;

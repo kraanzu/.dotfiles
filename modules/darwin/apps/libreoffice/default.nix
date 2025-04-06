@@ -2,12 +2,14 @@
   config,
   lib,
   pkgs,
-  namespace,
+
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.mynix.apps.libreoffice;
-in {
+in
+{
   options.mynix.apps.libreoffice = {
     enable = mkOption {
       type = types.bool;
@@ -17,6 +19,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [pkgs.libreoffice];
+    environment.systemPackages = [ pkgs.libreoffice ];
   };
 }

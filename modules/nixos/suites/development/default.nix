@@ -1,13 +1,15 @@
 {
-  namespace,
+
   lib,
   config,
   ...
 }:
 with lib;
-with lib.mynix; let
+with lib.mynix;
+let
   cfg = config.mynix.suites.development;
-in {
+in
+{
   options.mynix.suites.development.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;

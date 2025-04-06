@@ -1,12 +1,14 @@
 {
   pkgs,
   config,
-  namespace,
+
   lib,
   ...
-}: let
+}:
+let
   cfg = config.mynix.sec.wordlists;
-in {
+in
+{
   options = {
     mynix.sec.wordlists.enable = lib.mkOption {
       type = lib.types.bool;
@@ -16,7 +18,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [pkgs.wordlists];
+    environment.systemPackages = [ pkgs.wordlists ];
     systemd.tmpfiles.settings = {
       "wordlists" = {
         "/sec/wordlists" = {

@@ -2,12 +2,14 @@
   config,
   lib,
   pkgs,
-  namespace,
+
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.mynix.apps.simplescreenrecorder;
-in {
+in
+{
   options.mynix.apps.simplescreenrecorder = {
     enable = mkOption {
       type = types.bool;
@@ -17,6 +19,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [pkgs.simplescreenrecorder];
+    environment.systemPackages = [ pkgs.simplescreenrecorder ];
   };
 }

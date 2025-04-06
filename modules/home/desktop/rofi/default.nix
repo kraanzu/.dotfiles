@@ -2,9 +2,10 @@
   pkgs,
   lib,
   config,
-  namespace,
+
   ...
-}: let
+}:
+let
   rofi_modes = [
     # default modes
     "window"
@@ -20,7 +21,8 @@
     "power-menu:${pkgs.rofi-power-menu}/bin/rofi-power-menu"
   ];
   cfg = config.mynix.desktop.rofi;
-in {
+in
+{
   options.mynix.desktop.rofi.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;

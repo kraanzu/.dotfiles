@@ -1,12 +1,14 @@
 {
-  namespace,
+
   config,
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.mynix.desktop.nord_theme;
-in {
+in
+{
   options.mynix.desktop.nord_theme.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
@@ -26,7 +28,7 @@ in {
     gtk.theme.package = pkgs.nordic;
 
     gtk.iconTheme.name = "Papirus";
-    gtk.iconTheme.package = pkgs.papirus-nord.override {accent = "polarnight2";};
+    gtk.iconTheme.package = pkgs.papirus-nord.override { accent = "polarnight2"; };
 
     gtk.cursorTheme.name = "Nordic-cursors";
     gtk.cursorTheme.package = pkgs.nordic;

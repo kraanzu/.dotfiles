@@ -2,12 +2,14 @@
   config,
   lib,
   pkgs,
-  namespace,
+
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.mynix.apps.openrgb;
-in {
+in
+{
   options.mynix.apps.openrgb = {
     enable = mkOption {
       type = types.bool;
@@ -23,8 +25,8 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [pkgs.openrgb];
-    services.udev.packages = [pkgs.openrgb];
+    environment.systemPackages = [ pkgs.openrgb ];
+    services.udev.packages = [ pkgs.openrgb ];
 
     systemd.user.services.openrgb = {
       description = "OpenRGB Server";
@@ -32,7 +34,7 @@ in {
         ExecStart = "${pkgs.openrgb}/bin/openrgb --server --server-port 6742 --profile ${cfg.profile}";
         Restart = "on-failure";
       };
-      wantedBy = ["default.target"];
+      wantedBy = [ "default.target" ];
     };
   };
 }

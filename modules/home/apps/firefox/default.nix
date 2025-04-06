@@ -2,12 +2,14 @@
   config,
   lib,
   pkgs,
-  namespace,
+
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.mynix.apps.firefox;
-in {
+in
+{
   options.mynix.apps.firefox = {
     enable = mkOption {
       type = types.bool;

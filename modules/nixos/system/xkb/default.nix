@@ -1,12 +1,14 @@
 {
   config,
   lib,
-  namespace,
+
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.mynix.system.xkb;
-in {
+in
+{
   options.mynix.system.xkb.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;

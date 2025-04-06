@@ -3,12 +3,14 @@
   config,
   lib,
   pkgs,
-  namespace,
+
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.mynix.desktop.login.sddm-chili;
-in {
+in
+{
   options = {
     mynix.desktop.login.sddm-chili.enable = lib.mkOption {
       type = lib.types.bool;

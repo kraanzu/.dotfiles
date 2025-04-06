@@ -2,11 +2,13 @@
   pkgs,
   lib,
   config,
-  namespace,
+
   ...
-}: let
+}:
+let
   cfg = config.mynix.cli.gdrive;
-in {
+in
+{
   options = {
     mynix.cli.gdrive.enable = lib.mkOption {
       type = lib.types.bool;

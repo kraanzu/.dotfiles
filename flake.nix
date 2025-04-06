@@ -29,19 +29,21 @@
     };
   };
 
-  outputs = inputs: let
-    lib = inputs.snowfall-lib.mkLib {
-      inherit inputs;
-      src = ./.;
-      snowfall = {
-        namespace = "mynix";
-        meta = {
-          name = "mynix";
-          title = "Kraanzu's NixOS config";
+  outputs =
+    inputs:
+    let
+      lib = inputs.snowfall-lib.mkLib {
+        inherit inputs;
+        src = ./.;
+        snowfall = {
+          namespace = "mynix";
+          meta = {
+            name = "mynix";
+            title = "Kraanzu's NixOS config";
+          };
         };
       };
-    };
-  in
+    in
     lib.mkFlake {
       channels-config = {
         allowUnfree = true;

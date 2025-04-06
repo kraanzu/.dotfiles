@@ -1,14 +1,16 @@
 {
   lib,
   config,
-  namespace,
+
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.mynix.desktop.picom;
   shadow_offset_x = -7;
   shadow_offset_y = -7;
-in {
+in
+{
   options.mynix.desktop.picom.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
@@ -21,7 +23,10 @@ in {
       settings = {
         shadow = true;
         shadowRadius = 7;
-        shadowOffsets = [shadow_offset_x shadow_offset_y];
+        shadowOffsets = [
+          shadow_offset_x
+          shadow_offset_y
+        ];
         shadowColor = "#2e3440";
 
         fading = false;

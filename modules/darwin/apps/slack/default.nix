@@ -2,12 +2,14 @@
   config,
   lib,
   pkgs,
-  namespace,
+
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.mynix.apps.slack;
-in {
+in
+{
   options.mynix.apps.slack = {
     enable = mkOption {
       type = types.bool;
@@ -17,6 +19,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [pkgs.slack];
+    environment.systemPackages = [ pkgs.slack ];
   };
 }

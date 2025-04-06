@@ -2,11 +2,13 @@
   pkgs,
   config,
   lib,
-  namespace,
+
   ...
-}: let
+}:
+let
   cfg = config.mynix.dev.lang.markdown;
-in {
+in
+{
   options = {
     mynix.dev.lang.markdown.enable = lib.mkOption {
       type = lib.types.bool;

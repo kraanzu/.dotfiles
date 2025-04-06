@@ -2,12 +2,14 @@
   config,
   lib,
   pkgs,
-  namespace,
+
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.mynix.apps.anydesk;
-in {
+in
+{
   options.mynix.apps.anydesk = {
     enable = mkOption {
       type = types.bool;

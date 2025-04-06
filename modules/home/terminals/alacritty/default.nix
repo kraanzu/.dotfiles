@@ -2,11 +2,13 @@
   pkgs,
   lib,
   config,
-  namespace,
+
   ...
-}: let
+}:
+let
   cfg = config.mynix.terminals.alacritty;
-in {
+in
+{
   options.mynix.terminals.alacritty.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;

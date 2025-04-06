@@ -1,11 +1,13 @@
 {
   lib,
   config,
-  namespace,
+
   ...
-}: let
+}:
+let
   cfg = config.mynix.cli.redshift;
-in {
+in
+{
   options = {
     mynix.cli.redshift.enable = lib.mkOption {
       type = lib.types.bool;

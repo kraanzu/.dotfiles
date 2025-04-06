@@ -2,11 +2,13 @@
   pkgs,
   config,
   lib,
-  namespace,
+
   ...
-}: let
+}:
+let
   cfg = config.mynix.dev.lang.ts;
-in {
+in
+{
   options = {
     mynix.dev.lang.ts.enable = lib.mkOption {
       type = lib.types.bool;

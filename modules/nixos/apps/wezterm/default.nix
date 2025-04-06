@@ -2,11 +2,13 @@
   pkgs,
   lib,
   config,
-  namespace,
+
   ...
-}: let
+}:
+let
   cfg = config.mynix.apps.wezterm;
-in {
+in
+{
   options = {
     mynix.apps.wezterm.enable = lib.mkOption {
       type = lib.types.bool;

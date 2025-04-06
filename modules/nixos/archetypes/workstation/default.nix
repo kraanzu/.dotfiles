@@ -1,13 +1,15 @@
 {
   config,
   lib,
-  namespace,
+
   ...
 }:
 with lib;
-with lib.mynix; let
+with lib.mynix;
+let
   cfg = config.mynix.archetypes.workstation;
-in {
+in
+{
   options.mynix.archetypes.workstation.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;

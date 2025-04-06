@@ -1,11 +1,13 @@
 {
   config,
   lib,
-  namespace,
+
   ...
-}: let
+}:
+let
   cfg = config.mynix.cli.docker;
-in {
+in
+{
   options = {
     mynix.cli.docker.enable = lib.mkOption {
       type = lib.types.bool;

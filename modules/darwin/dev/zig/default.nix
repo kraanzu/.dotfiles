@@ -2,11 +2,13 @@
   pkgs,
   config,
   lib,
-  namespace,
+
   ...
-}: let
+}:
+let
   cfg = config.mynix.dev.lang.zig;
-in {
+in
+{
   options = {
     mynix.dev.zig.enable = lib.mkOption {
       type = lib.types.bool;

@@ -2,11 +2,13 @@
   pkgs,
   config,
   lib,
-  namespace,
+
   ...
-}: let
+}:
+let
   cfg = config.mynix.dev.python;
-in {
+in
+{
   options = {
     mynix.dev.python.enable = lib.mkOption {
       type = lib.types.bool;

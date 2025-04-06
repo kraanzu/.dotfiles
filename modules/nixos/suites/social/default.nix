@@ -1,13 +1,15 @@
 {
-  namespace,
+
   lib,
   config,
   ...
 }:
 with lib;
-with lib.mynix; let
+with lib.mynix;
+let
   cfg = config.mynix.suites.social;
-in {
+in
+{
   options.mynix.suites.social.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;

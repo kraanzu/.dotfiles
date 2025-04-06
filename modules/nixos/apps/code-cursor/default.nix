@@ -2,11 +2,13 @@
   pkgs,
   lib,
   config,
-  namespace,
+
   ...
-}: let
+}:
+let
   cfg = config.mynix.apps.code-cursor;
-in {
+in
+{
   options = {
     mynix.apps.code-cursor.enable = lib.mkOption {
       type = lib.types.bool;

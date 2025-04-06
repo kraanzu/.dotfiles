@@ -2,11 +2,13 @@
   pkgs,
   lib,
   config,
-  namespace,
+
   ...
-}: let
+}:
+let
   cfg = config.mynix.apps.disk-utilities;
-in {
+in
+{
   options = {
     mynix.apps.disk-utilities.enable = lib.mkOption {
       type = lib.types.bool;

@@ -2,15 +2,17 @@
   lib,
   pkgs,
   config,
-  namespace,
+
   ...
-}: let
+}:
+let
   bg = "#252a34";
   white = "#D8DEE9";
   red = "#BF616A";
   blue = "#81A1C1";
   cfg = config.mynix.desktop.dunst;
-in {
+in
+{
   options.mynix.desktop.dunst.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
@@ -73,7 +75,10 @@ in {
           # browser = "/usr/bin/xdg-open";
           always_run_script = true;
           mouse_left_click = "close_current";
-          mouse_middle_click = ["do_action" "close_current"];
+          mouse_middle_click = [
+            "do_action"
+            "close_current"
+          ];
           mouse_right_click = "close_all";
           title = "Dunst";
           class = "Dunst";

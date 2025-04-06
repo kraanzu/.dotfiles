@@ -3,12 +3,14 @@
   config,
   lib,
   pkgs,
-  namespace,
+
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.mynix.desktop.utilities;
-in {
+in
+{
   options = {
     mynix.desktop.utilities.enable = lib.mkOption {
       type = lib.types.bool;

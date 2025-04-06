@@ -1,11 +1,13 @@
 {
-  namespace,
+
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.mynix.system.usb;
-in {
+in
+{
   options.mynix.system.usb.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;

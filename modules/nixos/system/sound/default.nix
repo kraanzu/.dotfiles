@@ -1,12 +1,14 @@
 {
   pkgs,
-  namespace,
+
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.mynix.system.sound;
-in {
+in
+{
   options.mynix.system.sound.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;

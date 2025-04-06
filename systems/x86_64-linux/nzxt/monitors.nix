@@ -7,7 +7,8 @@ let
     DisplayPort-1 = dp_edid;
     HDMI-A-0 = hdmi_edid;
   };
-in {
+in
+{
   services.autorandr = {
     enable = true;
     defaultTarget = "single-monitor";

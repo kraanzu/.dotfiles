@@ -1,14 +1,16 @@
 {
   pkgs,
   lib,
-  namespace,
+
   config,
   ...
-}: let
+}:
+let
   bg = "#252a34";
   blue = "#81A1C1";
   cfg = config.mynix.desktop.mako;
-in {
+in
+{
   options.mynix.desktop.mako.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
