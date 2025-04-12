@@ -9,6 +9,7 @@ return {
   magenta = 0xffb48ead,
   grey = 0xff4c566a,
   transparent = 0x00000000,
+  cyan = 0xff8fbcbb,
 
   bar = {
     bg = 0xd02e3440,
