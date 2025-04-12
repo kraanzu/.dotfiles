@@ -11,4 +11,5 @@ sbar.bar({
   padding_left = 10,
   blur_radius=20,
   topmost="window",
+  position="bottom",
 })
