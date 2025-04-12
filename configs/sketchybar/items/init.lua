@@ -1,3 +1,10 @@
+local utils = require("utils")
+
 require("items.spaces")
+require("items.date")
+sbar.add("item", utils.padding())
 require("items.volume")
+sbar.add("item", utils.padding())
 require("items.battery")
+sbar.add("item", utils.padding())
+require("items.time")
