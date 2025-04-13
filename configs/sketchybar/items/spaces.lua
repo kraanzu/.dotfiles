@@ -14,14 +14,51 @@ local function get_aerospace_workspaces()
   return workspaces
 end
 
+-- Get the focused workspace from Aerospace
+function get_focused_workspace()
+  local handle = io.popen("aerospace list-workspaces --focused")
+  local focused_workspace = handle:read("*a"):gsub("%s+", "")
+  handle:close()
+  return focused_workspace
+end
+
+-- Check if a workspace has any windows
+local function is_workspace_active(workspace)
+  local handle = io.popen("aerospace list-windows --workspace " .. workspace)
+  if handle then
+    local result = handle:read("*a")
+    handle:close()
+    return result ~= ""
+  end
+  return false
+end
+
+
 -- Handle workspace change event
-local function handle_workspace_change(env)
-  local focused_workspace = env.FOCUSED_WORKSPACE
-  for _, workspace in ipairs(get_aerospace_workspaces()) do
-    sbar.set("space." .. workspace, {
-      background = { color = workspace == focused_workspace and colors.cyan or colors.bg1 },
-      icon = { color = workspace == focused_workspace and colors.bar.bg or colors.white }
-    })
+local function update_workspaces_widget()
+  local focused_workspace = get_focused_workspace()
+  local all_workspaces = get_aerospace_workspaces()
+
+  for _, workspace in ipairs(all_workspaces) do
+    local is_focused = workspace == focused_workspace
+    local is_active = is_workspace_active(workspace)
+
+    if is_focused then
+      sbar.set("space." .. workspace, {
+        background = { color = colors.cyan },
+        icon = { color = colors.bar.bg }
+      })
+    elseif is_active then
+      sbar.set("space." .. workspace, {
+        background = { color = colors.bg1 },
+        icon = { color = colors.white }
+      })
+    else
+      sbar.set("space." .. workspace, {
+        background = { color = colors.bg1 },
+        icon = { color = colors.grey }
+      })
+    end
   end
 end
 
@@ -43,11 +80,12 @@ for _, workspace_id in ipairs(workspace_list) do
     background = {
       color = colors.bg1,
       corner_radius = 0,
-    }
+    },
+    update_freq = 1,
   })
   
   table.insert(spaces, space.name)
-  space:subscribe("aerospace_workspace_change", handle_workspace_change)
+  space:subscribe({"aerospace_workspace_change", "routine"}, update_workspaces_widget)
 end
 
 -- Only add a bracket if we have spaces
