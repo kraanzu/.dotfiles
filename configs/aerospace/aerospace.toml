@@ -1,7 +1,24 @@
 after-login-command = []
 after-startup-command = ['exec-and-forget sketchybar']
 exec-on-workspace-change = ['/bin/bash', '-c',
-    'sketchybar --trigger aerospace_workspace_change'
+    """
+        # Define colors
+        BG_FOCUSED="0xff88c0d0"    # Nord cyan
+        BG_UNFOCUSED="0xff2e3440"  # Nord black
+        ICON_FOCUSED="0xff2e3440"  # Nord black
+        ICON_ACTIVE="0xffeceff4"   # Nord white
+        ICON_INACTIVE="0xff4c566a" # Nord grey
+
+        for space in {1..6}; do
+            if [ $space == $AEROSPACE_FOCUSED_WORKSPACE ]; then
+                sketchybar --set space.$space background.color=$BG_FOCUSED icon.color=$ICON_FOCUSED
+            elif [ -n "$(aerospace list-windows --workspace $space)" ]; then
+                sketchybar --set space.$space background.color=$BG_UNFOCUSED icon.color=$ICON_ACTIVE
+            else
+                sketchybar --set space.$space background.color=$BG_UNFOCUSED icon.color=$ICON_INACTIVE
+            fi
+        done
+    """
 ]
 start-at-login = true
 
