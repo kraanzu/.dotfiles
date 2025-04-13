@@ -12,4 +12,5 @@ sbar.bar({
   blur_radius=20,
   topmost="window",
   position="bottom",
+  display="main",
 })

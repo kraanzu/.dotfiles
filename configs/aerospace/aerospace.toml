@@ -20,7 +20,7 @@ automatically-unhide-macos-hidden-apps = true
     inner.horizontal = 0
     inner.vertical =   0
     outer.left =       5
-    outer.bottom =     35
+    outer.bottom =     [{monitor.main=35}, 0]
     outer.top =        5
     outer.right =      5
 
@@ -71,16 +71,13 @@ automatically-unhide-macos-hidden-apps = true
     alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
     alt-semicolon = 'mode service'
 
+    cmd-q = 'close'
+
 [mode.service.binding]
     esc = ['reload-config', 'mode main']
     r = ['flatten-workspace-tree', 'mode main'] # reset layout
     f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
     backspace = ['close-all-windows-but-current', 'mode main']
-
-    alt-shift-h = ['join-with left', 'mode main']
-    alt-shift-j = ['join-with down', 'mode main']
-    alt-shift-k = ['join-with up', 'mode main']
-    alt-shift-l = ['join-with right', 'mode main']
 
     down = 'volume down'
     up = 'volume up'
