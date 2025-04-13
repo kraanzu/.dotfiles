@@ -81,11 +81,10 @@ for _, workspace_id in ipairs(workspace_list) do
       color = colors.bg1,
       corner_radius = 0,
     },
-    update_freq = 1,
   })
   
   table.insert(spaces, space.name)
-  space:subscribe({"aerospace_workspace_change", "routine"}, update_workspaces_widget)
+  space:subscribe("aerospace_workspace_change", update_workspaces_widget)
 end
 
 -- Only add a bracket if we have spaces
