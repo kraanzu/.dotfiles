@@ -7,17 +7,9 @@ exec-on-workspace-change = ['/bin/bash', '-c',
         BG_UNFOCUSED="0xff2e3440"  # Nord black
         ICON_FOCUSED="0xff2e3440"  # Nord black
         ICON_ACTIVE="0xffeceff4"   # Nord white
-        ICON_INACTIVE="0xff4c566a" # Nord grey
 
-        for space in {1..6}; do
-            if [ $space == $AEROSPACE_FOCUSED_WORKSPACE ]; then
-                sketchybar --set space.$space background.color=$BG_FOCUSED icon.color=$ICON_FOCUSED
-            elif [ -n "$(aerospace list-windows --workspace $space)" ]; then
-                sketchybar --set space.$space background.color=$BG_UNFOCUSED icon.color=$ICON_ACTIVE
-            else
-                sketchybar --set space.$space background.color=$BG_UNFOCUSED icon.color=$ICON_INACTIVE
-            fi
-        done
+        sketchybar --set space.$AEROSPACE_FOCUSED_WORKSPACE background.color=$BG_FOCUSED icon.color=$ICON_FOCUSED
+        sketchybar --set space.$AEROSPACE_PREV_WORKSPACE background.color=$BG_UNFOCUSED icon.color=$ICON_ACTIVE
     """
 ]
 
