@@ -20,6 +20,14 @@ exec-on-workspace-change = ['/bin/bash', '-c',
         done
     """
 ]
+
+on-focus-changed = [
+    '''exec-and-forget /bin/bash -c '\
+        # Send notification when window focus changes
+    '\
+    '''
+]
+
 start-at-login = true
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
