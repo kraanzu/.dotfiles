@@ -12,6 +12,30 @@ if handle then
 end
 
 local spaces = {}
+function handle_space_change(env)
+  -- Write space name to file
+  local file = io.open(os.getenv("HOME") .. "/text.txt", "w")
+  if file then
+    file:write(env.NAME)
+    file:close()
+  end
+
+  local space_name = env.NAME
+
+  if "space."..env.FOCUSED_WORKSPACE == space_name then
+    sbar.set(space_name, {
+      background = { color = colors.cyan },
+      icon = { color = colors.black }
+    })
+  end
+
+  if "space."..env.PREV_WORKSPACE == space_name then
+    sbar.set(space_name, {
+      background = { color = colors.black },
+      icon = { color = colors.white }
+    })
+  end
+end
 
 -- Add each workspace as a simple item (not a space)
 for _, workspace_id in ipairs(workspace_list) do
@@ -31,6 +55,7 @@ for _, workspace_id in ipairs(workspace_list) do
   })
   
   table.insert(spaces, space.name)
+  space:subscribe("aerospace_workspace_change", handle_space_change)
 end
 
 -- Only add a bracket if we have spaces
