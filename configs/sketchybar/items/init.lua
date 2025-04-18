@@ -1,6 +1,7 @@
 local utils = require("utils")
 
 require("items.spaces")
+require("items.window_count")
 require("items.date")
 sbar.add("item", utils.padding())
 require("items.volume")

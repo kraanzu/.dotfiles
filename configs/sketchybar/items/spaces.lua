@@ -13,13 +13,6 @@ end
 
 local spaces = {}
 function handle_space_change(env)
-  -- Write space name to file
-  local file = io.open(os.getenv("HOME") .. "/text.txt", "w")
-  if file then
-    file:write(env.NAME)
-    file:close()
-  end
-
   local space_name = env.NAME
 
   if "space."..env.FOCUSED_WORKSPACE == space_name then

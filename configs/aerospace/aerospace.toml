@@ -7,10 +7,15 @@ exec-on-workspace-change = ['/bin/bash', '-c',
 ]
 
 on-focus-changed = [
-    '''exec-and-forget /bin/bash -c '\
-        # Send notification when window focus changes
-    '\
-    '''
+    '''exec-and-forget /bin/bash -c "
+        sketchybar --trigger aerospace_focus_change \
+            OPEN_WINDOWS=$(aerospace list-windows \
+                --workspace $(aerospace list-workspaces --focused) \
+                --format "%{app-name}" \
+                | sort -u \
+                | wc -l \
+                | tr -d ' ')
+    "'''
 ]
 
 start-at-login = true
