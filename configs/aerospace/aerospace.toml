@@ -86,16 +86,14 @@ automatically-unhide-macos-hidden-apps = true
     alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
     alt-semicolon = 'mode service'
 
+    cmd-down = 'volume down'
+    cmd-up = 'volume up'
+
     cmd-q = 'close'
 
 [mode.service.binding]
     esc = ['reload-config', 'mode main']
-    r = ['flatten-workspace-tree', 'mode main'] # reset layout
-    f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
-    backspace = ['close-all-windows-but-current', 'mode main']
 
-    down = 'volume down'
-    up = 'volume up'
     shift-down = ['volume set 0', 'mode main']
 
 # Assign apps to workspaces
