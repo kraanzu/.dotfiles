@@ -1,22 +1,7 @@
 after-login-command = []
-after-startup-command = ['exec-and-forget sketchybar']
-exec-on-workspace-change = ['/bin/bash', '-c',
-    """
-        sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE
-    """
-]
-
-on-focus-changed = [
-    '''exec-and-forget /bin/bash -c "
-        sketchybar --trigger aerospace_focus_change \
-            OPEN_WINDOWS=$(aerospace list-windows \
-                --workspace $(aerospace list-workspaces --focused) \
-                --format "%{app-name}" \
-                | sort -u \
-                | wc -l \
-                | tr -d ' ')
-    "'''
-]
+after-startup-command = []
+exec-on-workspace-change = []
+on-focus-changed = []
 
 start-at-login = true
 
@@ -35,7 +20,7 @@ automatically-unhide-macos-hidden-apps = true
     inner.horizontal = 0
     inner.vertical =   0
     outer.left =       0
-    outer.bottom =     [{monitor.main=30}, 0]
+    outer.bottom =     0
     outer.top =        0
     outer.right =      0
 
@@ -89,11 +74,11 @@ automatically-unhide-macos-hidden-apps = true
     cmd-down = 'volume down'
     cmd-up = 'volume up'
 
+    alt-f = 'macos-native-fullscreen'
     cmd-q = 'close'
 
 [mode.service.binding]
     esc = ['reload-config', 'mode main']
-
     shift-down = ['volume set 0', 'mode main']
 
 # Assign apps to workspaces
