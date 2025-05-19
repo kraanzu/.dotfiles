@@ -1,13 +1,7 @@
-{
-  lib,
-
-  ...
-}:
+{lib, ...}:
 with lib;
-with lib.mynix;
-let
-in
-{
+with lib.mynix; let
+in {
   imports = [
     ./hardware-configuration.nix
     ./ext_drives.nix
@@ -17,11 +11,13 @@ in
   networking.hostName = "nzxt";
 
   mynix = {
-    archetypes = {
-      workstation = enabled;
-    };
     suites = {
       work = enabled;
+      common = enabled;
+      desktop = enabled;
+      development = enabled;
+      social = enabled;
+      media = enabled;
     };
     hardware = {
       amdgpu = enabled;
@@ -37,10 +33,10 @@ in
     user = "kraanzu";
   };
 
-    programs.gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 
   users.users.kraanzu = {
     isNormalUser = true;
