@@ -5,19 +5,20 @@
   python311,
   testers,
 }:
+
 let
   python3 = python311;
 in
 python3.pkgs.buildPythonApplication rec {
   pname = "smassh";
-  version = "3.1.6";
+  version = "3.1.7";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "kraanzu";
     repo = "smassh";
     rev = "v${version}";
-    hash = "sha256-P0fZHSsaKIwJspEBxM5MEK3Z4kemXJWlIOQI9cmvlF4=";
+    hash = "sha256-NqeOeyzVn+hBPX+76A0hMBezPQqDNFZsHBSaRtsrfrA=";
   };
 
   nativeBuildInputs = with python3.pkgs; [ poetry-core ];
@@ -40,6 +41,7 @@ python3.pkgs.buildPythonApplication rec {
   passthru.tests.version = testers.testVersion {
     package = smassh;
     command = "HOME=$(mktemp -d) smassh --version";
+    version = "smassh - v${version}";
   };
 
   meta = with lib; {
