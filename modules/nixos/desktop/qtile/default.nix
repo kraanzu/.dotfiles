@@ -20,7 +20,11 @@ in
   config = lib.mkIf cfg.enable {
     programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
     mynix.cli.redshift.enable = true;
-    environment.systemPackages = with pkgs; [ flameshot ];
+    environment.systemPackages = with pkgs; [
+      flameshot
+      pulseaudio
+      playerctl
+    ];
 
     services.xserver.windowManager.qtile = {
       enable = true;
