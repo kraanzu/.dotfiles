@@ -23,6 +23,7 @@ in
         firefox = enabled;
         neovim = enabled;
         qbittorrent = enabled;
+        zed = enabled;
       };
       desktop = {
         wallpapers = enabled;

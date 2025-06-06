@@ -30,7 +30,6 @@ in
       apps = {
         wezterm = enabled;
         code-cursor = enabled;
-        zed = enabled;
       };
       cli = {
         docker = enabled;
