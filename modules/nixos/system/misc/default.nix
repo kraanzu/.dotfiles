@@ -1,13 +1,10 @@
 {
-
   lib,
   config,
   ...
-}:
-let
+}: let
   cfg = config.mynix.system.misc;
-in
-{
+in {
   options.mynix.system.misc.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
@@ -23,6 +20,8 @@ in
     programs.nix-index-database.comma.enable = true;
     programs.nix-ld.enable = true;
     programs.adb.enable = true;
+
+    services.gnome.gnome-keyring.enable = true;
 
     nix.settings.experimental-features = [
       "nix-command"
