@@ -22,6 +22,7 @@ in
       apps = {
         firefox = enabled;
         neovim = enabled;
+        qbittorrent = enabled;
       };
       desktop = {
         wallpapers = enabled;

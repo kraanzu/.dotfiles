@@ -19,6 +19,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ pkgs.qbittorrent ];
+    home.packages = [ pkgs.qbittorrent ];
   };
 }

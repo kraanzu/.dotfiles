@@ -60,9 +60,6 @@ in
       fish
       starship
       eza
-
-      # others
-      qbittorrent
     ];
   };
 }
