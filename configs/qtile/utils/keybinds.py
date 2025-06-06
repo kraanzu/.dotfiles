@@ -42,11 +42,6 @@ key_bindings = [
         lazy.spawn("evince"),
         desc="Launces Evince PDF Reader",
     ),
-    # Keybind(
-    #     "C-<Insert>",
-    #     lazy.spawn("scrot"),
-    #     desc="Take Screen Shot",
-    # ),
     Keybind(
         "M-<Insert>",
         lazy.spawn("flameshot gui"),
@@ -91,6 +86,21 @@ key_bindings = [
         "M-<Down>",
         lazy.spawn("pactl -- set-sink-volume 0 -5%"),
         desc="Decrease Volume",
+    ),
+    Keybind(
+        "<XF86AudioPlay>",
+        lazy.spawn("playerctl play-pause"),
+        desc="Play/Pause player",
+    ),
+    Keybind(
+        "<XF86AudioNext>",
+        lazy.spawn("playerctl next"),
+        desc="Skip to next",
+    ),
+    Keybind(
+        "<XF86AudioPrev>",
+        lazy.spawn("playerctl previous"),
+        desc="Skip to previous",
     ),
     Keybind(
         "M-S-<Up>",
