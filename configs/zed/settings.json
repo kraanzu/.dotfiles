@@ -1,11 +1,3 @@
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
 {
   "collaboration_panel": {
     "button": false
@@ -16,9 +8,7 @@
   "git_panel": {
     "button": false
   },
-  "features": {
-    "edit_prediction_provider": "zed"
-  },
+
   "agent": {
     "model_parameters": [],
     "default_model": {
@@ -27,6 +17,11 @@
     },
     "version": "2"
   },
+
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+
   "icon_theme": "Material Icon Theme",
   "tab_bar": {
     "show": true,
@@ -35,8 +30,9 @@
   "tabs": {
     "file_icons": true
   },
+
   "toolbar": {
-    "breadcrumbs": false,
+    "breadcrumbs": true,
     "quick_actions": false
   },
   "buffer_font_family": "JetBrainsMono Nerd Font",
@@ -53,13 +49,12 @@
     "dark": "Nord"
   },
   "show_completions_on_input": true,
-  // languages
+
   "languages": {
     "Python": {
       "tab_size": 4,
       "language_servers": ["pyright"],
       "formatter": "language_server"
-      // "language_servers": ["pyright"]
     }
   },
 
