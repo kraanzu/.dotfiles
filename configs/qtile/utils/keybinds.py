@@ -20,22 +20,10 @@ def toggle_dual_monitors(qtile: Qtile) -> None:
 
 
 key_bindings = [
-    # ROFI SCRIPTS -> Mod + Shift + <Key>
     Keybind(
         "M-S-<Return>",
         lazy.spawn("rofi -show drun"),
         desc="Launch rofi app-launcer",
-    ),
-    # LAUNCHING APPS -> Ctrl + Alt + <Key>
-    Keybind(
-        "C-A-b",
-        lazy.spawn("firefox"),
-        desc="Launches firefox with work profile",
-    ),
-    Keybind(
-        "C-A-v",
-        lazy.spawn("brave"),
-        desc="Launches firefox with personal profile",
     ),
     Keybind(
         "C-A-e",
@@ -46,16 +34,6 @@ key_bindings = [
         "M-<Insert>",
         lazy.spawn("flameshot gui"),
         desc="Take Screen Snip",
-    ),
-    # THE ESSENTIAL STUFF -> Mod + <Key>
-    Keybind(
-        "M-m",
-        toggle_dual_monitors(),
-    ),
-    Keybind(
-        "M-b",
-        lazy.spawn(f"blueberry"),
-        desc="Lauch bluetooth manager",
     ),
     Keybind(
         "A-<Return>",
