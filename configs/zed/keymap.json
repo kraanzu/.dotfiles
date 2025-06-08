@@ -1,5 +1,4 @@
 // Zed keymap
-//
 // For information on binding keys, see the Zed
 // documentation: https://zed.dev/docs/key-bindings
 //
@@ -7,15 +6,16 @@
 // from the command palette.
 [
   {
-    "context": "Workspace",
     "bindings": {
-      "shift shift": "file_finder::Toggle"
+      "super-i": "workspace::ToggleRightDock",
+      "super-b": "workspace::ToggleLeftDock"
     }
   },
   {
-    "context": "Editor",
+    "context": "GitPanel && ChangesList",
+    "use_key_equivalents": true,
     "bindings": {
-      // "j k": ["workspace::SendKeystrokes", "escape"]
+      "s": "git::ToggleStaged"
     }
   }
 ]
