@@ -8,7 +8,8 @@
   {
     "bindings": {
       "super-i": "workspace::ToggleRightDock",
-      "super-b": "workspace::ToggleLeftDock"
+      "super-b": "workspace::ToggleLeftDock",
+      "super-e": "project_panel::ToggleFocus",
     }
   },
   {
