@@ -24,6 +24,10 @@ in
 
       # lsp
       gopls
+
+      # debug
+      delve
+      gdlv
     ];
   };
 }
