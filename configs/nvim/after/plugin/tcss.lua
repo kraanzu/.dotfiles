@@ -2,8 +2,8 @@ vim.api.nvim_command("autocmd BufNewFile,BufRead *.tcss set filetype=tcss")
 
 local client = vim.lsp.start_client({
 	name = "tcss-lsp-v1",
-	cmd = { "/home/kraanzu/Projects/tcss-lsp/tcss-lsp" },
-	filetypes = { "tcss" },
+	cmd = { "/home/kraanzu/Projects/tcss-lsp/wrapper.sh" },
+	filetypes = { "tcss", "python" },
 	root_dir = vim.fn.getcwd(),
 	autostart = true,
 })
