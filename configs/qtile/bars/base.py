@@ -44,7 +44,7 @@ DEFAULT_CONFIGS["date"] = dict(
 
 DEFAULT_CONFIGS["memory"] = dict(
     measure_mem="G",
-    format="{MemUsed:.1f}<b>GB</b> ",
+    format="{MemUsed:.1f}&#8201;<b><small>GB</small></b> ",
 )
 
 DEFAULT_CONFIGS["disk"] = dict(
