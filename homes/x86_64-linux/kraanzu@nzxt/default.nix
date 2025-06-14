@@ -13,6 +13,9 @@ in
     suites = {
       common = enabled;
     };
+    apps = {
+      spotify = enabled;
+    };
     desktop = {
       rofi = enabled;
       dunst = enabled;
