@@ -11,7 +11,7 @@ in
 {
   options.mynix.system.shell.enable = lib.mkOption {
     type = lib.types.bool;
-    default = false;
+    default = true;
     description = "Setup shell";
   };
 

@@ -1,0 +1,33 @@
+{
+  pkgs,
+  config,
+  lib,
+
+  ...
+}:
+let
+  cfg = config.mynix.dev.lang.go;
+in
+{
+  options = {
+    mynix.dev.lang.go.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Setup go stuff";
+    };
+  };
+
+  config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [
+      # lang
+      go
+
+      # lsp
+      gopls
+
+      # debug
+      delve
+      gdlv
+    ];
+  };
+}

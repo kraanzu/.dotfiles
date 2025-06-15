@@ -13,19 +13,13 @@ in
   networking.hostName = "nzxt";
 
   mynix = {
-    suites = {
-      work = enabled;
-      common = enabled;
-      desktop = enabled;
-      development = enabled;
-      social = enabled;
-      media = enabled;
+    desktop = {
+      qtile = enabled;
+      login.sddm-chili = enabled;
+      utilities = enabled;
     };
     hardware = {
       amdgpu = enabled;
-    };
-    apps = {
-      openrgb = enabled;
     };
   };
 

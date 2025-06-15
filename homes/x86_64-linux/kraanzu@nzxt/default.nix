@@ -12,6 +12,7 @@ in
   mynix = {
     suites = {
       common = enabled;
+      development = enabled;
     };
     apps = {
       spotify = enabled;
@@ -20,9 +21,6 @@ in
       rofi = enabled;
       dunst = enabled;
       picom = enabled;
-    };
-    terminals = {
-      alacritty = enabled;
     };
   };
 

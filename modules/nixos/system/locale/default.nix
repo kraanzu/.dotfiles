@@ -1,6 +1,4 @@
 {
-  pkgs,
-
   lib,
   config,
   ...
@@ -11,15 +9,12 @@ in
 {
   options.mynix.system.locale.enable = lib.mkOption {
     type = lib.types.bool;
-    default = false;
+    default = true;
     description = "Setup locale";
   };
 
   config = lib.mkIf cfg.enable {
-    # Set your time zone.
     time.timeZone = "Asia/Kolkata";
-
-    # Select internationalisation properties.
     i18n.defaultLocale = "en_IN";
 
     i18n.extraLocaleSettings = {

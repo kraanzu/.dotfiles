@@ -9,7 +9,7 @@ in
 {
   options.mynix.system.misc.enable = lib.mkOption {
     type = lib.types.bool;
-    default = false;
+    default = true;
     description = "Setup misc items";
   };
 

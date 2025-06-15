@@ -10,7 +10,7 @@ in
 {
   options.mynix.system.boot.enable = lib.mkOption {
     type = lib.types.bool;
-    default = false;
+    default = true;
     description = "Enable boot configuration.";
   };
 
