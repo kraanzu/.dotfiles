@@ -10,9 +10,6 @@ let
 in
 {
   mynix = {
-    apps = {
-      neovim = enabled;
-    };
   };
 
   programs.git = {

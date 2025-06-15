@@ -35,7 +35,6 @@ in
     };
 
     environment.systemPackages = with pkgs; [
-      # basic utilties
       killall
       wget
       git
@@ -47,9 +46,7 @@ in
       xclip
       ripgrep
       bluez
-      pulseaudio
       tree
-      home-manager
       cloc
       imagemagick
       popsicle
