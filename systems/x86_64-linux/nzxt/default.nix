@@ -13,6 +13,9 @@ in
   networking.hostName = "nzxt";
 
   mynix = {
+    apps = {
+      openrgb = enabled;
+    };
     desktop = {
       qtile = enabled;
       login.sddm-chili = enabled;
@@ -21,12 +24,6 @@ in
     hardware = {
       amdgpu = enabled;
     };
-  };
-
-  services.getty.autologinUser = "kraanzu";
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = "kraanzu";
   };
 
   programs.gnupg.agent = {

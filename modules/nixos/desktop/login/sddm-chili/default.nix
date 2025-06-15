@@ -1,9 +1,7 @@
-# SDDM CHILI THEME
 {
   config,
   lib,
   pkgs,
-
   ...
 }:
 with lib;
@@ -29,6 +27,11 @@ in
     services.displayManager.sddm = {
       enable = true;
       theme = "${pkgs.mynix.sddm-chili}";
+    };
+    services.getty.autologinUser = "kraanzu";
+    services.displayManager.autoLogin = {
+      enable = true;
+      user = "kraanzu";
     };
   };
 }
