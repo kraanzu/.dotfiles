@@ -3,9 +3,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.mynix.cli.git-crypt;
-in {
+in
+{
   options = {
     mynix.cli.git-crypt.enable = lib.mkOption {
       type = lib.types.bool;

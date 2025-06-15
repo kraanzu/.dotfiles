@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.mynix.system.misc;
-in {
+in
+{
   options.mynix.system.misc.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;

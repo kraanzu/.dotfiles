@@ -1,7 +1,9 @@
-{lib, ...}:
+{ lib, ... }:
 with lib;
-with lib.mynix; let
-in {
+with lib.mynix;
+let
+in
+{
   imports = [
     ./hardware-configuration.nix
     ./ext_drives.nix

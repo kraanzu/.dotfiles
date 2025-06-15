@@ -3,9 +3,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.mynix.apps.zed;
-in {
+in
+{
   options.mynix.apps.zed = {
     enable = mkOption {
       type = types.bool;
@@ -18,7 +20,11 @@ in {
     programs.zed-editor.enable = true;
     services.gnome-keyring = {
       enable = true;
-      components = ["pkcs11" "secrets" "ssh"];
+      components = [
+        "pkcs11"
+        "secrets"
+        "ssh"
+      ];
     };
   };
 }
