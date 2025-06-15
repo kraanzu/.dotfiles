@@ -6,11 +6,11 @@
   ...
 }:
 let
-  cfg = config.mynix.dev.lang.ts;
+  cfg = config.mynix.dev.ts;
 in
 {
   options = {
-    mynix.dev.lang.ts.enable = lib.mkOption {
+    mynix.dev.ts.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Setup Typescript stuff";
@@ -19,15 +19,9 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
-      # lang
       typescript
-
-      #lsp
       typescript-language-server
-
-      # formatter
       prettierd
-
       bun
     ];
   };

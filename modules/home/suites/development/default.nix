@@ -18,7 +18,7 @@ in
 
   config = mkIf cfg.enable {
     mynix = {
-      dev.lang = {
+      dev = {
         cpp = enabled;
         python = enabled;
         nix = enabled;
@@ -26,6 +26,14 @@ in
         markdown = enabled;
         ts = enabled;
         go = enabled;
+      };
+      apps = {
+        zed = enabled;
+        neovim = enabled;
+        vscode = enabled;
+        code-cursor = enabled;
+        wezterm = enabled;
+        postman = enabled;
       };
     };
   };

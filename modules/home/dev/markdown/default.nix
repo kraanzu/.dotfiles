@@ -6,11 +6,11 @@
   ...
 }:
 let
-  cfg = config.mynix.dev.lang.markdown;
+  cfg = config.mynix.dev.markdown;
 in
 {
   options = {
-    mynix.dev.lang.markdown.enable = lib.mkOption {
+    mynix.dev.markdown.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Setup markdown stuff";
@@ -19,7 +19,6 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
-      # lsp
       marksman
     ];
   };

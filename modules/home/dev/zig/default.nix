@@ -6,11 +6,11 @@
   ...
 }:
 let
-  cfg = config.mynix.dev.lang.zig;
+  cfg = config.mynix.dev.zig;
 in
 {
   options = {
-    mynix.dev.lang.zig.enable = lib.mkOption {
+    mynix.dev.zig.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Setup zig stuff";
@@ -19,10 +19,7 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
-      # lang
       zig
-
-      # lsp
       zls
     ];
   };

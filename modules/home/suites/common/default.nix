@@ -19,22 +19,14 @@ in
     mynix = {
       apps = {
         firefox = enabled;
+        brave = enabled;
+        wezterm = enabled;
         neovim = enabled;
         qbittorrent = enabled;
-        zed = enabled;
         anydesk = enabled;
-        brave = enabled;
-        discord = enabled;
-        chrome = enabled;
-        code-cursor = enabled;
+
         disk-utilities = enabled;
         libreoffice = enabled;
-        postman = enabled;
-        simplescreenrecorder = enabled;
-        telegram = enabled;
-        vlc = enabled;
-        vscode = enabled;
-        wezterm = enabled;
       };
       desktop = {
         wallpapers = enabled;

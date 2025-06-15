@@ -13,9 +13,8 @@ in
     suites = {
       common = enabled;
       development = enabled;
-    };
-    apps = {
-      spotify = enabled;
+      social = enabled;
+      media = enabled;
     };
     desktop = {
       rofi = enabled;

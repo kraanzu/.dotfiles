@@ -6,11 +6,11 @@
   ...
 }:
 let
-  cfg = config.mynix.dev.lang.go;
+  cfg = config.mynix.dev.go;
 in
 {
   options = {
-    mynix.dev.lang.rust.enable = lib.mkOption {
+    mynix.dev.rust.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Setup rust stuff";
@@ -19,7 +19,6 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
-      # lang
       rustup
     ];
   };

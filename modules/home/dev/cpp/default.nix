@@ -6,11 +6,11 @@
   ...
 }:
 let
-  cfg = config.mynix.dev.lang.cpp;
+  cfg = config.mynix.dev.cpp;
 in
 {
   options = {
-    mynix.dev.lang.cpp.enable = lib.mkOption {
+    mynix.dev.cpp.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Setup cpp stuff";

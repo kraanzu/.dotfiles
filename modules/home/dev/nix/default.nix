@@ -6,11 +6,11 @@
   ...
 }:
 let
-  cfg = config.mynix.dev.lang.nix;
+  cfg = config.mynix.dev.nix;
 in
 {
   options = {
-    mynix.dev.lang.nix.enable = lib.mkOption {
+    mynix.dev.nix.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Setup nix stuff";
@@ -19,11 +19,7 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
-      # lsp
       nixd
-
-      # formatter
-      alejandra
       nixfmt-rfc-style
     ];
   };

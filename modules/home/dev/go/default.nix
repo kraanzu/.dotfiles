@@ -6,11 +6,11 @@
   ...
 }:
 let
-  cfg = config.mynix.dev.lang.go;
+  cfg = config.mynix.dev.go;
 in
 {
   options = {
-    mynix.dev.lang.go.enable = lib.mkOption {
+    mynix.dev.go.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Setup go stuff";
@@ -19,13 +19,8 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
-      # lang
       go
-
-      # lsp
       gopls
-
-      # debug
       delve
       gdlv
     ];
