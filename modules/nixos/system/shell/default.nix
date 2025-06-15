@@ -52,6 +52,9 @@ in
       popsicle
       wmctrl
       xdotool
+      poppler-utils
+      img2pdf
+      stow
 
       # shell stuff
       fish
