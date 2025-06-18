@@ -21,7 +21,7 @@
     grub2-themes.inputs.nixpkgs.follows = "nixpkgs";
 
     dooit.url = "github:dooit-org/dooit";
-    dooit-extras.url = "github:dooit-org/dooit-extras/nix-fix";
+    dooit-extras.url = "github:dooit-org/dooit-extras";
 
     mywalls = {
       url = "github:kraanzu/nord_walls";
