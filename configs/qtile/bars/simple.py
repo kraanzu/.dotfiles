@@ -26,7 +26,6 @@ COMMON_ATTRS = {
 }
 
 dnd_decoration = dict(
-    padding=10,
     foreground=color.dark2,
     decorations=[
         RectDecoration(
@@ -112,7 +111,8 @@ bar_right = [
     widget.pad(length=8),
     widget.date(fmt=" {} "),
     widget.pad(length=6),
-    widget.github_notifications(padding=10),
+    # widget.github_notifications(padding=10),
+    widget.do_not_disturb(**dnd_decoration),
     widget.pad(length=6),
     # widget.text(
     #     "󰚥",
@@ -122,7 +122,6 @@ bar_right = [
     #     },
     #     **dnd_decoration,
     # ),
-    # widget.pad(length=6),
 ]
 
 simple_bar = bar.Bar(
