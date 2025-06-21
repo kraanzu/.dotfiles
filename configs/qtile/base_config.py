@@ -109,9 +109,9 @@ def start_once():
     xfce4-clipman
     wezterm-mux-server --daemonize
     firefox
-    discord
     nm-applet
     caffeine
+    discord --start-minimized&
     """
 
     for cmd in commands.splitlines():
