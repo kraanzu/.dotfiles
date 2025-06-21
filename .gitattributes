@@ -3,3 +3,4 @@ configs/aws/** filter=git-crypt diff=git-crypt
 configs/gdrive/** filter=git-crypt diff=git-crypt
 configs/qtile-extras/** filter=git-crypt diff=git-crypt
 configs/textual-web/** filter=git-crypt diff=git-crypt
+*.ovpn filter=git-crypt diff=git-crypt
