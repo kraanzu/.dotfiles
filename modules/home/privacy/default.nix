@@ -13,7 +13,7 @@ let
 in
 {
   options.mynix.secrets = {
-    all.enable = mkBoolOpt true "Enable all secret-related apps";
+    all.enable = mkBoolOpt true "Enable all privacy apps";
 
     onepassword.enable = mkBoolOpt false "Enable 1Password";
     gitcrypt.enable = mkBoolOpt false "Enable git-crypt";

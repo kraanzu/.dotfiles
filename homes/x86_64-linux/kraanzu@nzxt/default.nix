@@ -10,6 +10,14 @@ let
 in
 {
   mynix = {
+    desktop = {
+      rofi = enabled;
+      dunst = enabled;
+      picom = enabled;
+      wallpapers = enabled;
+      nord_theme = enabled;
+      mimeapps = enabled;
+    };
     browsers = {
       firefox = enabled;
       brave = enabled;
@@ -27,14 +35,7 @@ in
       rust = enabled;
     };
 
-    desktop = {
-      rofi = enabled;
-      dunst = enabled;
-      picom = enabled;
-      wallpapers = enabled;
-      nord_theme = enabled;
-      mimeapps = enabled;
-    };
+    sec = enabled;
   };
 
   xdg.userDirs = {
