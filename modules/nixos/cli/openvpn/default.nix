@@ -21,11 +21,11 @@ in
 
     services.openvpn.servers = {
       sp_htb = {
-        config = builtins.readFile ./sp_htb.openvpn;
+        config = builtins.readFile ./sp_htb.ovpn;
         autoStart = false;
       };
       lab_htb = {
-        config = builtins.readFile ./lab_htb.openvpn;
+        config = builtins.readFile ./lab_htb.ovpn;
         autoStart = false;
       };
     };
