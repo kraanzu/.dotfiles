@@ -9,9 +9,6 @@ let
   user_email = "kraanzu@gmail.com";
 in
 {
-  mynix = {
-  };
-
   programs.git = {
     enable = true;
     userEmail = "${user_email}";

@@ -10,16 +10,30 @@ let
 in
 {
   mynix = {
-    suites = {
-      common = enabled;
-      development = enabled;
-      social = enabled;
-      media = enabled;
+    browsers = {
+      firefox = enabled;
+      brave = enabled;
     };
+    media.all = enabled;
+
+    dev.apps.all = enabled;
+    dev.lang = {
+      cpp = enabled;
+      go = enabled;
+      python = enabled;
+      lua = enabled;
+      markdown = enabled;
+      nix = enabled;
+      rust = enabled;
+    };
+
     desktop = {
       rofi = enabled;
       dunst = enabled;
       picom = enabled;
+      wallpapers = enabled;
+      nord_theme = enabled;
+      mimeapps = enabled;
     };
   };
 
