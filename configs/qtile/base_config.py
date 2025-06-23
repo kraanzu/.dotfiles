@@ -111,7 +111,7 @@ def start_once():
     firefox
     nm-applet
     caffeine
-    discord --start-minimized&
+    discord --start-minimized
     """
 
     for cmd in commands.splitlines():
