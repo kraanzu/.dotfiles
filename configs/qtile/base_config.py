@@ -34,7 +34,6 @@ def configure_workspaces(workspaces: list[str] = WORKSPACES):
             Group(
                 str(index),
                 layout=LAYOUTS.get(index, "monadtall"),
-                spawn=SPAWNS.get(index),
                 label=workspace,
             )
         )
@@ -69,11 +68,10 @@ layouts = [
 
 # ------------------- QTILE HOOKS ---------------------
 
-
 @hook.subscribe.client_new
 def func(win: Window):
     # FLOAT
-    wm_class = win.get_wm_class()
+    wm_class = [c.lower() for c in win.get_wm_class()]
     if wm_class:
         if any(app.lower() in FLOATING_WINS for app in wm_class):
             func = win.cmd_enable_floating
@@ -109,6 +107,7 @@ def start_once():
     xfce4-clipman
     wezterm-mux-server --daemonize
     firefox
+    zeditor
     nm-applet
     caffeine
     discord --start-minimized
