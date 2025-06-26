@@ -108,5 +108,27 @@
   },
   "features": {
     "edit_prediction_provider": "copilot"
+  },
+
+  // Extensions
+  "auto_install_extensions": {
+    // nice
+    "git-firefly": true,
+    "material-icon-theme": true,
+    "golangci-lint": true,
+    "rainbow-csv": true,
+
+    // languages
+    "html": true,
+    "markdown": true,
+    "fish": true,
+    "lua": true,
+    "nix": true,
+    "scheme": true,
+    "dockerfile": true,
+
+    "toml": true,
+    "ruff": true,
+    "pylsp": true
   }
 }
