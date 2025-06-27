@@ -2,7 +2,7 @@
   pkgs,
   config,
   lib,
-
+  inputs,
   ...
 }:
 let
@@ -18,6 +18,8 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    nixpkgs.overlays = [ inputs.qtile-flake.overlays.default ];
+
     programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
     mynix.cli.redshift.enable = true;
     environment.systemPackages = with pkgs; [

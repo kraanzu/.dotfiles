@@ -20,6 +20,11 @@
     grub2-themes.url = "github:vinceliuice/grub2-themes/2024-08-19";
     grub2-themes.inputs.nixpkgs.follows = "nixpkgs";
 
+    qtile-flake = {
+      url = "github:qtile/qtile/v0.30.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     dooit.url = "github:dooit-org/dooit";
     dooit-extras.url = "github:dooit-org/dooit-extras";
 

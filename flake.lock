@@ -270,6 +270,27 @@
         "type": "github"
       }
     },
+    "qtile-flake": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1736209624,
+        "narHash": "sha256-mZq8aaXxnjaEuAHbdIWTRQ2bP9ugJrXBB5pYOl1qBrA=",
+        "owner": "qtile",
+        "repo": "qtile",
+        "rev": "6e31cf27f95fcd41e22322442d9ecb3eae249ffb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "qtile",
+        "ref": "v0.30.0",
+        "repo": "qtile",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "darwin": "darwin",
@@ -280,6 +301,7 @@
         "mywalls": "mywalls",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_4",
+        "qtile-flake": "qtile-flake",
         "snowfall-lib": "snowfall-lib"
       }
     },
