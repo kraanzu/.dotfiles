@@ -6,7 +6,7 @@ in
 {
   imports = [
     ./hardware-configuration.nix
-    ./ext_drives.nix
+    ./htb.nix
     ./monitors.nix
   ];
 
