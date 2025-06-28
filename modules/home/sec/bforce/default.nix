@@ -14,15 +14,9 @@ in
 {
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      subfinder
-      amass
-      gobuster
-      httprobe
-      whatweb
-      hash-identifier
-      feroxbuster
-      ffuf
-      exploitdb
+      thc-hydra
+      fcrackzip
+      hashcat
     ];
   };
 }
