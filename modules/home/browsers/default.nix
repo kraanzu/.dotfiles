@@ -10,6 +10,14 @@ with lib.mynix;
 
 let
   cfg = config.mynix.browsers;
+
+  browserDesktopNames = {
+    firefox = "firefox.desktop";
+    brave = "brave-browser.desktop";
+    chrome = "google-chrome.desktop";
+  };
+
+  defaultDesktop = browserDesktopNames.${cfg.defaultBrowser};
 in
 {
   options.mynix.browsers = {
@@ -47,5 +55,20 @@ in
       };
     };
 
+    xdg.mimeApps.enable = true;
+    xdg.mimeApps.defaultApplications = {
+      "text/html" = [ defaultDesktop ];
+      "x-scheme-handler/http" = [ defaultDesktop ];
+      "x-scheme-handler/https" = [ defaultDesktop ];
+      "x-scheme-handler/chrome" = [ defaultDesktop ];
+      "application/x-extension-htm" = [ defaultDesktop ];
+      "application/x-extension-html" = [ defaultDesktop ];
+      "application/x-extension-shtml" = [ defaultDesktop ];
+      "application/xhtml+xml" = [ defaultDesktop ];
+      "application/x-extension-xhtml" = [ defaultDesktop ];
+      "application/x-extension-xht" = [ defaultDesktop ];
+    };
+
+    home.sessionVariables.BROWSER = defaultDesktop;
   };
 }
