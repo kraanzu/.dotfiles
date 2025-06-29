@@ -22,7 +22,7 @@ secondary_apps = "discord telegram chrome microsoft".split()
 
 MATCHES = {
     1: ["firefox"],
-    2: ["dev.zed.Zed"],
+    3: ["dev.zed.Zed"],
     4: ["vlc"],
     5: ["brave-browser", "discord", "spotify"],
     6: ["telegram", "google-chrome", "microsoft-edge"],

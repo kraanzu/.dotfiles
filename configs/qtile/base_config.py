@@ -103,6 +103,7 @@ def screens_reconfigured():
 
 @hook.subscribe.startup_once
 def start_once():
+    # Mimeapps needs to be explicitly set: https://github.com/NixOS/nixpkgs/issues/189851
     commands = """
     xfce4-clipman
     wezterm-mux-server --daemonize
@@ -110,6 +111,7 @@ def start_once():
     zeditor
     nm-applet
     caffeine
+    systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service
     discord --start-minimized
     """
 
