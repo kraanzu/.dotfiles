@@ -16,7 +16,6 @@ in
       picom = enabled;
       wallpapers = enabled;
       nord_theme = enabled;
-      mimeapps = enabled;
     };
     browsers = {
       firefox = enabled;
@@ -38,9 +37,12 @@ in
     sec = enabled;
   };
 
-  xdg.userDirs = {
-    enable = true;
-    createDirectories = true;
+  xdg = {
+    mimeApps = enabled;
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+    };
   };
 
   programs.git = {

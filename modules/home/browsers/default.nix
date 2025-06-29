@@ -55,7 +55,6 @@ in
       };
     };
 
-    xdg.mimeApps.enable = true;
     xdg.mimeApps.defaultApplications = {
       "text/html" = [ defaultDesktop ];
       "x-scheme-handler/http" = [ defaultDesktop ];

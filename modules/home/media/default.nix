@@ -16,13 +16,13 @@ in
     all.enable = mkBoolOpt false "Enable all apps";
     anydesk.enable = mkBoolOpt false "Enable Anydesk";
     qbittorrent.enable = mkBoolOpt false "Enable qBittorrent";
-    slack.enable = mkBoolOpt false "Enable Slack";
     simplescreenrecorder.enable = mkBoolOpt false "Enable SimpleScreenRecorder";
     spotify.enable = mkBoolOpt false "Enable Spotify";
     telegram.enable = mkBoolOpt false "Enable Telegram";
     vlc.enable = mkBoolOpt false "Enable VLC";
-    zoom.enable = mkBoolOpt false "Enable Zoom";
     discord.enable = mkBoolOpt false "Enable Discord";
+    # zoom.enable = mkBoolOpt false "Enable Zoom";
+    # slack.enable = mkBoolOpt false "Enable Slack";
   };
 
   config = {
@@ -37,5 +37,9 @@ in
       # (mkIf (cfg.slack.enable || cfg.all.enable) slack)
       # (mkIf (cfg.zoom.enable || cfg.all.enable) zoom-us)
     ];
+
+    xdg.mimeApps.defaultApplications = mkIf (cfg.telegram.enable || cfg.all.enable) {
+      "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop" ];
+    };
   };
 }
