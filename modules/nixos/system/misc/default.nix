@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 let
@@ -23,17 +24,15 @@ in
     programs.nix-ld.enable = true;
     programs.adb.enable = true;
 
-    services.gnome.gnome-keyring.enable = true;
     xdg.portal = {
       enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
       config = {
-        common = {
-          default = [
-            "gtk"
-          ];
-        };
+        common.default = "*";
       };
     };
+
+    environment.systemPackages = [ pkgs.keepassxc ];
 
     nix.settings.experimental-features = [
       "nix-command"

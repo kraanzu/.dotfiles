@@ -46,14 +46,5 @@ in
         gcc # Treesiter
       ];
     };
-
-    services.gnome-keyring = mkIf (cfg.zed.enable || cfg.all.enable) {
-      enable = true;
-      components = [
-        "pkcs11"
-        "secrets"
-        "ssh"
-      ];
-    };
   };
 }
