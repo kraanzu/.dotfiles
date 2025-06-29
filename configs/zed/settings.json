@@ -97,6 +97,10 @@
 
   // Copilot settings
   "agent": {
+    "inline_assistant_model": {
+      "provider": "copilot_chat",
+      "model": "claude-3.7-sonnet"
+    },
     "button": false,
     "default_profile": "ask",
     "model_parameters": [],
