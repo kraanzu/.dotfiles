@@ -11,6 +11,10 @@ in
   ];
 
   networking.hostName = "nzxt";
+  hardware.openrazer = {
+    enable = true;
+    batteryNotifier.percentage = 10;
+  };
 
   mynix = {
     apps = {
@@ -37,6 +41,7 @@ in
       "networkmanager"
       "wheel"
       "adbusers"
+      "openrazer"
     ];
   };
 
