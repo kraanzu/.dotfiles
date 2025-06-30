@@ -13,7 +13,10 @@ in
   # Extra fluff
   hardware.openrazer = {
     enable = true;
-    batteryNotifier.percentage = 10;
+    batteryNotifier = {
+      percentage = 5;
+      frequency = 6 * 3600;
+    };
   };
   fileSystems."/drives/WIN10" = {
     device = "/dev/disk/by-uuid/54E0DD9BE0DD83A0";
