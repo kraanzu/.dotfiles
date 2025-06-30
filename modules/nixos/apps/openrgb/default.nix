@@ -33,8 +33,9 @@ in
       serviceConfig = {
         ExecStart = "${pkgs.openrgb}/bin/openrgb --server --server-port 6742 --profile ${cfg.profile}";
         Restart = "on-failure";
+        PartOf = [ "graphical-session.target" ];
       };
-      wantedBy = [ "default.target" ];
+      wantedBy = [ "graphical-session.target" ];
     };
   };
 }

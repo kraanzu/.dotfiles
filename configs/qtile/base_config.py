@@ -108,7 +108,6 @@ def start_once():
     xfce4-clipman
     wezterm-mux-server --daemonize
     firefox
-    zeditor
     nm-applet
     caffeine
     systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service
