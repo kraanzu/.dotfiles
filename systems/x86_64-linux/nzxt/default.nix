@@ -10,12 +10,17 @@ in
     ./monitors.nix
   ];
 
-  networking.hostName = "nzxt";
+  # Extra fluff
   hardware.openrazer = {
     enable = true;
     batteryNotifier.percentage = 10;
   };
+  fileSystems."/drives/WIN10" = {
+    device = "/dev/disk/by-uuid/54E0DD9BE0DD83A0";
+    fsType = "ntfs";
+  };
 
+  networking.hostName = "nzxt";
   mynix = {
     apps = {
       openrgb = enabled;
