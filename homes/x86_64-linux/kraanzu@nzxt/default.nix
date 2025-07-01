@@ -20,6 +20,7 @@ in
     browsers = {
       firefox = enabled;
       brave = enabled;
+      edge = enabled;
     };
     media.all = enabled;
 

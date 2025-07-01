@@ -25,6 +25,7 @@ in
     firefox.enable = mkBoolOpt false "Enable Firefox browser";
     brave.enable = mkBoolOpt false "Enable Brave browser";
     chrome.enable = mkBoolOpt false "Enable Chrome browser";
+    edge.enable = mkBoolOpt false "Enable MS Edge browser";
 
     defaultBrowser = mkOption {
       type = types.enum [
@@ -41,6 +42,7 @@ in
     home.packages = with pkgs; [
       (mkIf (cfg.brave.enable || cfg.all.enable) brave)
       (mkIf (cfg.chrome.enable || cfg.all.enable) google-chrome)
+      (mkIf (cfg.edge.enable || cfg.all.enable) microsoft-edge)
     ];
 
     programs.firefox = mkIf (cfg.firefox.enable || cfg.all.enable) {
