@@ -13,22 +13,26 @@ let
 in
 {
   options.mynix.utils = {
-    all.enable = mkBoolOpt true "Enable all apps";
-
-    disks.enable = mkBoolOpt false "Enable disk utilities";
-    libreoffice.enable = mkBoolOpt false "Enable LibreOffice";
-    gdrive.enable = mkBoolOpt false "Enable Google Drive (gdrive3)";
-
+    enable = mkBoolOpt true "Enable all utility applications";
   };
 
   config = {
-    home.packages = with pkgs; [
-      (mkIf (cfg.disks.enable || cfg.all.enable) gparted)
-      (mkIf (cfg.disks.enable || cfg.all.enable) ntfs3g)
-      (mkIf (cfg.disks.enable || cfg.all.enable) gnome-disk-utility)
+    home.packages =
+      with pkgs;
+      mkIf cfg.enable [
+        # Disk utilities
+        gparted
+        ntfs3g
+        gnome-disk-utility
 
-      (mkIf (cfg.libreoffice.enable || cfg.all.enable) libreoffice)
-      (mkIf (cfg.gdrive.enable || cfg.all.enable) gdrive3)
-    ];
+        # Office applications
+        libreoffice
+
+        # Google Drive
+        gdrive3
+
+        # ai stuff
+        gemini-cli
+      ];
   };
 }
