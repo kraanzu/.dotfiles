@@ -30,6 +30,9 @@ in
   };
 
   config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
+    home.packages = with pkgs; [
+      rofi-bluetooth
+    ];
     programs.rofi = {
       enable = true;
       plugins = with pkgs; [

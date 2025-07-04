@@ -26,6 +26,11 @@ key_bindings = [
         desc="Launch rofi app-launcer",
     ),
     Keybind(
+        "M-S-b",
+        lazy.spawn("rofi-bluetooth"),
+        desc="Launch rofi app-launcer",
+    ),
+    Keybind(
         "C-A-e",
         lazy.spawn("evince"),
         desc="Launces Evince PDF Reader",
@@ -87,12 +92,6 @@ key_bindings = [
     Keybind(
         "M-S-<Down>",
         lazy.spawn("pactl -- set-sink-volume 0 -2%"),
-    ),
-    # QTILE STUFF
-    Keybind(
-        "M-S-b",
-        lazy.hide_show_bar("top"),
-        desc="Toogle top-bar visibility",
     ),
     # Keybind(
     #     "M-<Tab>",
