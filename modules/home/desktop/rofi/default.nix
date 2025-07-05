@@ -32,6 +32,7 @@ in
   config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     home.packages = with pkgs; [
       rofi-bluetooth
+      mynix.rofi-audio-switcher
     ];
     programs.rofi = {
       enable = true;

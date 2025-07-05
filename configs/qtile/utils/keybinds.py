@@ -28,7 +28,12 @@ key_bindings = [
     Keybind(
         "M-S-b",
         lazy.spawn("rofi-bluetooth"),
-        desc="Launch rofi app-launcer",
+        desc="Launch rofi bluetooth",
+    ),
+    Keybind(
+        "M-S-o",
+        lazy.spawn("rofi-audio-switcher"),
+        desc="Launch rofi audio-switcher",
     ),
     Keybind(
         "C-A-e",

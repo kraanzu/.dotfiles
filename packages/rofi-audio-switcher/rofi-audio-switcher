@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+choice=$(echo -e "Output\nInput" | rofi -dmenu -p "Type:")
+[ -z "$choice" ] && exit 1
+
+declare -A devices_map
+
+get_icon() {
+    case "$1" in
+        headphones|headset) echo "🎧" ;;
+        speakers|desktop-speakers) echo "🔊" ;;
+        hdmi) echo "🎬" ;;
+        internal|built-in) echo "💻" ;;
+        usb) echo "🔌" ;;
+        spdif) echo "📡" ;;
+        *) echo "🔈" ;;
+    esac
+}
+
+if [[ "$choice" == "Output" ]]; then
+    while IFS= read -r line; do
+        name=$(echo "$line" | awk '{print $2}')
+
+        description=$(pactl list sinks | awk -v dev="$name" '
+            $0 ~ "Name: "dev { in_dev = 1 }
+            in_dev && /Description:/ { gsub(/^[[:space:]]*Description: /, ""); print; found=1 }
+            found { exit }
+        ')
+
+        form_factor=$(pactl list sinks | awk -v dev="$name" '
+            $0 ~ "Name: "dev { in_dev = 1 }
+            in_dev && /device.form_factor/ { gsub(/.*= "/, ""); gsub(/"$/, ""); print; exit }
+        ')
+
+        icon=$(get_icon "$form_factor")
+        label="$icon $description"
+        devices_map["$label"]="$name"
+        echo "$label"
+    done < <(pactl list short sinks)
+
+    selected_desc=$(printf "%s\n" "${!devices_map[@]}" | rofi -dmenu -p "Select:")
+    [ -n "$selected_desc" ] && pactl set-default-sink "${devices_map[$selected_desc]}"
+
+elif [[ "$choice" == "Input" ]]; then
+    while IFS= read -r line; do
+        name=$(echo "$line" | awk '{print $2}')
+
+        description=$(pactl list sources | awk -v dev="$name" '
+            $0 ~ "Name: "dev { in_dev = 1 }
+            in_dev && /Description:/ { gsub(/^[[:space:]]*Description: /, ""); print; found=1 }
+            found { exit }
+        ')
+
+        form_factor=$(pactl list sources | awk -v dev="$name" '
+            $0 ~ "Name: "dev { in_dev = 1 }
+            in_dev && /device.form-factor/ { gsub(/.*= "/, ""); gsub(/"$/, ""); print; exit }
+        ')
+
+        icon=$(get_icon "$form_factor")
+        label="$icon $description"
+        devices_map["$label"]="$name"
+        echo "$label"
+    done < <(pactl list short sources)
+
+    selected_desc=$(printf "%s\n" "${!devices_map[@]}" | rofi -dmenu -p "Select:")
+    [ -n "$selected_desc" ] && pactl set-default-source "${devices_map[$selected_desc]}"
+fi
