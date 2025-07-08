@@ -50,6 +50,22 @@ in
     enable = true;
     userEmail = "${user_email}";
     userName = "${user_name}";
+    aliases = {
+      co = "checkout";
+      br = "branch";
+      ci = "commit";
+      st = "status";
+      unstage = "reset HEAD --";
+      last = "log -1 HEAD";
+      lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
+      s = "status -s";
+      d = "diff";
+      dc = "diff --cached";
+      aa = "add --all";
+      cm = "commit -m";
+      pushf = "push --force-with-lease";
+      pullr= "pull --rebase";
+    };
   };
 
   systemd.user.startServices = "sd-switch";
