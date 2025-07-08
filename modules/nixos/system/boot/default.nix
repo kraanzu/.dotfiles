@@ -33,5 +33,8 @@ in
         # efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
       };
     };
+    systemd.user.extraConfig = ''
+      DefaultTimeoutStopSec=5s
+    '';
   };
 }
