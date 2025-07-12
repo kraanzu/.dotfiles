@@ -23,6 +23,11 @@ in
         nix-shell = "nix-shell --run fish";
         cleanup = "nix-env --delete-generations 3d && nix-collect-garbage -d";
       };
+      shellInit = ''
+        if test -e ${pkgs.conda}/bin/conda
+          eval ${pkgs.conda}/bin/conda "shell.fish" "hook" $argv | source
+        end
+      '';
       interactiveShellInit = ''
         function runshell
           if test (count $argv) -eq 1

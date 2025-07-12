@@ -2,8 +2,6 @@
 source $HOME/.config/fish/secrets.fish 2> /dev/null
 source $HOME/.config/fish/utils.fish
 source $HOME/.config/fish/quick_scripts.fish
-source ~/.conda/etc/fish/conf.d/conda.fish 2> /dev/null # conda
-
 
 #--------CUSTOM FUNCTIONS---------------
 fish_vi_key_bindings
@@ -52,7 +50,7 @@ export GOPATH=$HOME/.local/go
 
 set NPM_PACKAGES "$HOME/.npm-packages"
 set PATH $PATH $NPM_PACKAGES/bin
-set MANPATH $NPM_PACKAGES/share/man $MANPATH  
+set MANPATH $NPM_PACKAGES/share/man $MANPATH
 
 export LANG=en_IN.UTF-8
 export TERM=xterm-256color

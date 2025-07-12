@@ -26,6 +26,7 @@ let
       python3
       pyright
       ruff
+      conda
       poetry
       uv
       python312Packages.ipython
