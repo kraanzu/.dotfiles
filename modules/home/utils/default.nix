@@ -33,6 +33,7 @@ in
 
         # ai stuff
         gemini-cli
+        claude-code
 
         # must-have
         killall
