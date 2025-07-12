@@ -33,6 +33,28 @@ in
 
         # ai stuff
         gemini-cli
+
+        # must-have
+        killall
+        wget
+        git
+        htop
+        os-prober
+        geoclue2
+        unzip
+        zip
+        xclip
+        ripgrep
+        bluez
+        tree
+        cloc
+        imagemagick
+        popsicle
+        wmctrl
+        xdotool
+        poppler-utils
+        img2pdf
+        stow
       ];
   };
 }

@@ -40,28 +40,6 @@ in
     };
 
     environment.systemPackages = with pkgs; [
-      killall
-      wget
-      git
-      htop
-      os-prober
-      geoclue2
-      unzip
-      zip
-      xclip
-      ripgrep
-      bluez
-      tree
-      cloc
-      imagemagick
-      popsicle
-      wmctrl
-      xdotool
-      poppler-utils
-      img2pdf
-      stow
-
-      # shell stuff
       fish
       starship
       eza
