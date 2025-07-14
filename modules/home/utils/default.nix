@@ -20,16 +20,14 @@ in
     home.packages =
       with pkgs;
       mkIf cfg.enable [
+        libreoffice
+        gdrive3
+        syncthing
+
         # Disk utilities
         gparted
         ntfs3g
         gnome-disk-utility
-
-        # Office applications
-        libreoffice
-
-        # Google Drive
-        gdrive3
 
         # ai stuff
         gemini-cli
