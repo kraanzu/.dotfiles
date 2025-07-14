@@ -23,6 +23,7 @@ in
         libreoffice
         gdrive3
         syncthing
+        obsidian
 
         # Disk utilities
         gparted
