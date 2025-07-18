@@ -110,6 +110,7 @@ def start_once():
     firefox
     nm-applet
     caffeine
+    sct 5000
     syncthing
     systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service
     discord --start-minimized

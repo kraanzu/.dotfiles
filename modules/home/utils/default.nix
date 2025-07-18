@@ -55,6 +55,7 @@ in
         poppler-utils
         img2pdf
         stow
+        sct
       ];
   };
 }
