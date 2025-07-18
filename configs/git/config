@@ -12,7 +12,9 @@
 	pushf = "push --force-with-lease"
 	s = "status -s"
 	st = "status"
-	unstage = "reset HEAD --"
+
+    uncommit = reset HEAD~1
+    recommit = commit --amend --no-edit
 
 [user]
 	email = "kraanzu@gmail.com"

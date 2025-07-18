@@ -37,10 +37,6 @@ alias df='df -h | grep -e "^/dev"' # human-readable sizes
 alias free='free -m' # show sizes in MB
 alias yts='yt-dlp --extract-audio --audio-format opus' # download youtube video as mp3
 
-# Git Stuff
-alias uncommit="git reset HEAD~1"
-alias recommit="git commit --amend --no-edit"
-alias editcommit="git commit --amend"
 
 # GREP COLOR
 alias grep='grep --color=auto'
