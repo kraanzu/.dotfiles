@@ -1,0 +1,19 @@
+[alias]
+	aa = "add --all"
+	br = "branch"
+	ci = "commit"
+	cm = "commit -m"
+	co = "checkout"
+	d = "diff"
+	dc = "diff --cached"
+	last = "log -1 HEAD"
+	lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+	pullr = "pull --rebase"
+	pushf = "push --force-with-lease"
+	s = "status -s"
+	st = "status"
+	unstage = "reset HEAD --"
+
+[user]
+	email = "kraanzu@gmail.com"
+	name = "kraanzu"
