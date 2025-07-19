@@ -33,6 +33,14 @@ let
       binutils
     ];
 
+    haskell = with pkgs; [
+      ghc
+      cabal-install
+      haskell-language-server
+      fourmolu
+      hlint
+    ];
+
     lua = with pkgs; [
       lua
       luajitPackages.lua-lsp
@@ -68,15 +76,16 @@ let
 in
 {
   options.mynix.dev.lang = {
-    cpp.enable = mkBoolOpt false "Enable C++ development environment";
-    go.enable = mkBoolOpt false "Enable Go development environment";
-    python.enable = mkBoolOpt false "Enable Python development environment";
-    lua.enable = mkBoolOpt false "Enable Lua development environment";
-    markdown.enable = mkBoolOpt false "Enable Markdown tools";
-    nix.enable = mkBoolOpt false "Enable Nix development environment";
-    rust.enable = mkBoolOpt false "Enable Rust development environment";
-    ts.enable = mkBoolOpt false "Enable TypeScript development environment";
-    zig.enable = mkBoolOpt false "Enable Zig development environment";
+    cpp.enable = mkBoolOpt false "Enable C++";
+    go.enable = mkBoolOpt false "Enable Go";
+    python.enable = mkBoolOpt false "Enable Python";
+    haskell.enable = mkBoolOpt false "Enable Haskell";
+    lua.enable = mkBoolOpt false "Enable Lua";
+    markdown.enable = mkBoolOpt false "Enable Markdown";
+    nix.enable = mkBoolOpt false "Enable Nix";
+    rust.enable = mkBoolOpt false "Enable Rust";
+    ts.enable = mkBoolOpt false "Enable TypeScript";
+    zig.enable = mkBoolOpt false "Enable Zig";
   };
 
   config = {

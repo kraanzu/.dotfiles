@@ -4,10 +4,6 @@
   ...
 }:
 with lib.mynix;
-let
-  user_name = "kraanzu";
-  user_email = "kraanzu@gmail.com";
-in
 {
   mynix = {
     desktop = {
@@ -33,6 +29,7 @@ in
       markdown = enabled;
       nix = enabled;
       rust = enabled;
+      haskell = enabled;
     };
 
     sec = enabled;
