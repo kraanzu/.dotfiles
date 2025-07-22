@@ -107,8 +107,7 @@
     "default_model": {
       "provider": "copilot_chat",
       "model": "gpt-4.1"
-    },
-    "version": "2"
+    }
   },
   "features": {
     "edit_prediction_provider": "copilot"
