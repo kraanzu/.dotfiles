@@ -32,6 +32,17 @@ in
       };
     };
 
+    services.dnsmasq.enable = true;
+    services.dnsmasq.settings = {
+      no-resolv = true;
+      bogus-priv = true;
+      strict-order = true;
+      server = [
+        "94.140.14.49"
+        "94.140.15.15"
+      ];
+    };
+
     services.dbus.enable = true;
     programs.seahorse.enable = true;
     services.gnome.gnome-keyring.enable = true;
