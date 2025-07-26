@@ -49,6 +49,12 @@ in
     security.pam.services.sddm.enableGnomeKeyring = true;
     security.pam.services.login.enableGnomeKeyring = true;
 
+    # Faster Load/Shutdown
+    systemd.services."NetworkManager-wait-online".enable = false;
+    systemd.extraConfig = ''
+      DefaultTimeoutStopSec=5s
+    '';
+
     nix.settings.experimental-features = [
       "nix-command"
       "flakes"

@@ -113,7 +113,6 @@ def start_once():
     sct 4700
     syncthing
     systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service
-    discord --start-minimized
     """
 
     for cmd in commands.splitlines():
