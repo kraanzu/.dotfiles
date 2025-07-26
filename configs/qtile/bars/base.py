@@ -2,7 +2,6 @@ from libqtile import qtile
 from collections import defaultdict
 from qtile_extras.widget import Spacer, Sep
 from utils.colors import color
-from utils.functions import *
 from vars import DARK, LOCATION
 from .all_widget_imports import *
 

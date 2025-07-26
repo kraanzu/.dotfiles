@@ -1,22 +1,8 @@
 from libqtile.config import EzKey as Keybind
-from libqtile.core.manager import Qtile
 from libqtile.lazy import lazy
-import os
 
 terminal = "wezterm-gui connect unix --workspace main"
 scratch = "wezterm-gui connect unix --workspace extra"
-
-
-@lazy.function
-def toggle_dual_monitors(qtile: Qtile) -> None:
-    single = len(qtile.screens) == 1
-
-    if single:
-        script = "autorandr --load dual-monitor"
-    else:
-        script = "autorandr --load single-monitor"
-
-    os.system(script)
 
 
 key_bindings = [
