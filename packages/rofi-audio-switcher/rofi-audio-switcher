@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
-choice=$(echo -e "Output\nInput" | rofi -dmenu -p "Type:")
+# Define choices
+OUTPUT_CHOICE="🔊 Output"
+INPUT_CHOICE="🎤 Input"
+
+# Show menu
+choice=$(echo -e "$OUTPUT_CHOICE\n$INPUT_CHOICE" | rofi -dmenu -p "Type:")
 [ -z "$choice" ] && exit 1
 
 declare -A devices_map
@@ -16,52 +21,60 @@ get_icon() {
         *) echo "🔈" ;;
     esac
 }
+if [[ "$choice" == "$OUTPUT_CHOICE" ]]; then
+    # Get current default sink
+    current_sink=$(pactl get-default-sink)
 
-if [[ "$choice" == "Output" ]]; then
     while IFS= read -r line; do
         name=$(echo "$line" | awk '{print $2}')
-
         description=$(pactl list sinks | awk -v dev="$name" '
             $0 ~ "Name: "dev { in_dev = 1 }
             in_dev && /Description:/ { gsub(/^[[:space:]]*Description: /, ""); print; found=1 }
             found { exit }
         ')
-
         form_factor=$(pactl list sinks | awk -v dev="$name" '
             $0 ~ "Name: "dev { in_dev = 1 }
             in_dev && /device.form_factor/ { gsub(/.*= "/, ""); gsub(/"$/, ""); print; exit }
         ')
-
         icon=$(get_icon "$form_factor")
         label="$icon $description"
+
+        # Add "(current)" indicator if this is the default sink
+        if [[ "$name" == "$current_sink" ]]; then
+            label="$label <i>(current)</i>"
+        fi
+
         devices_map["$label"]="$name"
         echo "$label"
     done < <(pactl list short sinks)
-
-    selected_desc=$(printf "%s\n" "${!devices_map[@]}" | rofi -dmenu -p "Select:")
+    selected_desc=$(printf "%s\n" "${!devices_map[@]}" | rofi -dmenu -p "Select:" -markup-rows)
     [ -n "$selected_desc" ] && pactl set-default-sink "${devices_map[$selected_desc]}"
+elif [[ "$choice" == "$INPUT_CHOICE" ]]; then
+    # Get current default source
+    current_source=$(pactl get-default-source)
 
-elif [[ "$choice" == "Input" ]]; then
     while IFS= read -r line; do
         name=$(echo "$line" | awk '{print $2}')
-
         description=$(pactl list sources | awk -v dev="$name" '
             $0 ~ "Name: "dev { in_dev = 1 }
             in_dev && /Description:/ { gsub(/^[[:space:]]*Description: /, ""); print; found=1 }
             found { exit }
         ')
-
         form_factor=$(pactl list sources | awk -v dev="$name" '
             $0 ~ "Name: "dev { in_dev = 1 }
             in_dev && /device.form-factor/ { gsub(/.*= "/, ""); gsub(/"$/, ""); print; exit }
         ')
-
         icon=$(get_icon "$form_factor")
         label="$icon $description"
+
+        # Add "(current)" indicator if this is the default source
+        if [[ "$name" == "$current_source" ]]; then
+            label="$label <i>(current)</i>"
+        fi
+
         devices_map["$label"]="$name"
         echo "$label"
     done < <(pactl list short sources)
-
-    selected_desc=$(printf "%s\n" "${!devices_map[@]}" | rofi -dmenu -p "Select:")
+    selected_desc=$(printf "%s\n" "${!devices_map[@]}" | rofi -dmenu -p "Select:" -markup-rows)
     [ -n "$selected_desc" ] && pactl set-default-source "${devices_map[$selected_desc]}"
 fi
