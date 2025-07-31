@@ -111,17 +111,8 @@ bar_right = [
     widget.pad(length=8),
     widget.date(fmt=" {} "),
     widget.pad(length=6),
-    # widget.github_notifications(padding=10),
     widget.do_not_disturb(**dnd_decoration),
     widget.pad(length=6),
-    # widget.text(
-    #     "󰚥",
-    #     fontsize=23,
-    #     mouse_callbacks={
-    #         "Button1": lazy.lazy.spawn("reboot"),
-    #     },
-    #     **dnd_decoration,
-    # ),
 ]
 
 simple_bar = bar.Bar(

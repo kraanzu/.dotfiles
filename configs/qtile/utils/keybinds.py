@@ -84,11 +84,6 @@ key_bindings = [
         "M-S-<Down>",
         lazy.spawn("pactl -- set-sink-volume 0 -2%"),
     ),
-    # Keybind(
-    #     "M-<Tab>",
-    #     lazy.next_layout(),
-    #     desc="Toggle through different layouts",
-    # ),
     Keybind(
         "M-q",
         lazy.window.kill(),
