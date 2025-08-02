@@ -51,7 +51,7 @@ let
     ];
 
     nix = with pkgs; [
-      nixd
+      nil
       nixfmt-rfc-style
     ];
 
