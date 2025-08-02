@@ -51,9 +51,7 @@ in
 
     # Faster Load/Shutdown
     systemd.services."NetworkManager-wait-online".enable = false;
-    systemd.extraConfig = ''
-      DefaultTimeoutStopSec=5s
-    '';
+    systemd.settings.Manager.DefaultTimeoutStopSec = "5s";
 
     nix.settings.experimental-features = [
       "nix-command"
