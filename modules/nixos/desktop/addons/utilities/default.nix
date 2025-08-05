@@ -21,6 +21,7 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
+      zathura
       blueberry
       networkmanagerapplet
       xfce.xfce4-clipman-plugin

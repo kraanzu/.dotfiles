@@ -1,0 +1,58 @@
+set adjust-open "best-fit"
+set pages-per-row 1
+set scroll-page-aware "true"
+set smooth-scroll "true"
+set scroll-full-overlap 0.01
+set scroll-step 100
+set selection-clipboard clipboard
+
+set zoom-min 10
+set guioptions ""
+
+# Nord theme colors
+set font "JetBrainsMono NF 15"
+set default-bg "#242933" # darker than nord0
+set default-fg "#D8DEE9" # nord4
+
+set statusbar-fg "#D8DEE9" # nord4
+set statusbar-bg "#3B4252" # nord1
+
+set inputbar-bg "#2E3440" # nord0 - matches the darker theme
+set inputbar-fg "#E5E9F0" # nord5
+
+set notification-error-bg "#BF616A" # nord11
+set notification-error-fg "#2E3440" # nord0
+
+set notification-warning-bg "#EBCB8B" # nord13
+set notification-warning-fg "#2E3440" # nord0
+
+set highlight-color "#EBCB8B" # nord13
+set highlight-active-color "#81A1C1" # nord9
+
+set completion-highlight-fg "#2E3440" # nord0
+set completion-highlight-bg "#88C0D0" # nord8
+
+set completion-bg "#3B4252" # nord1
+set completion-fg "#D8DEE9" # nord4
+
+set notification-bg "#A3BE8C" # nord14
+set notification-fg "#2E3440" # nord0
+
+# Additional UI elements
+set index-bg "#2E3440" # nord0
+set index-fg "#D8DEE9" # nord4
+set index-active-bg "#3B4252" # nord1
+set index-active-fg "#88C0D0" # nord8
+
+set recolor "true"
+set recolor-lightcolor "#242933" # darker than nord0
+set recolor-darkcolor "#ECEFF4" # nord6
+set recolor-reverse-video "true"
+set recolor-keephue "true"
+
+set render-loading "false"
+set scroll-step 50
+
+unmap f
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen
