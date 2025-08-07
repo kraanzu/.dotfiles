@@ -93,10 +93,6 @@ automatically-unhide-macos-hidden-apps = true
     run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
-    if.app-id = 'com.todesktop.230313mzl4w4u92' # Cursor
-    run = 'move-node-to-workspace 2'
-
-[[on-window-detected]]
     if.app-id = 'com.googlecode.iterm2'
     run = 'move-node-to-workspace 3'
 
