@@ -19,3 +19,6 @@
 [user]
 	email = "kraanzu@gmail.com"
 	name = "kraanzu"
+
+[core]
+	excludesFile = ~/.config/git/gitignore
