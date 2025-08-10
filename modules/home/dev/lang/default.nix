@@ -33,14 +33,6 @@ let
       binutils
     ];
 
-    haskell = with pkgs; [
-      ghc
-      cabal-install
-      haskell-language-server
-      fourmolu
-      hlint
-    ];
-
     lua = with pkgs; [
       lua
       luajitPackages.lua-lsp
@@ -80,7 +72,6 @@ in
     cpp.enable = mkBoolOpt false "Enable C++";
     go.enable = mkBoolOpt false "Enable Go";
     python.enable = mkBoolOpt false "Enable Python";
-    haskell.enable = mkBoolOpt false "Enable Haskell";
     lua.enable = mkBoolOpt false "Enable Lua";
     markdown.enable = mkBoolOpt false "Enable Markdown";
     nix.enable = mkBoolOpt false "Enable Nix";

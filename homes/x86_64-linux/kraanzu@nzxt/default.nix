@@ -29,7 +29,6 @@ with lib.mynix;
       markdown = enabled;
       nix = enabled;
       rust = enabled;
-      haskell = enabled;
     };
 
     sec = enabled;
