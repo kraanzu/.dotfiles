@@ -22,3 +22,5 @@
 
 [core]
 	excludesFile = ~/.config/git/gitignore
+[push]
+	autoSetupRemote = true
