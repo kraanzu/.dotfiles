@@ -21,7 +21,7 @@ in
     programs.fish = {
       shellAliases = {
         nix-shell = "nix-shell --run fish";
-        cleanup = "nix-env --delete-generations 3d && nix-collect-garbage -d";
+        cleanup = "nix-collect-garbage --delete-older-than 3d";
       };
       shellInit = ''
         if test -e ${pkgs.conda}/bin/conda
