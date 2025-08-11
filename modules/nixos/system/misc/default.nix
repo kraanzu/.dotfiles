@@ -50,7 +50,7 @@ in
     security.pam.services.login.enableGnomeKeyring = true;
 
     # Faster Load/Shutdown
-    systemd.services."NetworkManager-wait-online".enable = false;
+    # systemd.services."NetworkManager-wait-online".enable = false;
     systemd.settings.Manager.DefaultTimeoutStopSec = "5s";
 
     nix.settings.experimental-features = [
