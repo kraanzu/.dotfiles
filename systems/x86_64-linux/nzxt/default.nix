@@ -6,9 +6,9 @@ with lib.mynix;
     ./hardware-configuration.nix
     ./htb.nix
     ./monitors.nix
+    ./drives.nix
   ];
 
-  # Extra fluff
   hardware.openrazer = {
     enable = true;
     batteryNotifier = {
