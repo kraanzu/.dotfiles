@@ -127,6 +127,11 @@ key_bindings = [
     ),
     # Stack controls
     Keybind(
+        "A-<tab>",
+        lazy.next_layout(),
+        desc="Switch Stack",
+    ),
+    Keybind(
         "M-S-<space>",
         lazy.layout.rotate(),
         lazy.layout.flip(),

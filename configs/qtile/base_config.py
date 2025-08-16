@@ -4,6 +4,7 @@ import os
 from typing import List
 from libqtile.backend.base.window import Window
 from libqtile.layout.xmonad import MonadTall
+from libqtile.layout.stack import Stack
 from libqtile.layout.floating import Floating
 from libqtile.layout.max import Max
 from libqtile.config import DropDown, ScratchPad, Group
@@ -63,6 +64,7 @@ floating_layout = Floating(None, None, **layout_defaults)
 layouts = [
     MonadTall(**layout_defaults),
     Max(**layout_defaults),
+    Stack(**layout_defaults),
 ]
 
 # ------------------- QTILE HOOKS ---------------------

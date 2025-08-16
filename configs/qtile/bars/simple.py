@@ -88,7 +88,9 @@ bar_left = [
 ]
 
 bar_middle = [
-    widget.spacer(),
+    widget.pad(length=15),
+    widget.max_windows(),
+    widget.pad(length=6),
 ]
 
 bar_right = [

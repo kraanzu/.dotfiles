@@ -77,6 +77,10 @@ DEFAULT_CONFIGS["do_not_disturb"] = dict(
 
 DEFAULT_CONFIGS["window_name"] = dict(format="{class}")
 
+DEFAULT_CONFIGS["max_windows"] = dict(
+    selected = (f'<span foreground="black" background="{color.cyan}"><b>', '</b></span>'),
+)
+
 DEFAULT_CONFIGS["github_notifications"] = dict(
     icon_size=18,
     update_interval=60,
@@ -128,10 +132,7 @@ class Widget:
 
     def systray(self, **kwargs):
         vars = self.get_config("systray") | kwargs
-        if qtile.core.name == "x11":
-            return Systray(**vars)
-        else:
-            return StatusNotifier(**vars)
+        return Systray(**vars)
 
     def widget_box(self, widgets=[], **kwargs):
         vars = self.get_config("widget_box") | kwargs
@@ -149,9 +150,13 @@ class Widget:
         vars = self.get_config("github_notifications") | kwargs
         return GithubNotifications(**vars)
 
-    def text(self, text, **kwargs):
+    def max_windows(self, **kwargs):
+        vars = self.get_config("max_windows") | kwargs
+        return MaxWindows(**vars)
+
+    def text(self, **kwargs):
         vars = self.common_attrs | kwargs
-        return TextBox(text=text, **vars)
+        return TextBox(**vars)
 
     # --------------------------------------------------
 
