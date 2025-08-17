@@ -18,8 +18,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    nixpkgs.overlays = [ inputs.qtile-flake.overlays.default ];
-
     programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
     environment.systemPackages = with pkgs; [
       flameshot

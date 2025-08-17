@@ -21,7 +21,7 @@
     grub2-themes.inputs.nixpkgs.follows = "nixpkgs";
 
     qtile-flake = {
-      url = "github:qtile/qtile";
+      url = "github:qtile/qtile/v0.32.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

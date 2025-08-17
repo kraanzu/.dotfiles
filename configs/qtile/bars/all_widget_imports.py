@@ -31,34 +31,22 @@ class MaxWindows(WindowTabs):
                 name = name[-1]
             name = name.split(".")[-1].strip()
 
-        return f" {name} "
+        return f" {name.title()} "
 
     def update(self, *args):
 
         names = []
-        layout_name = self.bar.screen.group.layout.name
 
+        self.text = ""
         for w in self.bar.screen.group.windows:
             name = self.get_window_name(w)
-            state = ""
-            if w.maximized:
-                state = "[] "
-            elif w.minimized:
-                state = "_ "
-            elif w.floating:
-                state = "V "
-
-            task = pangocffi.markup_escape_text(state + name)
+            task = pangocffi.markup_escape_text(name)
 
             if w is self.bar.screen.group.current_window:
                 task = task.join(self.selected)
 
             names.append(task)
-
-        if layout_name == "max":
             self.text = self.separator.join(names)
-        else:
-            self.text = ""
 
         self.bar.draw()
 
