@@ -1,6 +1,10 @@
 {
   // Essentials
   "vim_mode": true,
+  "vim": {
+    "highlight_on_yank_duration": 500,
+    "use_smartcase_find": true
+  },
 
   // Minimal Bar
   "collaboration_panel": {
