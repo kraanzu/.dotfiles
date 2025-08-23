@@ -1,6 +1,6 @@
 {
   lib,
-
+  config,
   ...
 }:
 with lib.mynix;
@@ -38,7 +38,8 @@ with lib.mynix;
     mimeApps = enabled;
     userDirs = {
       enable = true;
-      createDirectories = true;
+      createDirectories = false;
+      videos = "${config.home.homeDirectory}/HDD/Videos";
     };
   };
 
