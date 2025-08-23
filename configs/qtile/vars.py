@@ -24,8 +24,8 @@ MATCHES = {
     1: ["firefox"],
     3: ["dev.zed.Zed"],
     4: ["vlc"],
-    5: ["brave-browser", "discord", "spotify", "telegram"],
-    6: ["google-chrome", "microsoft-edge"],
+    5: ["brave-browser", "discord", "telegram"],
+    6: ["spotify", "google-chrome", "microsoft-edge"],
 }
 
 LAYOUTS = {
