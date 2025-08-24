@@ -24,7 +24,7 @@ with lib.mynix;
     };
     desktop = {
       qtile = enabled;
-      login.sddm-chili = enabled;
+      login = enabled;
       utilities = enabled;
     };
     hardware = {
