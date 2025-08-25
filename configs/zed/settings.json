@@ -90,7 +90,7 @@
       "settings": {
         "python.analysis": {
           "diagnosticMode": "workspace",
-          "typeCheckingMode": "strict"
+          "typeCheckingMode": "basic"
         },
         "python": {
           "pythonPath": ".venv/bin/python"
