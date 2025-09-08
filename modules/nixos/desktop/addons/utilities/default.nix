@@ -26,7 +26,7 @@ in
       networkmanagerapplet
       xfce.xfce4-clipman-plugin
       caffeine-ng
-      lxde.lxsession
+      lxsession
       nautilus
     ];
   };
