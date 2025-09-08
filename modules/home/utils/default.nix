@@ -30,9 +30,11 @@ in
         ntfs3g
         gnome-disk-utility
 
-        # ai stuff
+        # coding stuff
         gemini-cli
         claude-code
+        direnv
+        gh
 
         # must-have
         killall
