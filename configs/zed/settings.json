@@ -116,7 +116,7 @@
     "model_parameters": [],
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4.1"
+      "model": "claude-3.7-sonnet-thought"
     }
   },
   "features": {
