@@ -72,7 +72,13 @@
     "Python": {
       "tab_size": 4,
       "language_servers": ["pyright"],
-      "formatter": "language_server"
+      "formatter": [
+        {
+          "language_server": {
+            "name": "ruff"
+          }
+        }
+      ]
     }
   },
 
