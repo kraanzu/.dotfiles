@@ -14,7 +14,8 @@
       "super-p": [
         "task::Spawn",
         { "task_name": "Neogit", "reveal_target": "center" }
-      ]
+      ],
+      "super-g": ["agent::NewExternalAgentThread", { "agent": "gemini" }]
     }
   },
   {

@@ -119,6 +119,11 @@
       "model": "claude-3.7-sonnet-thought"
     }
   },
+  "agent_servers": {
+    "gemini": {
+      "ignore_system_version": false
+    }
+  },
   "features": {
     "edit_prediction_provider": "copilot"
   },
