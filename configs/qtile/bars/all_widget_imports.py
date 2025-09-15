@@ -20,16 +20,23 @@ from qtile_extras.widget import (
 
 class MaxWindows(WindowTabs):
 
+
     @staticmethod
     def get_window_name(w: Window) -> str:
 
+        def get_split(name, separator):
+            return name.split(separator)[-1].strip()
+
         if w.get_wm_role() == "pop-up":
-            name = w.name.split('-')[-1].strip()
+            name = get_split(w.name, "-")
         else:
             name = w.get_wm_class()
             if type(name) == list:
-                name = name[-1]
-            name = name.split(".")[-1].strip()
+                if name:
+                    name = name[-1]
+                    name = get_split(name, ".")
+                else:
+                    name = get_split(name, "-")
 
         return f" {name.title()} "
 
