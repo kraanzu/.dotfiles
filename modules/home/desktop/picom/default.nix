@@ -21,7 +21,7 @@ in
     services.picom = {
       enable = true;
       settings = {
-        shadow = true;
+        shadow = false;
         shadowRadius = 7;
         shadowOffsets = [
           shadow_offset_x
@@ -38,13 +38,13 @@ in
 
         cornerRadius = 0;
 
-        blur = {
-          method = "gaussian";
-          size = 20;
-          deviation = 5.0;
-        };
-        blurBackground = true;
-        blurKern = "3x3box";
+        # blur = {
+        #   method = "gaussian";
+        #   size = 20;
+        #   deviation = 5.0;
+        # };
+        # blurBackground = true;
+        # blurKern = "3x3box";
 
         backend = "glx";
         ditheredPresent = false;
