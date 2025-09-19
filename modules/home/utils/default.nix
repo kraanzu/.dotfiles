@@ -24,6 +24,7 @@ in
         gdrive3
         syncthing
         obsidian
+        yt-dlp
 
         # Disk utilities
         gparted
