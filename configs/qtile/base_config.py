@@ -94,7 +94,7 @@ def start_once():
     nm-applet
     caffeine
     sct 4700
-    syncthing
+    syncthing --no-browser
     Telegram -startintray
     discord --start-minimized
     systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service
