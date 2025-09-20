@@ -33,7 +33,7 @@ in
         "brave"
         "chrome"
       ];
-      default = "firefox";
+      default = "brave";
       description = "Default browser for xdg-open";
     };
   };
