@@ -40,11 +40,32 @@ in
 
   config = {
     home.packages = with pkgs; [
-      (mkIf (cfg.firefox.enable || cfg.all.enable) firefox)
       (mkIf (cfg.brave.enable || cfg.all.enable) brave)
       (mkIf (cfg.chrome.enable || cfg.all.enable) google-chrome)
       (mkIf (cfg.edge.enable || cfg.all.enable) microsoft-edge)
     ];
+
+    programs.firefox = mkIf (cfg.firefox.enable || cfg.all.enable) {
+      enable = true;
+      profiles.kraanzu = {
+        settings = {
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        };
+        userChrome = ''
+          tab.identity-color-yellow {
+            color: white !important;
+          }
+          tab.identity-color-yellow .tab-background .tab-context-line {
+            background-color: #EBCB8B !important;
+            height: 6px !important;
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+          }
+        '';
+      };
+    };
 
     xdg.mimeApps.defaultApplications = {
       "text/html" = [ defaultDesktop ];
