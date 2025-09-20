@@ -91,7 +91,6 @@ def start_once():
     commands = """
     xfce4-clipman
     wezterm-mux-server --daemonize
-    firefox
     nm-applet
     caffeine
     sct 4700

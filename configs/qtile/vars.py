@@ -21,14 +21,14 @@ wallpaper_path = home + "/.wallpapers"
 secondary_apps = "discord telegram chrome microsoft".split()
 
 MATCHES = {
-    1: ["firefox"],
     3: ["dev.zed.Zed"],
     4: ["vlc"],
-    5: ["brave-browser", "discord", "telegram"],
+    5: ["discord", "telegram"],
     6: ["spotify", "google-chrome", "microsoft-edge"],
 }
 
 LAYOUTS = {
+    1: "max",
     5: "max",
     6: "max",
 }
