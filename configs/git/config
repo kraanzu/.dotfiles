@@ -24,3 +24,5 @@
 	excludesFile = ~/.config/git/gitignore
 [push]
 	autoSetupRemote = true
+[advice]
+	defaultBranchName = false
