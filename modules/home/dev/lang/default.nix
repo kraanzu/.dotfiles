@@ -13,6 +13,7 @@ let
 
     cpp = with pkgs; [
       gcc
+      clang-tools
     ];
 
     go = with pkgs; [
@@ -24,7 +25,7 @@ let
 
     python = with pkgs; [
       python3
-      pyright
+      basedpyright
       ruff
       conda
       poetry
