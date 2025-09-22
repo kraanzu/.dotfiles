@@ -67,11 +67,9 @@
     }
   },
 
-  // Lanugage Specific
   "languages": {
     "Python": {
       "tab_size": 4,
-      "language_servers": ["pyright"],
       "formatter": [
         {
           "language_server": {
@@ -86,23 +84,10 @@
   "show_completions_on_input": true,
 
   "inlay_hints": {
-    "enabled": false,
+    "enabled": true,
     "show_type_hints": true,
     "show_parameter_hints": true,
     "show_other_hints": true
-  },
-  "lsp": {
-    "pyright": {
-      "settings": {
-        "python.analysis": {
-          "diagnosticMode": "workspace",
-          "typeCheckingMode": "basic"
-        },
-        "python": {
-          "pythonPath": ".venv/bin/python"
-        }
-      }
-    }
   },
 
   // Copilot settings
@@ -130,7 +115,6 @@
 
   // Extensions
   "auto_install_extensions": {
-    // nice
     "git-firefly": true,
     "material-icon-theme": true,
     "golangci-lint": true,
@@ -146,7 +130,6 @@
     "dockerfile": true,
 
     "toml": true,
-    "ruff": true,
-    "pylsp": true
+    "ruff": true
   }
 }
