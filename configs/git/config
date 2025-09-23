@@ -15,6 +15,7 @@
 
     uncommit = reset HEAD~1
     recommit = commit --amend --no-edit
+	gl = log --all --graph --pretty=format:'%C(magenta)%h %C(white) %an %ar%C(auto) %D%n%s%n'
 
 [user]
 	email = "kraanzu@gmail.com"
@@ -26,3 +27,5 @@
 	autoSetupRemote = true
 [advice]
 	defaultBranchName = false
+	statusHints = false
+	pushNonFastForward = false
