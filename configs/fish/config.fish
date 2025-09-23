@@ -43,10 +43,10 @@ alias grep='grep --color=auto'
 
 export PYTHONDONTWRITEBYTECODE=1
 export GOPATH=$HOME/.local/go
+export IPYTHONDIR=~/.config/ipython
 
 set NPM_PACKAGES "$HOME/.npm-packages"
 set PATH $PATH $NPM_PACKAGES/bin
-set MANPATH $NPM_PACKAGES/share/man $MANPATH
 
 export LANG=en_IN.UTF-8
 export TERM=xterm-256color
