@@ -50,7 +50,10 @@ in
         ripgrep
         bluez
         tree
-        cloc
+        tokei
+        bat
+        delta
+        zoxide
         imagemagick
         popsicle
         wmctrl

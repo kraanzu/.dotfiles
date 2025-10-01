@@ -53,5 +53,6 @@ export TERM=xterm-256color
 
 # Extra programs
 syncthing install-completions | source 2> /dev/null
+zoxide init fish | source 2> /dev/null
 
 starship init fish | source
