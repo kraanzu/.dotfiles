@@ -18,12 +18,10 @@ from qtile_extras.widget import (
     GithubNotifications,
 )
 
+
 class MaxWindows(WindowTabs):
-
-
     @staticmethod
     def get_window_name(w: Window) -> str:
-
         def get_split(name, separator):
             return name.split(separator)[-1].strip()
 
@@ -31,17 +29,13 @@ class MaxWindows(WindowTabs):
             name = get_split(w.name, "-")
         else:
             name = w.get_wm_class()
-            if type(name) == list:
-                if name:
-                    name = name[-1]
-                    name = get_split(name, ".")
-                else:
-                    name = get_split(name, "-")
+            if name:
+                name = name[-1]
+                name = get_split(name, ".")
 
-        return f" {name.title()} "
+        return f" {str(name).title()} "
 
     def update(self, *args):
-
         names = []
 
         self.text = ""
