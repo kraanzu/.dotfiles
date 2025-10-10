@@ -82,6 +82,6 @@ in
   };
 
   config = {
-    home.packages = with pkgs; allEnabledPackages ++ [ entr ];
+    home.packages = allEnabledPackages;
   };
 }

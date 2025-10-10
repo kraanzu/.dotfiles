@@ -64,6 +64,7 @@ in
         sct
         jq
         ddcutil
+        entr
       ];
   };
 }
