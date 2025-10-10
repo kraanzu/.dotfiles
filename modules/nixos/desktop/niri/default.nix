@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 let
@@ -18,5 +19,12 @@ in
   config = lib.mkIf cfg.enable {
     programs.niri.enable = true;
     programs.waybar.enable = true;
+    environment.systemPackages = with pkgs; [
+      swaybg
+      wlsunset
+      xwayland-satellite
+      cliphist
+      wl-clipboard
+    ];
   };
 }

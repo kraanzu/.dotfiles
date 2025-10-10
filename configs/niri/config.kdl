@@ -1,163 +1,100 @@
-
-layout {
-    gaps 4
-    center-focused-column "never"
-
-    default-column-width { proportion 1.0; }
-    focus-ring {
-        width 3
-        active-color "#88c0d0"
-        inactive-color "#88c0d000"
-    }
-
-    struts {
-        top 0
-        left 0
-        right 0
-        bottom 0
-    }
+// Basic settings
+prefer-no-csd
+animations {
+    off
 }
-
-
 hotkey-overlay {
     skip-at-startup
 }
 
-// prefer-no-csd
-screenshot-path "~/Pictures/Screenshots/%Y-%m-%d %H-%M-%S.png"
-
-animations {
-    off
-}
-
+// Workspace Management
 workspace "1"
 workspace "2"
 workspace "3"
 workspace "4"
 workspace "5"
 
+// Layout
+layout {
+    gaps 4
+    default-column-width { proportion 1.0; }
+    focus-ring {
+        width 3
+        active-color "#88c0d0"
+        inactive-color "#88c0d000"
+    }
+}
+
+// Keys
 binds {
-    Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Super+Return { spawn "wezterm"; }
-    Super+Shift+Return { spawn-sh "rofi -show drun"; }
+    // Window Management
+    Mod+Q repeat=false { close-window; }
+    Mod+M { maximize-column; }
+    Mod+Shift+F { switch-focus-between-floating-and-tiling; }
 
-    Super+Up allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
-    Super+Down allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
+    // Global keys
+    Mod+Return { spawn-sh "wezterm-gui connect unix --workspace main"; }
+    Alt+Return { spawn-sh "wezterm-gui connect unix --workspace extra"; }
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    Mod+Shift+Return { spawn-sh "rofi -show drun"; }
+    Mod+Shift+O { spawn-sh "rofi-audio-switcher"; }
+    Mod+Shift+B { spawn-sh "rofi-bluetooth"; }
+    Mod+X { spawn-sh "rofi -show power-menu"; }
+
+    Mod+Up allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
+    Mod+Down allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
+
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
-    Mod+End allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
-
-    // Open/close the Overview: a zoomed-out view of workspaces and windows.
-    // You can also move the mouse into the top-left hot corner,
-    // or do a four-finger swipe up on a touchpad.
-    Mod+O repeat=false { toggle-overview; }
-    Mod+Q repeat=false { close-window; }
+    Mod+Home allow-when-locked=true { spawn "ddcutil" "setvcp" "10" "+" "5" ; }
+    Mod+End allow-when-locked=true { spawn "ddcutil" "setvcp" "10" "-" "5" ; }
 
     Mod+H     { focus-column-left; }
     Mod+J     { focus-window-down; }
     Mod+K     { focus-window-up; }
     Mod+L     { focus-column-right; }
 
-    Mod+Ctrl+Left  { move-column-left; }
-    Mod+Ctrl+Down  { move-window-down; }
-    Mod+Ctrl+Up    { move-window-up; }
-    Mod+Ctrl+Right { move-column-right; }
-    Mod+Ctrl+H     { move-column-left; }
-    Mod+Ctrl+J     { move-window-down; }
-    Mod+Ctrl+K     { move-window-up; }
-    Mod+Ctrl+L     { move-column-right; }
-
-    // Alternative commands that move across workspaces when reaching
-    // the first or last window in a column.
-    // Mod+J     { focus-window-or-workspace-down; }
-    // Mod+K     { focus-window-or-workspace-up; }
-    // Mod+Ctrl+J     { move-window-down-or-to-workspace-down; }
-    // Mod+Ctrl+K     { move-window-up-or-to-workspace-up; }
-
-    Mod+Ctrl+Home { move-column-to-first; }
-    Mod+Ctrl+End  { move-column-to-last; }
-
-
     Mod+Right      { focus-workspace-down; }
     Mod+Left        { focus-workspace-up; }
-    Mod+U              { focus-workspace-down; }
-    Mod+I              { focus-workspace-up; }
-    Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
-    Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
-    Mod+Ctrl+U         { move-column-to-workspace-down; }
-    Mod+Ctrl+I         { move-column-to-workspace-up; }
+    Mod+Shift+Right { move-column-to-workspace-down; }
+    Mod+Shift+Left   { move-column-to-workspace-up; }
 
-    Mod+Shift+Page_Down { move-workspace-down; }
-    Mod+Shift+Page_Up   { move-workspace-up; }
-    Mod+Shift+U         { move-workspace-down; }
-    Mod+Shift+I         { move-workspace-up; }
+    Mod+Tab { focus-workspace-previous; }
 
-    // You can refer to workspaces by index. However, keep in mind that
-    // niri is a dynamic workspace system, so these commands are kind of
-    // "best effort". Trying to refer to a workspace index bigger than
-    // the current workspace count will instead refer to the bottommost
-    // (empty) workspace.
-    //
-    // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
-    // will all refer to the 3rd workspace.
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
     Mod+3 { focus-workspace 3; }
     Mod+4 { focus-workspace 4; }
     Mod+5 { focus-workspace 5; }
     Mod+6 { focus-workspace 6; }
-    Mod+Ctrl+1 { move-column-to-workspace 1; }
-    Mod+Ctrl+2 { move-column-to-workspace 2; }
-    Mod+Ctrl+3 { move-column-to-workspace 3; }
-    Mod+Ctrl+4 { move-column-to-workspace 4; }
-    Mod+Ctrl+5 { move-column-to-workspace 5; }
-    Mod+Ctrl+6 { move-column-to-workspace 6; }
 
-    // Alternatively, there are commands to move just a single window:
-    // Mod+Ctrl+1 { move-window-to-workspace 1; }
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
 
-    // Switches focus between the current and the previous workspace.
-    Mod+Tab { focus-workspace-previous; }
-
-    Mod+F { maximize-column; }
-    Mod+Shift+F { fullscreen-window; }
-
-    // Expand the focused column to space not taken up by other fully visible columns.
-    // Makes the column "fill the rest of the space".
-    Mod+Ctrl+F { expand-column-to-available-width; }
-    Mod+C { center-column; }
-    Mod+Ctrl+C { center-visible-columns; }
-
-    // Finer width adjustments.
-    // This command can also:
-    // * set width in pixels: "1000"
-    // * adjust width in pixels: "-5" or "+5"
-    // * set width as a percentage of screen width: "25%"
-    // * adjust width as a percentage of screen width: "-10%" or "+10%"
-    // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
-    // set-column-width "100" will make the column occupy 200 physical screen pixels.
-    Super+Minus { set-column-width "-10%"; }
-    Super+Equal { set-column-width "+10%"; }
-    Super+Shift+Minus { set-window-height "-10%"; }
-    Super+Shift+Equal { set-window-height "+10%"; }
-
-    Mod+V       { toggle-window-floating; }
-    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
-
-    Insert { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
-
+    Mod+P { spawn-sh "cliphist list | cut -d$'\t' -f2- | rofi -dmenu | cliphist decode | wl-copy"; }
+    Mod+Insert { spawn "flameshot" "gui"; }
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Ctrl+Alt+Delete { quit; }
     Mod+Shift+P { power-off-monitors; }
 }
 
-// spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
+// Scripts
+spawn-sh-at-startup "swaybg -i ~/.wallpapers/the_great_wave.png"
+spawn-sh-at-startup "wlsunset -t 5500"
+spawn-sh-at-startup "wezterm-mux-server --daemonize"
+spawn-sh-at-startup "caffeine"
+spawn-sh-at-startup "syncthing --no-browser"
+spawn-sh-at-startup "Telegram -startintray"
+spawn-sh-at-startup "discord --start-minimized"
+spawn-sh-at-startup "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service"
+spawn-sh-at-startup "wl-paste --watch cliphist store"
+spawn-sh-at-startup "pkill waybar"
+
 spawn-at-startup "waybar"
+spawn-at-startup "xwayland-satellite"

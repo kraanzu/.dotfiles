@@ -25,6 +25,7 @@ in
         syncthing
         obsidian
         yt-dlp
+        flameshot
 
         # Disk utilities
         gparted

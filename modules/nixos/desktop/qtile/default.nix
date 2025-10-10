@@ -20,7 +20,6 @@ in
   config = lib.mkIf cfg.enable {
     programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
     environment.systemPackages = with pkgs; [
-      flameshot
       pulseaudio
       playerctl
     ];
