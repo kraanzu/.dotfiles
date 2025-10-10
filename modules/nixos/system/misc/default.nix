@@ -49,6 +49,8 @@ in
     security.pam.services.sddm.enableGnomeKeyring = true;
     security.pam.services.login.enableGnomeKeyring = true;
 
+    hardware.i2c.enable = true;
+
     # Faster Load/Shutdown
     # systemd.services."NetworkManager-wait-online".enable = false;
     systemd.settings.Manager.DefaultTimeoutStopSec = "5s";
