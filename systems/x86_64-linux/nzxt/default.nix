@@ -24,6 +24,7 @@ with lib.mynix;
     };
     desktop = {
       qtile = enabled;
+      niri = enabled;
       login = enabled;
       utilities = enabled;
     };

@@ -1,0 +1,46 @@
+* {
+    font-family: monospace;
+    font-size: 13px;
+}
+
+window#waybar {
+    background: #2e3440;
+    color: #d8dee9;
+}
+
+#workspaces {
+    background: #3b4252;
+    border: 1px solid #d8dee9;
+    margin: 2px;
+    padding: 2px;
+}
+
+#workspaces button {
+    padding: 0 3px;
+    background: transparent;
+    color: #d8dee9;
+    border: none;
+    min-width: 15px;
+}
+
+#workspaces button.active {
+    background: #88c0d0;
+    color: #2e3440;
+    border-radius: 0;
+}
+
+#tray,
+#pulseaudio,
+#clock {
+    padding: 0 10px;
+    background: #3b4252;
+    border: 1px solid #d8dee9;
+    margin: 2px;
+}
+
+#window {
+    padding: 0 10px;
+    background: #3b4252;
+    border: 1px solid #d8dee9;
+    margin: 2px;
+}

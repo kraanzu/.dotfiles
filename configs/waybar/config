@@ -1,0 +1,25 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "height": 30,
+  "modules-left": ["niri/workspaces", "niri/window"],
+  "modules-center": [],
+  "modules-right": ["tray", "pulseaudio", "clock#time", "clock#date"],
+  "niri/window": {
+    "format": "{}",
+    "max-length": 50
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-icons": ["🔇", "🔉", "🔊"]
+  },
+  "clock#time": {
+    "format": "{:%H:%M}"
+  },
+  "clock#date": {
+    "format": "{:%a, %b %d}"
+  },
+  "tray": {
+    "spacing": 10
+  }
+}
