@@ -14,7 +14,6 @@ with lib.mynix;
       nord_theme = enabled;
     };
     browsers = {
-      firefox = enabled;
       brave = enabled;
       edge = enabled;
     };
