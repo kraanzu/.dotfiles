@@ -1,46 +1,55 @@
 * {
-    font-family: monospace;
-    font-size: 13px;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 16px;
+    font-weight: 600;
 }
 
 window#waybar {
-    background: #2e3440;
+    background: #272c36;
     color: #d8dee9;
+}
+
+/* Widgets */
+#workspaces,
+#tray,
+#memory,
+#pulseaudio,
+#clock {
+    margin: 5 3px;
+    border: 3px solid #4c566a;
+    background: #3b4252;
+    padding: 0 7px;
 }
 
 #workspaces {
-    background: #3b4252;
-    border: 1px solid #d8dee9;
-    margin: 2px;
-    padding: 2px;
+    /* 3px Handled by Buttons */
+    padding: 0 2px;
 }
 
+/* Active Window */
 #workspaces button {
     padding: 0 3px;
+    border: none;
     background: transparent;
     color: #d8dee9;
-    border: none;
-    min-width: 15px;
 }
 
 #workspaces button.active {
-    background: #88c0d0;
-    color: #2e3440;
     border-radius: 0;
+    background: #8fbcbb;
+    color: #2e3440;
 }
 
-#tray,
-#pulseaudio,
-#clock {
-    padding: 0 10px;
-    background: #3b4252;
-    border: 1px solid #d8dee9;
-    margin: 2px;
-}
-
+/* Window name management */
 #window {
     padding: 0 10px;
-    background: #3b4252;
-    border: 1px solid #d8dee9;
-    margin: 2px;
+    min-width: 1px;
+    background: #8fbcbb;
+    color: #2e3440;
+    margin: 5 3px;
+    padding: 0 10px;
+}
+
+window#waybar.empty #window {
+    background: transparent;
 }

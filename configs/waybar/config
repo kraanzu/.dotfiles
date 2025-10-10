@@ -4,22 +4,41 @@
   "height": 30,
   "modules-left": ["niri/workspaces", "niri/window"],
   "modules-center": [],
-  "modules-right": ["tray", "pulseaudio", "clock#time", "clock#date"],
+  "modules-right": ["tray", "memory", "pulseaudio", "clock#time", "clock#date"],
   "niri/window": {
-    "format": "{}",
-    "max-length": 50
+    "format": "{app_id}",
+    "max-length": 50,
+   	"rewrite": {
+  		"dev.zed.Zed": "Zed",
+  		"brave-browser": "Brave",
+  		"org.wezfurlong.wezterm": "Wezterm",
+  		"org.telegram.desktop": "Telegram",
+  		"org.qbittorrent.qBittorrent": "qBittorrent"
+  	}
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
-    "format-icons": ["🔇", "🔉", "🔊"]
+    "format-muted": "󰝟 Mute",
+    "format-icons": {
+      "bluez_output.88_92_CC_7E_A8_62.1": "󰋋",
+      "alsa_output.usb-ACTIONS_Pebble_V3-00.analog-stereo": "󰓃"
+    },
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
   },
   "clock#time": {
-    "format": "{:%H:%M}"
+    "format": "󱑂 {:%H:%M}",
+    "tooltip": false
   },
   "clock#date": {
-    "format": "{:%a, %b %d}"
+    "format": " {:%a, %b %d}",
+    "tooltip": false
   },
   "tray": {
     "spacing": 10
+  },
+  "memory": {
+    "format": " {used:0.1f}G",
+    "interval": 5,
+    "tooltip": false
   }
 }
