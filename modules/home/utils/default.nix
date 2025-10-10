@@ -62,6 +62,8 @@ in
         img2pdf
         stow
         sct
+        jq
+        ddcutil
       ];
   };
 }
