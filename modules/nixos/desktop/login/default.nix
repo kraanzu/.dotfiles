@@ -1,14 +1,11 @@
 {
   config,
   lib,
-  pkgs,
-  inputs,
   ...
 }:
 with lib;
 let
   cfg = config.mynix.desktop.login;
-  wallpath = builtins.toString inputs.mywalls;
 in
 {
   options = {
@@ -20,34 +17,14 @@ in
   };
 
   config = mkIf cfg.enable {
-
-    services.greetd = {
+    services.xserver.enable = true;
+    services.displayManager.sddm = {
       enable = true;
-      settings = {
-        initial_session = {
-          command = "niri-session";
-          user = "kraanzu";
-        };
-      };
     };
-
-    programs.regreet = {
+    services.getty.autologinUser = "kraanzu";
+    services.displayManager.autoLogin = {
       enable = true;
-      theme = {
-        name = "Nordic";
-        package = pkgs.nordic;
-      };
-      settings = {
-        background = {
-          path = "${wallpath}/blank.png";
-          fit = "Cover";
-        };
-        GTK = {
-          application_prefer_dark_theme = true;
-          theme_name = "Nordic";
-        };
-      };
+      user = "kraanzu";
     };
-
   };
 }
