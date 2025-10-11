@@ -44,9 +44,7 @@ in
         modes = lib.concatStringsSep "," rofi_modes;
       };
 
-      theme = import ./rofi-theme.nix {
-        mkLiteral = config.lib.formats.rasi.mkLiteral;
-      };
+      theme = "nord.rasi";
     };
   };
 }
