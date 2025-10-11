@@ -2,12 +2,13 @@
   "layer": "top",
   "position": "bottom",
   "height": 30,
-  "modules-left": ["niri/workspaces", "niri/window"],
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": [],
   "modules-right": ["tray", "memory", "pulseaudio", "clock#time", "clock#date"],
-  "niri/window": {
-    "format": "{app_id}",
+  "hyprland/window": {
+    "format": "{class}",
     "max-length": 50,
+    "active-only": true,
    	"rewrite": {
   		"dev.zed.Zed": "Zed",
   		"brave-browser": "Brave",
@@ -30,14 +31,14 @@
     "tooltip": false
   },
   "clock#date": {
-    "format": " {:%a, %b %d}",
+    "format": " {:%a, %b %d}",
     "tooltip": false
   },
   "tray": {
     "spacing": 10
   },
   "memory": {
-    "format": " {used:0.1f}G",
+    "format": " {used:0.1f}G",
     "interval": 5,
     "tooltip": false
   }
