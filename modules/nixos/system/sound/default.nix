@@ -14,8 +14,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    services.pulseaudio.enable = false;
-
     hardware.bluetooth = {
       enable = true;
       powerOnBoot = true;

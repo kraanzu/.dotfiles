@@ -26,10 +26,14 @@ in
 
     xdg.portal = {
       enable = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gnome
+        pkgs.xdg-desktop-portal-wlr
+      ];
       config = {
-        common.default = "*";
+        common.default = "gnome";
       };
+      xdgOpenUsePortal = true;
     };
 
     services.dnsmasq.enable = true;
