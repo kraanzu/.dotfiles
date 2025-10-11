@@ -25,7 +25,7 @@ in
       enable = true;
       settings = {
         initial_session = {
-          command = "niri-session";
+          command = "Hyprland";
           user = "kraanzu";
         };
       };

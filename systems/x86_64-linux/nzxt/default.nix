@@ -25,7 +25,7 @@ with lib.mynix;
     desktop = {
       qtile = enabled;
       hyprland = enabled;
-      niri = enabled;
+      # niri = enabled;
       login = enabled;
       utilities = enabled;
     };

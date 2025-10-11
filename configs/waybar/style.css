@@ -34,6 +34,10 @@ window#waybar {
     color: #d8dee9;
 }
 
+#workspaces button.empty {
+    color: #6a7894;
+}
+
 #workspaces button.active {
     border-radius: 0;
     background: #8fbcbb;
