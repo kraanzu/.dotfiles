@@ -23,7 +23,8 @@
   },
   "custom/network": {
     "exec": "~/.config/waybar/scripts/network-status.sh",
-    "interval": 5
+    "interval": 5,
+    "format": "  {}"
   },
   "custom/notification": {
     "exec": "~/.config/waybar/scripts/dunst-status.sh",
@@ -35,7 +36,7 @@
     "format": "{icon} {volume}%",
     "format-muted": "󰝟 Mute",
     "format-icons": {
-      "bluez_output.88_92_CC_7E_A8_62.1": "󰋋",
+      "bluez_output.88_92_CC_7E_A8_62.1": "",
       "alsa_output.usb-ACTIONS_Pebble_V3-00.analog-stereo": "󰓃"
     },
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
@@ -52,7 +53,7 @@
     "spacing": 10
   },
   "memory": {
-    "format": " {used:0.1f}G",
+    "format": " {used:0.1f}G",
     "interval": 5,
     "tooltip": false
   }

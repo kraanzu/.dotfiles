@@ -19,6 +19,7 @@ in
     fonts.packages = with pkgs; [
       nerd-fonts.sauce-code-pro
       nerd-fonts.jetbrains-mono
+      font-awesome
     ];
   };
 }
