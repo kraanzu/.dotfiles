@@ -21,6 +21,18 @@ window#waybar {
     padding: 0 7px;
 }
 
+#custom-notification {
+    padding: 0 10;
+    margin: 5 3px;
+    background-color: #88c0d0;
+    color: #2e3440;
+}
+
+#custom-notification.paused {
+    background-color: #bf616a;
+    color: #2e3440;
+}
+
 #workspaces {
     /* 3px Handled by Buttons */
     padding: 0 2px;

@@ -4,7 +4,7 @@
   "height": 30,
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": [],
-  "modules-right": ["tray", "memory", "pulseaudio", "clock#time", "clock#date"],
+  "modules-right": ["tray", "memory", "pulseaudio", "clock#time", "clock#date", "custom/notification"],
   "hyprland/workspaces": {
     "persistent-workspaces": {
       "*": 6
@@ -20,6 +20,12 @@
   		"org.telegram.desktop": "Telegram",
   		"org.qbittorrent.qBittorrent": "qBittorrent"
   	}
+  },
+  "custom/notification": {
+    "exec": "~/.config/waybar/scripts/dunst-status.sh",
+    "return-type": "json",
+    "interval": 1,
+    "on-click": "dunstctl set-paused toggle"
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
