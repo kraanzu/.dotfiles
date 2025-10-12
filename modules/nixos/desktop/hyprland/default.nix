@@ -21,7 +21,8 @@ in
     programs.waybar.enable = true;
     environment.systemPackages = with pkgs; [
       hyprlock
-      swaybg
+      hypridle
+      hyprpaper
       wlsunset
       xwayland-satellite
       cliphist
