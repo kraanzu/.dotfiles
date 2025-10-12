@@ -33,6 +33,7 @@ in
     home.packages = with pkgs; [
       rofi-bluetooth
       mynix.rofi-audio-switcher
+      mynix.rofi-network-switcher
     ];
     programs.rofi = {
       enable = true;

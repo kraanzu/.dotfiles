@@ -10,6 +10,7 @@ window#waybar {
 }
 
 /* Widgets */
+#custom-network,
 #workspaces,
 #tray,
 #memory,

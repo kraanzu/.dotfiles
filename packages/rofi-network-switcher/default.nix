@@ -1,17 +1,16 @@
 {
   lib,
-  glib,
   stdenv,
   makeWrapper,
   rofi,
-  pulseaudio,
+  networkmanager,
   gawk,
   gnugrep,
   bash,
 }:
 
 stdenv.mkDerivation {
-  pname = "rofi-audio-switcher";
+  pname = "rofi-network-switcher";
   version = "1.0";
 
   src = ./.;
@@ -20,12 +19,12 @@ stdenv.mkDerivation {
 
   installPhase = ''
     runHook preInstall
-    install -Dm755 ./script $out/bin/rofi-audio-switcher
-    wrapProgram $out/bin/rofi-audio-switcher \
+    install -Dm755 ./script $out/bin/rofi-network-switcher
+    wrapProgram $out/bin/rofi-network-switcher \
       --prefix PATH ":" ${
         lib.makeBinPath [
           rofi
-          pulseaudio
+          networkmanager
           gawk
           gnugrep
           bash
@@ -35,11 +34,11 @@ stdenv.mkDerivation {
   '';
 
   meta = with lib; {
-    description = "Rofi-based audio input/output switcher using pactl";
+    description = "Rofi-based network switcher using nmcli";
     homepage = null;
     license = licenses.mit;
     maintainers = with maintainers; [ kraanzu ];
-    mainProgram = "rofi-audio-switcher";
+    mainProgram = "rofi-network-switcher";
     platforms = platforms.linux;
   };
 }

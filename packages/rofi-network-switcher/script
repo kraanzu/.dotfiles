@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Get all available connections (exclude loopback and docker)
+connections=$(nmcli -g NAME,TYPE connection show | grep -v "loopback\|bridge" | while IFS=: read -r name type; do
+    echo "$name"
+done)
+
+# Show in rofi
+choice=$(echo "$connections" | rofi -dmenu -p "Select Network")
+
+if [ -n "$choice" ]; then
+    # Connect to selected network
+    nmcli connection up "$choice"
+fi
