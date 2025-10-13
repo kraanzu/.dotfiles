@@ -23,9 +23,9 @@ with lib.mynix;
       openrgb = enabled;
     };
     desktop = {
-      qtile = enabled;
-      hyprland = enabled;
+      # qtile = enabled;
       # niri = enabled;
+      hyprland = enabled;
       login = enabled;
       utilities = enabled;
     };
@@ -34,7 +34,6 @@ with lib.mynix;
     };
   };
 
-  programs.coolercontrol.enable = true;
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
