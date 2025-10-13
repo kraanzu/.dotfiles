@@ -16,6 +16,17 @@ in
 
   config = lib.mkIf cfg.enable {
     boot.loader.systemd-boot.enable = false;
+
+    swapDevices = [ { device = "/dev/nvme1n1p4"; } ];
+    boot.resumeDevice = "/dev/nvme1n1p4";
+    boot.plymouth.enable = true;
+    boot.consoleLogLevel = 0;
+    boot.kernelParams = [
+      "quiet"
+      "splash"
+      "nowatchdog"
+    ];
+
     boot.loader = {
       efi = {
         canTouchEfiVariables = true;
