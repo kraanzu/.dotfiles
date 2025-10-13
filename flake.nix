@@ -20,6 +20,7 @@
     grub2-themes.url = "github:vinceliuice/grub2-themes/2024-08-19";
     grub2-themes.inputs.nixpkgs.follows = "nixpkgs";
 
+    nixvim.url = "github:nix-community/nixvim";
     qtile-flake = {
       url = "github:qtile/qtile/v0.32.0";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -66,6 +67,7 @@
 
       homes.modules = with inputs; [
         dooit.homeManagerModules.default
+        nixvim.homeModules.nixvim
       ];
     };
 }
