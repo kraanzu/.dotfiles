@@ -12,10 +12,10 @@
 > **System Information:**
 >
 > - **OS:** NixOS
-> - **Window Manager:** Qtile
+> - **Window Manager:** Hyprland
 > - **Shell:** Fish
 > - **Terminal:** Wezterm
-> - **Editor:** Neovim / Zed
+> - **Editor:** Zed / Neovim
 
 
-![desktop](https://github.com/user-attachments/assets/18996715-03fe-4cc5-a4d0-8c5777deb0fa)
+![desktop](https://github.com/user-attachments/assets/a11827fb-b071-4e22-a930-05d26b24f331)
