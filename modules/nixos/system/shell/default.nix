@@ -7,7 +7,6 @@
 }:
 let
   cfg = config.mynix.system.shell;
-  garbageCollectCmd = "nix-collect-garbage --delete-older-than 3d";
 in
 {
   options.mynix.system.shell.enable = lib.mkOption {
@@ -22,8 +21,6 @@ in
     programs.fish = {
       shellAliases = {
         nix-shell = "nix-shell --run fish";
-        cleanup = "${garbageCollectCmd}";
-        scleanup = "sudo ${garbageCollectCmd}";
       };
       shellInit = ''
         if test -e ${pkgs.conda}/bin/conda

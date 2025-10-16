@@ -40,6 +40,7 @@ export TERM=xterm-256color
 export PYTHONDONTWRITEBYTECODE=1
 export GOPATH=$HOME/.local/go
 export IPYTHONDIR=~/.config/ipython
+export NH_OS_FLAKE=/home/kraanzu/.dotfiles
 
 # Extra programs
 syncthing install-completions | source 2> /dev/null
