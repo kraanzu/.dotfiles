@@ -50,11 +50,18 @@ in
     services.gnome.gnome-keyring.enable = true;
     security.pam.services.sddm.enableGnomeKeyring = true;
     security.pam.services.login.enableGnomeKeyring = true;
+    programs.gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+
+    programs.nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 4d --keep 3";
+    };
 
     hardware.i2c.enable = true;
-
-    # Faster Load/Shutdown
-    # systemd.services."NetworkManager-wait-online".enable = false;
     systemd.settings.Manager.DefaultTimeoutStopSec = "5s";
 
     nix.settings.experimental-features = [

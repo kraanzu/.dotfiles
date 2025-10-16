@@ -22,21 +22,8 @@ with lib.mynix;
     apps = {
       openrgb = enabled;
     };
-    desktop = {
-      # qtile = enabled;
-      # niri = enabled;
-      hyprland = enabled;
-      login = enabled;
-      utilities = enabled;
-    };
-    hardware = {
-      amdgpu = enabled;
-    };
-  };
-
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
+    desktop.hyprland = enabled;
+    hardware.amdgpu = enabled;
   };
 
   users.users.kraanzu = {

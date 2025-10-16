@@ -26,6 +26,9 @@ in
         obsidian
         yt-dlp
         flameshot
+        zathura
+        caffeine-ng
+        nautilus
 
         # Disk utilities
         gparted

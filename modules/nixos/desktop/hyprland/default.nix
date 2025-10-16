@@ -17,6 +17,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    mynix.desktop.login.enable = true;
     programs.hyprland.enable = true;
     programs.waybar.enable = true;
     environment.systemPackages = with pkgs; [
