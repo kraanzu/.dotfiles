@@ -27,8 +27,8 @@ in
     gtk.theme.name = "Nordic-bluish-accent";
     gtk.theme.package = pkgs.nordic;
 
-    gtk.iconTheme.name = "Papirus";
-    gtk.iconTheme.package = pkgs.papirus-nord.override { accent = "polarnight2"; };
+    gtk.iconTheme.name = "Nordic-green";
+    gtk.iconTheme.package = pkgs.nordic;
 
     gtk.cursorTheme.name = "Nordic-cursors";
     gtk.cursorTheme.package = pkgs.nordic;

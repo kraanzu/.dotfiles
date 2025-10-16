@@ -28,8 +28,7 @@ in
         flameshot
         zathura
         caffeine-ng
-        nautilus
-
+        nemo
         # Disk utilities
         gparted
         ntfs3g
