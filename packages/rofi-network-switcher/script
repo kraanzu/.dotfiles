@@ -1,14 +1,20 @@
 #!/usr/bin/env bash
 
-# Get all available connections (exclude loopback and docker)
+# Get connections with vendor info
 connections=$(nmcli -g NAME,TYPE connection show | grep -v "loopback\|bridge" | while IFS=: read -r name type; do
-    echo "$name"
+    # Get device for this connection
+    device=$(nmcli -t -f connection.interface-name connection show "$name" 2>/dev/null | cut -d: -f2)
+    if [ -n "$device" ]; then
+        vendor=$(nmcli -t -f GENERAL.VENDOR device show "$device" 2>/dev/null | cut -d: -f2)
+        echo "   $vendor ($name)"
+    else
+        echo "   $name"
+    fi
 done)
 
 # Show in rofi
-choice=$(echo "$connections" | rofi -dmenu -p "Select Network")
+choice=$(echo "$connections" | rofi -dmenu -p "Select Network" | sed 's/ (.*//')
 
 if [ -n "$choice" ]; then
-    # Connect to selected network
     nmcli connection up "$choice"
 fi
