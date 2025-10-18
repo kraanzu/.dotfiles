@@ -1,20 +1,38 @@
 #!/usr/bin/env bash
+# Build maps of display->actual names
+declare -A name_map
+while IFS=: read -r name type; do
+    [[ "$type" =~ loopback|bridge ]] && continue
 
-# Get connections with vendor info
-connections=$(nmcli -g NAME,TYPE connection show | grep -v "loopback\|bridge" | while IFS=: read -r name type; do
-    # Get device for this connection
     device=$(nmcli -t -f connection.interface-name connection show "$name" 2>/dev/null | cut -d: -f2)
     if [ -n "$device" ]; then
         vendor=$(nmcli -t -f GENERAL.VENDOR device show "$device" 2>/dev/null | cut -d: -f2)
-        echo "   $vendor ($name)"
+        if [ -n "$vendor" ]; then
+            display="$vendor ($name)"
+        else
+            display="$name"
+        fi
     else
-        echo "   $name"
+        display="$name"
     fi
-done)
+
+    name_map["$display"]="$name"
+done < <(nmcli -g NAME,TYPE connection show)
 
 # Show in rofi
-choice=$(echo "$connections" | rofi -dmenu -p "Select Network" | sed 's/ (.*//')
-
+choice=$(printf "%s\n" "${!name_map[@]}" | rofi -dmenu -p "Select Network")
 if [ -n "$choice" ]; then
-    nmcli connection up "$choice"
+    connection="${name_map[$choice]}"
+
+    # Set lower priority for others
+    for conn in "${name_map[@]}"; do
+        if [ "$conn" != "$connection" ]; then
+            nmcli connection modify "$conn" ipv4.route-metric 600
+            nmcli connection up "$conn" 2>/dev/null
+        fi
+    done
+
+    # Set higher priority for selected
+    nmcli connection modify "$connection" ipv4.route-metric 100
+    nmcli connection up "$connection"
 fi

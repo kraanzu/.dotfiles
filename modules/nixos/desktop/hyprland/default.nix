@@ -28,6 +28,9 @@ in
       xwayland-satellite
       cliphist
       wl-clipboard
+      grim
+      swappy
+      slurp
     ];
   };
 }

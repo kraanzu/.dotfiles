@@ -38,6 +38,7 @@ in
         gemini-cli
         claude-code
         direnv
+        tree-sitter
         gh
 
         # must-have
