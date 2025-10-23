@@ -1,0 +1,58 @@
+{
+    "window.zoomLevel": 0.1,
+    "explorer.excludeGitIgnore": true,
+    "workbench.colorTheme": "Nord",
+    "editor.fontSize": 16,
+    "editor.minimap.enabled": false,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "terminal.integrated.fontSize": 18,
+    "terminal.integrated.fontFamily": "monospace",
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnType": true
+    },
+    "djlint.formatCss": true,
+    "djlint.formatJs": true,
+    "emmet.includeLanguages": {
+        "django-html": "html"
+    },
+    "files.associations": {
+        "*.js": "javascript"
+    },
+    "workbench.editorAssociations": {
+        "*.xlsx": "gc-excelviewer-excel-editor"
+    },
+    "git.autofetch": true,
+    "terminal.explorerKind": "external",
+    "editor.fontFamily": "JetBrainsMono Nerd Font, Consolas, 'Courier New', monospace",
+    "[django-html]": {
+        "editor.defaultFormatter": "monosans.djlint"
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "python.analysis.extraPaths": [],
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true,
+        "scminput": false
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "editor.stickyScroll.enabled": false,
+    "editor.lineNumbers": "relative",
+    "git.openRepositoryInParentFolders": "never",
+    "github.copilot.editor.enableAutoCompletions": true,
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "vim.commandLineModeKeyBindingsNonRecursive": [],
+    "search.useGlobalIgnoreFiles": true,
+    "cursor.cpp.disabledLanguages": [
+        "plaintext",
+        "scminput"
+    ],
+    "editor.fontWeight": "600",
+}
