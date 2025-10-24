@@ -18,6 +18,7 @@ in
     commentary = autoloaded;
     lspkind = autoloaded;
     yanky = autoloaded;
+    render-markdown = autoloaded;
 
     conform-nvim = {
       enable = true;
