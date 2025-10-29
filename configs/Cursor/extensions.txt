@@ -15,7 +15,6 @@ njpwerner.autodocstring
 pkief.material-icon-theme
 shamanu4.django-intellisense
 sidthesloth.html5-boilerplate
-solomonkinard.git-blame
 tamasfe.even-better-toml
 usernamehw.errorlens
 vscodevim.vim
