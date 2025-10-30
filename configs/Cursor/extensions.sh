@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Read desired extensions from file
-mapfile -t desired_extensions < extensions.txt
+# Read desired extensions from file, ignore empty lines
+mapfile -t desired_extensions < <(grep -v '^\s*$' extensions.txt)
 
 # Get currently installed extensions
 mapfile -t installed_extensions < <(cursor --list-extensions)

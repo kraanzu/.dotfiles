@@ -12,6 +12,8 @@
     "editor.stickyScroll.enabled": false,
     "editor.minimap.enabled": false,
     "editor.lineNumbers": "relative",
+    "editor.fontWeight": "600",
+    "extensions.ignoreRecommendations": true,
 
     "editor.fontFamily": "JetBrainsMono Nerd Font, Consolas, 'Courier New', monospace",
     "editor.fontSize": 16,
@@ -37,6 +39,5 @@
         "plaintext",
         "scminput"
     ],
-    "editor.fontWeight": "600",
-    "extensions.ignoreRecommendations": true,
+
 }
