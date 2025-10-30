@@ -18,6 +18,7 @@ in
     boot.loader.systemd-boot.enable = false;
     boot.plymouth.enable = true;
     boot.consoleLogLevel = 0;
+    boot.initrd.verbose = false;
     boot.kernelParams = [
       "quiet"
       "splash"
