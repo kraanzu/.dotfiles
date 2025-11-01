@@ -1,7 +1,16 @@
 // Place your key bindings in this file to override the defaults
 [
     {
-        "key": "ctrl+i",
-        "command": "composerMode.agent"
+      "key": "ctrl+i",
+      "command": "aichat.newfollowupaction"
+    },
+    {
+      "key": "ctrl+y",
+      "command": "-aichat.newfollowupaction"
+    },
+    {
+      "key": "ctrl+enter",
+      "command": "editor.action.inlineDiffs.acceptPartialEdit",
+      "when": "editorTextFocus && inlineDiffs.activeEditorWithDiffs"
     }
 ]
