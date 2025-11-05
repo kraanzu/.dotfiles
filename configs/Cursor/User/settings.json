@@ -39,5 +39,7 @@
         "plaintext",
         "scminput"
     ],
+    "terminal.integrated.inheritEnv": false,
+    "editor.inlayHints.enabled": "off",
 
 }
