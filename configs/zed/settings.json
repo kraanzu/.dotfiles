@@ -131,7 +131,6 @@
     "scheme": true,
     "dockerfile": true,
 
-    "toml": true,
-    "ruff": true
+    "toml": true
   }
 }
