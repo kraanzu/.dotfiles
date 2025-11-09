@@ -24,5 +24,15 @@
     "bindings": {
       "s": "git::ToggleStaged"
     }
+  },
+  {
+    "bindings": {
+      "ctrl-,": "zed::OpenSettingsFile"
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-alt-,": "zed::OpenSettings"
+    }
   }
 ]
