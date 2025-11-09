@@ -25,7 +25,6 @@ in
         syncthing
         obsidian
         yt-dlp
-        flameshot
         zathura
         caffeine-ng
         nemo
