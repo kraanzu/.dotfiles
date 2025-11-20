@@ -18,7 +18,8 @@
   		"brave-browser": "Brave",
   		"org.wezfurlong.wezterm": "Wezterm",
   		"org.telegram.desktop": "Telegram",
-  		"org.qbittorrent.qBittorrent": "qBittorrent"
+  		"org.qbittorrent.qBittorrent": "qBittorrent",
+  		"microsoft-edge": "Edge"
   	}
   },
   "custom/network": {
