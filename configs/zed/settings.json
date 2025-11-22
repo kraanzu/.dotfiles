@@ -1,7 +1,7 @@
 {
   // Essentials
   "soft_wrap": "editor_width",
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   "vim_mode": true,
   "vim": {
     "highlight_on_yank_duration": 500,
