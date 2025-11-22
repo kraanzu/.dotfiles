@@ -42,7 +42,6 @@ in
         useOSProber = true;
         efiSupport = true;
         device = "nodev";
-        default = "saved";
       };
     };
     systemd.user.extraConfig = ''
