@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+poweroff_option="  Power Off"
+reboot_option="  Reboot"
+lock_option="  Lock"
+windows_option="  Reboot to Windows"
+
+options="$poweroff_option\n$reboot_option\n$lock_option\n$windows_option"
+chosen=$(echo -e "$options" | rofi -dmenu -i -p "Power Menu")
+
+case $chosen in
+    "$poweroff_option")
+        confirm=$(echo -e "Yes\nNo" | rofi -dmenu -i -p "Confirm power off?")
+        if [[ $confirm == "Yes" ]]; then
+            systemctl poweroff
+        fi
+        ;;
+    "$reboot_option")
+        confirm=$(echo -e "Yes\nNo" | rofi -dmenu -i -p "Confirm reboot?")
+        if [[ $confirm == "Yes" ]]; then
+            systemctl reboot
+        fi
+        ;;
+    "$lock_option")
+        hyprlock
+        ;;
+    "$windows_option")
+        sudo /run/current-system/sw/bin/grub-reboot "Windows Boot Manager (on /dev/nvme1n1p1)" && systemctl reboot
+        ;;
+esac

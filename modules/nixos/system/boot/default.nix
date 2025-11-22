@@ -2,6 +2,7 @@
 
   lib,
   config,
+  pkgs,
   ...
 }:
 let
@@ -15,6 +16,8 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    environment.systemPackages = [ pkgs.grub2 ];
+
     boot.loader.systemd-boot.enable = false;
     boot.plymouth.enable = true;
     boot.consoleLogLevel = 0;
@@ -39,11 +42,23 @@ in
         useOSProber = true;
         efiSupport = true;
         device = "nodev";
-        # efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
+        default = "saved";
       };
     };
     systemd.user.extraConfig = ''
-      DefaultTimeoutStopSec=5s
+      DefaultTimeoutStopSec=3s
     '';
+
+    security.sudo.extraRules = [
+      {
+        users = [ "kraanzu" ];
+        commands = [
+          {
+            command = "/run/current-system/sw/bin/grub-reboot";
+            options = [ "NOPASSWD" ];
+          }
+        ];
+      }
+    ];
   };
 }

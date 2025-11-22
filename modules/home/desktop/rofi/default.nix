@@ -2,23 +2,16 @@
   pkgs,
   lib,
   config,
-
   ...
 }:
 let
   rofi_modes = [
-    # default modes
     "window"
     "drun"
     "run"
     "ssh"
     "combi"
-
-    # simple plugins
     "emoji"
-
-    # extra config
-    "power-menu:${pkgs.rofi-power-menu}/bin/rofi-power-menu"
   ];
   cfg = config.mynix.desktop.rofi;
 in
@@ -34,6 +27,7 @@ in
       rofi-bluetooth
       mynix.rofi-audio-switcher
       mynix.rofi-network-switcher
+      mynix.rofi-power-menu
     ];
     programs.rofi = {
       enable = true;
