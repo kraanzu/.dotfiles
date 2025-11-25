@@ -22,11 +22,6 @@ in
       shellAliases = {
         nix-shell = "nix-shell --run fish";
       };
-      shellInit = ''
-        if test -e ${pkgs.conda}/bin/conda
-          eval ${pkgs.conda}/bin/conda "shell.fish" "hook" $argv | source
-        end
-      '';
       interactiveShellInit = ''
         function runshell
           if test (count $argv) -eq 1
