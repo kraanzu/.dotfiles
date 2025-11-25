@@ -2,7 +2,6 @@
 source $HOME/.config/fish/secrets.fish 2> /dev/null
 source $HOME/.config/fish/utils.fish
 source $HOME/.config/fish/quick_scripts.fish
-source $HOME/.conda/etc/fish/conf.d/conda.fish 2> /dev/null
 
 #----------------------------- BASICS -----------------------------------
 fish_vi_key_bindings
