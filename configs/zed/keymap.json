@@ -11,10 +11,7 @@
       "super-b": "workspace::ToggleLeftDock",
       "super-m": "workspace::ToggleBottomDock",
       "super-e": "project_panel::ToggleFocus",
-      "super-p": [
-        "task::Spawn",
-        { "task_name": "Neogit", "reveal_target": "center" }
-      ],
+      "up": ["task::Spawn", { "task_name": "Neogit" }],
       "super-g": ["agent::NewExternalAgentThread", { "agent": "gemini" }]
     }
   },
