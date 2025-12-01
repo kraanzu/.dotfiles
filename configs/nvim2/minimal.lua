@@ -1,19 +1,11 @@
--- Minimal lua config to be used inside zed
-
-local lazypath = vim.fn.stdpath("data") .. "/lazy"
+-- vim.opt.runtimepath = vim.env.VIMRUNTIME
+vim.cmd.colorscheme('nord')
 
 if vim.fn.isdirectory('.git') == 0 then
     print('Not a git repository')
     vim.cmd('qa!')
     return
 end
-
-vim.opt.runtimepath:append(lazypath .. "/plenary.nvim")
-vim.opt.runtimepath:append(lazypath .. "/neogit")
-vim.opt.runtimepath:append(lazypath .. "/nord.nvim")
-
-require('nord').setup()
-vim.cmd.colorscheme('nord')
 
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "NeogitStatus",
@@ -32,5 +24,15 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 local neogit = require('neogit')
-neogit.setup()
+neogit.setup({
+    disable_hint = true,
+})
+
 neogit.open()
+vim.schedule(function()
+    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+        if vim.api.nvim_buf_get_name(buf) == "" and vim.bo[buf].buftype == "" then
+            vim.api.nvim_buf_delete(buf, { force = true })
+        end
+    end
+end)
