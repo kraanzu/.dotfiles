@@ -1,10 +1,10 @@
 {
   // Essentials
-  "autosave": {
-    "after_delay": {
-      "milliseconds": 1000
-    }
-  },
+  // "autosave": {
+  //   "after_delay": {
+  //     "milliseconds": 1000
+  //   }
+  // },
   "soft_wrap": "editor_width",
   "relative_line_numbers": "enabled",
   "vim_mode": true,
