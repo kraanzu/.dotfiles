@@ -41,5 +41,10 @@
     ],
     "terminal.integrated.inheritEnv": false,
     "editor.inlayHints.enabled": "off",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+
+    // Prevent format on save for django template files
+    "[django-html]": {
+        "editor.formatOnSave": false
+    }
 }
