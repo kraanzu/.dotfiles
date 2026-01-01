@@ -37,7 +37,7 @@
     "format": "{icon} {volume}%",
     "format-muted": "󰝟 Mute",
     "format-icons": {
-      "bluez_output.88_92_CC_7E_A8_62.1": "",
+      "bluez_output.88:92:CC:7E:A8:62": "",
       "alsa_output.usb-ACTIONS_Pebble_V3-00.analog-stereo": "󰓃"
     },
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
