@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     darwin.url = "github:LnL7/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -11,23 +13,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-index-database.url = "github:nix-community/nix-index-database";
-    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     grub2-themes.url = "github:vinceliuice/grub2-themes/2024-08-19";
     grub2-themes.inputs.nixpkgs.follows = "nixpkgs";
 
+    zed.url = "github:zed-industries/zed/v0.217.3";
     nixvim.url = "github:nix-community/nixvim";
-    qtile-flake = {
-      url = "github:qtile/qtile/v0.32.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    dooit.url = "github:dooit-org/dooit";
-    dooit-extras.url = "github:dooit-org/dooit-extras";
 
     mywalls = {
       url = "github:kraanzu/nord_walls";
@@ -66,7 +59,6 @@
       };
 
       homes.modules = with inputs; [
-        dooit.homeManagerModules.default
         nixvim.homeModules.nixvim
       ];
     };

@@ -22,7 +22,9 @@ in
     programs.dconf.enable = true;
     programs.nix-index-database.comma.enable = true;
     programs.nix-ld.enable = true;
-    programs.adb.enable = true;
+    environment.systemPackages = with pkgs; [
+      android-tools
+    ];
 
     xdg.portal = {
       enable = true;
@@ -34,16 +36,16 @@ in
       };
     };
 
-    services.dnsmasq.enable = true;
-    services.dnsmasq.settings = {
-      no-resolv = true;
-      bogus-priv = true;
-      strict-order = true;
-      server = [
-        "94.140.14.49"
-        "94.140.15.15"
-      ];
-    };
+    # services.dnsmasq.enable = true;
+    # services.dnsmasq.settings = {
+    #   no-resolv = true;
+    #   bogus-priv = true;
+    #   strict-order = true;
+    #   server = [
+    #     "94.140.14.49"
+    #     "94.140.15.15"
+    #   ];
+    # };
 
     services.dbus.enable = true;
     programs.seahorse.enable = true;

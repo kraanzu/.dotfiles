@@ -45,7 +45,7 @@ let
     nix = with pkgs; [
       nil
       nixd
-      nixfmt-rfc-style
+      nixfmt
     ];
 
     rust = with pkgs; [
