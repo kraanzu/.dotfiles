@@ -18,8 +18,6 @@
 
     grub2-themes.url = "github:vinceliuice/grub2-themes/2024-08-19";
     grub2-themes.inputs.nixpkgs.follows = "nixpkgs";
-
-    zed.url = "github:zed-industries/zed/v0.217.3";
     nixvim.url = "github:nix-community/nixvim";
 
     mywalls = {
