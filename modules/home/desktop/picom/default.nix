@@ -54,10 +54,6 @@ in
         detectTransient = true;
         useDamage = true;
 
-        shadow-exclude = [
-          "QTILE_INTERNAL:32c = 1"
-        ];
-
         wintypes = {
           tooltip = {
             fade = false;
