@@ -8,7 +8,7 @@
 with lib;
 let
   cfg = config.mynix.desktop.login;
-  wallpath = builtins.toString inputs.mywalls;
+  wallpath = toString inputs.mywalls;
 in
 {
   options = {
@@ -25,7 +25,7 @@ in
       enable = true;
       settings = {
         initial_session = {
-          command = "Hyprland";
+          command = "start-hyprland";
           user = "kraanzu";
         };
       };

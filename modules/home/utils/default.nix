@@ -28,13 +28,13 @@ in
         zathura
         caffeine-ng
         nemo
+
         # Disk utilities
         gparted
         ntfs3g
         gnome-disk-utility
 
         # coding stuff
-        gemini-cli
         claude-code
         direnv
         tree-sitter
@@ -68,6 +68,7 @@ in
         jq
         ddcutil
         entr
+        networkmanagerapplet
       ];
   };
 }
