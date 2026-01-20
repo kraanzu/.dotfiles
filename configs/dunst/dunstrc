@@ -1,72 +1,67 @@
 [global]
-alignment="left"
-always_run_script=yes
-class="Dunst"
-corner_radius=0
-ellipsize="middle"
-enable_recursive_icon_lookup=yes
-follow="mouse"
-font="JetBrainsMono Nerd Font 12"
-format="<b>%s</b>%b"
-frame_width=2
-gap_size=0
-height=100
-hide_duplicate_count=no
-history_length=20
-horizontal_padding=15
-icon_position="left"
-idle_threshold=120
-ignore_newline=no
-indicate_hidden=yes
-line_height=2
-markup="full"
-max_icon_size=48
-min_icon_size=24
-monitor=0
-mouse_left_click="close_current"
-mouse_middle_click=do_action close_current
-mouse_right_click="close_all"
-notification_limit=0
-offset="20x20"
-origin="top-right"
-padding=15
-progress_bar=yes
-progress_bar_frame_width=2
-progress_bar_height=80
-progress_bar_max_width=300
-progress_bar_min_width=300
-scale=0
-separator_color="frame"
-separator_height=2
-show_age_threshold=60
-show_indicators=yes
-sort=yes
-stack_duplicates=yes
-sticky_history=yes
-text_icon_padding=0
-title="Dunst"
-transparency=0
-vertical_alignment="center"
-width=350
+monitor = 1
+origin = top-right
+offset = (15, 25)
+width = 300
+height = 100
+gap_size = 5
+notification_limit = 5
 
-[urgency_critical]
-background="#252a34"
-foreground="#BF616A"
-frame_color="#BF616A"
-timeout=0
+# Appearance
+font = "JetBrainsMono Nerd Font 13"
+frame_width = 3
+frame_color = "#81a1c1"
+separator_color = frame
+corner_radius = 0
+corners = top-left,bottom
+progress_bar_corner_radius = 5
+progress_bar_corners = top-left,bottom-right
+
+# Colors (Nord)
+background = "#272c36"
+foreground = "#d8dee9"
+highlight = "#81a1c1,#a3be8c"
+
+# Timing
+timeout = 5
+idle_threshold = 120
+
+# Behavior
+show_indicators = yes
+sticky_history = yes
+history_length = 20
+
+# Mouse actions
+mouse_left_click = close_current
+mouse_right_click = close_all
+mouse_middle_click = do_action
+
+# Format
+format = "<b><span size='105%' foreground='#81a1c1'>%s</span></b>\n<span foreground='#d8dee9'>%b</span>"
 
 [urgency_low]
-background="#252a34"
-foreground="#D8DEE9"
-frame_color="#81A1C1"
-timeout=2
+timeout = 3
+foreground = "#a3be8c"
+frame_color = "#a3be8c"
 
 [urgency_normal]
-background="#252a34"
-foreground="#D8DEE9"
-frame_color="#81A1C1"
-timeout=5
+timeout = 5
+foreground = "#81a1c1"
+frame_color = "#81a1c1"
 
-[skip-rule]
-appname="Spotify"
-skip_display=true
+[urgency_critical]
+timeout = 0
+foreground = "#bf616a"
+frame_color = "#bf616a"
+
+[no_sound]
+    appname = "Telegram*"
+    script = ""
+
+[no_sound_discord]
+    appname = "discord"
+    script = ""
+
+[play_sound]
+    summary = "*"
+    script = ~/.config/dunst/play.sh

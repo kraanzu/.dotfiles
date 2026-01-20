@@ -1,0 +1,1 @@
+pw-play $HOME/.config/dunst/sounds/notification.mp3
