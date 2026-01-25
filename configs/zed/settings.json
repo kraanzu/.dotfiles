@@ -37,7 +37,7 @@
   },
 
   // Eye candy
-  "icon_theme": "Material Icon Theme",
+  "icon_theme": "Zed (Default)",
   "theme": {
     "mode": "dark",
     "light": "Nord",
