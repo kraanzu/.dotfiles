@@ -7,6 +7,6 @@ with lib;
 with lib.mynix;
 {
   options.mynix.sec = {
-    enable = mkBoolOpt true "Enable all security tools";
+    enable = mkBoolOpt false "Enable all security tools";
   };
 }
