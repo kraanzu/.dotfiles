@@ -17,6 +17,20 @@ in
   };
 
   config = {
+    systemd.user.services.rclone-bisync = {
+      Unit.Description = "Rclone bisync";
+      Service.ExecStart = "${pkgs.rclone}/bin/rclone bisync gdrive:Docs %h/Docs";
+    };
+
+    systemd.user.timers.rclone-bisync = {
+      Unit.Description = "Rclone bisync timer";
+      Timer = {
+        OnCalendar = "*-*-* 00/5:00:00";
+        Persistent = true;
+      };
+      Install.WantedBy = [ "timers.target" ];
+    };
+
     home.packages =
       with pkgs;
       mkIf cfg.enable [
