@@ -35,7 +35,6 @@ in
         gnome-disk-utility
 
         # coding stuff
-        claude-code
         direnv
         tree-sitter
         gh
@@ -49,7 +48,6 @@ in
         geoclue2
         unzip
         zip
-        xclip
         ripgrep
         bluez
         tree
@@ -60,15 +58,14 @@ in
         imagemagick
         popsicle
         wmctrl
-        xdotool
         poppler-utils
         img2pdf
         stow
-        sct
         jq
         ddcutil
         entr
         networkmanagerapplet
+        rclone
       ];
   };
 }
