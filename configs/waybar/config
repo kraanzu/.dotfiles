@@ -19,6 +19,7 @@
   		"org.wezfurlong.wezterm": "Wezterm",
   		"org.telegram.desktop": "Telegram",
   		"org.qbittorrent.qBittorrent": "qBittorrent",
+  		"org.pwmt.zathura": "Zathura",
   		"microsoft-edge": "Edge"
   	}
   },
