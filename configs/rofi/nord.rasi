@@ -1,5 +1,5 @@
 * {
-    nord0: #2e3440;
+    nord0: #272C36;
     nord1: #3b4252;
     nord2: #434c5e;
     nord3: #4c566a;
@@ -8,7 +8,7 @@
     nord7: #8fbcbb;
     nord10: #5e81ac;
 
-    background-color: transparent;
+    background-color: @nord0;
     text-color: @nord4;
     font: "Inter 12";
 }
@@ -16,9 +16,10 @@
 window {
     location: center;
     anchor: center;
-    width: 600px;
+    height: 500px;
+    width: 650px;
     background-color: rgba(46, 52, 64, 0.95);
-    border-radius: 12px;
+    border-radius: 0px;
     border: 1px solid;
     border-color: rgba(143, 188, 187, 0.3);
     padding: 0px;
@@ -34,18 +35,20 @@ inputbar {
     padding: 12px 16px;
     margin: 0px 0px 12px 0px;
     background-color: @nord1;
-    border-radius: 8px;
+    border-radius: 0px;
     children: [prompt, entry];
 }
 
 prompt {
     enabled: false;
+    background-color: @nord1;
 }
 
 entry {
     placeholder: "Search...";
     placeholder-color: @nord3;
     text-color: @nord6;
+    background-color: @nord1;
 }
 
 listview {
@@ -57,7 +60,7 @@ listview {
 
 element {
     padding: 10px 12px;
-    border-radius: 8px;
+    border-radius: 0px;
     background-color: transparent;
     text-color: @nord4;
 }
@@ -74,14 +77,15 @@ element-text {
 }
 
 element-icon {
-    size: 24px;
+    size: 30px;
+    padding: 0px;
     margin: 0px 12px 0px 0px;
     background-color: transparent;
 }
 
 message {
     padding: 12px;
-    border-radius: 8px;
+    border-radius: 0px;
     background-color: @nord1;
     text-color: @nord7;
 }
