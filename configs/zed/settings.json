@@ -10,50 +10,50 @@
   "vim_mode": true,
   "vim": {
     "highlight_on_yank_duration": 500,
-    "use_smartcase_find": true
+    "use_smartcase_find": true,
   },
 
   // Minimal Bar
   "collaboration_panel": {
-    "button": false
+    "button": false,
   },
   "outline_panel": {
-    "button": false
+    "button": false,
   },
   "git_panel": {
-    "button": false
+    "button": false,
   },
   "notification_panel": {
-    "button": false
+    "button": false,
   },
   "project_panel": {
-    "button": false
+    "button": false,
   },
   "terminal": {
-    "button": false
+    "button": false,
   },
   "search": {
-    "button": false
+    "button": false,
   },
 
   // Eye candy
-  "icon_theme": "Zed (Default)",
+  "icon_theme": "Material Icon Theme",
   "theme": {
     "mode": "dark",
     "light": "Nord",
-    "dark": "Nord"
+    "dark": "Nord",
   },
   "toolbar": {
     "breadcrumbs": true,
-    "quick_actions": false
+    "quick_actions": false,
   },
   "tabs": {
-    "file_icons": true
+    "file_icons": true,
   },
   "tab_bar": {
     "show": true,
     "show_nav_history_buttons": false,
-    "show_tab_bar_buttons": false
+    "show_tab_bar_buttons": false,
   },
 
   // UI & Buffer Fonts
@@ -64,14 +64,14 @@
   "buffer_font_weight": 500,
   "buffer_font_size": 16,
   "buffer_line_height": {
-    "custom": 1.5
+    "custom": 1.5,
   },
 
   // Diagnostics
   "diagnostics": {
     "inline": {
-      "enabled": true
-    }
+      "enabled": true,
+    },
   },
 
   "languages": {
@@ -80,11 +80,11 @@
       "formatter": [
         {
           "language_server": {
-            "name": "ruff"
-          }
-        }
-      ]
-    }
+            "name": "ruff",
+          },
+        },
+      ],
+    },
   },
 
   // LSP Settings
@@ -94,30 +94,30 @@
     "enabled": false,
     "show_type_hints": true,
     "show_parameter_hints": true,
-    "show_other_hints": true
+    "show_other_hints": true,
   },
 
   // Copilot settings
   "agent": {
     "inline_assistant_model": {
       "provider": "copilot_chat",
-      "model": "claude-haiku-4.5"
+      "model": "claude-haiku-4.5",
     },
     "button": false,
     "default_profile": "ask",
     "model_parameters": [],
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4o"
-    }
+      "model": "gpt-4o",
+    },
   },
   "agent_servers": {
     "gemini": {
-      "ignore_system_version": false
-    }
+      "ignore_system_version": false,
+    },
   },
   "features": {
-    "edit_prediction_provider": "copilot"
+    "edit_prediction_provider": "copilot",
   },
 
   // Extensions
@@ -136,6 +136,6 @@
     "scheme": true,
     "dockerfile": true,
 
-    "toml": true
-  }
+    "toml": true,
+  },
 }
