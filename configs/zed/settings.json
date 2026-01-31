@@ -5,6 +5,10 @@
   //     "milliseconds": 1000
   //   }
   // },
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "base_keymap": "Cursor",
   "soft_wrap": "editor_width",
   "relative_line_numbers": "enabled",
   "vim_mode": true,
@@ -125,9 +129,9 @@
     "git-firefly": true,
     "material-icon-theme": true,
     "golangci-lint": true,
-    "rainbow-csv": true,
 
     // languages
+    "rainbow-csv": true,
     "html": true,
     "markdown": true,
     "fish": true,
@@ -135,7 +139,6 @@
     "nix": true,
     "scheme": true,
     "dockerfile": true,
-
     "toml": true,
   },
 }
