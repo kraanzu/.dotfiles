@@ -1,50 +1,79 @@
 {
-    "window.zoomLevel": 0.15,
-    "window.titleBarStyle": "native",
-    "window.customTitleBarVisibility": "never",
-    "workbench.layoutControl.enabled": false,
-    "update.mode": "manual",
-    "explorer.excludeGitIgnore": true,
-    "explorer.confirmDelete": false,
-    "explorer.confirmDragAndDrop": false,
-    "workbench.colorTheme": "Nord",
-
-    "editor.stickyScroll.enabled": false,
-    "editor.minimap.enabled": false,
-    "editor.lineNumbers": "relative",
-    "editor.fontWeight": "600",
-    "extensions.ignoreRecommendations": true,
-
-    "editor.fontFamily": "JetBrainsMono Nerd Font, Consolas, 'Courier New', monospace",
-    "editor.fontSize": 16,
-    "terminal.integrated.fontSize": 18,
-    "terminal.integrated.fontFamily": "monospace",
-
-    "emmet.includeLanguages": {
-        "django-html": "html"
-    },
-    "files.associations": {
-        "*.js": "javascript"
-    },
-    "workbench.editorAssociations": {
-        "*.xlsx": "gc-excelviewer-excel-editor"
-    },
-
-    "git.autofetch": true,
-    "git.openRepositoryInParentFolders": "never",
-    "search.useGlobalIgnoreFiles": true,
-
-    "vim.commandLineModeKeyBindingsNonRecursive": [],
-    "cursor.cpp.disabledLanguages": [
-        "plaintext",
-        "scminput"
-    ],
-    "terminal.integrated.inheritEnv": false,
-    "editor.inlayHints.enabled": "off",
-    "editor.formatOnSave": true,
-
-    // Prevent format on save for django template files
-    "[django-html]": {
-        "editor.formatOnSave": false
+  "terminal.integrated.enabled": false,
+  "window.menuBarVisibility": "hidden",
+  "window.zoomLevel": 0.15,
+  "window.titleBarStyle": "native",
+  "workbench.layoutControl.enabled": false,
+  "update.mode": "manual",
+  "explorer.excludeGitIgnore": true,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "workbench.colorTheme": "Nord",
+  "workbench.activityBar.orientation": "vertical",
+  "workbench.activityBar.location": "hidden",
+  "editor.stickyScroll.enabled": false,
+  "editor.minimap.enabled": false,
+  "editor.lineNumbers": "relative",
+  "editor.fontWeight": "600",
+  "extensions.ignoreRecommendations": true,
+  "editor.fontFamily": "JetBrainsMono Nerd Font, Consolas, 'Courier New', monospace",
+  "editor.fontSize": 16,
+  "terminal.integrated.fontSize": 18,
+  "terminal.integrated.fontFamily": "monospace",
+  "emmet.includeLanguages": {
+    "django-html": "html",
+  },
+  "files.associations": {
+    "*.js": "javascript",
+  },
+  "workbench.editorAssociations": {
+    "*.xlsx": "gc-excelviewer-excel-editor",
+  },
+  "git.autofetch": true,
+  "git.openRepositoryInParentFolders": "never",
+  "search.useGlobalIgnoreFiles": true,
+  "vim.useSystemClipboard": true,
+  "vim.commandLineModeKeyBindingsNonRecursive": [],
+  "vim.handleKeys": {
+    "<C-p>": false,
+  },
+  "cursor.cpp.disabledLanguages": [
+    "plaintext",
+    "scminput"
+  ],
+  "terminal.integrated.inheritEnv": false,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.inlayHints.enabled": "off",
+  "editor.formatOnSave": true,
+  "editor.semanticHighlighting.enabled": false,
+  // Prevent format on save for django template files
+  "[django-html]": {
+    "editor.formatOnSave": false,
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.formatOnSave": true
+  },
+  "redhat.telemetry.enabled": true,
+  "window.customTitleBarVisibility": "never",
+  // theme stuff
+  "workbench.colorCustomizations": {
+    "[Nord]": {
+      "sideBar.background": "#272C36",
+      "tab.activeBackground": "#2E3440",
+      "tab.inactiveBackground": "#272C36",
+      "tab.border": "#3b4252",
+      "tab.activeBorderTop": "#88c0d0",
+      "tab.activeBorder": "#2E3440",
+      "editorGroupHeader.tabsBackground": "#272C36",
+      "editorGroupHeader.tabsBorder": "#3b4252",
+      "editorGroupHeader.border": "#3b4252",
+      "breadcrumb.background": "#2E3440"
     }
+  },
+  "workbench.sideBar.location": "right",
 }

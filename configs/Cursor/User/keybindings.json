@@ -1,6 +1,44 @@
 [
--   { "key": "meta+b",     "command": "workbench.action.toggleSidebarVisibility" },
-    { "key": "meta+p",     "command": "workbench.action.quickOpen" },
-    { "key": "meta+k",     "command": "aipopup.action.modal.generate", "when": "editorFocus && !composerBarIsVisible", "args": {"invocationType":"new"} },
-    { "key": "ctrl+alt+t", "command": "workbench.action.closeOtherEditors" }
+    {
+        "key": "meta+b",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "meta+p",
+        "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "meta+k",
+        "command": "aipopup.action.modal.generate",
+        "when": "editorFocus && !composerBarIsVisible",
+        "args": {
+            "invocationType": "new"
+        }
+    },
+    {
+        "key": "meta+i",
+        "command": "composer.startComposerPrompt"
+    },
+    {
+        "key": "ctrl+alt+t",
+        "command": "workbench.action.closeOtherEditors"
+    },
+    {
+        "key": "alt+h",
+        "command": "composer.focusComposer",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+h",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "composerFocus"
+    },
+    {
+        "key": "alt+l",
+        "command": "workbench.action.focusActiveEditorGroup"
+    },
+    {
+        "key": "ctrl+alt+o",
+        "command": "workbench.action.openRecent"
+    }
 ]
