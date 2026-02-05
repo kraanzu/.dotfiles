@@ -24,17 +24,17 @@
         "command": "workbench.action.closeOtherEditors"
     },
     {
-        "key": "alt+h",
+        "key": "meta+h",
         "command": "composer.focusComposer",
         "when": "editorFocus"
     },
     {
-        "key": "alt+h",
+        "key": "meta+h",
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "composerFocus"
     },
     {
-        "key": "alt+l",
+        "key": "meta+l",
         "command": "workbench.action.focusActiveEditorGroup"
     },
     {
