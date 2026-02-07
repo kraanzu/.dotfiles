@@ -24,6 +24,7 @@ in
       hyprlock
       hypridle
       hyprpaper
+      hyprpicker
       wlsunset
       xwayland-satellite
       cliphist

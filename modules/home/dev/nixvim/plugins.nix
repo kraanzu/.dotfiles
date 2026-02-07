@@ -18,26 +18,10 @@ in
     commentary = autoloaded;
     lspkind = autoloaded;
     yanky = autoloaded;
-    render-markdown = autoloaded;
-
-    conform-nvim = {
-      enable = true;
-    };
-
-    telescope = {
-      enable = true;
-    };
-
-    lualine = {
-      enable = true;
-    };
-
-    cmp = {
-      enable = true;
-    };
-
-    treesitter = {
-      enable = true;
-    };
+    conform-nvim = autoloaded;
+    telescope = autoloaded;
+    lualine = autoloaded;
+    cmp = autoloaded;
+    treesitter = autoloaded;
   };
 }

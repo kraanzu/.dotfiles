@@ -80,6 +80,7 @@ in
         entr
         networkmanagerapplet
         rclone
+        fd
       ];
   };
 }
