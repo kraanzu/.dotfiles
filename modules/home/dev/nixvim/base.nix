@@ -35,5 +35,6 @@
     signcolumn = "yes";
     termguicolors = true;
     termsync = false;
+    undofile = true;
   };
 }
