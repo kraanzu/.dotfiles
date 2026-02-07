@@ -14,6 +14,7 @@ set font "JetBrainsMono NF 15"
 set default-bg "#242933" # darker than nord0
 set default-fg "#D8DEE9" # nord4
 
+set statusbar-basename "true"
 set statusbar-fg "#D8DEE9" # nord4
 set statusbar-bg "#3B4252" # nord1
 
@@ -56,3 +57,5 @@ set scroll-step 50
 unmap f
 map f toggle_fullscreen
 map [fullscreen] f toggle_fullscreen
+
+map <C-m> toggle_statusbar
