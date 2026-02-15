@@ -33,6 +33,7 @@ alias yts='yt-dlp --extract-audio --audio-format opus' # download youtube video 
 alias cat='bat -pp --theme=Nord'
 alias grep='grep --color=auto'
 alias cb='xclip -selection clipboard'
+alias cf='rm -f ~/cf/*.py 2>/dev/null; rm -rf ~/cf/.cph/.* 2>/dev/null'
 
 export LANG=en_IN.UTF-8
 export TERM=xterm-256color
