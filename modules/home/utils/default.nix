@@ -81,6 +81,7 @@ in
         networkmanagerapplet
         rclone
         fd
+        mynix.crule
       ];
   };
 }
