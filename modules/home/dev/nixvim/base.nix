@@ -14,6 +14,10 @@
     vsnip_snippet_dir = "~/.config/vsnip";
   };
 
+  filetype.pattern = {
+    ".*%.mdc" = "markdown";
+  };
+
   opts = {
     number = true;
     cursorline = true;

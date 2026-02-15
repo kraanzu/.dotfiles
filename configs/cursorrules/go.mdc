@@ -1,0 +1,183 @@
+---
+description: "Go conventions — idiomatic style, error handling, concurrency, project layout, testing"
+alwaysApply: false
+---
+# Go Rules
+
+Sources: Effective Go, Google Go Style Guide, Go Code Review Comments, Go Proverbs.
+
+## Philosophy
+
+- Go is not Java, Python, or Rust. Don't port patterns — think in Go.
+- Clarity over cleverness. Simplicity over expressiveness.
+- "A little copying is better than a little dependency." — Go Proverb.
+- "The bigger the interface, the weaker the abstraction." — Go Proverb.
+- "Don't communicate by sharing memory, share memory by communicating." — Go Proverb.
+- `gofmt` is non-negotiable. Run it on every save.
+
+## Naming (from Effective Go & Google Style Guide)
+
+- **Packages**: lowercase, single-word, no underscores. Name describes what it *provides*, not what it *contains*. `http`, `user`, `config` — not `httpUtils` or `helpers`.
+- **Don't repeat the package name**: `config.Parse()` not `config.ParseConfig()`. `http.Client` not `http.HTTPClient`.
+- **Don't repeat the receiver name** in methods: `queue.Add()` not `queue.AddToQueue()`.
+- **Exported**: `MixedCaps` — `NewClient`, `ErrNotFound`.
+- **Unexported**: `mixedCaps` — `parseURL`, `defaultTimeout`.
+- **Interfaces**: single-method → `-er` suffix: `Reader`, `Writer`, `Closer`. Don't create interfaces just to expose package functionality — this is Go, not Java.
+- **Getters**: no `Get` prefix — `user.Name()` not `user.GetName()`. Setters use `Set`: `user.SetName()`.
+- **Acronyms**: consistent casing — `URL`, `ID`, `HTTP`. Write `userID` not `userId`, `HTTPClient` not `HttpClient`.
+- **Receivers**: short, 1-2 letter abbreviation of the type — `func (s *Server) Start()`. Never `self` or `this`.
+- **Local variables**: short for short scopes (`i`, `n`, `err`, `ctx`). Longer for longer scopes.
+- **Nil slices**: prefer `var s []string` (nil) over `s := []string{}` (non-nil, zero-length) unless you specifically need a non-nil slice (e.g., JSON encoding where `null` vs `[]` matters).
+
+## Error Handling
+
+### Fundamentals
+- Always check errors. Never discard with `_` unless you explicitly comment why.
+- Return errors as the last return value: `func Foo() (Result, error)`.
+- Don't log and return — pick one. Logging + returning = duplicate noise. Log at the top level (main, HTTP handler). Everywhere else, wrap and return.
+- Error strings are lowercase, no punctuation: `fmt.Errorf("opening file: %w", err)` not `"Failed to open file."`.
+- Error messages should form a readable chain: `"creating user: inserting row: connection refused"`.
+
+### Wrapping
+- Wrap with context using `fmt.Errorf("doing X: %w", err)`. Describe what *you* were doing.
+- Use `%w` when callers need `errors.Is` / `errors.As`. Use `%v` when you want to hide the internal error (keeps it out of your API contract). When in doubt, prefer `%v` — you can change to `%w` later, but the reverse is a breaking change.
+- Check sentinels with `errors.Is(err, ErrNotFound)`, never `err == ErrNotFound`.
+- Use `errors.As` for custom error types with additional fields.
+- Minimise sentinel errors. Not every failure needs a named error.
+
+### Don't Panic
+- Don't use `panic` for normal error handling. Panics are for truly unrecoverable situations (programmer bugs, impossible states).
+- If a function can fail, return an error.
+
+## Concurrency
+
+### Goroutine Lifetime
+- Always know how a goroutine ends. Leaked goroutines are silent memory/resource leaks.
+- Use `sync.WaitGroup` or `golang.org/x/sync/errgroup` to manage lifetimes.
+- Never fire-and-forget goroutines without a cancellation path.
+
+### Context
+- `context.Context` is the first parameter for all cancellable/long-running functions: `func DoWork(ctx context.Context, ...) error`.
+- Call `cancel()` with `defer` immediately after creating a derived context.
+- Don't store contexts in structs. Pass them explicitly through the call chain.
+- Check `ctx.Done()` in loops and long-running operations.
+
+### Channels & Mutexes
+- Channels for communication (passing data/ownership between goroutines). Mutexes for protecting shared state.
+- The sender closes the channel, never the receiver.
+- Use buffered channels intentionally — think about *why* you need the buffer and how large.
+- Always use `select` with `ctx.Done()` to avoid goroutines that hang forever.
+
+### Common Patterns
+- **Worker pool**: fixed goroutines reading from a shared work channel.
+- **Fan-out/fan-in**: distribute work, merge results through one channel.
+- **Pipeline**: chain stages connected by channels.
+- **errgroup**: goroutines that can fail, with first-error propagation and automatic context cancellation.
+
+## Interfaces
+
+- Define interfaces at the consumer, not the producer. "Accept interfaces, return structs."
+- Don't create interfaces preemptively. Wait until you have 2+ implementations or need to mock in tests.
+- Don't create interfaces just to expose package functionality. Expose the struct or function directly.
+- Keep interfaces small — 1-2 methods is ideal.
+- Embed standard library interfaces: `io.Reader`, `io.Writer`, `io.Closer`.
+
+## Structs & Methods
+
+- Pointer receivers when the method mutates the receiver, the struct contains a `sync.Mutex`, or the struct is large.
+- Value receivers for small, immutable structs or basic types.
+- Be consistent — if one method uses a pointer receiver, all methods on that type should.
+- Initialize with named fields: `Server{Addr: ":8080", Handler: mux}`, never positional.
+- Don't copy structs with mutexes, channels, or other non-copyable fields.
+- Export only what needs to be public. Default to unexported.
+
+## Functions
+
+- For complex configuration, use the functional options pattern (`WithTimeout(d)`, `WithLogger(l)`) or an options struct. Not a function with 8 parameters.
+- Use named return values sparingly — only when they genuinely improve godoc readability.
+- `defer` for cleanup immediately after acquiring a resource (file, lock, connection).
+- If a line feels too long, prefer refactoring over splitting. If it's as short as practical, let it be long.
+
+## Project Layout
+
+```
+project-root/
+  cmd/
+    myapp/
+      main.go          # Entry point — minimal, wires dependencies
+  internal/            # Private packages (enforced by compiler)
+    server/
+    store/
+    config/
+  pkg/                 # Only for libraries meant to be imported by other projects
+  go.mod
+  go.sum
+  Makefile
+```
+
+- `cmd/` entry points. Keep `main.go` thin — parse config, wire dependencies, start server.
+- `internal/` for all private code. This is your default.
+- `pkg/` only if building a library. Most projects don't need it.
+- Colocate tests: `server.go` and `server_test.go` in the same directory.
+- Keep packages flat. Deep nesting is a code smell in Go.
+- Package name = directory name. One package per directory.
+
+## Imports
+
+Three groups, separated by blank lines: stdlib → third-party → local.
+
+```go
+import (
+    "context"
+    "fmt"
+
+    "github.com/go-chi/chi/v5"
+
+    "myproject/internal/config"
+)
+```
+
+- Use `goimports` to manage automatically.
+- Never use dot imports (`. "package"`).
+- Avoid aliases unless there's a name collision.
+
+## Testing
+
+- Use the standard `testing` package. Avoid heavy test frameworks.
+- **Table-driven tests** for functions with multiple input/output cases.
+- Use `t.Helper()` in test helpers for clean failure stack traces.
+- Use `t.Parallel()` when tests are independent.
+- Use `_test` package suffix for black-box testing (`package server_test`), same package for white-box.
+- Use `httptest.NewServer` / `httptest.NewRecorder` for HTTP tests.
+- Mock at the interface boundary — inject dependencies via constructor.
+- Test format: `got` before `want` in comparisons — `if got != want { t.Errorf("Foo() = %v, want %v", got, want) }`.
+- Use `testify/assert` or `testify/require` if the team prefers, but don't mix styles.
+
+## Documentation
+
+- Doc comments are full sentences, starting with the name being described and ending with a period: `// Parse reads the configuration from the given reader.`
+- Every exported name should have a doc comment.
+- Use `godoc` preview during development to verify documentation renders well.
+- Package-level doc goes in `doc.go` if the package comment is long.
+
+## Logging
+
+- Use structured logging: `log/slog` (Go 1.21+) or `zerolog` / `zap`.
+- Log at boundaries (HTTP handlers, message consumers, main). Return errors from business logic — don't log deep inside it.
+- Use `log.Error` sparingly — ERROR level causes flushes and is expensive. Only log errors that are actionable.
+- Include request IDs, user IDs, and operation context in log entries.
+
+## Configuration
+
+- Load config from environment variables. Use a struct with `env` tags or a config loader.
+- Validate at startup — fail fast if required values are missing.
+- No global mutable state. Pass config through constructors / dependency injection.
+
+## Tooling
+
+- `gofmt` / `goimports` for formatting.
+- `go vet` before every commit.
+- `golangci-lint` with a `.golangci.yml` for linting.
+- `staticcheck` for additional static analysis.
+- Use Go modules. Keep `go.mod` tidy with `go mod tidy`.
+- Use `go generate` for code generation — always commit generated code.

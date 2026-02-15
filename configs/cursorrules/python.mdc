@@ -1,0 +1,98 @@
+---
+description: "Python language conventions — style, typing, structure, testing"
+alwaysApply: false
+---
+# Python Rules
+
+## Version & Style
+
+- Target Python 3.10+ unless told otherwise.
+- Follow PEP 8. Let the linter handle formatting — don't bikeshed.
+- Use `pathlib` over `os.path`.
+- Use f-strings over `.format()` or `%`.
+- Use `logging` module, never `print()` for anything that isn't user-facing CLI output.
+
+## Type Hints
+
+- Type hints on all function signatures and return types.
+- Use `X | None` (union syntax) over `Optional[X]` (3.10+).
+- Use `list[str]`, `dict[str, int]` (built-in generics) over `List`, `Dict` from typing.
+- For complex types, create `TypeAlias` or use `TypedDict` / `Protocol`.
+- Use `typing.TYPE_CHECKING` to avoid circular imports from type hints.
+
+## Data Structures
+
+- Use `dataclasses` for plain data containers.
+- Use `pydantic` models when you need validation or serialization.
+- Prefer either over raw dicts for structured data — dicts are for truly dynamic key-value data.
+- Use `Enum` / `StrEnum` for fixed sets of values, never magic strings.
+- Use `NamedTuple` over regular tuples when fields have meaning.
+
+## Functions & Classes
+
+- Prefer composition over inheritance.
+- Use `@staticmethod` and `@classmethod` appropriately — don't shove everything into instance methods.
+- Use `*args` / `**kwargs` sparingly and only when genuinely needed for flexibility.
+- Use keyword-only arguments (`*,`) to prevent positional mistakes in functions with multiple params of the same type.
+- Prefer returning values over mutating arguments.
+
+## Error Handling
+
+- Define custom exception classes per domain/module. Inherit from a project-level base exception.
+- Never use bare `except:`. Always catch specific exceptions.
+- Use `contextlib.suppress()` only for genuinely ignorable cases.
+- Use `else` on try blocks for code that should run only if no exception occurred.
+- Re-raise with `raise ... from e` to preserve the exception chain.
+
+## Imports
+
+- Standard library → third-party → local. Separated by blank lines.
+- Absolute imports over relative, unless within the same package where relative is cleaner.
+- Never use wildcard imports (`from x import *`).
+- Keep imports at the top of the file. Inline imports only for circular import avoidance or optional dependencies.
+
+## Iterators & Comprehensions
+
+- Use comprehensions for simple transforms. If it needs `if/else` + nested loops, use a regular loop.
+- Use `generators` for large datasets — don't materialize entire lists unnecessarily.
+- Use `itertools` and `functools` where they simplify logic — but not for showing off.
+- Prefer `enumerate()` over manual index tracking.
+- Use `zip()` with `strict=True` (3.10+) when lengths must match.
+
+## Context Managers
+
+- Use `with` for any resource that needs cleanup — files, connections, locks.
+- Write custom context managers with `@contextmanager` for setup/teardown patterns.
+
+## Testing
+
+- Use `pytest` as the test runner.
+- Use `factory_boy` or fixtures for test data — no hardcoded payloads repeated across tests.
+- Use `pytest.raises()` for exception testing, `pytest.mark.parametrize` for data-driven tests.
+- Use `tmp_path` for file I/O tests, `monkeypatch` for env/config overrides.
+- Mock at the boundary (I/O, external APIs), not internal logic.
+- Test names should describe behavior: `test_raises_when_user_not_found`, not `test_get_user_1`.
+
+## Project Layout
+
+```
+src/
+  package_name/
+    __init__.py
+    module.py
+    exceptions.py
+tests/
+  conftest.py
+  test_module.py
+pyproject.toml
+```
+
+- Use `pyproject.toml` as the single source for project metadata, dependencies, and tool config.
+- Use `src/` layout to prevent accidental imports from the project root.
+
+## Dependencies & Tooling
+
+- Use `uv` for package management, virtual environments, and lock files. Always prefer `uv` over pip, poetry, or pipenv.
+- Use `ruff` for linting and formatting.
+- Use `mypy` or `pyright` for type checking.
+- Use `pre-commit` hooks to enforce standards before code hits the repo.

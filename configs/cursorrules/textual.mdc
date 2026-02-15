@@ -1,0 +1,259 @@
+---
+description: "Textual TUI framework conventions — widgets, CSS, events, reactivity, testing"
+globs: "**/*.py,**/*.tcss"
+alwaysApply: false
+---
+
+# Textual TUI Framework Rules
+
+Sources: textual.textualize.io docs, Textual guide, API reference.
+
+## Core Concepts
+
+- Textual is async-first, built on `asyncio`. The app runs an event loop that processes messages from a queue.
+- Textual borrows from web development: DOM tree, CSS styling, event bubbling, reactive data binding.
+- Two key methods on widgets: `compose()` yields child widgets (structure), `render()` returns text/renderables (content). If both exist, `render()` is the background.
+- Use `ComposeResult` as the return type for `compose()`.
+
+## App Structure
+
+```python
+from textual.app import App, ComposeResult
+from textual.widgets import Header, Footer, Static
+
+class MyApp(App):
+    CSS_PATH = "myapp.tcss"  # External CSS file
+    BINDINGS = [("q", "quit", "Quit"), ("d", "toggle_dark", "Dark mode")]
+
+    def compose(self) -> ComposeResult:
+        yield Header()
+        yield Static("Hello, World!", id="main-content")
+        yield Footer()
+
+if __name__ == "__main__":
+    app = MyApp()
+    app.run()
+```
+
+### Rules
+- Keep `main.py` thin — instantiate App and call `run()`.
+- Always wrap in `if __name__ == "__main__"` so the app can be imported without running.
+- Use `CSS_PATH` for external `.tcss` files (preferred for non-trivial apps). Use `CSS` class variable or `DEFAULT_CSS` on widgets for inline CSS in simple scripts.
+- CSS_PATH is loaded first, then CSS — so inline CSS takes priority on specificity clashes.
+- Use `BINDINGS` for keyboard shortcuts. Format: `("key", "action_name", "description")`.
+- Action methods are named `action_<name>` and correspond to bindings and the action system.
+
+## Widgets
+
+### Compose Pattern
+- `compose()` is a generator that yields child widgets. This defines the DOM tree.
+- Yield widgets in the order you want them in the layout.
+- Use containers (`Horizontal`, `Vertical`, `HorizontalGroup`, `VerticalGroup`, `Grid`, `Container`, `VerticalScroll`) to control layout.
+- Containers can be used as context managers in compose: `with Horizontal():` then yield children inside.
+- Set `id=` for widgets you need to query or style by ID. Set `classes=` for CSS class targeting.
+
+### Building Custom Widgets
+- Extend `Widget` for full custom widgets, `Static` for simple text display (has `update()` and caches render).
+- Use `DEFAULT_CSS` class variable on custom widgets to define their default styles — keeps widgets self-contained and reusable.
+- Implement `compose()` to build compound widgets from existing widgets.
+- Implement `render()` for simple text/Rich renderable output.
+
+### "Attributes Down, Messages Up" (Uni-Directional Data Flow)
+This is Textual's core widget coordination principle:
+- **To update a child**: set its attributes or call its methods directly.
+  ```python
+  self.query_one(Switch).value = True
+  ```
+- **To notify a parent**: send a custom `Message` via `post_message()`. Never reach up into the parent and mutate it.
+- Never modify sibling widgets directly. Send a message up to the common parent, let the parent update the sibling.
+- This keeps widgets reusable and testable.
+
+### Custom Messages
+```python
+from textual.message import Message
+
+class MyWidget(Widget):
+    class Updated(Message):
+        """Sent when the widget value changes."""
+        def __init__(self, value: int) -> None:
+            super().__init__()
+            self.value = value
+
+    def _on_change(self) -> None:
+        self.post_message(self.Updated(self.some_value))
+```
+- Nest message classes inside the widget that sends them.
+- Name messages as past-tense verbs or state descriptions: `Changed`, `Pressed`, `Selected`.
+- Always call `super().__init__()` in message constructors.
+
+## CSS & Styling
+
+### File Organization
+- Use `.tcss` files for app-level styles — one per app, referenced via `CSS_PATH`.
+- Use `DEFAULT_CSS` on widget classes for widget-level default styles.
+- Use CSS classes (`add_class`, `remove_class`, `toggle_class`) for dynamic state changes (e.g., `.started`, `.error`, `.hidden`).
+- Prefer CSS classes over direct style manipulation for state-driven UI changes.
+
+### Selectors (simplified vs web CSS)
+- Type selector: `Button { ... }` — matches the Python class name. Also matches subclasses (unlike web CSS).
+- ID selector: `#my-widget { ... }` — matches `id="my-widget"`.
+- Class selector: `.error { ... }` — matches widgets with `classes="error"`.
+- Pseudo-classes: `:focus`, `:hover`, `:disabled`, `-light`, `-dark`.
+- Child combinator: `Container > Button { ... }`.
+
+### Key Differences from Web CSS
+- Textual CSS is greatly simplified. No floats, no position: absolute/relative, no z-index.
+- Layout is controlled by `layout: vertical`, `layout: horizontal`, `layout: grid`.
+- Use `fr` units for fractional sizing (like CSS Grid's `fr`).
+- `dock: top | right | bottom | left` pins widgets to edges.
+- `display: none` hides a widget. Toggle visibility by adding/removing CSS classes.
+- Use theme variables (`$primary`, `$secondary`, `$background`, `$surface`, `$error`, etc.) instead of hardcoded colors — this ensures your app works with all themes.
+
+## Reactivity
+
+### Reactive Attributes
+```python
+from textual.reactive import reactive
+
+class MyWidget(Widget):
+    count = reactive(0)
+
+    def watch_count(self, old_value: int, new_value: int) -> None:
+        """Called automatically when count changes."""
+        self.update(f"Count: {new_value}")
+```
+- Declare reactive attributes at the class level with `reactive(default)`.
+- Implement `watch_<attr>` to respond to changes. Textual calls this automatically.
+- Set `reactive(default, layout=True)` if a change should trigger a layout recalculation.
+- Reactive attributes automatically trigger a widget refresh — you rarely need to call `refresh()` manually.
+- Use `reactive(default, init=False)` to skip calling the watcher on initial mount.
+
+## Event Handling
+
+### Handler Naming Convention
+- Handlers are named `on_<event_name>`. Textual auto-dispatches based on the name.
+- For widget-specific messages: `on_button_pressed`, `on_input_changed`, `on_switch_changed`.
+- Use the `@on(MessageType)` decorator for explicit handler binding (cleaner for multiple handlers of the same type).
+- Event handlers can omit the event parameter if they don't need it.
+
+### Bubbling
+- Messages bubble up the DOM by default. A button press in a child is receivable by any ancestor.
+- Call `event.stop()` to prevent further bubbling.
+- Check `event.node` or `event.button.id` to distinguish which child sent the event.
+
+### Key Events
+- Handle specific keys with `key_<name>` methods: `def key_escape(self)`.
+- Or handle all keys with `on_key(self, event: Key)`.
+
+## Workers (Background Tasks)
+
+- Never do blocking I/O (network, file) in event handlers — it freezes the UI.
+- Use `self.run_worker(coroutine)` or the `@work` decorator to run async work in the background.
+- Use `exclusive=True` to cancel previous workers of the same type (prevents race conditions with rapid input).
+- Handle `Worker.StateChanged` events to react when workers complete.
+- Workers with `exit_on_error=False` won't crash the app on exception.
+
+```python
+from textual.worker import work
+
+class MyApp(App):
+    @work(exclusive=True)
+    async def fetch_data(self, query: str) -> None:
+        response = await httpx.get(f"https://api.example.com?q={query}")
+        self.query_one("#results").update(response.text)
+```
+
+## Querying the DOM
+
+- `self.query_one("#my-id")` — get a single widget by ID. Raises `NoMatches` if not found.
+- `self.query_one(Button)` — get a single widget by type.
+- `self.query(".my-class")` — get all matching widgets.
+- `self.query_one("#my-id", Button)` — type-safe query (returns `Button`, not `Widget`).
+- Always use type parameter in `query_one` for type safety.
+
+## Testing
+
+Textual has first-class async testing support with a `Pilot` object.
+
+```python
+import pytest
+from myapp import MyApp
+
+@pytest.mark.asyncio
+async def test_button_changes_color():
+    app = MyApp()
+    async with app.run_test(size=(80, 24)) as pilot:
+        await pilot.click("#red")
+        await pilot.pause()  # Wait for messages to process
+        assert app.screen.styles.background == ...
+```
+
+### Rules
+- Use `pytest` + `pytest-asyncio`.
+- Use `app.run_test(size=(w, h))` to run in headless mode.
+- Use `pilot.click(selector)` for click simulation, `pilot.press("key")` for key presses.
+- Call `await pilot.pause()` after actions — messages may not be processed immediately.
+- Use snapshot testing for visual regression testing of widget output.
+- Textual's own test suite is a great reference: see `tests/` in the Textual repo.
+
+## Dev Tools
+
+- Install `textual-dev` for development tooling.
+- `textual run --dev myapp.py` — live CSS editing (edit `.tcss`, see changes instantly without restart).
+- `textual console` — dev console that shows events, messages, and log output in a separate terminal.
+- `textual keys` — interactive key event inspector.
+- Use `self.log()` or `print()` in your app — output appears in the dev console, not the TUI.
+
+## File Organization
+
+Textual does not prescribe a project layout. For small apps, a single `.py` file with an inline `CSS` class variable works fine. For this project (dooit), follow the existing structure:
+
+```
+dooit/
+  api/                   # Backend data models, manager, hooks — no UI dependencies
+    hooks/               # Validation, update, and fix hooks
+    model.py
+    manager.py
+    todo.py
+    workspace.py
+    theme.py
+  config/                # Configuration loading, parsing, defaults
+    default/             # Default config files (TOML, formatters, scripts)
+    utils/               # Config parsers and resolvers
+    service.py
+  ui/                    # All Textual UI code
+    api/                 # UI-facing API layer (bridges backend to UI)
+      api_components/    # Bar, dashboard, layout, keys, formatters
+      events/            # Custom Textual events
+      dooit_api.py
+      plug.py
+    screens/             # Textual Screen subclasses
+    widgets/             # Custom Textual widgets
+      bars/              # Bar variants (status, search, sort, confirm, notification)
+      inputs/            # Input widget variants
+      renderers/         # Render logic for models
+      trees/             # Tree widgets for workspaces/todos
+    styles.tcss          # App-level Textual CSS
+    tui.py               # Main App class
+  utils/                 # Shared utilities (database, date parsing, CSS manager)
+tests/
+  test_core/             # Backend/model tests
+  test_ui/               # UI tests (Textual Pilot-based)
+```
+
+### Key Conventions
+- **Separate `api/` from `ui/`** — backend logic has zero Textual imports. This keeps models testable without running a TUI.
+- **`ui/widgets/`** is organized by widget category (bars, inputs, trees, renderers), each in its own subdirectory with a `_base.py` for shared logic.
+- **`ui/screens/`** has one module per Screen subclass.
+- **Single `styles.tcss`** at the `ui/` level for app-wide styles. Widgets use `DEFAULT_CSS` for their own defaults.
+- **`ui/api/`** bridges the backend to the UI — events, API components, and the plugin system live here.
+- **Tests mirror the source** — `test_core/` for backend, `test_ui/` for Textual tests, each with a shared base module (`core_base.py`, `ui_base.py`).
+
+## Common Pitfalls
+
+- **Blocking the event loop**: never call `time.sleep()`, `requests.get()`, or any sync I/O in handlers. Use workers.
+- **Forgetting `await pilot.pause()`** in tests: messages are async, assertions may fail without it.
+- **Mutating siblings directly**: violates uni-directional flow. Send a message up instead.
+- **Hardcoding colors**: use theme variables (`$primary`, `$error`) so your app works across themes.
+- **Calling `refresh()` manually**: reactive attributes and CSS classes handle this automatically. Only call `refresh()` if you've changed non-reactive state.
+- **Not setting `id` on widgets**: makes querying and CSS targeting difficult. Always set IDs on widgets you need to reference.

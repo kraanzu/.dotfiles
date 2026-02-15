@@ -1,0 +1,214 @@
+---
+description: "Django conventions — architecture, models, views, queries, signals, testing, security"
+alwaysApply: false
+---
+# Django Rules
+
+## Architecture
+
+### Where Business Logic Lives
+
+Business logic placement in order of preference:
+
+1. **Model methods & properties** — for logic tied to a single model instance.
+2. **Custom QuerySet/Manager methods** — for query-related logic (filtering, aggregation).
+3. **Services (`services.py`)** — for write operations spanning multiple models, side effects, or external integrations. Keep as plain functions. Use `<entity>_<action>` naming (e.g., `user_create`, `order_cancel`).
+4. **Selectors (`selectors.py`)** — for complex read operations, especially those needing permission checks or spanning relations.
+
+### Where Business Logic Does NOT Live
+- Not in views — views handle HTTP only: validate input → call service/selector → return response.
+- Not in serializers or forms — these handle data validation and transformation, not domain logic.
+- Not in signals — unless decoupling third-party apps (see Signals section below).
+- Not in template tags or middleware.
+
+**Litmus test**: "Can I call this from a management command, Celery task, and a view without importing HTTP concepts?" If no, refactor.
+
+### App Design
+- Each app does one thing. If you can't describe it in one sentence, split it.
+- Apps should be self-contained and independently testable.
+- Avoid cross-app model imports. Use services for cross-app orchestration.
+- No catch-all `utils` or `helpers` app — put utilities in the app that owns the domain.
+- Put reusable, truly generic code in a `common` app.
+
+## Project Structure
+
+```
+project_root/
+  manage.py
+  config/
+    settings/
+      base.py
+      dev.py
+      prod.py
+      test.py
+    urls.py
+    wsgi.py
+    asgi.py
+  apps/
+    users/
+      models.py
+      views.py           # or apis.py for DRF
+      urls.py
+      forms.py            # or serializers.py for DRF
+      services.py
+      selectors.py
+      admin.py
+      managers.py
+      signals.py          # only if needed
+      constants.py
+      exceptions.py
+      tests/
+        __init__.py
+        test_models.py
+        test_services.py
+        test_selectors.py
+        test_views.py
+        factories.py
+  common/                  # Truly shared utilities
+  templates/
+    base.html
+  static/
+  requirements/
+    base.txt
+    dev.txt
+    prod.txt
+```
+
+Adapt to existing structure — don't force a rewrite.
+
+## Models
+
+### Design
+- Models are singular nouns in PascalCase: `User`, `BlogPost`, not `Users` or `blog_post`.
+- Add `__str__` to every model.
+- Use `TextChoices` / `IntegerChoices` for choice fields, never magic strings.
+- Use `UUIDField` for public-facing identifiers. Keep auto-increment `id` for internal FKs.
+- Set explicit `related_name` on every FK and M2M.
+- Always specify `on_delete` explicitly on ForeignKey — think about what should actually happen.
+- Use `Meta.constraints` (UniqueConstraint, CheckConstraint) over application-level validation where possible.
+- Use `Meta.indexes` for fields you frequently query or filter on.
+- Keep model methods small. If a method spans multiple relations, make it a selector instead.
+- Use `clean()` for model-level validation, call `full_clean()` in `save()` when needed.
+
+### Custom Managers & QuerySets
+- Encapsulate common filters: `.active()`, `.published()`, `.for_user(user)`.
+- Chain them: `Post.objects.published().for_user(user)`.
+- Views should rarely write raw `.filter()` chains — use named queryset methods.
+- Use `as_manager()` to expose queryset methods on the manager.
+
+### Field Best Practices
+- Use `_id` suffix access (`obj.author_id`) when you only need the FK value — avoids an extra query.
+- Use `exists()` instead of `len(qs)` or `count()` for boolean checks.
+- Use `django.utils.timezone.now()` not `datetime.now()` — always timezone-aware.
+- Use `DecimalField` for money, never `FloatField`.
+
+### Migrations
+- Review auto-generated migrations before committing. Rename descriptively.
+- Never edit migrations applied in production.
+- For data migrations, use `RunPython` with a reverse function.
+- Flag model changes that need migrations: "Run `python manage.py makemigrations`."
+- For large tables, consider `AddIndex` and `RemoveIndex` in separate migrations to avoid long locks.
+
+## Views
+
+### General
+- Keep views thin. If a view exceeds ~25 lines, extract logic to services/selectors.
+- Use CBVs for standard CRUD (ListView, DetailView, CreateView).
+- Use FBVs for webhooks, custom logic, or anything where CBV inheritance obscures the flow.
+- For DRF: prefer `APIView` with explicit `InputSerializer` / `OutputSerializer` over deeply nested generic views.
+- One URL = one view = one action.
+
+### Query Performance (N+1 Prevention)
+- `select_related()` for ForeignKey and OneToOne (SQL JOIN, single query).
+- `prefetch_related()` for M2M and reverse FK (separate query + Python join).
+- Use `Prefetch` objects for filtered/complex prefetches.
+- Use `only()` / `defer()` when you don't need all fields.
+- Use `.values()` / `.values_list()` for read-only data that doesn't need model instances.
+- Add `select_related` / `prefetch_related` in the view's queryset, not as an afterthought in templates.
+- Use `django-debug-toolbar` in development to catch unoptimized queries.
+
+## Signals
+
+### When to Use
+- Decoupling third-party apps where you can't modify the source model.
+- Responding to `delete` on querysets (since `delete()` on querysets doesn't call `model.delete()`).
+- Hooking into framework events (request_started, request_finished) for middleware-like behavior.
+
+### When NOT to Use
+- If the calling app already knows about the target app — just call the function directly.
+- For side effects of model creation/update — use services or override `save()`.
+- Signals are synchronous, not async. They make code flow invisible and hard to debug.
+- If you must use signals: put receivers in `receivers.py`, connect in `AppConfig.ready()`, and use `dispatch_uid`.
+
+## Forms & Serializers
+- Use Django Forms/ModelForms for template-rendered views.
+- Use DRF Serializers for API views. Split into `InputSerializer` (plain Serializer) and `OutputSerializer` (can be ModelSerializer).
+- Field-level validation in `clean_<field>()` / `validate_<field>()`.
+- Cross-field validation in `clean()` / `validate()`.
+- Use model-level `validators` for constraints that apply regardless of entry point.
+- Never trust client input.
+
+## Templates
+- Use template inheritance: `base.html` → `app_base.html` → `page.html`.
+- Keep logic out of templates. Long `{% if %}` chains → push to view context or template tag.
+- Use `{% include %}` for reusable components in `templates/<app>/includes/`.
+- Always use `{% url %}` and `{% static %}` — never hardcode URLs or paths.
+- Name templates following Django conventions: `<app>/<model>_list.html`, `<app>/<model>_detail.html`.
+
+## URLs
+- Namespace every app: `app_name = "users"` → `{% url 'users:detail' user.pk %}`.
+- Use `path()` over `re_path()` unless regex is truly needed.
+- Keep URL files per-app, include them in root `urls.py`.
+- Name every URL pattern. Use lowercase, hyphen-separated paths: `/blog-posts/`.
+
+## Settings & Configuration
+- Use `django-environ` for env var management.
+- Never commit secrets. `.env` locally, env vars in production.
+- Split settings: `base.py` → `dev.py` / `prod.py` / `test.py` (all import from base).
+- Use `pathlib.Path` for `BASE_DIR` and all path construction.
+- Use `django.utils.timezone.now()` everywhere — ensure `USE_TZ = True`.
+
+## Security
+- `DEBUG = False` in production — no exceptions.
+- Set `ALLOWED_HOSTS` explicitly.
+- `{% csrf_token %}` in every form. Keep CSRF middleware enabled.
+- Set `SECURE_SSL_REDIRECT`, `SESSION_COOKIE_SECURE`, `CSRF_COOKIE_SECURE` in production.
+- Use `@permission_required` / `@login_required` or DRF permission classes.
+- Use the ORM for queries. Raw SQL must use `params=[]`, never f-strings or string formatting.
+- Always use `AUTH_USER_MODEL` setting and `get_user_model()` — never import `User` directly.
+
+## Testing
+
+### Approach
+- Use `pytest-django` with `factory_boy` for test data.
+- Test behavior, not implementation.
+- `TestCase` for integration tests (with DB), `SimpleTestCase` for unit tests (no DB).
+- Test the full request cycle: `self.client.get()`, `self.client.post()`.
+- Test services and selectors independently from views.
+
+### What to Test
+- Model methods, properties, and `clean()` validation.
+- Custom manager/QuerySet methods.
+- Service functions — both success and error paths.
+- View response codes, redirects, context data, and template used.
+- Form/serializer validation (valid and invalid).
+- Permissions and access control.
+- Edge cases: empty querysets, missing related objects, boundary values.
+
+## Admin
+- Register all models with meaningful `list_display`, `list_filter`, `search_fields`.
+- Use `readonly_fields` for computed or sensitive data.
+- Use `raw_id_fields` for FK fields with many records.
+- Use `list_select_related` to avoid N+1 in admin list views.
+- The admin is for internal staff. Never expose it as a public-facing interface.
+
+## Common Patterns
+
+### TimeStamped Model
+Create a base abstract model with `date_inserted` and `date_modified` fields. Inherit from it everywhere.
+
+### Soft Delete
+Use an `is_active` or `deleted_at` field with a custom manager that filters by default, rather than actually deleting records.
+
+### User Model
+Always create a custom user model at the start of a project, even if it's identical to Django's — you can't change it later without a painful migration.
