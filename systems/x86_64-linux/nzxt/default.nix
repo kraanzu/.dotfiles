@@ -8,14 +8,6 @@ with lib.mynix;
     ./drives.nix
   ];
 
-  hardware.openrazer = {
-    enable = true;
-    batteryNotifier = {
-      percentage = 5;
-      frequency = 6 * 3600;
-    };
-  };
-
   networking.hostName = "nzxt";
   mynix = {
     apps.openrgb = enabled;
