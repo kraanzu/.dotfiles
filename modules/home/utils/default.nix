@@ -19,7 +19,7 @@ in
   config = {
     systemd.user.services.rclone-bisync = {
       Unit.Description = "Rclone bisync";
-      Service.ExecStart = "${pkgs.rclone}/bin/rclone bisync gdrive:Docs %h/Docs";
+      Service.ExecStart = "${pkgs.rclone}/bin/rclone bisync gdrive:Docs /drives/HDD/Docs";
     };
 
     systemd.user.timers.rclone-bisync = {
