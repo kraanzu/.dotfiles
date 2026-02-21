@@ -4,7 +4,7 @@
   "height": 30,
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": [],
-  "modules-right": ["tray", "custom/network", "memory", "pulseaudio", "clock#time", "clock#date", "custom/notification"],
+  "modules-right": ["custom/tomat", "tray", "custom/network", "memory", "pulseaudio", "clock#time", "clock#date", "custom/notification"],
   "hyprland/workspaces": {
     "persistent-workspaces": {
       "*": 6
@@ -23,6 +23,14 @@
   		"microsoft-edge": "Edge",
         "cursor": "Cursor"
   	}
+  },
+  "custom/tomat": {
+    "exec": "tomat status | jq -rc 'if .text == \"Work: 60:00\" and .tooltip == \"Work (1/4) - 60.0min (Paused)\" then empty else . end'",
+    "interval": 1,
+    "return-type": "json",
+    "format": "{}",
+    "on-click": "tomat toggle",
+    "on-click-right": "tomat stop"
   },
   "custom/network": {
     "exec": "~/.config/waybar/scripts/network-status.sh",

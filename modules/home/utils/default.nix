@@ -31,6 +31,8 @@ in
       Install.WantedBy = [ "timers.target" ];
     };
 
+    services.tomat = enabled;
+
     home.packages =
       with pkgs;
       mkIf cfg.enable [

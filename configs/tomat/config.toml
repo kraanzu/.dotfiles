@@ -1,0 +1,61 @@
+[timer]
+work = 60.0           # Work duration in minutes
+break = 5.0           # Break duration in minutes
+long_break = 15.0     # Long break duration in minutes
+sessions = 4          # Sessions until long break
+auto_advance = "none" # Auto-advance mode: "none", "all", "to-break", "to-work"
+
+[sound]
+mode = "embedded"     # Sound mode: "embedded", "system-beep", "none"
+volume = 0.5          # Volume level (0.0-1.0)
+
+[notification]
+enabled = true        # Enable desktop notifications
+icon = "auto"         # Icon mode: "auto", "theme", or custom path
+timeout = 4000        # Notification timeout in milliseconds
+
+[display]
+text_format = "{phase}: {time}"  # Text display format
+# Available placeholders: {icon}, {time}, {state}, {phase}, {session}
+# Examples:
+#   "{time}"                    -> "25:00"
+#   "{phase}: {time} {state}"   -> "Work: 25:00 ▶"
+#   "[{session}] {icon} {time}" -> "[1/4] 🍅 25:00"
+
+[hooks]
+# Execute custom commands on timer events (optional)
+# All hooks support these fields:
+#   cmd (required): Command to execute (absolute path recommended)
+#   args (optional): Array of arguments, default []
+#   timeout (optional): Timeout in seconds, default 5
+#   cwd (optional): Working directory, default $HOME
+#   capture_output (optional): Capture stdout/stderr for debugging, default false
+#
+# Available hooks:
+#   Phase transitions:
+#     on_work_start, on_work_end
+#     on_break_start, on_break_end
+#     on_long_break_start, on_long_break_end
+#   Timer control:
+#     on_pause, on_resume, on_stop, on_skip
+#
+# Environment variables passed to hooks:
+#   TOMAT_EVENT - Event name (e.g., "work_start", "pause")
+#   TOMAT_PHASE - Current phase ("work", "break", "long_break")
+#   TOMAT_REMAINING_SECONDS - Seconds remaining in current phase
+#   TOMAT_SESSION_COUNT - Current session number
+#   TOMAT_AUTO_ADVANCE - Auto-advance mode ("none", "all", "to-break", "to-work")
+
+# Example hooks:
+# [hooks.on_work_start]
+# cmd = "notify-send"
+# args = ["🍅 Work Time", "Focus for 25 minutes"]
+#
+# [hooks.on_break_start]
+# cmd = "playerctl"
+# args = ["pause"]
+# timeout = 2
+#
+# [hooks.on_pause]
+# cmd = "/home/user/scripts/dim-screen.sh"
+# cwd = "/home/user"
