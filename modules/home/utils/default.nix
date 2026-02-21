@@ -81,6 +81,8 @@ in
         networkmanagerapplet
         rclone
         fd
+        timer
+
         mynix.crule
       ];
   };
