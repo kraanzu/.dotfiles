@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+hyprpicker -r -n -z &
+hyprpicker_pid=$!
+grimblast save area - | swappy -f -
+kill "$hyprpicker_pid"
