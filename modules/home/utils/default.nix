@@ -32,6 +32,13 @@ in
     };
 
     services.tomat = enabled;
+    programs = {
+      direnv = {
+        enable = true;
+        enableBashIntegration = true; # see note on other shells below
+        nix-direnv.enable = true;
+      };
+    };
 
     home.packages =
       with pkgs;
@@ -51,7 +58,6 @@ in
         gnome-disk-utility
 
         # coding stuff
-        direnv
         tree-sitter
         gh
 
