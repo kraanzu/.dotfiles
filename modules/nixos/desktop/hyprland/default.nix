@@ -30,6 +30,7 @@ in
       cliphist
       wl-clipboard
       mynix.hyprshot
+      quickshell
     ];
   };
 }
