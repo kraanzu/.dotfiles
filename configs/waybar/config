@@ -25,12 +25,12 @@
   	}
   },
   "custom/tomat": {
-    "exec": "tomat status | jq -rc 'if .text == \"Work: 60:00\" and .tooltip == \"Work (1/4) - 60.0min (Paused)\" then empty else . end'",
-    "interval": 1,
-    "return-type": "json",
-    "format": "{}",
-    "on-click": "tomat toggle",
-    "on-click-right": "tomat stop"
+      "exec": "tomat status | jq -rc 'if .class == \"idle\" then empty else . end'",
+      "interval": 1,
+      "return-type": "json",
+      "format": "{}",
+      "on-click": "tomat toggle",
+      "on-click-right": "tomat stop"
   },
   "custom/network": {
     "exec": "~/.config/waybar/scripts/network-status.sh",
