@@ -5,6 +5,9 @@
   //     "milliseconds": 1000
   //   }
   // },
+  "edit_predictions": {
+    "provider": "copilot"
+  },
   "session": {
     "trust_all_worktrees": true,
   },
@@ -70,6 +73,9 @@
   "buffer_line_height": {
     "custom": 1.5,
   },
+  "buffer_font_features": {
+    "calt": false,
+  },
 
   // Diagnostics
   "diagnostics": {
@@ -119,9 +125,6 @@
     "gemini": {
       "ignore_system_version": false,
     },
-  },
-  "features": {
-    "edit_prediction_provider": "copilot",
   },
 
   // Extensions
