@@ -50,8 +50,8 @@ in
     services.dbus.enable = true;
     programs.seahorse.enable = true;
     services.gnome.gnome-keyring.enable = true;
-    security.pam.services.sddm.enableGnomeKeyring = true;
     security.pam.services.login.enableGnomeKeyring = true;
+    security.pam.services.greetd.enableGnomeKeyring = true;
     programs.gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
