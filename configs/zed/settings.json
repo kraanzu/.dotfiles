@@ -118,7 +118,7 @@
     "model_parameters": [],
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4o",
+      "model": "claude-haiku-4.5",
     },
   },
   "agent_servers": {
