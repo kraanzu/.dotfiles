@@ -91,6 +91,6 @@ in
   };
 
   config = {
-    home.packages = allEnabledPackages;
+    home.packages = allEnabledPackages ++ [ pkgs.gcc ];
   };
 }
