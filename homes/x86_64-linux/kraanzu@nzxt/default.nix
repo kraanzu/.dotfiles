@@ -20,7 +20,7 @@ with lib.mynix;
 
     dev.apps.all = enabled;
     dev.lang = {
-      rust = enabled;
+      # rust = enabled;
       zig = enabled;
     };
 
