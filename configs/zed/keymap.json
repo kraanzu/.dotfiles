@@ -12,6 +12,7 @@
       "super-m": "workspace::ToggleBottomDock",
       "super-e": "project_panel::ToggleFocus",
       "ctrl-up": ["task::Spawn", { "task_name": "Neogit" }],
+      "ctrl-shift-enter": ["task::Spawn", { "task_name": "Run" }],
       "super-g": ["agent::NewExternalAgentThread", { "agent": "gemini" }]
     }
   },
