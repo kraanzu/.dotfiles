@@ -74,7 +74,7 @@
     }
   },
   "workbench.sideBar.location": "right",
-  "cursor.composer.textSizeScale": 1.15,
+  "cursor.composer.textSizeScale": 1.3,
   "cursor.composer.queueMessageDefaultBehavior": "stop-and-send",
   "update.mode": "manual",
 }
