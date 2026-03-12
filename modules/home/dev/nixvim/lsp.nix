@@ -4,6 +4,7 @@
     servers = {
       basedpyright.enable = true;
       nil_ls.enable = true;
+      rust_analyzer.enable = true;
     };
   };
   diagnostic.settings = {
