@@ -1,30 +1,19 @@
 #!/usr/bin/env bash
+ICON_DIR="${ICON_DIR:-$(dirname "$0")/../share/rofi-audio-switcher/icons}"
 
-# Define choices
-OUTPUT_CHOICE="🔊 Output"
-INPUT_CHOICE="🎤 Input"
-
-# Show menu
-choice=$(echo -e "$OUTPUT_CHOICE\n$INPUT_CHOICE" | rofi -dmenu -p "Type:")
-[ -z "$choice" ] && exit 1
-
-declare -A devices_map
+OUTPUT_CHOICE="Output"
+INPUT_CHOICE="Input"
 
 get_icon() {
     case "$1" in
-        headphones|headset) echo "🎧" ;;
-        speakers|desktop-speakers) echo "🔊" ;;
-        hdmi) echo "🎬" ;;
-        internal|built-in) echo "💻" ;;
-        usb) echo "🔌" ;;
-        spdif) echo "📡" ;;
-        *) echo "🔈" ;;
+        headphones|headset) echo "$ICON_DIR/headphones.png" ;;
+        hdmi) echo "$ICON_DIR/hdmi.png" ;;
+        *) echo "$ICON_DIR/output.png" ;;
     esac
 }
-if [[ "$choice" == "$OUTPUT_CHOICE" ]]; then
-    # Get current default sink
-    current_sink=$(pactl get-default-sink)
 
+list_sinks() {
+    current_sink=$(pactl get-default-sink)
     while IFS= read -r line; do
         name=$(echo "$line" | awk '{print $2}')
         description=$(pactl list sinks | awk -v dev="$name" '
@@ -37,22 +26,16 @@ if [[ "$choice" == "$OUTPUT_CHOICE" ]]; then
             in_dev && /device.form_factor/ { gsub(/.*= "/, ""); gsub(/"$/, ""); print; exit }
         ')
         icon=$(get_icon "$form_factor")
-        label="$icon $description"
-
-        # Add "(current)" indicator if this is the default sink
+        label="$description"
         if [[ "$name" == "$current_sink" ]]; then
-            label="$label <i>(current)</i>"
+            label="$label <span background=\"#a3be8c\" foreground=\"#2e3440\" font_size=\"small\" weight=\"bold\"> Current </span>"
         fi
-
-        devices_map["$label"]="$name"
-        echo "$label"
+        printf '%s\0icon\x1f%s\x1finfo\x1f%s\n' "$label" "$icon" "$name"
     done < <(pactl list short sinks)
-    selected_desc=$(printf "%s\n" "${!devices_map[@]}" | rofi -dmenu -p "Select:" -markup-rows)
-    [ -n "$selected_desc" ] && pactl set-default-sink "${devices_map[$selected_desc]}"
-elif [[ "$choice" == "$INPUT_CHOICE" ]]; then
-    # Get current default source
-    current_source=$(pactl get-default-source)
+}
 
+list_sources() {
+    current_source=$(pactl get-default-source)
     while IFS= read -r line; do
         name=$(echo "$line" | awk '{print $2}')
         description=$(pactl list sources | awk -v dev="$name" '
@@ -65,16 +48,49 @@ elif [[ "$choice" == "$INPUT_CHOICE" ]]; then
             in_dev && /device.form-factor/ { gsub(/.*= "/, ""); gsub(/"$/, ""); print; exit }
         ')
         icon=$(get_icon "$form_factor")
-        label="$icon $description"
-
-        # Add "(current)" indicator if this is the default source
+        label="$description"
         if [[ "$name" == "$current_source" ]]; then
-            label="$label <i>(current)</i>"
+            label="$label <span background=\"#a3be8c\" foreground=\"#2e3440\" font_size=\"small\" weight=\"bold\"> Current </span>"
         fi
-
-        devices_map["$label"]="$name"
-        echo "$label"
+        printf '%s\0icon\x1f%s\x1finfo\x1f%s\n' "$label" "$icon" "$name"
     done < <(pactl list short sources)
-    selected_desc=$(printf "%s\n" "${!devices_map[@]}" | rofi -dmenu -p "Select:" -markup-rows)
-    [ -n "$selected_desc" ] && pactl set-default-source "${devices_map[$selected_desc]}"
-fi
+}
+
+case "$ROFI_RETV" in
+    0)
+        if [ -z "$ROFI_DATA" ]; then
+            printf '\0prompt\x1fAudio\n'
+            printf '\0markup-rows\x1ftrue\n'
+            printf '%s\0icon\x1f%s/output.png\n' "$OUTPUT_CHOICE" "$ICON_DIR"
+            printf '%s\0icon\x1f%s/input.png\n' "$INPUT_CHOICE" "$ICON_DIR"
+        fi
+        ;;
+    1)
+        case "$ROFI_DATA" in
+            "output")
+                [ -n "$ROFI_INFO" ] && pactl set-default-sink "$ROFI_INFO"
+                exit 0
+                ;;
+            "input")
+                [ -n "$ROFI_INFO" ] && pactl set-default-source "$ROFI_INFO"
+                exit 0
+                ;;
+            *)
+                case "$1" in
+                    "$OUTPUT_CHOICE")
+                        printf '\0data\x1foutput\n'
+                        printf '\0prompt\x1fSelect Output\n'
+                        printf '\0markup-rows\x1ftrue\n'
+                        list_sinks
+                        ;;
+                    "$INPUT_CHOICE")
+                        printf '\0data\x1finput\n'
+                        printf '\0prompt\x1fSelect Input\n'
+                        printf '\0markup-rows\x1ftrue\n'
+                        list_sources
+                        ;;
+                esac
+                ;;
+        esac
+        ;;
+esac

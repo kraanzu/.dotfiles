@@ -4,70 +4,72 @@
     nord2: #434c5e;
     nord3: #4c566a;
     nord4: #d8dee9;
+    nord5: #e5e9f0;
     nord6: #eceff4;
     nord7: #8fbcbb;
     nord10: #5e81ac;
 
     background-color: @nord0;
     text-color: @nord4;
-    font: "Inter 12";
+    font: "JetBrainsMono NFM SemiBold 12";
 }
 
 window {
     location: center;
     anchor: center;
-    height: 500px;
+    height: 450px;
     width: 650px;
-    background-color: rgba(46, 52, 64, 0.95);
+    border-color: @nord1;
     border-radius: 0px;
     border: 1px solid;
-    border-color: rgba(143, 188, 187, 0.3);
     padding: 0px;
 }
 
 mainbox {
     spacing: 0;
     children: [inputbar, listview];
-    padding: 12px;
+    padding: 0px;
 }
 
 inputbar {
-    padding: 12px 16px;
-    margin: 0px 0px 12px 0px;
-    background-color: @nord1;
+    padding: 15px 16px;
+    margin: 0px;
+    background-color: transparent;
     border-radius: 0px;
+    border: 0 0 1px 0;
+    border-color: rgba(255, 255, 255, 0.1);
     children: [prompt, entry];
 }
 
 prompt {
     enabled: false;
-    background-color: @nord1;
+    background-color: transparent;
 }
 
 entry {
     placeholder: "Search...";
     placeholder-color: @nord3;
     text-color: @nord6;
-    background-color: @nord1;
-}
-
-listview {
-    lines: 8;
-    spacing: 4px;
-    scrollbar: false;
     background-color: transparent;
 }
 
+listview {
+    spacing: 2px;
+    scrollbar: false;
+    background-color: transparent;
+    padding: 10px;
+}
+
 element {
-    padding: 10px 12px;
+    padding: 10px;
     border-radius: 0px;
     background-color: transparent;
     text-color: @nord4;
 }
 
 element selected {
-    background-color: @nord7;
-    text-color: @nord0;
+    background-color: @nord1;
+    text-color: @nord6;
 }
 
 element-text {
