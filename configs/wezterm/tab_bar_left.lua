@@ -15,7 +15,7 @@ function M.get_icon(cmd, cwd)
 		elseif utils.is_in(cwd, "Documents") then
 			return "󰃀"
 		else
-			return ""
+			return "󰉋"
 		end
 	elseif cmd:sub(1, 1) == "/" then
 		return "󰋊"
@@ -34,9 +34,13 @@ end
 
 function M.tab_title(tab_info)
 	local title = tab_info.active_pane.title
+	local cwd = tostring(tab_info.active_pane.current_working_dir or "")
 	local cmd = title:match("%S+")
-	local icon = M.get_icon(cmd, title)
+	local icon = M.get_icon(cmd, cwd)
 	local name = M.get_name(title, cmd)
+	if #name > 10 then
+		name = name:sub(1, 9) .. "…"
+	end
 	return icon .. " " .. name
 end
 
