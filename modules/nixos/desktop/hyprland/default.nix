@@ -25,7 +25,7 @@ in
       hypridle
       hyprpaper
       hyprpicker
-      wlsunset
+      hyprsunset
       xwayland-satellite
       cliphist
       wl-clipboard
