@@ -25,7 +25,7 @@ case "$ROFI_RETV" in
                 exit 0
                 ;;
             "confirm-windows")
-                [ "$1" = "Yes" ] && sudo /run/current-system/sw/bin/grub-reboot "Windows Boot Manager (on /dev/nvme1n1p1)" && systemctl reboot
+                [ "$1" = "Yes" ] && sudo /run/current-system/sw/bin/grub-reboot 2 && systemctl reboot
                 exit 0
                 ;;
             *)
