@@ -17,7 +17,6 @@ in
   config = lib.mkIf cfg.enable {
     services.printing.enable = false;
     security.polkit.enable = true;
-    networking.networkmanager.enable = true;
 
     programs.dconf.enable = true;
     programs.nix-index-database.comma.enable = true;
