@@ -18,6 +18,7 @@ in
   config = lib.mkIf cfg.enable {
     virtualisation.docker = {
       enable = true;
+      enableOnBoot = false;
       liveRestore = false;
       rootless = {
         enable = true;
