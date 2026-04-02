@@ -13,24 +13,23 @@
       "super-e": "project_panel::ToggleFocus",
       "ctrl-up": ["task::Spawn", { "task_name": "Neogit" }],
       "ctrl-shift-enter": ["task::Spawn", { "task_name": "Run" }],
-      "super-g": ["agent::NewExternalAgentThread", { "agent": "gemini" }]
-    }
+    },
   },
   {
     "context": "GitPanel && ChangesList",
     "use_key_equivalents": true,
     "bindings": {
-      "s": "git::ToggleStaged"
-    }
+      "s": "git::ToggleStaged",
+    },
   },
   {
     "bindings": {
-      "ctrl-,": "zed::OpenSettingsFile"
-    }
+      "ctrl-,": "zed::OpenSettingsFile",
+    },
   },
   {
     "bindings": {
-      "ctrl-alt-,": "zed::OpenSettings"
-    }
-  }
+      "ctrl-alt-,": "zed::OpenSettings",
+    },
+  },
 ]
