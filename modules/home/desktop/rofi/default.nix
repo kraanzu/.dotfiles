@@ -11,7 +11,9 @@ let
     "run"
     "ssh"
     "combi"
-    "emoji"
+    "bluetooth:rofi-bluetooth"
+    "audio:rofi-audio-switcher"
+    "power:rofi-power-menu"
   ];
   cfg = config.mynix.desktop.rofi;
 in
@@ -24,18 +26,12 @@ in
 
   config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     home.packages = with pkgs; [
-      rofi-bluetooth
-      mynix.rofi-audio-switcher
-      mynix.rofi-network-switcher
-      mynix.rofi-power-menu
+      mynix.rofi-scripts
     ];
     programs.rofi = {
       enable = true;
-      plugins = with pkgs; [
-        rofi-power-menu
-        rofi-emoji
-      ];
       extraConfig = {
+        case-sensitive = false;
         modes = lib.concatStringsSep "," rofi_modes;
       };
 

@@ -1,16 +1,7 @@
 #!/usr/bin/env bash
-ICON_DIR="${ICON_DIR:-$(dirname "$0")/../share/rofi-audio-switcher/icons}"
 
 OUTPUT_CHOICE="Output"
 INPUT_CHOICE="Input"
-
-get_icon() {
-    case "$1" in
-        headphones|headset) echo "$ICON_DIR/headphones.png" ;;
-        hdmi) echo "$ICON_DIR/hdmi.png" ;;
-        *) echo "$ICON_DIR/output.png" ;;
-    esac
-}
 
 list_sinks() {
     current_sink=$(pactl get-default-sink)
@@ -21,16 +12,11 @@ list_sinks() {
             in_dev && /Description:/ { gsub(/^[[:space:]]*Description: /, ""); print; found=1 }
             found { exit }
         ')
-        form_factor=$(pactl list sinks | awk -v dev="$name" '
-            $0 ~ "Name: "dev { in_dev = 1 }
-            in_dev && /device.form_factor/ { gsub(/.*= "/, ""); gsub(/"$/, ""); print; exit }
-        ')
-        icon=$(get_icon "$form_factor")
         label="$description"
         if [[ "$name" == "$current_sink" ]]; then
-            label="$label <span background=\"#a3be8c\" foreground=\"#2e3440\" font_size=\"small\" weight=\"bold\"> Current </span>"
+            label="$label <span foreground=\"#a3be8c\" weight=\"bold\">[current]</span>"
         fi
-        printf '%s\0icon\x1f%s\x1finfo\x1f%s\n' "$label" "$icon" "$name"
+        printf '%s\0info\x1f%s\n' "$label" "$name"
     done < <(pactl list short sinks)
 }
 
@@ -43,16 +29,11 @@ list_sources() {
             in_dev && /Description:/ { gsub(/^[[:space:]]*Description: /, ""); print; found=1 }
             found { exit }
         ')
-        form_factor=$(pactl list sources | awk -v dev="$name" '
-            $0 ~ "Name: "dev { in_dev = 1 }
-            in_dev && /device.form-factor/ { gsub(/.*= "/, ""); gsub(/"$/, ""); print; exit }
-        ')
-        icon=$(get_icon "$form_factor")
         label="$description"
         if [[ "$name" == "$current_source" ]]; then
-            label="$label <span background=\"#a3be8c\" foreground=\"#2e3440\" font_size=\"small\" weight=\"bold\"> Current </span>"
+            label="$label <span foreground=\"#a3be8c\" weight=\"bold\">[current]</span>"
         fi
-        printf '%s\0icon\x1f%s\x1finfo\x1f%s\n' "$label" "$icon" "$name"
+        printf '%s\0info\x1f%s\n' "$label" "$name"
     done < <(pactl list short sources)
 }
 
@@ -61,8 +42,8 @@ case "$ROFI_RETV" in
         if [ -z "$ROFI_DATA" ]; then
             printf '\0prompt\x1fAudio\n'
             printf '\0markup-rows\x1ftrue\n'
-            printf '%s\0icon\x1f%s/output.png\n' "$OUTPUT_CHOICE" "$ICON_DIR"
-            printf '%s\0icon\x1f%s/input.png\n' "$INPUT_CHOICE" "$ICON_DIR"
+            printf '%s\n' "$OUTPUT_CHOICE"
+            printf '%s\n' "$INPUT_CHOICE"
         fi
         ;;
     1)

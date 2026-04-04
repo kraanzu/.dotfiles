@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+
+power_on() { bluetoothctl show | grep -q "Powered: yes"; }
+device_connected() { bluetoothctl info "$1" | grep -q "Connected: yes"; }
+device_paired() { bluetoothctl info "$1" | grep -q "Paired: yes"; }
+device_trusted() { bluetoothctl info "$1" | grep -q "Trusted: yes"; }
+get_alias() { bluetoothctl info "$1" | awk '/Alias:/ { $1=""; sub(/^ /, ""); print }'; }
+
+show_main() {
+    printf '\0prompt\x1fBluetooth\n'
+    printf '\0markup-rows\x1ftrue\n'
+    printf '\0data\x1fmain\n'
+    if power_on; then
+        while read -r mac; do
+            alias=$(get_alias "$mac")
+            device_connected "$mac" && tag=' <span foreground="#a3be8c" weight="bold">[on]</span>' || tag=""
+            printf '%s%s\0info\x1f%s\n' "$alias" "$tag" "$mac"
+        done < <(bluetoothctl devices | awk '{print $2}')
+        printf '%s\0nonselectable\x1ftrue\n' '---------'
+        printf 'Power: on\0info\x1ftoggle_power\n'
+    else
+        printf 'Power: off\0info\x1ftoggle_power\n'
+    fi
+}
+
+show_device() {
+    local mac="$1"
+    printf '\0prompt\x1f%s\n' "$(get_alias "$mac")"
+    printf '\0data\x1fdevice:%s\n' "$mac"
+    device_connected "$mac" && printf 'Connected: yes\0info\x1ftoggle_connect\n' || printf 'Connected: no\0info\x1ftoggle_connect\n'
+    device_paired   "$mac" && printf 'Paired: yes\0info\x1ftoggle_pair\n'    || printf 'Paired: no\0info\x1ftoggle_pair\n'
+    device_trusted  "$mac" && printf 'Trusted: yes\0info\x1ftoggle_trust\n'  || printf 'Trusted: no\0info\x1ftoggle_trust\n'
+}
+
+case "$ROFI_RETV" in
+    0)
+        if power_on; then
+            bluetoothctl pairable on >/dev/null
+            bluetoothctl discoverable on >/dev/null
+        fi
+        show_main
+        ;;
+    1)
+        case "$ROFI_DATA" in
+            device:*)
+                mac="${ROFI_DATA#device:}"
+                case "$ROFI_INFO" in
+                    toggle_connect) device_connected "$mac" && bluetoothctl disconnect "$mac" || bluetoothctl connect "$mac" ;;
+                    toggle_pair)    device_paired   "$mac" && bluetoothctl remove "$mac"      || bluetoothctl pair "$mac" ;;
+                    toggle_trust)   device_trusted  "$mac" && bluetoothctl untrust "$mac"     || bluetoothctl trust "$mac" ;;
+                esac
+                show_device "$mac"
+                ;;
+            *)
+                case "$ROFI_INFO" in
+                    toggle_power)
+                        if power_on; then
+                            bluetoothctl power off
+                        else
+                            rfkill list bluetooth | grep -q 'blocked: yes' && rfkill unblock bluetooth && sleep 3
+                            bluetoothctl power on
+                            bluetoothctl pairable on >/dev/null
+                            bluetoothctl discoverable on >/dev/null
+                        fi
+                        show_main
+                        ;;
+                    *)
+                        show_device "$ROFI_INFO"
+                        ;;
+                esac
+                ;;
+        esac
+        ;;
+esac

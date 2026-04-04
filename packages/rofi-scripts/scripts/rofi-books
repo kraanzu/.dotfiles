@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+path="${1:?Usage: rofi-books <path>}"
+
+declare -A books
+declare -a order
+
+while IFS= read -r file; do
+    name=$(basename "$file" .epub)
+    books["$name"]="$file"
+    order+=("$name")
+done < <(find "$path" -maxdepth 1 -name "*.epub" -printf "%A@ %p\n" | sort -rn | awk '{$1=""; print substr($0,2)}')
+
+selected=$(printf '%s\n' "${order[@]}" | rofi -dmenu -p "Books")
+
+[[ -n "$selected" ]] && zathura "${books[$selected]}"

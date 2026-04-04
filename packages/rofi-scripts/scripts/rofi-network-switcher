@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Build maps of display->actual names
+
 declare -A name_map
 while IFS=: read -r name type; do
     [[ "$type" =~ loopback|bridge ]] && continue
@@ -19,12 +19,10 @@ while IFS=: read -r name type; do
     name_map["$display"]="$name"
 done < <(nmcli -g NAME,TYPE connection show)
 
-# Show in rofi
 choice=$(printf "%s\n" "${!name_map[@]}" | rofi -dmenu -p "Select Network")
 if [ -n "$choice" ]; then
     connection="${name_map[$choice]}"
 
-    # Set lower priority for others
     for conn in "${name_map[@]}"; do
         if [ "$conn" != "$connection" ]; then
             nmcli connection modify "$conn" ipv4.route-metric 600
@@ -32,7 +30,6 @@ if [ -n "$choice" ]; then
         fi
     done
 
-    # Set higher priority for selected
     nmcli connection modify "$connection" ipv4.route-metric 100
     nmcli connection up "$connection"
 fi

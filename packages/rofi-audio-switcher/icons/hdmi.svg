@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="24" height="24" rx="3" fill="#b48ead"/>
-  <g transform="translate(3, 3) scale(0.5625)">
-    <path d="m22 27v2h-12v-2z" fill="#eceff4"/>
-    <path d="m32 3v22h-32v-22zm-2 2h-28v18h28z" fill="#eceff4" fill-rule="nonzero"/>
-  </g>
-</svg>
