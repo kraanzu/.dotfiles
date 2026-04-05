@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 let
@@ -14,7 +15,12 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    networking.networkmanager.enable = true;
+
+    networking.networkmanager = {
+      enable = true;
+      plugins = [ pkgs.networkmanager-openvpn ];
+    };
+
     users.users.kraanzu.extraGroups = [ "networkmanager" ];
     environment.etc."resolv.conf".text = ''
       nameserver 8.8.8.8
