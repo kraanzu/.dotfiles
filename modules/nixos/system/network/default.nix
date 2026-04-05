@@ -15,10 +15,10 @@ in
 
   config = lib.mkIf cfg.enable {
     networking.networkmanager.enable = true;
+    users.users.kraanzu.extraGroups = [ "networkmanager" ];
     environment.etc."resolv.conf".text = ''
       nameserver 8.8.8.8
       nameserver 8.8.4.4
     '';
-
   };
 }

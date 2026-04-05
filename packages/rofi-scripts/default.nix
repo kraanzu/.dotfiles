@@ -49,6 +49,10 @@ stdenv.mkDerivation {
       wrapProgram $out/bin/rofi-bluetooth \
         --prefix PATH ":" "${commonPath}"
 
+      install -Dm755 ./scripts/rofi-dns $out/bin/rofi-dns
+      wrapProgram $out/bin/rofi-dns \
+        --prefix PATH ":" "${commonPath}"
+
       runHook postInstall
     '';
 

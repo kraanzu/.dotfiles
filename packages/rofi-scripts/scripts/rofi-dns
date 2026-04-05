@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+CONNECTION=$(nmcli -t -f NAME con show --active | head -1)
+
+CHOICE=$(printf "No DNS\nGoogle DNS\nCloudFlare DNS" | rofi -dmenu -p "DNS")
+
+case "$CHOICE" in
+  "No DNS")
+    nmcli con mod "$CONNECTION" ipv4.dns ""
+    nmcli con mod "$CONNECTION" ipv4.ignore-auto-dns no
+    ;;
+  "Google DNS")
+    nmcli con mod "$CONNECTION" ipv4.dns "8.8.8.8 8.8.4.4"
+    nmcli con mod "$CONNECTION" ipv4.ignore-auto-dns yes
+    ;;
+  "CloudFlare DNS")
+    nmcli con mod "$CONNECTION" ipv4.dns "1.1.1.1 1.0.0.1"
+    nmcli con mod "$CONNECTION" ipv4.ignore-auto-dns yes
+    ;;
+  *)
+    exit 0
+    ;;
+esac
+
+nmcli con up "$CONNECTION"
