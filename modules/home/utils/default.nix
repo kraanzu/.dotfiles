@@ -90,6 +90,7 @@ in
         rclone
         fd
         timer
+        hyperfine
 
         mynix.crule
       ];
