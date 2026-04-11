@@ -33,8 +33,8 @@ stdenv.mkDerivation {
       wrapProgram $out/bin/rofi-audio-switcher \
         --prefix PATH ":" "${commonPath}:${lib.makeBinPath [ pulseaudio ]}"
 
-      install -Dm755 ./scripts/rofi-network-switcher $out/bin/rofi-network-switcher
-      wrapProgram $out/bin/rofi-network-switcher \
+      install -Dm755 ./scripts/rofi-network-menu $out/bin/rofi-network-menu
+      wrapProgram $out/bin/rofi-network-menu \
         --prefix PATH ":" "${commonPath}:${lib.makeBinPath [ networkmanager ]}"
 
       install -Dm755 ./scripts/rofi-power-menu $out/bin/rofi-power-menu

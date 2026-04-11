@@ -14,6 +14,7 @@ let
     "bluetooth:rofi-bluetooth"
     "audio:rofi-audio-switcher"
     "power:rofi-power-menu"
+    "network:rofi-network-menu"
   ];
   cfg = config.mynix.desktop.rofi;
 in

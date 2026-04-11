@@ -1,0 +1,131 @@
+#!/usr/bin/env bash
+
+GREEN="#a3be8c"
+CYAN="#88c0d0"
+RED="#bf616a"
+
+get_connections() {
+    nmcli -t -f NAME,TYPE connection show | while IFS=: read -r name type; do
+        [[ "$type" == "loopback" || "$type" == "vpn" || "$type" == "tun" ]] && continue
+        local dev
+        dev=$(nmcli -t -f connection.interface-name connection show "$name" 2>/dev/null | cut -d: -f2)
+        [[ -n "$dev" ]] && nmcli device status 2>/dev/null | grep -q "^${dev} " || continue
+        echo "$name"
+    done
+}
+
+is_connected() {
+    local state
+    state=$(nmcli -t -f NAME,DEVICE connection show --active 2>/dev/null | grep "^${1}:" | cut -d: -f2)
+    [[ -n "$state" ]]
+}
+
+get_device() {
+    nmcli -t -f NAME,DEVICE connection show --active 2>/dev/null | grep "^${1}:" | cut -d: -f2
+}
+
+get_primary_device() {
+    ip route show default 2>/dev/null | head -1 | awk '{for(i=1;i<=NF;i++) if($i=="dev") print $(i+1)}'
+}
+
+is_primary() {
+    local dev
+    dev=$(get_device "$1")
+    [[ -z "$dev" ]] && return 1
+    [[ "$dev" == "$(get_primary_device)" ]]
+}
+
+display_name() {
+    local dev vendor
+    dev=$(nmcli -t -f connection.interface-name connection show "$1" 2>/dev/null | cut -d: -f2)
+    if [[ -n "$dev" ]]; then
+        vendor=$(nmcli -t -f GENERAL.VENDOR device show "$dev" 2>/dev/null | cut -d: -f2 | awk '{print $1}')
+    fi
+    echo "${vendor:-$1}"
+}
+
+tag() {
+    echo "<b><span color='$1'>$2</span></b>"
+}
+
+render_list() {
+    echo -en "\0markup-rows\x1ftrue\n"
+    echo -en "\0prompt\x1fNetwork\n"
+
+    while IFS= read -r name; do
+        label="$(display_name "$name")"
+        if is_connected "$name"; then
+            label+="  $(tag "$GREEN" "[connected]")"
+            if is_primary "$name"; then
+                label+="  $(tag "$CYAN" "[primary]")"
+            fi
+        fi
+        echo -en "${label}\0info\x1fconn:${name}\n"
+    done < <(get_connections)
+}
+
+render_detail() {
+    local name="$1"
+    echo -en "\0markup-rows\x1ftrue\n"
+    echo -en "\0prompt\x1f$(display_name "$name")\n"
+
+    if is_connected "$name"; then
+        echo -en "Connected:  $(tag "$GREEN" "yes")\0info\x1ftoggle-connected:${name}\n"
+    else
+        echo -en "Connected:  $(tag "$RED" "no")\0info\x1ftoggle-connected:${name}\n"
+    fi
+
+    if is_connected "$name"; then
+        if is_primary "$name"; then
+            echo -en "Primary:  $(tag "$GREEN" "yes")\0info\x1ftoggle-primary:${name}\n"
+        else
+            echo -en "Primary:  $(tag "$RED" "no")\0info\x1ftoggle-primary:${name}\n"
+        fi
+    else
+        echo -en "Primary:  $(tag "$RED" "no")  <i>(connect first)</i>\0info\x1fnoop\n"
+    fi
+}
+
+toggle_connected() {
+    local name="$1"
+    if is_connected "$name"; then
+        nmcli connection down "$name" >/dev/null 2>&1
+    else
+        nmcli connection up "$name" >/dev/null 2>&1
+    fi
+}
+
+toggle_primary() {
+    local name="$1"
+    if ! is_connected "$name"; then
+        return
+    fi
+
+    if is_primary "$name"; then
+        nmcli connection modify "$name" ipv4.route-metric 600 2>/dev/null
+        nmcli connection up "$name" >/dev/null 2>&1
+    else
+        while IFS= read -r other; do
+            nmcli connection modify "$other" ipv4.route-metric 600 2>/dev/null
+            nmcli connection up "$other" >/dev/null 2>&1
+        done < <(get_connections | grep -vF "$name")
+        nmcli connection modify "$name" ipv4.route-metric 100 2>/dev/null
+        nmcli connection up "$name" >/dev/null 2>&1
+    fi
+}
+
+info="${ROFI_INFO}"
+
+if [[ -z "$info" ]]; then
+    render_list
+elif [[ "$info" == conn:* ]]; then
+    render_detail "${info#conn:}"
+elif [[ "$info" == toggle-connected:* ]]; then
+    name="${info#toggle-connected:}"
+    toggle_connected "$name"
+    render_detail "$name"
+elif [[ "$info" == toggle-primary:* ]]; then
+    name="${info#toggle-primary:}"
+    toggle_primary "$name"
+    render_detail "$name"
+fi

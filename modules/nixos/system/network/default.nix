@@ -18,7 +18,7 @@ in
 
     networking.networkmanager = {
       enable = true;
-      plugins = [ pkgs.networkmanager-openvpn ];
+      # plugins = [ pkgs.networkmanager-openvpn ];
     };
 
     users.users.kraanzu.extraGroups = [ "networkmanager" ];
