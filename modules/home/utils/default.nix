@@ -91,6 +91,7 @@ in
         fd
         timer
         hyperfine
+        socat
 
         mynix.crule
       ];

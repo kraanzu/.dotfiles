@@ -4,7 +4,7 @@
   "height": 30,
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": [],
-  "modules-right": ["custom/tomat", "tray", "custom/network", "memory", "pulseaudio", "clock#time", "clock#date", "custom/notification"],
+  "modules-right": ["custom/zathura", "custom/tomat", "tray", "custom/network", "memory", "pulseaudio", "clock#time", "clock#date", "custom/notification"],
   "hyprland/workspaces": {
     "persistent-workspaces": {
       "*": 6
@@ -42,6 +42,11 @@
     "return-type": "json",
     "interval": 1,
     "on-click": "dunstctl set-paused toggle"
+  },
+  "custom/zathura": {
+    "exec": "~/.config/waybar/scripts/zathura-page.sh",
+    "return-type": "json",
+    "format": "{}"
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
