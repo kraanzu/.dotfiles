@@ -31,7 +31,6 @@ in
       Install.WantedBy = [ "timers.target" ];
     };
 
-    services.tomat = enabled;
     programs = {
       direnv = {
         enable = true;

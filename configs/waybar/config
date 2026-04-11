@@ -4,7 +4,7 @@
   "height": 30,
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": [],
-  "modules-right": ["custom/zathura", "custom/tomat", "tray", "custom/network", "memory", "pulseaudio", "clock#time", "clock#date", "custom/notification"],
+  "modules-right": ["custom/zathura", "custom/network", "memory", "pulseaudio", "clock#time", "clock#date", "custom/notification"],
   "hyprland/workspaces": {
     "persistent-workspaces": {
       "*": 6
@@ -23,14 +23,6 @@
   		"microsoft-edge": "Edge",
         "cursor": "Cursor"
   	}
-  },
-  "custom/tomat": {
-      "exec": "tomat status | jq -rc 'if .class == \"idle\" then empty else . end'",
-      "interval": 1,
-      "return-type": "json",
-      "format": "{}",
-      "on-click": "tomat toggle",
-      "on-click-right": "tomat stop"
   },
   "custom/network": {
     "exec": "~/.config/waybar/scripts/network-status.sh",

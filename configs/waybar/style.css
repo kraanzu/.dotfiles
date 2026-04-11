@@ -69,7 +69,6 @@ window#waybar.empty #window {
     font-size: 0;
 }
 
-#custom-tomat,
 #custom-notification {
     padding: 0 12 0 10;
     margin: 5 3px;
@@ -79,20 +78,4 @@ window#waybar.empty #window {
 
 #custom-notification.paused {
     background-color: #bf616a;
-}
-
-#custom-tomat.work-paused {
-    background-color: #6a9aa8;
-}
-#custom-tomat.break {
-    background-color: #a3be8c;
-}
-#custom-tomat.break-paused {
-    background-color: #7e9a6b;
-}
-#custom-tomat.long-break {
-    background-color: #ebcb8b;
-}
-#custom-tomat.long-break-paused {
-    background-color: #b89d6b;
 }
