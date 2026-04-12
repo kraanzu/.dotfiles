@@ -13,7 +13,6 @@ window#waybar {
 #custom-zathura,
 #custom-network,
 #workspaces,
-#tray,
 #memory,
 #pulseaudio,
 #clock {
@@ -58,6 +57,16 @@ window#waybar {
 
 window#waybar.empty #window {
     background: transparent;
+}
+
+#tray {
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+    border: none;
+    background: transparent;
+    font-size: 0;
+    opacity: 0;
 }
 
 #custom-zathura.hidden {

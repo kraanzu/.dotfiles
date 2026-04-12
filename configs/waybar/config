@@ -4,7 +4,7 @@
   "height": 30,
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": [],
-  "modules-right": ["custom/zathura", "custom/network", "memory", "pulseaudio", "clock#time", "clock#date", "custom/notification"],
+  "modules-right": ["tray", "custom/zathura", "custom/network", "memory", "pulseaudio", "clock#time", "clock#date", "custom/notification"],
   "hyprland/workspaces": {
     "persistent-workspaces": {
       "*": 6
