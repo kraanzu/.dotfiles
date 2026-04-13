@@ -1,10 +1,22 @@
 {
   "layer": "top",
   "position": "bottom",
-  "height": 30,
-  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "height": 40,
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
   "modules-center": [],
-  "modules-right": ["tray", "custom/zathura", "custom/network", "memory", "pulseaudio", "clock#time", "clock#date", "custom/notification"],
+  "modules-right": [
+    "custom/zathura",
+    "custom/network",
+    "memory",
+    "pulseaudio",
+    "clock#time",
+    "clock#date",
+    "group/systray",
+    "custom/notification"
+  ],
   "hyprland/workspaces": {
     "persistent-workspaces": {
       "*": 6
@@ -13,16 +25,16 @@
   "hyprland/window": {
     "format": "{class}",
     "max-length": 50,
-   	"rewrite": {
-  		"dev.zed.Zed": "Zed",
-  		"brave-browser": "Brave",
-  		"org.wezfurlong.wezterm": "Wezterm",
-  		"org.telegram.desktop": "Telegram",
-  		"org.qbittorrent.qBittorrent": "qBittorrent",
-  		"org.pwmt.zathura": "Zathura",
-  		"microsoft-edge": "Edge",
-        "cursor": "Cursor"
-  	}
+    "rewrite": {
+      "dev.zed.Zed": "Zed",
+      "brave-browser": "Brave",
+      "org.wezfurlong.wezterm": "Wezterm",
+      "org.telegram.desktop": "Telegram",
+      "org.qbittorrent.qBittorrent": "qBittorrent",
+      "org.pwmt.zathura": "Zathura",
+      "microsoft-edge": "Edge",
+      "cursor": "Cursor"
+    }
   },
   "custom/network": {
     "exec": "~/.config/waybar/scripts/network-status.sh",
@@ -55,6 +67,22 @@
   },
   "clock#date": {
     "format": "{:%a, %b %d}",
+    "tooltip": false
+  },
+  "group/systray": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 0,
+      "transition-left-to-right": false,
+      "click-to-reveal": true
+    },
+    "modules": [
+      "custom/tray-toggle",
+      "tray"
+    ]
+  },
+  "custom/tray-toggle": {
+    "format": "",
     "tooltip": false
   },
   "tray": {

@@ -15,11 +15,17 @@ window#waybar {
 #workspaces,
 #memory,
 #pulseaudio,
+#tray,
+#custom-tray-toggle,
 #clock {
     margin: 5px 3px;
     border: 3px solid #4c566a;
     background: #3b4252;
     padding: 0 7px;
+}
+
+#custom-tray-toggle {
+    color: #8fbcbb;
 }
 
 #workspaces {
@@ -57,16 +63,6 @@ window#waybar {
 
 window#waybar.empty #window {
     background: transparent;
-}
-
-#tray {
-    margin: 0;
-    padding: 0;
-    min-width: 0;
-    border: none;
-    background: transparent;
-    font-size: 0;
-    opacity: 0;
 }
 
 #custom-zathura.hidden {
