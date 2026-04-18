@@ -25,5 +25,7 @@ in
         setSocketVariable = true;
       };
     };
+
+    systemd.user.services.docker.wantedBy = lib.mkForce [ ];
   };
 }
