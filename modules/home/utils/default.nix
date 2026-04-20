@@ -91,6 +91,7 @@ in
         timer
         hyperfine
         socat
+        smem
 
         mynix.crule
       ];
