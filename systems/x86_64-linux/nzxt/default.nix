@@ -10,7 +10,7 @@ with lib.mynix;
 
   networking.hostName = "nzxt";
   mynix = {
-    apps.openrgb = enabled;
+    services.openrgb = enabled;
     desktop.hyprland = enabled;
     hardware.amdgpu = enabled;
   };

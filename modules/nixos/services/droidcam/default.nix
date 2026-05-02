@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.mynix.apps.droidcam;
+  cfg = config.mynix.services.droidcam;
 in
 {
-  options.mynix.apps.droidcam = {
+  options.mynix.services.droidcam = {
     enable = mkOption {
       type = types.bool;
       default = false;

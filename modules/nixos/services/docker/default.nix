@@ -4,11 +4,11 @@
   ...
 }:
 let
-  cfg = config.mynix.cli.docker;
+  cfg = config.mynix.services.docker;
 in
 {
   options = {
-    mynix.cli.docker.enable = lib.mkOption {
+    mynix.services.docker.enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
       description = "Enable Docker";

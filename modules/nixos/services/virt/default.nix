@@ -5,11 +5,11 @@
   ...
 }:
 let
-  cfg = config.mynix.cli.virt;
+  cfg = config.mynix.services.virt;
 in
 {
   options = {
-    mynix.cli.virt.enable = lib.mkOption {
+    mynix.services.virt.enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
       description = "Enable Virt manager";

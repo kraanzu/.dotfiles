@@ -5,11 +5,11 @@
   ...
 }:
 let
-  cfg = config.mynix.cli.openvpn;
+  cfg = config.mynix.services.openvpn;
 in
 {
   options = {
-    mynix.cli.openvpn.enable = lib.mkOption {
+    mynix.services.openvpn.enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
       description = "Enable OpenVPN";
