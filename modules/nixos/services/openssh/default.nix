@@ -26,8 +26,8 @@ in
     };
     passwordAuthentication = lib.mkOption {
       type = lib.types.bool;
-      default = false;
-      description = "Allow password auth (key-only by default).";
+      default = true;
+      description = "Allow password auth.";
     };
     openFirewall = lib.mkOption {
       type = lib.types.bool;

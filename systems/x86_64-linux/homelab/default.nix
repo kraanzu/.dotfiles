@@ -21,6 +21,7 @@ with lib.mynix;
     };
 
     services = {
+      jellyfin = enabled;
       virt.enable = false;
       openvpn.enable = false;
     };

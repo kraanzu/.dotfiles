@@ -11,6 +11,7 @@ with lib.mynix;
   networking.hostName = "nzxt";
   mynix = {
     services.openrgb = enabled;
+    services.jellyfin = enabled;
     desktop.hyprland = enabled;
     hardware.amdgpu = enabled;
   };
