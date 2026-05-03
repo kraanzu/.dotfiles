@@ -2,7 +2,6 @@
 with lib.mynix;
 {
   mynix = {
-    utils.enable = false;
     secrets.all.enable = false;
   };
 

@@ -24,6 +24,8 @@ with lib.mynix;
       zig = enabled;
     };
 
+    utils.gui = enabled;
+
     # sec = enabled;
   };
 

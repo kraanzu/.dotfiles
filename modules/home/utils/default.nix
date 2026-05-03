@@ -13,87 +13,49 @@ let
 in
 {
   options.mynix.utils = {
-    enable = mkBoolOpt true "Enable all utility applications";
+    cli.enable = mkBoolOpt true "Enable CLI utility packages";
+    gui.enable = mkBoolOpt false "Enable GUI utility packages";
   };
 
-  config = {
-    systemd.user.services.rclone-bisync = {
-      Unit.Description = "Rclone bisync";
-      Service.ExecStart = "${pkgs.rclone}/bin/rclone bisync gdrive:Docs /drives/HDD/Docs";
-    };
-
-    systemd.user.timers.rclone-bisync = {
-      Unit.Description = "Rclone bisync timer";
-      Timer = {
-        OnCalendar = "*-*-* 00/5:00:00";
-        Persistent = true;
+  config = mkMerge [
+    (mkIf cfg.cli.enable {
+      systemd.user.services.rclone-bisync = {
+        Unit.Description = "Rclone bisync";
+        Service.ExecStart = "${pkgs.rclone}/bin/rclone bisync gdrive:Docs /drives/HDD/Docs";
       };
-      Install.WantedBy = [ "timers.target" ];
-    };
 
-    programs = {
-      direnv = {
+      systemd.user.timers.rclone-bisync = {
+        Unit.Description = "Rclone bisync timer";
+        Timer = {
+          OnCalendar = "*-*-* 00/5:00:00";
+          Persistent = true;
+        };
+        Install.WantedBy = [ "timers.target" ];
+      };
+
+      programs.direnv = {
         enable = true;
-        enableBashIntegration = true; # see note on other shells below
+        enableBashIntegration = true;
         nix-direnv.enable = true;
       };
-    };
 
-    home.packages =
-      with pkgs;
-      mkIf cfg.enable [
-        libreoffice
-        gdrive3
-        syncthing
-        obsidian
-        yt-dlp
-        zathura
-        caffeine-ng
-        nemo
-
-        # Disk utilities
-        gparted
-        ntfs3g
-        gnome-disk-utility
-
-        # coding stuff
-        tree-sitter
-        gh
-
-        # must-have
-        killall
-        wget
-        git
-        htop
-        os-prober
-        geoclue2
-        unzip
-        zip
-        ripgrep
-        bluez
-        tree
-        tokei
-        bat
-        delta
-        zoxide
-        imagemagick
-        popsicle
-        wmctrl
-        poppler-utils
-        img2pdf
-        stow
-        jq
-        ddcutil
-        entr
-        networkmanagerapplet
-        rclone
-        fd
-        timer
-        hyperfine
-        socat
-        smem
-
+      home.packages = with pkgs; [
+        killall wget git htop os-prober unzip zip
+        ripgrep tree tokei bat delta zoxide jq fd
+        entr hyperfine socat smem stow rclone timer
+        ntfs3g tree-sitter gh
         mynix.crule
       ];
-  };
+    })
+
+    (mkIf cfg.gui.enable {
+      home.packages = with pkgs; [
+        libreoffice gdrive3 syncthing obsidian yt-dlp
+        zathura caffeine-ng nemo
+        gparted gnome-disk-utility popsicle
+        imagemagick wmctrl poppler-utils img2pdf
+        geoclue2 bluez networkmanagerapplet ddcutil
+      ];
+    })
+  ];
 }
