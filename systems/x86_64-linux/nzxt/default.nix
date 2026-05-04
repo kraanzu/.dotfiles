@@ -12,6 +12,7 @@ with lib.mynix;
   mynix = {
     services.openrgb = enabled;
     services.jellyfin = enabled;
+    services.tailscale = enabled;
     desktop.hyprland = enabled;
     hardware.amdgpu = enabled;
   };
