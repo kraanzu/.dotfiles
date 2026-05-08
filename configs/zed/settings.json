@@ -6,7 +6,7 @@
   //   }
   // },
   "edit_predictions": {
-    "provider": "copilot"
+    "provider": "copilot",
   },
   "session": {
     "trust_all_worktrees": true,
@@ -119,11 +119,6 @@
     "default_model": {
       "provider": "copilot_chat",
       "model": "claude-haiku-4.5",
-    },
-  },
-  "agent_servers": {
-    "gemini": {
-      "ignore_system_version": false,
     },
   },
 
