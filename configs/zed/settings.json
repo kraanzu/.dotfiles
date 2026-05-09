@@ -22,18 +22,22 @@
 
   // Minimal Bar
   "collaboration_panel": {
+    "dock": "left",
     "button": false,
   },
   "outline_panel": {
+    "dock": "left",
     "button": false,
   },
   "git_panel": {
+    "dock": "left",
     "button": false,
   },
   "notification_panel": {
     "button": false,
   },
   "project_panel": {
+    "dock": "left",
     "button": false,
   },
   "terminal": {
@@ -109,6 +113,7 @@
 
   // Copilot settings
   "agent": {
+    "dock": "right",
     "inline_assistant_model": {
       "provider": "copilot_chat",
       "model": "claude-haiku-4.5",
