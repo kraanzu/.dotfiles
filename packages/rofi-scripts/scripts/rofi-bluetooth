@@ -1,10 +1,23 @@
 #!/usr/bin/env bash
 
-power_on() { bluetoothctl show | grep -q "Powered: yes"; }
-device_connected() { bluetoothctl info "$1" | grep -q "Connected: yes"; }
-device_paired() { bluetoothctl info "$1" | grep -q "Paired: yes"; }
-device_trusted() { bluetoothctl info "$1" | grep -q "Trusted: yes"; }
-get_alias() { bluetoothctl info "$1" | awk '/Alias:/ { $1=""; sub(/^ /, ""); print }'; }
+# bluez 5.86 regression (bluez/bluez#1896, fixed upstream by 34b31e0):
+# `bluetoothctl <cmd>` produces no stdout because async D-Bus reply
+# handlers call bt_shell_printf(), which early-returns when the input
+# queue is empty -- which it always is in non-interactive mode.
+# Piping the command via stdin populates the input queue and restores
+# output. Drop this workaround once the fix lands in nixpkgs.
+#
+# The grep -v strips bluetoothctl's async event/prompt lines
+# ([NEW]/[CHG]/[DEL]/[device]>) so they can't be mistaken for
+# command output by downstream parsers.
+bt() { bluetoothctl <<< "$*" 2>/dev/null | grep -v '^\['; }
+
+power_on()         { bt show      | grep -q "Powered: yes"; }
+device_connected() { bt info "$1" | grep -q "Connected: yes"; }
+device_paired()    { bt info "$1" | grep -q "Paired: yes"; }
+device_trusted()   { bt info "$1" | grep -q "Trusted: yes"; }
+get_alias()        { bt info "$1" | awk '/Alias:/ { $1=""; sub(/^ /, ""); print }'; }
+list_devices()     { bt devices   | awk '/^Device / { print $2 }'; }
 
 show_main() {
     printf '\0prompt\x1fBluetooth\n'
@@ -15,7 +28,7 @@ show_main() {
             alias=$(get_alias "$mac")
             device_connected "$mac" && tag=' <span foreground="#a3be8c" weight="bold">[on]</span>' || tag=""
             printf '%s%s\0info\x1f%s\n' "$alias" "$tag" "$mac"
-        done < <(bluetoothctl devices | awk '{print $2}')
+        done < <(list_devices)
         printf '%s\0nonselectable\x1ftrue\n' '---------'
         printf 'Power: on\0info\x1ftoggle_power\n'
     else
@@ -35,8 +48,8 @@ show_device() {
 case "$ROFI_RETV" in
     0)
         if power_on; then
-            bluetoothctl pairable on >/dev/null
-            bluetoothctl discoverable on >/dev/null
+            bt pairable on >/dev/null
+            bt discoverable on >/dev/null
         fi
         show_main
         ;;
@@ -45,9 +58,9 @@ case "$ROFI_RETV" in
             device:*)
                 mac="${ROFI_DATA#device:}"
                 case "$ROFI_INFO" in
-                    toggle_connect) device_connected "$mac" && bluetoothctl disconnect "$mac" || bluetoothctl connect "$mac" ;;
-                    toggle_pair)    device_paired   "$mac" && bluetoothctl remove "$mac"      || bluetoothctl pair "$mac" ;;
-                    toggle_trust)   device_trusted  "$mac" && bluetoothctl untrust "$mac"     || bluetoothctl trust "$mac" ;;
+                    toggle_connect) device_connected "$mac" && bt disconnect "$mac" || bt connect "$mac" ;;
+                    toggle_pair)    device_paired   "$mac" && bt remove "$mac"      || bt pair "$mac" ;;
+                    toggle_trust)   device_trusted  "$mac" && bt untrust "$mac"     || bt trust "$mac" ;;
                 esac
                 show_device "$mac"
                 ;;
@@ -55,12 +68,12 @@ case "$ROFI_RETV" in
                 case "$ROFI_INFO" in
                     toggle_power)
                         if power_on; then
-                            bluetoothctl power off
+                            bt power off
                         else
                             rfkill list bluetooth | grep -q 'blocked: yes' && rfkill unblock bluetooth && sleep 3
-                            bluetoothctl power on
-                            bluetoothctl pairable on >/dev/null
-                            bluetoothctl discoverable on >/dev/null
+                            bt power on
+                            bt pairable on >/dev/null
+                            bt discoverable on >/dev/null
                         fi
                         show_main
                         ;;
