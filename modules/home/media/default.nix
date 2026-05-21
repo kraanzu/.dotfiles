@@ -20,7 +20,6 @@ in
     telegram.enable = mkBoolOpt false "Enable Telegram";
     vlc.enable = mkBoolOpt false "Enable VLC";
     discord.enable = mkBoolOpt false "Enable Discord";
-    jellyfin.enable = mkBoolOpt false "Enable Jellyfin Desktop";
   };
 
   config = {
@@ -31,7 +30,6 @@ in
       (mkIf (cfg.telegram.enable || cfg.all.enable) telegram-desktop)
       (mkIf (cfg.vlc.enable || cfg.all.enable) vlc)
       (mkIf (cfg.discord.enable || cfg.all.enable) discord)
-      (mkIf (cfg.jellyfin.enable || cfg.all.enable) jellyfin-desktop)
     ];
 
     xdg.mimeApps.defaultApplications = mkIf (cfg.telegram.enable || cfg.all.enable) {
