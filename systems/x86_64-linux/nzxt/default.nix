@@ -13,6 +13,7 @@ with lib.mynix;
     services.openrgb = enabled;
     services.jellyfin = enabled;
     services.tailscale = enabled;
+    services.vaultwarden = enabled;
     desktop.hyprland = enabled;
     hardware.amdgpu = enabled;
   };
