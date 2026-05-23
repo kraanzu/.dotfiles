@@ -15,7 +15,7 @@ in
   options.mynix.media = {
     all.enable = mkBoolOpt false "Enable all apps";
     anydesk.enable = mkBoolOpt false "Enable Anydesk";
-    qbittorrent.enable = mkBoolOpt false "Enable qBittorrent";
+    deluge.enable = mkBoolOpt false "Enable deluge";
     simplescreenrecorder.enable = mkBoolOpt false "Enable SimpleScreenRecorder";
     telegram.enable = mkBoolOpt false "Enable Telegram";
     vlc.enable = mkBoolOpt false "Enable VLC";
@@ -25,7 +25,7 @@ in
   config = {
     home.packages = with pkgs; [
       (mkIf (cfg.anydesk.enable || cfg.all.enable) anydesk)
-      (mkIf (cfg.qbittorrent.enable || cfg.all.enable) qbittorrent)
+      (mkIf (cfg.deluge.enable || cfg.all.enable) deluge)
       (mkIf (cfg.simplescreenrecorder.enable || cfg.all.enable) simplescreenrecorder)
       (mkIf (cfg.telegram.enable || cfg.all.enable) telegram-desktop)
       (mkIf (cfg.vlc.enable || cfg.all.enable) vlc)
