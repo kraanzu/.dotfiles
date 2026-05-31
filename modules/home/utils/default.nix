@@ -40,21 +40,57 @@ in
       };
 
       home.packages = with pkgs; [
-        killall wget git htop os-prober unzip zip
-        ripgrep tree tokei bat delta zoxide jq fd
-        entr hyperfine socat smem stow rclone timer
-        ntfs3g tree-sitter gh
+        killall
+        wget
+        git
+        htop
+        os-prober
+        unzip
+        zip
+        ripgrep
+        tree
+        tokei
+        bat
+        delta
+        zoxide
+        jq
+        fd
+        entr
+        hyperfine
+        socat
+        smem
+        stow
+        rclone
+        timer
+        ntfs3g
+        tree-sitter
+        gh
+        devenv
         mynix.crule
       ];
     })
 
     (mkIf cfg.gui.enable {
       home.packages = with pkgs; [
-        libreoffice gdrive3 syncthing obsidian yt-dlp
-        zathura caffeine-ng nemo
-        gparted gnome-disk-utility popsicle
-        imagemagick wmctrl poppler-utils img2pdf
-        geoclue2 bluez networkmanagerapplet ddcutil
+        libreoffice
+        gdrive3
+        syncthing
+        obsidian
+        yt-dlp
+        zathura
+        caffeine-ng
+        nemo
+        gparted
+        gnome-disk-utility
+        popsicle
+        imagemagick
+        wmctrl
+        poppler-utils
+        img2pdf
+        geoclue2
+        bluez
+        networkmanagerapplet
+        ddcutil
       ];
     })
   ];
