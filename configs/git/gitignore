@@ -3,3 +3,5 @@ CLAUDE.md
 .cursor/
 .cursorrules
 .direnv/
+.devenv/
+.env
