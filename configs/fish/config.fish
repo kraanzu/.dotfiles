@@ -42,6 +42,8 @@ export GOPATH=$HOME/.local/go
 export IPYTHONDIR=~/.config/ipython
 export NH_OS_FLAKE=/home/kraanzu/.dotfiles
 
+set -gx DIRENV_LOG_FORMAT ""
+
 # Extra programs
 syncthing install-completions | source 2> /dev/null
 zoxide init fish | source 2> /dev/null
