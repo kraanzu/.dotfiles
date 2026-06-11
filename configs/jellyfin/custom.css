@@ -1,0 +1,10 @@
+/* Grey out watched items */
+
+.cardScalable:has(.playedIndicator) {
+    filter: brightness(0.4) grayscale(0.5);
+}
+
+/* Restore on hover */
+.card:hover .cardScalable:has(.playedIndicator) {
+    filter: none;
+}
