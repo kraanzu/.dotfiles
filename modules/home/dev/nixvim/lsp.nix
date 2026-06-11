@@ -6,7 +6,7 @@
       nil_ls.enable = true;
       rust_analyzer = {
         enable = true;
-        installRustc = true;
+        installRustc = false;
         installCargo = false;
       };
     };
