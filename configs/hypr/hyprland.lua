@@ -49,7 +49,7 @@ hl.workspace_rule({
 hl.window_rule({ match = { class = "dev.zed.Zed" }, workspace = "3" })
 hl.window_rule({ match = { class = "cursor" }, workspace = "3" })
 hl.window_rule({ match = { class = "deluge" }, workspace = "6" })
-hl.window_rule({ match = { class = "Telegram" }, workspace = "5" })
+hl.window_rule({ match = { class = "org.telegram.desktop" }, workspace = "5" })
 
 -- workspace effect with " silent" suffix (not a separate field)
 hl.window_rule({ match = { title = "^(.* is sharing your screen%.)$" }, workspace = "special:hidden silent" })
