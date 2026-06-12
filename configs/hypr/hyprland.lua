@@ -30,7 +30,15 @@ hl.config({
             border_inactive = "rgba(88c0d000)",
         },
         groupbar = {
-            enabled = false,
+            enabled          = false,
+            indicator_gap    = 0,
+            indicator_height = 13,
+            priority         = 3,
+            render_titles    = false,
+            col              = {
+                active   = "rgb(8fbcbb)",
+                inactive = "rgb(4c566a)",
+            },
         },
     },
 })
@@ -48,7 +56,7 @@ hl.workspace_rule({
 -- Window Rules
 hl.window_rule({ match = { class = "dev.zed.Zed" }, workspace = "3" })
 hl.window_rule({ match = { class = "cursor" }, workspace = "3" })
-hl.window_rule({ match = { class = "deluge" }, workspace = "6" })
+hl.window_rule({ match = { class = "deluge" }, workspace = "5" })
 hl.window_rule({ match = { class = "org.telegram.desktop" }, workspace = "5" })
 
 -- workspace effect with " silent" suffix (not a separate field)
@@ -142,3 +150,21 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("nm-applet")
     hl.exec_cmd("pkill waybar; waybar")
 end)
+
+local function update_groupbar()
+    local ws = hl.get_active_workspace()
+    local windows = hl.get_windows()
+    local count = 0
+    for _, win in ipairs(windows) do
+        if win.workspace.id == ws.id and not win.floating then
+            count = count + 1
+        end
+    end
+    hl.config({
+        group = { groupbar = { enabled = count > 1 } },
+    })
+end
+
+hl.on("workspace.active", update_groupbar)
+hl.on("window.open", update_groupbar)
+hl.on("window.destroy", update_groupbar)
