@@ -10,10 +10,13 @@ with lib.mynix;
 
   networking.hostName = "nzxt";
   mynix = {
-    services.openrgb = enabled;
-    services.jellyfin = enabled;
-    services.tailscale = enabled;
-    services.vaultwarden = enabled;
+    services = {
+      openrgb = enabled;
+      jellyfin = enabled;
+      tailscale = enabled;
+      vaultwarden = enabled;
+      razer = enabled;
+    };
     desktop.hyprland = enabled;
     hardware.amdgpu = enabled;
   };
@@ -24,7 +27,6 @@ with lib.mynix;
       "networkmanager"
       "wheel"
       "adbusers"
-      "openrazer"
     ];
   };
 
