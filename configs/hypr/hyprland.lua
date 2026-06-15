@@ -58,6 +58,7 @@ hl.window_rule({ match = { class = "dev.zed.Zed" }, workspace = "3" })
 hl.window_rule({ match = { class = "cursor" }, workspace = "3" })
 hl.window_rule({ match = { class = "deluge" }, workspace = "5" })
 hl.window_rule({ match = { class = "org.telegram.desktop" }, workspace = "5" })
+hl.window_rule({ match = { class = "Microsoft-edge" }, workspace = "6" })
 
 -- workspace effect with " silent" suffix (not a separate field)
 hl.window_rule({ match = { title = "^(.* is sharing your screen%.)$" }, workspace = "special:hidden silent" })
@@ -168,3 +169,4 @@ end
 hl.on("workspace.active", update_groupbar)
 hl.on("window.open", update_groupbar)
 hl.on("window.destroy", update_groupbar)
+hl.on("config.reloaded", update_groupbar)
