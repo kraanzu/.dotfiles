@@ -52,7 +52,7 @@
   "theme": {
     "mode": "dark",
     "light": "Nord",
-    "dark": "Nord",
+    "dark": "Nord Dark",
   },
   "toolbar": {
     "breadcrumbs": true,
