@@ -70,6 +70,8 @@ hl.window_rule({ match = { class = "nemo" }, float = true, group = "override bar
 hl.window_rule({ match = { class = "swappy" }, float = true, group = "override barred" })
 hl.window_rule({ match = { class = "org.telegram.desktop", title = "Media viewer" }, suppress_event = "fullscreen" })
 
+hl.window_rule({ match = { workspace = "special:scratch" }, group = "override barred" })
+
 -- Window Management
 hl.bind("SUPER + Q", hl.dsp.window.close())
 hl.bind("SUPER + M", hl.dsp.window.fullscreen({ mode = 1 }))
