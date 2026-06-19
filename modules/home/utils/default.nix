@@ -43,6 +43,7 @@ in
         killall
         wget
         git
+        git-credential-manager
         htop
         os-prober
         unzip

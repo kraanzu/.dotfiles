@@ -29,3 +29,6 @@
 	defaultBranchName = false
 	statusHints = false
 	pushNonFastForward = false
+[credential "https://ebiquity.visualstudio.com"]
+	helper = manager
+	credentialStore = secretservice
