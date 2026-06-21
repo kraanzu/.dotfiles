@@ -68,8 +68,15 @@ hl.window_rule({ match = { title = "^(Select what to share)$" }, float = true, s
 hl.window_rule({ match = { class = ".*" }, group = "set always" })
 hl.window_rule({ match = { class = "nemo" }, float = true, group = "override barred" })
 hl.window_rule({ match = { class = "swappy" }, float = true, group = "override barred" })
-hl.window_rule({ match = { class = "org.telegram.desktop", title = "Media viewer" }, suppress_event = "fullscreen" })
+hl.window_rule({
+    match = { initial_title = "^_crx_nngceckbapebfimnlniiiahkandclblb$" },
+    float = true,
+    size = "1000 800",
+    group =
+    "override barred"
+}) -- brave bitwarden
 
+hl.window_rule({ match = { class = "org.telegram.desktop", title = "Media viewer" }, suppress_event = "fullscreen" })
 hl.window_rule({ match = { workspace = "special:scratch" }, group = "override barred" })
 
 -- Window Management
