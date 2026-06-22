@@ -1,0 +1,30 @@
+# Tests & docs
+tests/
+test/
+docs/
+doc/
+examples/
+benchmarks/
+
+# Dependencies / vendored
+node_modules/
+vendor/
+third_party/
+.venv/
+venv/
+
+# Build & generated output
+build/
+dist/
+target/
+out/
+*.min.js
+*.min.css
+*_pb2.py
+**/migrations/
+**/generated/
+
+# Caches
+__pycache__/
+.mypy_cache/
+.pytest_cache/
