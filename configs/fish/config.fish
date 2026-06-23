@@ -41,6 +41,7 @@ export PYTHONDONTWRITEBYTECODE=1
 export GOPATH=$HOME/.local/go
 export IPYTHONDIR=~/.config/ipython
 export NH_OS_FLAKE=/home/kraanzu/.dotfiles
+export NIXPKGS_ALLOW_UNFREE=1
 
 set -gx DIRENV_LOG_FORMAT ""
 
