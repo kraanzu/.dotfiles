@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
-
 OUTPUT_CHOICE="Output"
 INPUT_CHOICE="Input"
+EXCLUDE_SINKS="alsa_output.pci-0000_0a_00.1.hdmi-stereo-extra1|alsa_output.pci-0000_0c_00.4.iec958-stereo"
 
 list_sinks() {
     current_sink=$(pactl get-default-sink)
     while IFS= read -r line; do
         name=$(echo "$line" | awk '{print $2}')
+        [[ "$name" =~ $EXCLUDE_SINKS ]] && continue
         description=$(pactl list sinks | awk -v dev="$name" '
             $0 ~ "Name: "dev { in_dev = 1 }
             in_dev && /Description:/ { gsub(/^[[:space:]]*Description: /, ""); print; found=1 }
@@ -38,40 +39,40 @@ list_sources() {
 }
 
 case "$ROFI_RETV" in
-    0)
-        if [ -z "$ROFI_DATA" ]; then
-            printf '\0prompt\x1fAudio\n'
-            printf '\0markup-rows\x1ftrue\n'
-            printf '%s\n' "$OUTPUT_CHOICE"
-            printf '%s\n' "$INPUT_CHOICE"
-        fi
+0)
+    if [ -z "$ROFI_DATA" ]; then
+        printf '\0prompt\x1fAudio\n'
+        printf '\0markup-rows\x1ftrue\n'
+        printf '%s\n' "$OUTPUT_CHOICE"
+        printf '%s\n' "$INPUT_CHOICE"
+    fi
+    ;;
+1)
+    case "$ROFI_DATA" in
+    "output")
+        [ -n "$ROFI_INFO" ] && pactl set-default-sink "$ROFI_INFO"
+        exit 0
         ;;
-    1)
-        case "$ROFI_DATA" in
-            "output")
-                [ -n "$ROFI_INFO" ] && pactl set-default-sink "$ROFI_INFO"
-                exit 0
-                ;;
-            "input")
-                [ -n "$ROFI_INFO" ] && pactl set-default-source "$ROFI_INFO"
-                exit 0
-                ;;
-            *)
-                case "$1" in
-                    "$OUTPUT_CHOICE")
-                        printf '\0data\x1foutput\n'
-                        printf '\0prompt\x1fSelect Output\n'
-                        printf '\0markup-rows\x1ftrue\n'
-                        list_sinks
-                        ;;
-                    "$INPUT_CHOICE")
-                        printf '\0data\x1finput\n'
-                        printf '\0prompt\x1fSelect Input\n'
-                        printf '\0markup-rows\x1ftrue\n'
-                        list_sources
-                        ;;
-                esac
-                ;;
+    "input")
+        [ -n "$ROFI_INFO" ] && pactl set-default-source "$ROFI_INFO"
+        exit 0
+        ;;
+    *)
+        case "$1" in
+        "$OUTPUT_CHOICE")
+            printf '\0data\x1foutput\n'
+            printf '\0prompt\x1fSelect Output\n'
+            printf '\0markup-rows\x1ftrue\n'
+            list_sinks
+            ;;
+        "$INPUT_CHOICE")
+            printf '\0data\x1finput\n'
+            printf '\0prompt\x1fSelect Input\n'
+            printf '\0markup-rows\x1ftrue\n'
+            list_sources
+            ;;
         esac
         ;;
+    esac
+    ;;
 esac
