@@ -56,7 +56,6 @@ hl.workspace_rule({
 -- Window Rules
 hl.window_rule({ match = { class = "dev.zed.Zed" }, workspace = "3" })
 hl.window_rule({ match = { class = "cursor" }, workspace = "3" })
-hl.window_rule({ match = { class = "deluge" }, workspace = "5" })
 hl.window_rule({ match = { class = "org.telegram.desktop" }, workspace = "5" })
 hl.window_rule({ match = { class = "Microsoft-edge" }, workspace = "6" })
 

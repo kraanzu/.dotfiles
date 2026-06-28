@@ -14,6 +14,7 @@ with lib.mynix;
       openrgb = enabled;
       jellyfin = enabled;
       tailscale = enabled;
+      transmission = enabled;
       vaultwarden = enabled;
       razer = enabled;
     };
