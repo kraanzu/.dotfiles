@@ -67,6 +67,8 @@ in
         tree-sitter
         gh
         devenv
+        ffmpeg
+        qpdf
         mynix.crule
       ];
     })
