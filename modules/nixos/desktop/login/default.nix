@@ -20,6 +20,10 @@ in
   };
 
   config = mkIf cfg.enable {
+    environment.sessionVariables = {
+      QT_QPA_PLATFORMTHEME = "qtct";
+      QT_STYLE_OVERRIDE = "kvantum";
+    };
 
     services.greetd = {
       enable = true;

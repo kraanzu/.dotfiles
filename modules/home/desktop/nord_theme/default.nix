@@ -16,8 +16,13 @@ in
   };
 
   config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
+    qt = {
+      enable = true;
+      platformTheme = "qtct";
+      style.name = "kvantum";
+    };
+
     gtk.enable = true;
-    qt.enable = true;
 
     home.pointerCursor.gtk.enable = true;
     home.pointerCursor.name = "Nordic-cursors";

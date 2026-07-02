@@ -23,6 +23,6 @@ function mf
     } END {for (p in mem) printf "%-30s %.0f MB\n", p, mem[p]/1024}' | sort -k2 -rn | head -10
 end
 
-# MISC
-alias dclean='docker system prune -a --volumes'
-alias kayo='gdrive files download --recursive --overwrite --destination ~/HDD/watch/'
+function torr
+    qbittorrent --skip-dialog=true --save-path=$PWD $argv
+end

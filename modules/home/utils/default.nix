@@ -40,6 +40,7 @@ in
       };
 
       home.packages = with pkgs; [
+        qbittorrent
         killall
         wget
         git
