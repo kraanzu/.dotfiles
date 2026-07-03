@@ -21,8 +21,9 @@ in
 
   config = mkIf cfg.enable {
     environment.sessionVariables = {
-      QT_QPA_PLATFORMTHEME = "qtct";
-      QT_STYLE_OVERRIDE = "kvantum";
+      QT_QPA_PLATFORMTHEME = "gtk2";
+      QT_STYLE_OVERRIDE = "gtk2";
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     };
 
     services.greetd = {

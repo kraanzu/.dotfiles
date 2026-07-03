@@ -18,8 +18,8 @@ in
   config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     qt = {
       enable = true;
-      platformTheme = "qtct";
-      style.name = "kvantum";
+      platformTheme = "gtk";
+      style.name = "gtk2";
     };
 
     gtk.enable = true;
