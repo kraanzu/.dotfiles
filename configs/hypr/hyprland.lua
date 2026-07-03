@@ -57,6 +57,7 @@ hl.workspace_rule({
 hl.window_rule({ match = { class = "dev.zed.Zed" }, workspace = "3" })
 hl.window_rule({ match = { class = "cursor" }, workspace = "3" })
 hl.window_rule({ match = { class = "org.telegram.desktop" }, workspace = "5" })
+hl.window_rule({ match = { class = "org.qbittorrent.qBittorrent" }, workspace = "5" })
 hl.window_rule({ match = { class = "Microsoft-edge" }, workspace = "6" })
 
 -- workspace effect with " silent" suffix (not a separate field)
@@ -157,7 +158,6 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("hyprsunset -t 6000")
     hl.exec_cmd("wezterm-mux-server --daemonize")
     hl.exec_cmd("Telegram -startintray")
-    hl.exec_cmd("qbittorrent") -- starts in tray
     hl.exec_cmd("systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service")
     hl.exec_cmd("wl-paste --watch cliphist store")
     hl.exec_cmd("nm-applet")
