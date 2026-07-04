@@ -70,6 +70,7 @@ in
         devenv
         ffmpeg
         qpdf
+        android-tools
         mynix.crule
       ];
     })

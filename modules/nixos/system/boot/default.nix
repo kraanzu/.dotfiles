@@ -44,9 +44,8 @@ in
         device = "nodev";
       };
     };
-    systemd.user.extraConfig = ''
-      DefaultTimeoutStopSec=3s
-    '';
+
+    systemd.settings.Manager.DefaultTimeoutStopSec = "5s";
 
     security.sudo.extraRules = [
       {

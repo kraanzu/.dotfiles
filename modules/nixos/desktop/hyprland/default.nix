@@ -17,6 +17,16 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    xdg.portal = {
+      enable = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal-hyprland
+      ];
+      config = {
+        common.default = "*";
+      };
+    };
+
     mynix.desktop.login.enable = true;
     programs.hyprland.enable = true;
     programs.waybar.enable = true;
