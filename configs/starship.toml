@@ -7,6 +7,7 @@ $all
 '''
 add_newline = false
 palette = "nord"
+scan_timeout = 100 
 
 # --PALETTE
 [palettes.nord]
