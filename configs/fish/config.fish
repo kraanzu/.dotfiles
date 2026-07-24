@@ -34,7 +34,7 @@ alias cat='bat -pp --theme=Nord'
 alias grep='grep --color=auto'
 alias cb='xclip -selection clipboard'
 alias cf='rm -f ~/cf/*.py 2>/dev/null; rm -rf ~/cf/.cph/.* 2>/dev/null'
-
+alias vim2='nvim --clean -u ~/.config/nvim2/minimal.lua'
 alias dclean='docker system prune -a --volumes'
 alias kayo='gdrive files download --recursive --overwrite --destination ~/HDD/watch/'
 
