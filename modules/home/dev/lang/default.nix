@@ -83,9 +83,9 @@ in
     markdown.enable = mkBoolOpt true "Enable Markdown";
     nix.enable = mkBoolOpt true "Enable Nix";
     bash.enable = mkBoolOpt true "Enable Bash";
+    cpp.enable = mkBoolOpt true "Enable C++";
+    rust.enable = mkBoolOpt true "Enable Rust";
 
-    cpp.enable = mkBoolOpt false "Enable C++";
-    rust.enable = mkBoolOpt false "Enable Rust";
     ts.enable = mkBoolOpt false "Enable TypeScript";
     zig.enable = mkBoolOpt false "Enable Zig";
   };
