@@ -18,13 +18,13 @@ in
   config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     qt = {
       enable = true;
-      platformTheme = "gtk";
+      platformTheme.name = "gtk3";
       style.name = "gtk2";
     };
 
     gtk.enable = true;
 
-    home.pointerCursor.gtk.enable = true;
+    home.pointerCursor.enable = true;
     home.pointerCursor.name = "Nordic-cursors";
     home.pointerCursor.package = pkgs.nordic;
     home.pointerCursor.size = 20;
