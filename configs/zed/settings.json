@@ -5,6 +5,7 @@
   //     "milliseconds": 1000
   //   }
   // },
+  "format_on_save": "on",
   "cli_default_open_behavior": "existing_window",
   "edit_predictions": {
     "provider": "copilot",
