@@ -33,7 +33,6 @@ let
       python3
       basedpyright
       ruff
-      poetry
       uv
       python312Packages.ipython
       binutils
