@@ -19,14 +19,7 @@ with lib.mynix;
     media.all = enabled;
 
     dev.apps.all = enabled;
-    dev.lang = {
-      # rust = enabled;
-      zig = enabled;
-    };
-
     utils.gui = enabled;
-
-    # sec = enabled;
   };
 
   xdg = {

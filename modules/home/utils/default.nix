@@ -40,7 +40,6 @@ in
       };
 
       home.packages = with pkgs; [
-        qbittorrent
         killall
         wget
         git
@@ -77,6 +76,7 @@ in
 
     (mkIf cfg.gui.enable {
       home.packages = with pkgs; [
+        qbittorrent
         libreoffice
         gdrive3
         syncthing
