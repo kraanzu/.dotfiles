@@ -14,7 +14,6 @@ in
 
     networking.networkmanager = {
       enable = true;
-      # plugins = [ pkgs.networkmanager-openvpn ];
     };
 
     users.users.${config.mynix.user.name}.extraGroups = [ "networkmanager" ];
