@@ -10,11 +10,7 @@ let
   cfg = config.mynix.desktop.wallpapers;
 in
 {
-  options.mynix.desktop.wallpapers.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-    description = "Enable desktop wallpapers";
-  };
+  options.mynix.desktop.wallpapers.enable = lib.mkEnableOption "desktop wallpapers";
 
   config = lib.mkIf cfg.enable {
     home.file = {

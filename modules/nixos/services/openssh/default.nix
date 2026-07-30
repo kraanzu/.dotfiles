@@ -24,15 +24,8 @@ in
       ];
       default = "no";
     };
-    passwordAuthentication = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Allow password auth.";
-    };
-    openFirewall = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-    };
+    passwordAuthentication = lib.mynix.mkBoolOpt true "Allow password auth.";
+    openFirewall = lib.mynix.mkBoolOpt' true;
   };
 
   config = lib.mkIf cfg.enable {

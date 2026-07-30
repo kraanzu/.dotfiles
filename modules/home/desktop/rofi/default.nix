@@ -19,11 +19,7 @@ let
   cfg = config.mynix.desktop.rofi;
 in
 {
-  options.mynix.desktop.rofi.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-    description = "Enable rofi";
-  };
+  options.mynix.desktop.rofi.enable = lib.mkEnableOption "rofi";
 
   config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     home.packages = with pkgs; [

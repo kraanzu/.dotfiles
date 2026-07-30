@@ -8,13 +8,7 @@ let
   cfg = config.mynix.desktop.niri;
 in
 {
-  options = {
-    mynix.desktop.niri.enable = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-      description = "Enable niri WM";
-    };
-  };
+  options.mynix.desktop.niri.enable = lib.mkEnableOption "niri WM";
 
   config = lib.mkIf cfg.enable {
     programs.niri.enable = true;

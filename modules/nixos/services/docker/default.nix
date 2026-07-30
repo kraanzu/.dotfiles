@@ -7,13 +7,7 @@ let
   cfg = config.mynix.services.docker;
 in
 {
-  options = {
-    mynix.services.docker.enable = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Enable Docker";
-    };
-  };
+  options.mynix.services.docker.enable = lib.mynix.mkBoolOpt true "Enable Docker";
 
   config = lib.mkIf cfg.enable {
     virtualisation.docker = {

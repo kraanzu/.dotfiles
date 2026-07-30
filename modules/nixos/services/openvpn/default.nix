@@ -8,13 +8,7 @@ let
   cfg = config.mynix.services.openvpn;
 in
 {
-  options = {
-    mynix.services.openvpn.enable = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Enable OpenVPN";
-    };
-  };
+  options.mynix.services.openvpn.enable = lib.mynix.mkBoolOpt true "Enable OpenVPN";
   config = lib.mkIf cfg.enable {
     boot.kernelModules = [ "tun" ];
     environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";

@@ -9,11 +9,7 @@ let
   cfg = config.mynix.system.shell;
 in
 {
-  options.mynix.system.shell.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = true;
-    description = "Setup shell";
-  };
+  options.mynix.system.shell.enable = lib.mynix.mkBoolOpt true "Setup shell";
 
   config = lib.mkIf cfg.enable {
     programs.fish.enable = true;

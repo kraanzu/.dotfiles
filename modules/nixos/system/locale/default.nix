@@ -7,11 +7,7 @@ let
   cfg = config.mynix.system.locale;
 in
 {
-  options.mynix.system.locale.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = true;
-    description = "Setup locale";
-  };
+  options.mynix.system.locale.enable = lib.mynix.mkBoolOpt true "Setup locale";
 
   config = lib.mkIf cfg.enable {
     time.timeZone = "Asia/Kolkata";

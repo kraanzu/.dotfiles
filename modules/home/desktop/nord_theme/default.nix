@@ -9,11 +9,7 @@ let
   cfg = config.mynix.desktop.nord_theme;
 in
 {
-  options.mynix.desktop.nord_theme.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-    description = "Enable nord gtk theme";
-  };
+  options.mynix.desktop.nord_theme.enable = lib.mkEnableOption "nord gtk theme";
 
   config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     qt = {

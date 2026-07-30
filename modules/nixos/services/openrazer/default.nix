@@ -11,11 +11,7 @@ let
 in
 {
   options.mynix.services.razer = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable openrazer for mouse";
-    };
+    enable = mkEnableOption "openrazer for mouse";
   };
   config = mkIf cfg.enable {
     hardware.openrazer = enabled;

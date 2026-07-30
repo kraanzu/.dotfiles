@@ -9,11 +9,7 @@ let
   cfg = config.mynix.system.boot;
 in
 {
-  options.mynix.system.boot.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = true;
-    description = "Enable boot configuration.";
-  };
+  options.mynix.system.boot.enable = lib.mynix.mkBoolOpt true "Enable boot configuration.";
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [ pkgs.grub2 ];

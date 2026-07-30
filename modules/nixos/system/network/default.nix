@@ -8,11 +8,7 @@ let
   cfg = config.mynix.system.network;
 in
 {
-  options.mynix.system.network.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = true;
-    description = "Setup network stuff";
-  };
+  options.mynix.system.network.enable = lib.mynix.mkBoolOpt true "Setup network stuff";
 
   config = lib.mkIf cfg.enable {
 

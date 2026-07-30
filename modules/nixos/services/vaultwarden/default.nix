@@ -9,10 +9,7 @@ in
 {
   options.mynix.services.vaultwarden = {
     enable = lib.mkEnableOption "Vaultwarden password manager";
-    openFirewall = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-    };
+    openFirewall = lib.mynix.mkBoolOpt' true;
   };
 
   config = lib.mkIf cfg.enable {

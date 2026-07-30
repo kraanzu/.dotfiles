@@ -11,11 +11,7 @@ let
 in
 {
   options.mynix.services.transmission = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable transmission daemon";
-    };
+    enable = mkEnableOption "transmission daemon";
   };
 
   config = mkIf cfg.enable {

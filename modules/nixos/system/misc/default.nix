@@ -7,11 +7,7 @@ let
   cfg = config.mynix.system.misc;
 in
 {
-  options.mynix.system.misc.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = true;
-    description = "Setup misc items";
-  };
+  options.mynix.system.misc.enable = lib.mynix.mkBoolOpt true "Setup misc items";
 
   config = lib.mkIf cfg.enable {
     services.printing.enable = false;

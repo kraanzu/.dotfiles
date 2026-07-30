@@ -9,10 +9,7 @@ in
 {
   options.mynix.services.jellyfin = {
     enable = lib.mkEnableOption "Jellyfin media server";
-    openFirewall = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-    };
+    openFirewall = lib.mynix.mkBoolOpt' true;
   };
 
   config = lib.mkIf cfg.enable {

@@ -11,11 +11,7 @@ let
   shadow_offset_y = -7;
 in
 {
-  options.mynix.desktop.picom.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-    description = "Enable picom";
-  };
+  options.mynix.desktop.picom.enable = lib.mkEnableOption "picom";
 
   config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
     services.picom = {

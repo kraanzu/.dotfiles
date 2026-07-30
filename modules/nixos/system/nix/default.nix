@@ -7,11 +7,7 @@ let
   cfg = config.mynix.system.nix;
 in
 {
-  options.mynix.system.nix.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = true;
-    description = "Core Nix settings (flakes, nh, comma, nix-ld).";
-  };
+  options.mynix.system.nix.enable = lib.mynix.mkBoolOpt true "Core Nix settings (flakes, nh, comma, nix-ld).";
 
   config = lib.mkIf cfg.enable {
     nix.settings.experimental-features = [

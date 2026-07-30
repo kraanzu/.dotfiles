@@ -9,13 +9,7 @@ let
   gfxVersion = "10.3.0"; # rx6650xt
 in
 {
-  options = {
-    mynix.services.ollama.enable = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-      description = "Enable Ollama";
-    };
-  };
+  options.mynix.services.ollama.enable = lib.mkEnableOption "Ollama";
 
   config = lib.mkIf cfg.enable {
     hardware.graphics.extraPackages = with pkgs; [

@@ -9,11 +9,7 @@ let
   cfg = config.mynix.system.xkb;
 in
 {
-  options.mynix.system.xkb.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = true;
-    description = "Setup xkb";
-  };
+  options.mynix.system.xkb.enable = lib.mynix.mkBoolOpt true "Setup xkb";
 
   config = mkIf cfg.enable {
     services.xserver = {

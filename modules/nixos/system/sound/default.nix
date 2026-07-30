@@ -7,11 +7,7 @@ let
   cfg = config.mynix.system.sound;
 in
 {
-  options.mynix.system.sound.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = true;
-    description = "Setup sound";
-  };
+  options.mynix.system.sound.enable = lib.mynix.mkBoolOpt true "Setup sound";
 
   config = lib.mkIf cfg.enable {
     hardware.bluetooth = {

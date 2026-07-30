@@ -11,11 +11,7 @@ let
 in
 {
   options.mynix.services.openrgb = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable OpenRGB with systemd service";
-    };
+    enable = mkEnableOption "OpenRGB with systemd service";
 
     profile = mkOption {
       type = types.path;

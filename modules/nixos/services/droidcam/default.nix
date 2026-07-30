@@ -10,11 +10,7 @@ let
 in
 {
   options.mynix.services.droidcam = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable droidcam";
-    };
+    enable = mkEnableOption "droidcam";
   };
 
   config = mkIf cfg.enable {

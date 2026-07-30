@@ -8,11 +8,7 @@ let
   cfg = config.mynix.system.usb;
 in
 {
-  options.mynix.system.usb.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = true;
-    description = "Setup usb stuff";
-  };
+  options.mynix.system.usb.enable = lib.mynix.mkBoolOpt true "Setup usb stuff";
 
   config = lib.mkIf cfg.enable {
     services.gvfs.enable = true;

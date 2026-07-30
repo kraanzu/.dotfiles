@@ -11,13 +11,7 @@ let
   wallpath = toString inputs.mywalls;
 in
 {
-  options = {
-    mynix.desktop.login.enable = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-      description = "Enable the SDDM login";
-    };
-  };
+  options.mynix.desktop.login.enable = lib.mkEnableOption "the SDDM login";
 
   config = mkIf cfg.enable {
     environment.sessionVariables = {

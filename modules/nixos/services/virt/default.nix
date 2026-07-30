@@ -8,13 +8,7 @@ let
   cfg = config.mynix.services.virt;
 in
 {
-  options = {
-    mynix.services.virt.enable = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Enable Virt manager";
-    };
-  };
+  options.mynix.services.virt.enable = lib.mynix.mkBoolOpt true "Enable Virt manager";
 
   config = lib.mkIf cfg.enable {
     virtualisation.libvirtd = {
