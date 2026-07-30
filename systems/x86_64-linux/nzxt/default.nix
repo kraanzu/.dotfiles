@@ -4,7 +4,6 @@ with lib.mynix;
 {
   imports = [
     ./hardware-configuration.nix
-    ./htb.nix
     ./drives.nix
   ];
 
