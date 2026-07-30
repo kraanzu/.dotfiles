@@ -31,7 +31,7 @@ in
       qemu_kvm
     ];
 
-    users.users.kraanzu.extraGroups = [
+    users.users.${config.mynix.user.name}.extraGroups = [
       "libvirtd"
       "kvm"
     ];

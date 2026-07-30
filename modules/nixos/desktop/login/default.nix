@@ -31,7 +31,7 @@ in
       settings = {
         initial_session = {
           command = "start-hyprland";
-          user = "kraanzu";
+          user = config.mynix.user.name;
         };
       };
     };

@@ -23,8 +23,8 @@ in
       enable = true;
       package = pkgs.transmission_4-gtk;
       openRPCPort = true;
-      user = "kraanzu";
-      home = "/home/kraanzu";
+      user = config.mynix.user.name;
+      home = "/home/${config.mynix.user.name}";
       settings = {
         rpc-bind-address = "127.0.0.1";
         rpc-port = 9091;
@@ -33,7 +33,7 @@ in
         script-torrent-done-enabled = true;
         script-torrent-done-filename = toString (
           pkgs.writeShellScript "torrent-done" ''
-            export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u kraanzu)/bus"
+            export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u ${config.mynix.user.name})/bus"
             ${pkgs.libnotify}/bin/notify-send "Torrent done" "$TR_TORRENT_NAME"
             ${pkgs.transmission_4}/bin/transmission-remote --torrent "$TR_TORRENT_ID" --remove
           ''
@@ -41,7 +41,7 @@ in
       };
     };
 
-    users.users.kraanzu.extraGroups = [
+    users.users.${config.mynix.user.name}.extraGroups = [
       "tranmission"
     ];
   };

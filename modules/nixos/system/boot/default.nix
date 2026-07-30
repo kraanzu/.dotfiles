@@ -49,7 +49,7 @@ in
 
     security.sudo.extraRules = [
       {
-        users = [ "kraanzu" ];
+        users = [ config.mynix.user.name ];
         commands = [
           {
             command = "/run/current-system/sw/bin/grub-reboot";

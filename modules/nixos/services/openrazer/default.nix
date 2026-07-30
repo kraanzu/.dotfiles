@@ -19,7 +19,7 @@ in
   };
   config = mkIf cfg.enable {
     hardware.openrazer = enabled;
-    users.users.kraanzu.extraGroups = [
+    users.users.${config.mynix.user.name}.extraGroups = [
       "plugdev"
       "openrazer"
     ];
