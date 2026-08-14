@@ -20,6 +20,7 @@ with lib.mynix;
 
     dev.apps.all = enabled;
     utils.gui = enabled;
+    games.mindustry = enabled;
   };
 
   xdg = {

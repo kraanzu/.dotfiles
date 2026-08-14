@@ -1,5 +1,3 @@
-{ lib, ... }:
-with lib.mynix;
 {
   mynix = {
     secrets.all.enable = false;
