@@ -11,6 +11,11 @@
       markdown = [ "prettier" ];
     };
 
+    gitsigns = {
+      enable = true;
+      settings.current_line_blame = true;
+    };
+
     telescope.keymaps = {
       "<C-p>" = "git_files";
       "g/" = "live_grep";

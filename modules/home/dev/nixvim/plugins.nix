@@ -13,7 +13,6 @@ in
     indent-blankline = autoloaded;
     nvim-autopairs = autoloaded;
     colorizer = autoloaded;
-    gitsigns = autoloaded;
     tagbar = autoloaded;
     commentary = autoloaded;
     lspkind = autoloaded;
