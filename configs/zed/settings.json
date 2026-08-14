@@ -5,6 +5,7 @@
   //     "milliseconds": 1000
   //   }
   // },
+  "disable_ai": true,
   "format_on_save": "on",
   "cli_default_open_behavior": "existing_window",
   "edit_predictions": {
@@ -33,9 +34,6 @@
   },
   "git_panel": {
     "dock": "left",
-    "button": false,
-  },
-  "notification_panel": {
     "button": false,
   },
   "project_panel": {
