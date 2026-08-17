@@ -79,7 +79,6 @@ in
         qbittorrent
         libreoffice
         gdrive3
-        syncthing
         obsidian
         yt-dlp
         zathura

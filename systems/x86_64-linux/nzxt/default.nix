@@ -13,6 +13,7 @@ with lib.mynix;
       openrgb = enabled;
       jellyfin = enabled;
       tailscale = enabled;
+      syncthing = enabled;
       vaultwarden = enabled;
       razer = enabled;
     };
