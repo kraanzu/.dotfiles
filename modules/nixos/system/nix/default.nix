@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   config,
   ...
 }:
@@ -22,6 +23,7 @@ in
     };
 
     programs.nix-ld.enable = true;
+    programs.nix-ld.libraries = with pkgs; [ stdenv.cc.cc ];
     programs.nix-index-database.comma.enable = true;
   };
 }

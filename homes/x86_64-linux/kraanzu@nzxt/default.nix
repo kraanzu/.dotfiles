@@ -20,6 +20,17 @@ with lib.mynix;
 
     dev.apps.all = enabled;
     utils.gui = enabled;
+    utils.rclone-bisync = enabled;
+    dev.lang = {
+      python = enabled;
+      go = enabled;
+      lua = enabled;
+      nix = enabled;
+      bash = enabled;
+      cpp = enabled;
+      rust = enabled;
+      markdown = enabled;
+    };
     games.mindustry = enabled;
   };
 

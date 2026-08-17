@@ -15,10 +15,11 @@ in
   options.mynix.utils = {
     cli.enable = mkBoolOpt true "Enable CLI utility packages";
     gui.enable = mkBoolOpt false "Enable GUI utility packages";
+    rclone-bisync.enable = mkBoolOpt false "Enable rclone bisync timer";
   };
 
   config = mkMerge [
-    (mkIf cfg.cli.enable {
+    (mkIf cfg.rclone-bisync.enable {
       systemd.user.services.rclone-bisync = {
         Unit.Description = "Rclone bisync";
         Service.ExecStart = "${pkgs.rclone}/bin/rclone bisync gdrive:Docs /drives/HDD/Docs";
@@ -32,7 +33,9 @@ in
         };
         Install.WantedBy = [ "timers.target" ];
       };
+    })
 
+    (mkIf cfg.cli.enable {
       programs.direnv = {
         enable = true;
         enableBashIntegration = true;

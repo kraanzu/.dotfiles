@@ -76,14 +76,14 @@ let
 in
 {
   options.mynix.dev.lang = {
-    go.enable = mkBoolOpt true "Enable Go";
-    python.enable = mkBoolOpt true "Enable Python";
-    lua.enable = mkBoolOpt true "Enable Lua";
-    markdown.enable = mkBoolOpt true "Enable Markdown";
-    nix.enable = mkBoolOpt true "Enable Nix";
-    bash.enable = mkBoolOpt true "Enable Bash";
-    cpp.enable = mkBoolOpt true "Enable C++";
-    rust.enable = mkBoolOpt true "Enable Rust";
+    go.enable = mkBoolOpt false "Enable Go";
+    python.enable = mkBoolOpt false "Enable Python";
+    lua.enable = mkBoolOpt false "Enable Lua";
+    markdown.enable = mkBoolOpt false "Enable Markdown";
+    nix.enable = mkBoolOpt false "Enable Nix";
+    bash.enable = mkBoolOpt false "Enable Bash";
+    cpp.enable = mkBoolOpt false "Enable C++";
+    rust.enable = mkBoolOpt false "Enable Rust";
 
     ts.enable = mkBoolOpt false "Enable TypeScript";
     zig.enable = mkBoolOpt false "Enable Zig";
