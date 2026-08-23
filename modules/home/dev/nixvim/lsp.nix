@@ -3,7 +3,16 @@
     enable = true;
     servers = {
       basedpyright.enable = true;
-      nil_ls.enable = true;
+      nil_ls = {
+        enable = true;
+        settings = {
+          nix = {
+            flake = {
+              autoEvalInputs = true;
+            };
+          };
+        };
+      };
       rust_analyzer = {
         enable = true;
         installRustc = false;
