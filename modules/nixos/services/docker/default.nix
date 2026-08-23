@@ -10,16 +10,7 @@ in
   options.mynix.services.docker.enable = lib.mynix.mkBoolOpt true "Enable Docker";
 
   config = lib.mkIf cfg.enable {
-    virtualisation.docker = {
-      enable = true;
-      enableOnBoot = false;
-      liveRestore = false;
-      rootless = {
-        enable = true;
-        setSocketVariable = true;
-      };
-    };
-
-    systemd.user.services.docker.wantedBy = lib.mkForce [ ];
+    virtualisation.podman.enable = true;
+    virtualisation.podman.dockerCompat = true;
   };
 }
