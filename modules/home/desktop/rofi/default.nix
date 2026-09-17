@@ -21,13 +21,13 @@ in
 {
   options.mynix.desktop.rofi.enable = lib.mkEnableOption "rofi";
 
-  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.hostPlatform.isLinux) {
     home.packages = with pkgs; [
       mynix.rofi-scripts
     ];
     programs.rofi = {
       enable = true;
-      extraConfig = {
+      settings = {
         case-sensitive = false;
         modes = lib.concatStringsSep "," rofi_modes;
       };

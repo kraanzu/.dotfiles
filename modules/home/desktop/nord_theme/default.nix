@@ -11,7 +11,7 @@ in
 {
   options.mynix.desktop.nord_theme.enable = lib.mkEnableOption "nord gtk theme";
 
-  config = lib.mkIf (cfg.enable && pkgs.stdenv.isLinux) {
+  config = lib.mkIf (cfg.enable && pkgs.stdenv.hostPlatform.isLinux) {
     qt = {
       enable = true;
       platformTheme.name = "gtk3";
