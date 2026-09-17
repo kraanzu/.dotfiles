@@ -145,7 +145,7 @@ end
 -- Extras
 hl.bind("SUPER + Delete", hl.dsp.exec_cmd("hyprshot copy area"))
 hl.bind("CTRL + ALT + Delete", hl.dsp.exit())
-hl.bind("SUPER + Escape", hl.dsp.exec_cmd("hyprlock"))
+hl.bind("SUPER + SHIFT + Escape", hl.dsp.exec_cmd("hyprlock"))
 
 -- Mouse window management
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
