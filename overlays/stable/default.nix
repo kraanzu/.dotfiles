@@ -1,7 +1,7 @@
 { inputs, ... }:
 final: _prev: {
   stable = import inputs.nixpkgs-stable {
-    inherit (final) system;
+    system = final.stdenv.hostPlatform.system;
     config.allowUnfree = true;
   };
 }
