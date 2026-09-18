@@ -15,8 +15,8 @@ in
 
   config = mkIf cfg.enable {
     environment.sessionVariables = {
-      QT_QPA_PLATFORMTHEME = "gtk2";
-      QT_STYLE_OVERRIDE = "gtk2";
+      QT_QPA_PLATFORMTHEME = "gtk3";
+      # QT_STYLE_OVERRIDE = "gtk3";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     };
 
