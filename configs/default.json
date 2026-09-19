@@ -1,0 +1,613 @@
+{
+    "controllers": [
+        {
+            "active_mode": 0,
+            "colors": [
+                3092299,
+                3092299,
+                3092299,
+                3092299,
+                3092299,
+                3092299,
+                3092299,
+                3092299,
+                3092299,
+                3092299,
+                3092299,
+                3092299,
+                3092299,
+                3092299,
+                3092299,
+                3092299,
+                3092299,
+                3092299,
+                3092299,
+                3092299,
+                3092299,
+                3092299,
+                3092299,
+                3092299,
+                3092299,
+                3092299,
+                3092299,
+                3092299,
+                3092299
+            ],
+            "configuration": null,
+            "description": "ASUS Aura USB Mainboard Device",
+            "display_name": "",
+            "flags": 2,
+            "leds": [
+                {
+                    "name": "Aura Mainboard, LED 1"
+                },
+                {
+                    "name": "Aura Mainboard, LED 2"
+                },
+                {
+                    "name": "Aura Mainboard, LED 3"
+                },
+                {
+                    "name": "Aura Mainboard, RGB Header 1"
+                },
+                {
+                    "name": "Aura Mainboard, RGB Header 2"
+                },
+                {
+                    "name": "Addressable RGB Header 1, LED 1"
+                },
+                {
+                    "name": "Addressable RGB Header 1, LED 2"
+                },
+                {
+                    "name": "Addressable RGB Header 1, LED 3"
+                },
+                {
+                    "name": "Addressable RGB Header 1, LED 4"
+                },
+                {
+                    "name": "Addressable RGB Header 1, LED 5"
+                },
+                {
+                    "name": "Addressable RGB Header 1, LED 6"
+                },
+                {
+                    "name": "Addressable RGB Header 1, LED 7"
+                },
+                {
+                    "name": "Addressable RGB Header 1, LED 8"
+                },
+                {
+                    "name": "Addressable RGB Header 1, LED 9"
+                },
+                {
+                    "name": "Addressable RGB Header 1, LED 10"
+                },
+                {
+                    "name": "Addressable RGB Header 1, LED 11"
+                },
+                {
+                    "name": "Addressable RGB Header 1, LED 12"
+                },
+                {
+                    "name": "Addressable RGB Header 1, LED 13"
+                },
+                {
+                    "name": "Addressable RGB Header 1, LED 14"
+                },
+                {
+                    "name": "Addressable RGB Header 1, LED 15"
+                },
+                {
+                    "name": "Addressable RGB Header 1, LED 16"
+                },
+                {
+                    "name": "Addressable RGB Header 1, LED 17"
+                },
+                {
+                    "name": "Addressable RGB Header 1, LED 18"
+                },
+                {
+                    "name": "Addressable RGB Header 1, LED 19"
+                },
+                {
+                    "name": "Addressable RGB Header 1, LED 20"
+                },
+                {
+                    "name": "Addressable RGB Header 1, LED 21"
+                },
+                {
+                    "name": "Addressable RGB Header 1, LED 22"
+                },
+                {
+                    "name": "Addressable RGB Header 1, LED 23"
+                },
+                {
+                    "name": "Addressable RGB Header 1, LED 24"
+                }
+            ],
+            "location": "HID: /dev/hidraw1",
+            "modes": [
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 1,
+                    "colors_max": 0,
+                    "colors_min": 0,
+                    "direction": 0,
+                    "flags": 32,
+                    "name": "Direct",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 0,
+                    "colors_max": 0,
+                    "colors_min": 0,
+                    "direction": 0,
+                    "flags": 256,
+                    "name": "Off",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 2,
+                    "colors": [
+                        0
+                    ],
+                    "colors_max": 1,
+                    "colors_min": 1,
+                    "direction": 0,
+                    "flags": 320,
+                    "name": "Static",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 2,
+                    "colors": [
+                        0
+                    ],
+                    "colors_max": 1,
+                    "colors_min": 1,
+                    "direction": 0,
+                    "flags": 320,
+                    "name": "Breathing",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 2,
+                    "colors": [
+                        0
+                    ],
+                    "colors_max": 1,
+                    "colors_min": 1,
+                    "direction": 0,
+                    "flags": 320,
+                    "name": "Flashing",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 0,
+                    "colors_max": 0,
+                    "colors_min": 0,
+                    "direction": 0,
+                    "flags": 256,
+                    "name": "Spectrum Cycle",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 0,
+                    "colors_max": 0,
+                    "colors_min": 0,
+                    "direction": 0,
+                    "flags": 256,
+                    "name": "Rainbow",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 2,
+                    "colors": [
+                        0
+                    ],
+                    "colors_max": 1,
+                    "colors_min": 1,
+                    "direction": 0,
+                    "flags": 320,
+                    "name": "Chase Fade",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 2,
+                    "colors": [
+                        0
+                    ],
+                    "colors_max": 1,
+                    "colors_min": 1,
+                    "direction": 0,
+                    "flags": 320,
+                    "name": "Chase",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                }
+            ],
+            "name": "ASUS TUF GAMING B550-PLUS",
+            "serial": "9876543210",
+            "type": 0,
+            "vendor": "ASUS",
+            "version": "AULA3-AR42-0218",
+            "zones": [
+                {
+                    "display_name": "",
+                    "flags": 4096,
+                    "leds_count": 5,
+                    "leds_max": 5,
+                    "leds_min": 5,
+                    "matrix_map": {
+                        "height": 0,
+                        "width": 0
+                    },
+                    "name": "Aura Mainboard",
+                    "type": 1
+                },
+                {
+                    "display_name": "",
+                    "flags": 4158,
+                    "leds_count": 24,
+                    "leds_max": 120,
+                    "leds_min": 0,
+                    "matrix_map": {
+                        "height": 0,
+                        "width": 0
+                    },
+                    "name": "Addressable RGB Header 1",
+                    "type": 1
+                }
+            ]
+        },
+        {
+            "active_mode": 0,
+            "colors": [
+                1842206,
+                1842206,
+                1842206,
+                1842206,
+                1842206,
+                1842206,
+                1842206,
+                1842206,
+                1842206,
+                1842206,
+                1842206,
+                1842206,
+                1842206,
+                1842206,
+                1842206,
+                1842206,
+                1842206,
+                1842206,
+                1842206,
+                1842206,
+                1842206,
+                1842206,
+                1842206,
+                1842206,
+                1842206,
+                1842206,
+                1842206,
+                1842206,
+                1842206
+            ],
+            "description": "ASUS Aura USB Mainboard Device",
+            "display_name": "",
+            "flags": 1,
+            "leds": [
+                {
+                    "name": "Aura Mainboard, LED 1"
+                },
+                {
+                    "name": "Aura Mainboard, LED 2"
+                },
+                {
+                    "name": "Aura Mainboard, LED 3"
+                },
+                {
+                    "name": "Aura Mainboard, RGB Header 1"
+                },
+                {
+                    "name": "Aura Mainboard, RGB Header 2"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 1"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 2"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 3"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 4"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 5"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 6"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 7"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 8"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 9"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 10"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 11"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 12"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 13"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 14"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 15"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 16"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 17"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 18"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 19"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 20"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 21"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 22"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 23"
+                },
+                {
+                    "name": "Aura Addressable 1, LED 24"
+                }
+            ],
+            "location": "HID: /dev/hidraw3",
+            "modes": [
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 1,
+                    "colors_max": 0,
+                    "colors_min": 0,
+                    "direction": 0,
+                    "flags": 32,
+                    "name": "Direct",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 0,
+                    "colors_max": 0,
+                    "colors_min": 0,
+                    "direction": 0,
+                    "flags": 256,
+                    "name": "Off",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 2,
+                    "colors": [
+                        0
+                    ],
+                    "colors_max": 1,
+                    "colors_min": 1,
+                    "direction": 0,
+                    "flags": 320,
+                    "name": "Static",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 2,
+                    "colors": [
+                        0
+                    ],
+                    "colors_max": 1,
+                    "colors_min": 1,
+                    "direction": 0,
+                    "flags": 320,
+                    "name": "Breathing",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 2,
+                    "colors": [
+                        0
+                    ],
+                    "colors_max": 1,
+                    "colors_min": 1,
+                    "direction": 0,
+                    "flags": 320,
+                    "name": "Flashing",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 0,
+                    "colors_max": 0,
+                    "colors_min": 0,
+                    "direction": 0,
+                    "flags": 256,
+                    "name": "Spectrum Cycle",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 0,
+                    "colors_max": 0,
+                    "colors_min": 0,
+                    "direction": 0,
+                    "flags": 256,
+                    "name": "Rainbow",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 2,
+                    "colors": [
+                        0
+                    ],
+                    "colors_max": 1,
+                    "colors_min": 1,
+                    "direction": 0,
+                    "flags": 320,
+                    "name": "Chase Fade",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                },
+                {
+                    "brightness": 0,
+                    "brightness_max": 0,
+                    "brightness_min": 0,
+                    "color_mode": 2,
+                    "colors": [
+                        0
+                    ],
+                    "colors_max": 1,
+                    "colors_min": 1,
+                    "direction": 0,
+                    "flags": 320,
+                    "name": "Chase",
+                    "speed": 0,
+                    "speed_max": 0,
+                    "speed_min": 0
+                }
+            ],
+            "name": "ASUS TUF GAMING B550-PLUS",
+            "serial": "9876543210",
+            "type": 0,
+            "vendor": "ASUS",
+            "version": "AULA3-AR42-0218",
+            "zones": [
+                {
+                    "display_name": "",
+                    "flags": 4096,
+                    "leds_count": 5,
+                    "leds_max": 5,
+                    "leds_min": 5,
+                    "matrix_map": {
+                        "height": 0,
+                        "width": 0
+                    },
+                    "name": "Aura Mainboard",
+                    "type": 1
+                },
+                {
+                    "display_name": "",
+                    "flags": 4098,
+                    "leds_count": 24,
+                    "leds_max": 120,
+                    "leds_min": 0,
+                    "matrix_map": {
+                        "height": 0,
+                        "width": 0
+                    },
+                    "name": "Aura Addressable 1",
+                    "type": 1
+                }
+            ]
+        }
+    ],
+    "profile_name": "nzxt",
+    "profile_version": 6
+}

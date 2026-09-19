@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-
   ...
 }:
 with lib;
@@ -14,8 +13,8 @@ in
     enable = mkEnableOption "OpenRGB with systemd service";
 
     profile = mkOption {
-      type = types.path;
-      default = ./profile.orp; # Convert relative path to absolute
+      type = types.str;
+      default = "default";
       description = "Profile to load on OpenRGB start";
     };
   };
