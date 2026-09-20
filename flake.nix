@@ -49,6 +49,8 @@
         allowUnfree = true;
       };
 
+      supportedSystems = [ "x86_64-linux" ];
+
       systems.modules.nixos = with inputs; [
         nix-index-database.nixosModules.nix-index
         grub2-themes.nixosModules.default
