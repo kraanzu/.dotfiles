@@ -22,9 +22,13 @@ in
     };
 
     mynix.desktop.login.enable = true;
-    programs.hyprland.enable = true;
-    programs.waybar.enable = true;
+    programs.hyprland = {
+      enable = true;
+      withUWSM = true;
+    };
+
     environment.systemPackages = with pkgs; [
+      waybar
       hyprlock
       hypridle
       hyprpaper
