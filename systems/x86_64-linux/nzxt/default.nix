@@ -16,6 +16,7 @@ with lib.mynix;
       syncthing = enabled;
       vaultwarden = enabled;
       razer = enabled;
+      recorder = enabled;
     };
     desktop.hyprland = enabled;
     hardware.amdgpu = enabled;
