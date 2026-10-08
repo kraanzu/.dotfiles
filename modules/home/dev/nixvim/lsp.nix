@@ -8,7 +8,8 @@
         settings = {
           nix = {
             flake = {
-              autoEvalInputs = true;
+              autoArchive = false;
+              autoEvalInputs = false;
             };
           };
         };
