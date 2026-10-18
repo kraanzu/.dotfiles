@@ -39,7 +39,6 @@ with lib.mynix;
     userDirs = {
       enable = true;
       createDirectories = false;
-      videos = "${config.home.homeDirectory}/HDD/others/Videos";
     };
   };
 
