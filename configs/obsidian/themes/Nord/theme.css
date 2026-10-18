@@ -1,0 +1,69 @@
+/* Nord (custom) */
+
+.theme-dark {
+  /* Nord palette */
+  --nord3: #4C566A;
+  --nord4: #D8DEE9;
+  --nord7: #8FBCBB;
+  --nord8: #88C0D0;
+  --nord9: #81A1C1;
+  --nord10: #5E81AC;
+  --nord11: #BF616A;
+  --nord12: #D08770;
+  --nord13: #EBCB8B;
+  --nord14: #A3BE8C;
+  --nord15: #B48EAD;
+
+  /* your backgrounds */
+  --bg-dark: #1A1E26;   /* editor */
+  --bg-light: #222730;  /* sidebars, code, panels */
+
+  --background-primary: var(--bg-dark);
+  --background-primary-alt: var(--bg-light);
+  --background-secondary: var(--bg-light);
+  --background-secondary-alt: var(--bg-dark);
+  --background-modifier-border: #2E3440;
+  --background-modifier-hover: rgba(76, 86, 106, 0.30);
+  --code-background: var(--bg-light);
+
+  /* text */
+  --text-normal: var(--nord4);
+  --text-muted: #A7B1C5;
+  --text-faint: #7B88A1;
+  --text-accent: var(--nord8);
+  --text-accent-hover: var(--nord7);
+  --text-selection: rgba(136, 192, 208, 0.25);
+  --text-highlight-bg: rgba(235, 203, 139, 0.30);
+
+  /* buttons, toggles, links */
+  --interactive-accent: var(--nord10);
+  --interactive-accent-hover: var(--nord9);
+  --link-color: var(--nord8);
+  --link-color-hover: var(--nord7);
+
+  /* headings */
+  --h1-color: var(--nord8);
+  --h2-color: var(--nord9);
+  --h3-color: var(--nord7);
+  --h4-color: var(--nord14);
+  --h5-color: var(--nord13);
+  --h6-color: var(--nord15);
+
+  /* callout + accent colors as Nord (r, g, b) */
+  --color-blue-rgb: 129, 161, 193;    /* info, note */
+  --color-cyan-rgb: 136, 192, 208;    /* tip */
+  --color-green-rgb: 163, 190, 140;   /* success */
+  --color-yellow-rgb: 235, 203, 139;  /* question */
+  --color-orange-rgb: 208, 135, 112;  /* warning */
+  --color-red-rgb: 191, 97, 106;      /* danger, failure */
+  --color-purple-rgb: 180, 142, 173;  /* example */
+  --color-pink-rgb: 180, 142, 173;
+}
+
+/* clean, normal headings */
+h1, h2, h3, h4, h5, h6, .inline-title {
+  font-family: "Inter", system-ui, sans-serif !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}

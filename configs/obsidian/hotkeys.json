@@ -1,0 +1,11 @@
+{
+  "app:switch-vault": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "O"
+    }
+  ]
+}

@@ -26,3 +26,21 @@ end
 function torr
     qbittorrent --skip-dialog=true --save-path=$PWD $argv
 end
+
+function obsi --description "Copy Obsidian config from dotfiles into current vault"
+    set -l src ~/.dotfiles/configs/obsidian
+
+    if not test -d $src
+        echo "obsi: config not found at $src"
+        return 1
+    end
+
+    if test "$PWD" = "$HOME"; or test "$PWD" = (realpath $src)
+        echo "obsi: refusing to run in $PWD"
+        return 1
+    end
+
+    mkdir -p .obsidian
+    cp -r $src/. .obsidian/
+    echo "obsi: copied config into $PWD/.obsidian"
+end
