@@ -98,6 +98,7 @@ in
         bluez
         networkmanagerapplet
         ddcutil
+        playerctl
       ];
     })
   ];
