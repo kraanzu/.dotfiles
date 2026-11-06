@@ -3,8 +3,20 @@
 -- Environment
 hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
 
+-- Monitor
+hl.monitor({
+    output   = "HDMI-A-1",
+    mode     = "preferred",
+    position = "auto",
+    scale    = 1,
+    cm       = "srgb",
+})
+
 -- Basic settings
 hl.config({
+    render = {
+        cm_auto_hdr = 0,
+    },
     input = {
         repeat_rate  = 50,
         repeat_delay = 400,
