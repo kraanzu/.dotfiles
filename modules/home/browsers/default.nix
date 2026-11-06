@@ -37,8 +37,12 @@ in
 
   config = {
     home.packages = with pkgs; [
-      (mkIf (cfg.brave.enable || cfg.all.enable) brave)
       (mkIf (cfg.chrome.enable || cfg.all.enable) google-chrome)
+      (mkIf (cfg.brave.enable || cfg.all.enable) (
+        pkgs.brave.override {
+          commandLineArgs = "--force-dark-mode";
+        }
+      ))
       (mkIf (cfg.edge.enable || cfg.all.enable) (
         pkgs.microsoft-edge.override {
           commandLineArgs = "--ozone-platform=x11";

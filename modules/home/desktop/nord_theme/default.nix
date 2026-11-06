@@ -25,10 +25,10 @@ in
     home.pointerCursor.package = pkgs.nordic;
     home.pointerCursor.size = 20;
 
-    gtk.theme.name = "Nordic-bluish-accent";
+    gtk.theme.name = "Nordic-darker";
     gtk.theme.package = pkgs.nordic;
 
-    gtk.iconTheme.name = "Nordic-green";
+    gtk.iconTheme.name = "Nordic-darker";
     gtk.iconTheme.package = pkgs.nordic;
 
     gtk.cursorTheme.name = "Nordic-cursors";
