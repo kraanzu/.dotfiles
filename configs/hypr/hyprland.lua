@@ -59,11 +59,17 @@ hl.config({
 for i = 1, 6 do
     hl.workspace_rule({ workspace = tostring(i), persistent = true })
 end
+
 hl.workspace_rule({
-    workspace        = "special:scratch",
-    gaps_out         = { top = 100, right = 150, bottom = 100, left = 150 },
-    on_created_empty = "wezterm-gui",
+    workspace = "special:scratch",
+    gaps_out  = { top = 100, right = 150, bottom = 100, left = 150 },
 })
+
+hl.on("workspace.created", function(ws)
+    if ws.name == "special:scratch" and ws.is_empty then
+        hl.exec_cmd("wezterm-gui")
+    end
+end)
 
 -- Window Rules
 hl.window_rule({ match = { class = "dev.zed.Zed" }, workspace = "3" })
