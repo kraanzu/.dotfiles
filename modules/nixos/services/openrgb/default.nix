@@ -20,17 +20,22 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ pkgs.openrgb ];
-    services.udev.packages = [ pkgs.openrgb ];
-
-    systemd.user.services.openrgb = {
-      description = "OpenRGB Server";
-      serviceConfig = {
-        ExecStart = "${pkgs.openrgb}/bin/openrgb --server --server-port 6742 --profile ${cfg.profile}";
-        Restart = "on-failure";
-        PartOf = [ "graphical-session.target" ];
-      };
-      wantedBy = [ "graphical-session.target" ];
+    services.hardware.openrgb = {
+      enable = true;
+      startupProfile = "${cfg.profile}";
     };
+
+    # environment.systemPackages = [ pkgs.openrgb ];
+    # services.udev.packages = [ pkgs.openrgb ];
+
+    # systemd.user.services.openrgb = {
+    #   description = "OpenRGB Server";
+    #   serviceConfig = {
+    #     ExecStart = "${pkgs.openrgb}/bin/openrgb --profile ${cfg.profile}";
+    #     Restart = "on-failure";
+    #     PartOf = [ "graphical-session.target" ];
+    #   };
+    #   wantedBy = [ "graphical-session.target" ];
+    # };
   };
 }

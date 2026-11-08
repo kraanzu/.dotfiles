@@ -10,7 +10,10 @@ with lib.mynix;
   networking.hostName = "nzxt";
   mynix = {
     services = {
-      openrgb = enabled;
+      openrgb = {
+        enable = true;
+        profile = "nzxt";
+      };
       jellyfin = enabled;
       tailscale = enabled;
       syncthing = enabled;
