@@ -19,6 +19,7 @@ in
     services.gnome.gnome-keyring.enable = true;
     security.pam.services.login.enableGnomeKeyring = true;
     security.pam.services.greetd.enableGnomeKeyring = true;
+    services.upower.enable = true;
     programs.gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
