@@ -50,5 +50,6 @@ set -gx DIRENV_LOG_FORMAT ""
 
 # Extra programs
 zoxide init fish | source 2> /dev/null
+direnv hook fish | source 2> /dev/null
 
 starship init fish | source
